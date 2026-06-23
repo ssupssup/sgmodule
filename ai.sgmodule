@@ -1,5 +1,5 @@
-#!name=Apple AI & Claude & AI Multi-Proxy
-#!desc=Customized lightweight proxy routing optimized for Apple Intelligence and 8 major AI platforms (ChatGPT, Claude, Grok, Gemini, NotebookLM, Poe, Manus, Copilot) without polluting direct network traffic.
+#!name=Custom AI Multi-Proxy
+#!desc=定制化 AI 代理分流模块。支持平台: Apple Intelligence, ChatGPT, Claude, Grok, Gemini, NotebookLM, Poe, Manus, Copilot (低能耗，防污染，每日 08:00 自动更新)。
 #!total=80
 
 [Rule]

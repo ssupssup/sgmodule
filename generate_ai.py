@@ -185,11 +185,11 @@ def main():
             final_rules.append(rule)
             
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    output_path = os.path.join(script_dir, "personal_251223.sgmodule")
+    output_path = os.path.join(script_dir, "ai.sgmodule")
     
     with open(output_path, "w", encoding="utf-8") as f:
-        f.write("#!name=Apple AI & Claude & AI Multi-Proxy\n")
-        f.write("#!desc=Customized lightweight proxy routing optimized for Apple Intelligence and 8 major AI platforms (ChatGPT, Claude, Grok, Gemini, NotebookLM, Poe, Manus, Copilot) without polluting direct network traffic.\n")
+        f.write("#!name=Custom AI Multi-Proxy\n")
+        f.write("#!desc=定制化 AI 代理分流模块。支持平台: Apple Intelligence, ChatGPT, Claude, Grok, Gemini, NotebookLM, Poe, Manus, Copilot (低能耗，防污染，每日 08:00 自动更新)。\n")
         f.write(f"#!total={len(seen)}\n\n")
         
         f.write("[Rule]\n")

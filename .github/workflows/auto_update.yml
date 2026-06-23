@@ -33,13 +33,13 @@ jobs:
         id: git-check
         run: |
           git status
-          git diff --quiet personal_251223.sgmodule || echo "changes=true" >> $GITHUB_OUTPUT
+          git diff --quiet ai.sgmodule || echo "changes=true" >> $GITHUB_OUTPUT
 
       - name: Commit and Push Changes
         if: steps.git-check.outputs.changes == 'true'
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add personal_251223.sgmodule
+          git add ai.sgmodule
           git commit -m "Auto-update Shadowrocket AI proxy rules [skip ci]"
           git push
