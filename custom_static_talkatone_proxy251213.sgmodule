@@ -1,0 +1,23 @@
+#!name=custom_static_talkatone_proxy251213
+#!desc=自建 Talkatone 静态代理参考规则 (创建于 2025-12-13)
+
+[Rule]
+DOMAIN-SUFFIX,tktn.at
+DOMAIN-SUFFIX,tktn.be
+DOMAIN-SUFFIX,vm.talkatone.com
+DOMAIN-SUFFIX,tenor.com
+DOMAIN-SUFFIX,talkatone.com
+DOMAIN-SUFFIX,crashlytics.com
+DOMAIN-SUFFIX,mobilefuse.com
+DOMAIN-SUFFIX,inmobi.com
+DOMAIN-SUFFIX,kochava.com
+DOMAIN-SUFFIX,cohere.com
+DOMAIN-SUFFIX,ip-api.com
+IP-CIDR,50.117.27.0/24
+IP-CIDR,69.46.75.0/24
+IP-CIDR,69.171.224.0/19
+IP-CIDR,205.164.56.0/24
+IP-CIDR,63.251.124.0/24
+DOMAIN-SUFFIX,paypal.com
+DOMAIN-SUFFIX,paypalobjects.com
+DOMAIN-SUFFIX,braintreegateway.com
