@@ -188,8 +188,8 @@ def main():
     output_path = os.path.join(script_dir, "ai.sgmodule")
     
     with open(output_path, "w", encoding="utf-8") as f:
-        f.write("#!name=Custom AI Multi-Proxy\n")
-        f.write("#!desc=定制化 AI 代理分流模块。支持平台: Apple Intelligence, ChatGPT, Claude, Grok, Gemini, NotebookLM, Poe, Manus, Copilot (低能耗，防污染，每日 08:00 自动更新)。\n")
+        f.write("#!name=AI.sgmodule (Apple Intelligence/ChatGPT/Claude/Grok/Gemini/NotebookLM/Poe/Manus/Copilot)\n")
+        f.write("#!desc=自用 AI 工具代理分流模块。针对平台: Apple Intelligence, ChatGPT, Claude, Grok, Gemini, NotebookLM, Poe, Manus, Copilot (每日 08:00 自动更新)\n")
         f.write(f"#!total={len(seen)}\n\n")
         
         f.write("[Rule]\n")

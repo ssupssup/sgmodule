@@ -1,5 +1,5 @@
-#!name=Custom AI Multi-Proxy
-#!desc=定制化 AI 代理分流模块。支持平台: Apple Intelligence, ChatGPT, Claude, Grok, Gemini, NotebookLM, Poe, Manus, Copilot (低能耗，防污染，每日 08:00 自动更新)。
+#!name=AI.sgmodule (Apple Intelligence/ChatGPT/Claude/Grok/Gemini/NotebookLM/Poe/Manus/Copilot)
+#!desc=自用 AI 工具代理分流模块。针对平台: Apple Intelligence, ChatGPT, Claude, Grok, Gemini, NotebookLM, Poe, Manus, Copilot (每日 08:00 自动更新)
 #!total=80
 
 [Rule]
