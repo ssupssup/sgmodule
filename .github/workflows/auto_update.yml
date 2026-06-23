@@ -1,0 +1,45 @@
+name: Auto Update AI Proxy Rules
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # 每日北京时间上午 08:00 (UTC 00:00) 运行一次
+  workflow_dispatch:      # 允许在 GitHub 页面上手动点击触发
+  push:
+    branches:
+      - main
+      - master
+
+permissions:
+  contents: write         # 允许写入仓库
+
+jobs:
+  update-rules:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Run Script to Generate Rules
+        run: |
+          python generate_ai.py
+
+      - name: Check for Changes
+        id: git-check
+        run: |
+          git status
+          git diff --quiet personal_251223.sgmodule || echo "changes=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and Push Changes
+        if: steps.git-check.outputs.changes == 'true'
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add personal_251223.sgmodule
+          git commit -m "Auto-update Shadowrocket AI proxy rules [skip ci]"
+          git push

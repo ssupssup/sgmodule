@@ -1,40 +1,99 @@
-#!name=Apple AI & Claude & Yahoo
-#!desc=专用于Apple Intelligence、Claude及Yahoo的代理规则
-#!author=User
-#!category=Custom
+#!name=Apple AI & Claude & AI Multi-Proxy
+#!desc=Customized lightweight proxy routing optimized for Apple Intelligence and 8 major AI platforms (ChatGPT, Claude, Grok, Gemini, NotebookLM, Poe, Manus, Copilot) without polluting direct network traffic.
+#!total=80
 
 [Rule]
+# === User Custom AI & Apple Intelligence Rules ===
 # > Apple Intelligence / Apple AI
 # 核心Siri与听写服务
 DOMAIN,guzzoni.apple.com,PROXY
 DOMAIN,smoot.apple.com,PROXY
-
 # Apple Relay & Private Relay 相关
 # 新增：匹配任何包含 "apple-relay" 的域名 (如 mask.apple-relay.apple.com 等)
 DOMAIN-KEYWORD,apple-relay,PROXY
 DOMAIN,apple-relay.apple.com,PROXY
 DOMAIN,apple-relay.cloudflare.com,PROXY
 DOMAIN,apple-relay.fastly-edge.com,PROXY
-
 # 位置服务 (注意：代理此域名可能会改变系统判定的地理位置)
 DOMAIN,gspe1-ssl.ls.apple.com,PROXY
 # 连接性检查
 DOMAIN,cp4.cloudflare.com,PROXY
-
 # > Yahoo (Keyword)
 DOMAIN-KEYWORD,yahoo.com,PROXY
-
-# > Claude (Anthropic)
-# 核心服务域名 (建议使用后缀匹配以包含所有子域名)
-DOMAIN-SUFFIX,anthropic.com,PROXY
-DOMAIN-SUFFIX,claude.ai,PROXY
-DOMAIN-SUFFIX,claudeusercontent.com,PROXY
-
-# > Claude 依赖的第三方服务/分析统计
-# 这些域名可能被其他网站共用，按指定域名精确匹配
+# > Claude (Anthropic) 依赖的第三方服务/分析统计
 DOMAIN,cdn.usefathom.com,PROXY
 DOMAIN,segment.io,PROXY
 DOMAIN,segment.com,PROXY
 DOMAIN,statsig.com,PROXY
 DOMAIN,statsigapi.net,PROXY
 DOMAIN,o532071.ingest.sentry.io,PROXY
+# > Grok (xAI)
+DOMAIN-SUFFIX,grok.com,PROXY
+DOMAIN-SUFFIX,x.ai,PROXY
+# > Poe
+DOMAIN-SUFFIX,poe.com,PROXY
+# > Manus
+DOMAIN-SUFFIX,manus.im,PROXY
+DOMAIN-SUFFIX,manus.app,PROXY
+DOMAIN-SUFFIX,manus-api.im,PROXY
+
+# === Compiled AI & Subdomain Rules ===
+DOMAIN,browser-intake-datadoghq.com,PROXY
+DOMAIN,chat.openai.com.cdn.cloudflare.net,PROXY
+DOMAIN,openai-api.arkoselabs.com,PROXY
+DOMAIN,openaicom-api-bdcpf8c6d2e9atf6.z01.azurefd.net,PROXY
+DOMAIN,openaicomproductionae4b.blob.core.windows.net,PROXY
+DOMAIN,production-openaicom-storage.azureedge.net,PROXY
+DOMAIN,static.cloudflareinsights.com,PROXY
+DOMAIN-SUFFIX,ai.com,PROXY
+DOMAIN-SUFFIX,algolia.net,PROXY
+DOMAIN-SUFFIX,api.statsig.com,PROXY
+DOMAIN-SUFFIX,auth0.com,PROXY
+DOMAIN-SUFFIX,chatgpt.com,PROXY
+DOMAIN-SUFFIX,chatgpt.livekit.cloud,PROXY
+DOMAIN-SUFFIX,client-api.arkoselabs.com,PROXY
+DOMAIN-SUFFIX,events.statsigapi.net,PROXY
+DOMAIN-SUFFIX,featuregates.org,PROXY
+DOMAIN-SUFFIX,host.livekit.cloud,PROXY
+DOMAIN-SUFFIX,identrust.com,PROXY
+DOMAIN-SUFFIX,intercom.io,PROXY
+DOMAIN-SUFFIX,intercomcdn.com,PROXY
+DOMAIN-SUFFIX,launchdarkly.com,PROXY
+DOMAIN-SUFFIX,oaistatic.com,PROXY
+DOMAIN-SUFFIX,oaiusercontent.com,PROXY
+DOMAIN-SUFFIX,observeit.net,PROXY
+DOMAIN-SUFFIX,openai.com,PROXY
+DOMAIN-SUFFIX,openaiapi-site.azureedge.net,PROXY
+DOMAIN-SUFFIX,openaicom.imgix.net,PROXY
+DOMAIN-SUFFIX,segment.io,PROXY
+DOMAIN-SUFFIX,sentry.io,PROXY
+DOMAIN-SUFFIX,stripe.com,PROXY
+DOMAIN-SUFFIX,turn.livekit.cloud,PROXY
+DOMAIN-KEYWORD,openai,PROXY
+IP-CIDR,24.199.123.28/32,PROXY
+IP-CIDR,64.23.132.171/32,PROXY
+DOMAIN-SUFFIX,anthropic.com,PROXY
+DOMAIN-SUFFIX,claude.ai,PROXY
+DOMAIN,ai.google.dev,PROXY
+DOMAIN-SUFFIX,deepmind.com,PROXY
+DOMAIN-SUFFIX,deepmind.google,PROXY
+DOMAIN-SUFFIX,gemini.google.com,PROXY
+DOMAIN-SUFFIX,generativeai.google,PROXY
+DOMAIN-SUFFIX,proactivebackend-pa.googleapis.com,PROXY
+DOMAIN-KEYWORD,colab,PROXY
+DOMAIN-KEYWORD,developerprofiles,PROXY
+DOMAIN-KEYWORD,generativelanguage,PROXY
+DOMAIN,api.msn.com,PROXY
+DOMAIN,api.statsig.com,PROXY
+DOMAIN,assets.msn.com,PROXY
+DOMAIN,copilot.microsoft.com,PROXY
+DOMAIN,gateway.bingviz.microsoft.net,PROXY
+DOMAIN,gateway.bingviz.microsoftapp.net,PROXY
+DOMAIN,in.appcenter.ms,PROXY
+DOMAIN,services.bingapis.com,PROXY
+DOMAIN,sydney.bing.com,PROXY
+DOMAIN-SUFFIX,api.microsoftapp.net,PROXY
+DOMAIN-SUFFIX,bing-shopping.microsoft-falcon.io,PROXY
+DOMAIN-SUFFIX,challenges.cloudflare.com,PROXY
+DOMAIN-SUFFIX,edgeservices.bing.com,PROXY
+DOMAIN-KEYWORD,openaicom-api,PROXY
