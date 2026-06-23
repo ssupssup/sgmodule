@@ -184,6 +184,30 @@ def generate_proxy_module(script_dir):
             
     print(f"Successfully generated Talkatone Proxy module at: {output_path}")
 
+    # Generate Clash compatible talkatone_proxy.list (Filter out DIRECT rules)
+    list_output_path = os.path.join(script_dir, "talkatone_proxy.list")
+    list_rules = []
+    
+    list_rules.append("# === 1. User Customized & Remapped Rules ===")
+    for rule in user_rules_to_add:
+        parts = rule.split(",")
+        if len(parts) >= 2:
+            list_rules.append(f"{parts[0]},{parts[1]}")
+            
+    list_rules.append("\n# === 2. Community High-frequency Proxy Rules ===")
+    for rule in community_proxy_rules:
+        key = ",".join(rule.split(",")[:2])
+        if key not in user_seen:
+            parts = rule.split(",")
+            if len(parts) >= 2:
+                list_rules.append(f"{parts[0]},{parts[1]}")
+                
+    with open(list_output_path, "w", encoding="utf-8") as f:
+        for rule in list_rules:
+            f.write(rule + "\n")
+            
+    print(f"Successfully generated Talkatone Proxy Clash list (direct rules filtered out) at: {list_output_path}")
+
 def generate_adblock_module(script_dir):
     print("\n=== Generating Talkatone AdBlock Module ===")
     adblock_rules = []
@@ -286,6 +310,21 @@ def generate_adblock_module(script_dir):
             f.write(rule + "\n")
             
     print(f"Successfully generated Talkatone AdBlock module at: {output_path}")
+
+    # Generate Clash compatible talkatone_adblock.list
+    list_output_path = os.path.join(script_dir, "talkatone_adblock.list")
+    list_rules = []
+    list_rules.append("# === Talkatone AdBlock Rules ===")
+    for rule in adblock_rules:
+        parts = rule.split(",")
+        if len(parts) >= 2:
+            list_rules.append(f"{parts[0]},{parts[1]}")
+            
+    with open(list_output_path, "w", encoding="utf-8") as f:
+        for rule in list_rules:
+            f.write(rule + "\n")
+            
+    print(f"Successfully generated Talkatone AdBlock Clash list at: {list_output_path}")
 
 def main():
     script_dir = os.path.dirname(os.path.abspath(__file__))

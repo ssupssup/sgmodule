@@ -198,5 +198,32 @@ def main():
             
     print(f"\nSuccessfully generated AI Proxy V2 module with {len(seen)} unique rules at: {output_path}")
 
+    # Generate Clash compatible ai.list
+    list_output_path = os.path.join(script_dir, "ai.list")
+    list_rules = []
+    
+    for rule in final_rules:
+        line_stripped = rule.strip()
+        if not line_stripped or line_stripped.startswith("#"):
+            list_rules.append(rule)
+        else:
+            parts = line_stripped.split(",")
+            if len(parts) >= 2:
+                rule_type = parts[0].strip()
+                value = parts[1].strip()
+                if rule_type in ("DOMAIN", "DOMAIN-SUFFIX", "DOMAIN-KEYWORD", "IP-CIDR", "IP-CIDR6", "GEOIP"):
+                    list_rules.append(f"{rule_type},{value}")
+                else:
+                    list_rules.append(line_stripped)
+            else:
+                list_rules.append(line_stripped)
+                
+    with open(list_output_path, "w", encoding="utf-8") as f:
+        for rule in list_rules:
+            f.write(rule + "\n")
+            
+    print(f"Successfully generated AI Proxy V2 Clash list at: {list_output_path}")
+
 if __name__ == "__main__":
     main()
+

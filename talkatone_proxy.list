@@ -1,0 +1,22 @@
+# === 1. User Customized & Remapped Rules ===
+DOMAIN-SUFFIX,talkatone.com
+DOMAIN-SUFFIX,crashlytics.com
+DOMAIN-SUFFIX,mobilefuse.com
+DOMAIN-SUFFIX,inmobi.com
+DOMAIN-SUFFIX,kochava.com
+DOMAIN-SUFFIX,cohere.com
+DOMAIN-SUFFIX,ip-api.com
+IP-CIDR,50.117.27.0/24
+IP-CIDR,69.46.75.0/24
+IP-CIDR,69.171.224.0/19
+IP-CIDR,205.164.56.0/24
+IP-CIDR,63.251.124.0/24
+DOMAIN-SUFFIX,paypal.com
+DOMAIN-SUFFIX,paypalobjects.com
+DOMAIN-SUFFIX,braintreegateway.com
+
+# === 2. Community High-frequency Proxy Rules ===
+DOMAIN-SUFFIX,tktn.at
+DOMAIN-SUFFIX,tktn.be
+DOMAIN-SUFFIX,vm.talkatone.com
+DOMAIN-SUFFIX,tenor.com

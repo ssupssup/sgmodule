@@ -38,13 +38,13 @@ jobs:
         id: git-check
         run: |
           git status
-          git diff --quiet *.sgmodule || echo "changes=true" >> $GITHUB_OUTPUT
+          git diff --quiet *.sgmodule *.list || echo "changes=true" >> $GITHUB_OUTPUT
 
       - name: Commit and Push Changes
         if: steps.git-check.outputs.changes == 'true'
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add *.sgmodule
-          git commit -m "Auto-update Shadowrocket proxy/adblock rules [skip ci]"
+          git add *.sgmodule *.list
+          git commit -m "Auto-update Shadowrocket proxy/adblock rules and Clash lists [skip ci]"
           git push
