@@ -14,8 +14,7 @@ COMMUNITY_RULES_URL = "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-F
 # 社区主要的广告联盟规则集（用于动态更新 Talkatone 中的联盟广告拦截）
 AD_SOURCES = {
     "UnityAds": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Unity/Unity.yaml",
-    "AppLovin": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AppLovin/AppLovin.yaml",
-    "AmazonAds": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Amazon/Amazon.yaml"
+    "AppLovin": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AppLovin/AppLovin.yaml"
 }
 
 # 防误杀白名单（绝对禁止 REJECT 的核心网络域）
@@ -27,7 +26,12 @@ WHITELIST_DOMAINS = [
     "googleapis.com",
     "youtube.com",
     "ytimg.com",
-    "ggpht.com"
+    "ggpht.com",
+    "amazonaws.com",
+    "amazonaws.com.cn",
+    "amazonaws-china.com",
+    "cloudfront.net",
+    "amazon.com"
 ]
 
 def download_url(url):
