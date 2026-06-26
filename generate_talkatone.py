@@ -177,10 +177,15 @@ def generate_proxy_module(script_dir):
     for rule in community_direct_rules:
         final_rules.append(rule)
 
+    import datetime
+    utc_now = datetime.datetime.utcnow()
+    beijing_now = utc_now + datetime.timedelta(hours=8)
+    beijing_time_str = beijing_now.strftime('%Y-%m-%d %H:%M:%S')
+
     output_path = os.path.join(script_dir, "talkatone_proxy.sgmodule")
     with open(output_path, "w", encoding="utf-8") as f:
         f.write("#!name=Talkatone.Proxy.sgmodule\n")
-        f.write("#!desc=自用 Talkatone 代理分流模块。合并社区高频更新规则与用户自建静态参考规则 (每日 08:00 自动更新)\n")
+        f.write(f"#!desc=自用 Talkatone 代理分流模块。合并社区高频更新规则与用户自建静态参考规则. 最近更新: {beijing_time_str}\n")
         f.write(f"#!total={len(user_rules_to_add) + len(community_proxy_rules) + len(community_direct_rules)}\n\n")
         f.write("[Rule]\n")
         for rule in final_rules:
@@ -280,10 +285,15 @@ def generate_adblock_module(script_dir):
                 added_count += 1
         print(f" - Parsed {len(parsed)} rules from {alliance}, added {added_count} clean rules.")
 
+    import datetime
+    utc_now = datetime.datetime.utcnow()
+    beijing_now = utc_now + datetime.timedelta(hours=8)
+    beijing_time_str = beijing_now.strftime('%Y-%m-%d %H:%M:%S')
+
     output_path = os.path.join(script_dir, "talkatone_adblock.sgmodule")
     with open(output_path, "w", encoding="utf-8") as f:
         f.write("#!name=Talkatone.AdBlock.sgmodule\n")
-        f.write("#!desc=自用 Talkatone 去广告模块。整合社区最新规则、自建静态规则与 AdMob, Unity, AppLovin, Amazon 拦截源 (每日 08:00 自动更新)\n")
+        f.write(f"#!desc=自用 Talkatone 去广告模块。整合社区最新规则、自建静态规则与 AdMob, Unity, AppLovin, Amazon 拦截源. 最近更新: {beijing_time_str}\n")
         f.write(f"#!total={len(adblock_rules)}\n\n")
         f.write("[Rule]\n")
         for rule in adblock_rules:

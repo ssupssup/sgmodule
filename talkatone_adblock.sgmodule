@@ -1,5 +1,5 @@
 #!name=Talkatone.AdBlock.sgmodule
-#!desc=自用 Talkatone 去广告模块。整合社区最新规则、自建静态规则与 AdMob, Unity, AppLovin, Amazon 拦截源 (每日 08:00 自动更新)
+#!desc=自用 Talkatone 去广告模块。整合社区最新规则、自建静态规则与 AdMob, Unity, AppLovin, Amazon 拦截源. 最近更新: 2026-06-27 07:27:59
 #!total=94
 
 [Rule]

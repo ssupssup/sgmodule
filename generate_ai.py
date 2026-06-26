@@ -187,9 +187,14 @@ def main():
     script_dir = os.path.dirname(os.path.abspath(__file__))
     output_path = os.path.join(script_dir, "ai.sgmodule")
     
+    import datetime
+    utc_now = datetime.datetime.utcnow()
+    beijing_now = utc_now + datetime.timedelta(hours=8)
+    beijing_time_str = beijing_now.strftime('%Y-%m-%d %H:%M:%S')
+
     with open(output_path, "w", encoding="utf-8") as f:
         f.write("#!name=AI.sgmodule (Apple Intelligence/ChatGPT/Claude/Grok/Gemini/NotebookLM/Poe/Manus/Copilot)\n")
-        f.write("#!desc=自用 AI 工具代理分流模块。针对平台: Apple Intelligence, ChatGPT, Claude, Grok, Gemini, NotebookLM, Poe, Manus, Copilot (每日 08:00 自动更新)\n")
+        f.write(f"#!desc=自用 AI 工具代理分流模块。针对平台: Apple Intelligence, ChatGPT, Claude, Grok, Gemini, NotebookLM, Poe, Manus, Copilot. 最近更新: {beijing_time_str}\n")
         f.write(f"#!total={len(seen)}\n\n")
         
         f.write("[Rule]\n")
