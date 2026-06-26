@@ -2,7 +2,7 @@ name: Auto Update Shadowrocket Rules
 
 on:
   schedule:
-    - cron: '0 0 * * *' # 每日北京时间上午 08:00 (UTC 00:00) 运行一次
+    - cron: '20 20 * * *' # 每日北京时间凌晨 04:20 (UTC 20:20) 运行一次
   workflow_dispatch:      # 允许在 GitHub 页面上手动点击触发
   push:
     branches:
