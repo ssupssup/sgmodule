@@ -33,8 +33,8 @@ jobs:
           if [ -f generate_talkatone.py ]; then
             python generate_talkatone.py
           fi
-          if [ -f generate_v2.py ]; then
-            python generate_v2.py
+          if [ -f generate_custom_adblock.py ]; then
+            python generate_custom_adblock.py
           fi
 
       - name: Check for Changes

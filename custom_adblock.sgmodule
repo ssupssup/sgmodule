@@ -1,6 +1,6 @@
 #!name=Custom Installed Apps AdBlock V2
-#!desc=Deep ad block & UI purification customized for user's installed apps. 最近更新: 2026-06-27 07:43:14
-#!total=599
+#!desc=Deep ad block & UI purification customized for user's installed apps. 最近更新: 2026-06-27 07:52:00
+#!total=557
 
 [Rule]
 # === SDK Core REJECT Rules ===
@@ -130,38 +130,6 @@ DOMAIN-SUFFIX,erebor.douban.com,REJECT
 DOMAIN-SUFFIX,ad.doubanio.com,REJECT
 DOMAIN,118.89.204.198,REJECT
 IP-CIDR,118.89.204.198/32,REJECT
-DOMAIN-SUFFIX,apoll.m.taobao.com,REJECT
-DOMAIN-SUFFIX,h-adashx.ut.taobao.com,REJECT
-DOMAIN-SUFFIX,w.m.taobao.com,REJECT
-DOMAIN,tunion-api.m.taobao.com,REJECT
-DOMAIN-SUFFIX,re.m.taobao.com,REJECT
-DOMAIN-SUFFIX,agoodm.m.taobao.com,REJECT
-DOMAIN-SUFFIX,ai.taobao.com,REJECT
-DOMAIN-SUFFIX,api.waptest.taobao.com,REJECT
-DOMAIN-SUFFIX,dsp.simba.taobao.com,REJECT
-DOMAIN-SUFFIX,fav.simba.taobao.com,REJECT
-DOMAIN-SUFFIX,m.simba.taobao.com,REJECT
-DOMAIN-SUFFIX,mclick.simba.taobao.com,REJECT
-DOMAIN-SUFFIX,re.taobao.com,REJECT
-DOMAIN-SUFFIX,redirect.simba.taobao.com,REJECT
-DOMAIN-SUFFIX,simba.m.taobao.com,REJECT
-DOMAIN-SUFFIX,srd.simba.taobao.com,REJECT
-DOMAIN-SUFFIX,temai.taobao.com,REJECT
-DOMAIN-SUFFIX,textlink.simba.taobao.com,REJECT
-DOMAIN-SUFFIX,unitacs.m.taobao.com,REJECT
-DOMAIN-SUFFIX,acs4baichuan.m.taobao.com,REJECT
-DOMAIN-SUFFIX,adashbc.ut.taobao.com,REJECT
-DOMAIN-SUFFIX,adash-c.ut.taobao.com,REJECT
-DOMAIN-SUFFIX,adashxgc.ut.taobao.com,REJECT
-DOMAIN-SUFFIX,adashx4yt.m.taobao.com,REJECT
-DOMAIN-SUFFIX,tunion-api.m.taobao.com,REJECT
-DOMAIN-SUFFIX,tns.simba.taobao.com,REJECT
-DOMAIN-SUFFIX,click.mz.simba.taobao.com,REJECT
-DOMAIN-SUFFIX,click.simba.taobao.com,REJECT
-DOMAIN-SUFFIX,click.tz.simba.taobao.com,REJECT
-DOMAIN-SUFFIX,stat.simba.taobao.com,REJECT
-DOMAIN-SUFFIX,m-adash.m.taobao.com,REJECT
-DOMAIN-SUFFIX,adashbc.m.taobao.com,REJECT
 DOMAIN,adlaunch.qingting.fm,REJECT
 DOMAIN,ad-cdn.qingting.fm,REJECT
 DOMAIN-SUFFIX,meituan.xn,REJECT
@@ -413,14 +381,6 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https:\/\/www\.zhihu\.com\/commercial_api\/banners_v3\/mobile_banner - reject
 ^https:\/\/zhuanlan\.zhihu\.com\/api\/articles\/\d+\/recommendation - reject
 ^https:\/\/zhstatic\.zhihu\.com\/brand-ad - reject
-^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alibaba\.advertisementservice\.getadv - reject-dict
-^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alimama\.etao\.config\.query\/.+?etao_advertise - reject-dict
-^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alimusic\.common\.mobileservice\.startinit - reject-dict
-^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.film\.mtopadvertiseapi\.queryadvertise - reject-dict
-^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.o2o\.ad\.gateway\.get - reject-dict
-^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.taobao\.idle\.home\.welcome - reject-dict
-^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.trip\.activity\.querytmsresources - reject-dict
-^https?:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(volvo\.secondfloor\.getconfig|wireless\.home\.newface\.awesome\.get) - reject-dict
 ^https?:\/\/103\.37\.155\.60\/fetch - reject
 ^https:\/\/oss\.umetrip\.com\/fs\/advert\/polite - reject
 ^http?:\/\/(discardrp|startup)\.umetrip\.com\/gateway\/api\/umetrip\/native - reject
@@ -538,8 +498,6 @@ bilibili.helper.dynAll = type=http-response,pattern=^https:\/\/grpc\.biliapi\.ne
 知乎_895dbc = type=http-response,pattern=^https:\/\/www\.zhihu\.com\/api\/v4\/(articles|answers)\/\d+\/recommendations?\?,script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/zhihu/zhihu.js,requires-body=1
 知乎_b75b1e = type=http-response,pattern=^https:\/\/appcloud2\.zhihu\.com\/v3\/config,script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/zhihu/zhihu.js,requires-body=1
 知乎_90afc8 = type=http-response,pattern=^https:\/\/m-cloud\.zhihu\.com\/api\/cloud\/config\/all\?,script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/zhihu/zhihu.js,requires-body=1
-淘宝_be5a82 = type=http-response,pattern=^https?:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(cloudvideo\.video\.query|wireless\.home\.splash\.awesome\.get),script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/myBlockAds.js,requires-body=1
-淘宝_315581 = type=http-response,pattern=^https?:\/\/poplayer\.template\.alibaba\.com\/\w+\.json,script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/myBlockAds.js,requires-body=1
 航旅纵横_908b41 = type=http-response,pattern=^http?:\/\/(114\.115\.217\.129)|(home\.umetrip\.com)\/gateway\/api\/umetrip\/native$,script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/umetrip/umetrip_ads.js,requires-body=1
 12306 = type=http-request, pattern=^https?:\/\/ad\.12306\.cn\/ad\/ser\/getAdList, script-path=https://raw.githubusercontent.com/kokoryh/Script/master/js/12306.js, requires-body=true, timeout=60
 叮咚买菜_3f9f63 = type=http-response,pattern=^https?:\/\/maicai\.api\.ddxq\.mobi\/homeApi\/(?>bottomNavi|homeFlowDetail),script-path=https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/ddxq.js,requires-body=1
@@ -610,4 +568,4 @@ soul_081fb3 = type=http-response,pattern=^https?:\/\/vod-license-[a-z]+\.volccdn
 soul_c70705 = type=http-response,pattern=^https?:\/\/47\.110\.187\.87\/,script-path=https://raw.githubusercontent.com/Xo776/byead/main/soul_config_ads.js,requires-body=1
 
 [MITM]
-hostname = %APPEND% *.didapinche.com,*.eastmoney.com,*.weathercn.com,47.110.187.87,acs.m.goofish.com,acs.m.taobao.com,act.vip.iqiyi.com,ad-h5-station-cdn.soulapp.cn,ad.12306.cn,adproxy.autohome.com.cn,ads-img-al.xhscdn.com,adui.tg.meitu.com,amap-aos-info-nogw.amap.com,api-a.soulapp.cn,api-account.soulapp.cn,api-fouth-mem.huazhu.com,api-ucc.soulapp.cn,api-user.soulapp.cn,api.blibee.com,api.douban.com,api.pinduoduo.com,api.weibo.cn,api.xiachufang.com,api.zhihu.com,apiproxy.zuche.com,app.bilibili.com,app.homeinns.com,appcloud2.zhihu.com,appconf.mail.163.com,booking.bestwehotel.com,boot.weibo.com,c.m.163.com,c.tieba.baidu.com,capis-w.didapinche.com,capis.didapinche.com,choicegw2.eastmoney.com,conf.diditaxi.com.cn,ct.xiaojukeji.com,dashi.163.com,data-collector.soulapp.cn,edith.xiaohongshu.com,fc-video.cdn.bcebos.com,frodo.douban.com,gateway-mobile-gray.soulapp.cn,gateway.shouqiev.com,grpc.biliapi.net,guide-acs.m.taobao.com,gw-passenger-wap.01zhuanche.com,gw-passenger.01zhuanche.com,gw.api.ddxq.mobi,home.mi.com,home.umetrip.com,htwkop.xiaojukeji.com,hwy-gapi.bestwehotel.com,iface.iqiyi.com,iface2.iqiyi.com,interface.music.163.com,interface0.music.163.com,interface1.music.163.com,interface2.music.163.com,interface3.music.163.com,interface4.music.163.com,interface5.music.163.com,interface6.music.163.com,interface7.music.163.com,interface8.music.163.com,interface9.music.163.com,intl.iqiyi.com,issuecdn.baidupcs.com,iyes.youku.com,kjp.cupid.iqiyi.com,m-cloud.zhihu.com,m.ctrip.com,m.douban.com,maicai.api.ddxq.mobi,mail.163.com,mapi.weibo.cn,mapi.weibo.com,mea.meitudata.com,media-service.soulapp.cn,mi.gdt.qq.com,mob.bz.mgtv.com,mobile.api.mgtv.com,mobile.da.mgtv.com,mobileapi-v6.elong.com,mobileapi.xiamenair.com,mp.weixin.qq.com,ndstatic.cdn.bcebos.com,new.vip.weibo.cn,nuc.api.mgtv.com,open.e.kuaishou.com,oss.umetrip.com,pages.xiaohongshu.com,passengerapi.saicmobility.com,pcvideoyd.titan.mgtv.com,pinggai.caixin.com,poplayer.template.alibaba.com,post.soulapp.cn,preload-click.uve.weibo.com,preload-impression.uve.weibo.com,qde.qunar.com,referee.xiaohongshu.com,res.xiaojukeji.com,router-app-api.jdcloud.com,rp.hpplay.cn,sdkapp.uve.weibo.com,sf3-fe-tos.pglstatp-toutiao.com,ssp.soulapp.cn,staticsns.cdn.bcebos.com,t1.market.xiaomi.com,t7z.cupid.iqiyi.com,tg.feidee.com,tieba.baidu.com,tiebac.baidu.com,tqt.weibo.cn,u0.iqiyipic.com,u1.iqiyipic.com,u2.iqiyipic.com,u3.iqiyipic.com,u4.iqiyipic.com,u5.iqiyipic.com,u6.iqiyipic.com,u7.iqiyipic.com,u8.iqiyipic.com,u9.iqiyipic.com,ucmp.sf-express.com,user.api.ddxq.mobi,wbapp.uve.weibo.com,weathercn.com,web-opin.bestwehotel.com,wechat-api.i-xiaoma.com.cn,weibointl.api.weibo.cn,weibointl.api.weibo.com,www.didapinche.com,www.xiaohongshu.com,www.zhihu.com,wx.bthhotels.com,wx.mygolbs.com,wxapp.bestwehotel.com,wxs-weixin.sd.zhumanggroup.com,y.gtimg.cn,zdmimg.com,zhstatic.zhihu.com,zhuanlan.zhihu.com
+hostname = %APPEND% *.didapinche.com,*.eastmoney.com,*.weathercn.com,47.110.187.87,acs.m.goofish.com,acs.m.taobao.com,act.vip.iqiyi.com,ad-h5-station-cdn.soulapp.cn,ad.12306.cn,adproxy.autohome.com.cn,ads-img-al.xhscdn.com,adui.tg.meitu.com,amap-aos-info-nogw.amap.com,api-a.soulapp.cn,api-account.soulapp.cn,api-fouth-mem.huazhu.com,api-ucc.soulapp.cn,api-user.soulapp.cn,api.blibee.com,api.douban.com,api.pinduoduo.com,api.weibo.cn,api.xiachufang.com,api.zhihu.com,apiproxy.zuche.com,app.bilibili.com,app.homeinns.com,appcloud2.zhihu.com,appconf.mail.163.com,booking.bestwehotel.com,boot.weibo.com,c.m.163.com,c.tieba.baidu.com,capis-w.didapinche.com,capis.didapinche.com,choicegw2.eastmoney.com,conf.diditaxi.com.cn,ct.xiaojukeji.com,dashi.163.com,data-collector.soulapp.cn,edith.xiaohongshu.com,fc-video.cdn.bcebos.com,frodo.douban.com,gateway-mobile-gray.soulapp.cn,gateway.shouqiev.com,grpc.biliapi.net,gw-passenger-wap.01zhuanche.com,gw-passenger.01zhuanche.com,gw.api.ddxq.mobi,home.mi.com,home.umetrip.com,htwkop.xiaojukeji.com,hwy-gapi.bestwehotel.com,iface.iqiyi.com,iface2.iqiyi.com,interface.music.163.com,interface0.music.163.com,interface1.music.163.com,interface2.music.163.com,interface3.music.163.com,interface4.music.163.com,interface5.music.163.com,interface6.music.163.com,interface7.music.163.com,interface8.music.163.com,interface9.music.163.com,intl.iqiyi.com,issuecdn.baidupcs.com,iyes.youku.com,kjp.cupid.iqiyi.com,m-cloud.zhihu.com,m.ctrip.com,m.douban.com,maicai.api.ddxq.mobi,mail.163.com,mapi.weibo.cn,mapi.weibo.com,mea.meitudata.com,media-service.soulapp.cn,mi.gdt.qq.com,mob.bz.mgtv.com,mobile.api.mgtv.com,mobile.da.mgtv.com,mobileapi-v6.elong.com,mobileapi.xiamenair.com,mp.weixin.qq.com,ndstatic.cdn.bcebos.com,new.vip.weibo.cn,nuc.api.mgtv.com,open.e.kuaishou.com,oss.umetrip.com,pages.xiaohongshu.com,passengerapi.saicmobility.com,pcvideoyd.titan.mgtv.com,pinggai.caixin.com,post.soulapp.cn,preload-click.uve.weibo.com,preload-impression.uve.weibo.com,qde.qunar.com,referee.xiaohongshu.com,res.xiaojukeji.com,router-app-api.jdcloud.com,rp.hpplay.cn,sdkapp.uve.weibo.com,sf3-fe-tos.pglstatp-toutiao.com,ssp.soulapp.cn,staticsns.cdn.bcebos.com,t1.market.xiaomi.com,t7z.cupid.iqiyi.com,tg.feidee.com,tieba.baidu.com,tiebac.baidu.com,tqt.weibo.cn,u0.iqiyipic.com,u1.iqiyipic.com,u2.iqiyipic.com,u3.iqiyipic.com,u4.iqiyipic.com,u5.iqiyipic.com,u6.iqiyipic.com,u7.iqiyipic.com,u8.iqiyipic.com,u9.iqiyipic.com,ucmp.sf-express.com,user.api.ddxq.mobi,wbapp.uve.weibo.com,weathercn.com,web-opin.bestwehotel.com,wechat-api.i-xiaoma.com.cn,weibointl.api.weibo.cn,weibointl.api.weibo.com,www.didapinche.com,www.xiaohongshu.com,www.zhihu.com,wx.bthhotels.com,wx.mygolbs.com,wxapp.bestwehotel.com,wxs-weixin.sd.zhumanggroup.com,y.gtimg.cn,zdmimg.com,zhstatic.zhihu.com,zhuanlan.zhihu.com
