@@ -843,6 +843,8 @@ def generate():
     for s in aio_scripts:
         app, kw = identify_app(s)
         if app and app in INSTALLED_APPS:
+            if app in OVERRIDE_APPS:
+                continue
             if not should_bypass_rule_content(s):
                 pat = extract_pattern(s, is_script=True)
                 raw_scripts.append({'text': s, 'pattern': pat, 'priority': 2, 'app': app})

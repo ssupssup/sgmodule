@@ -1,6 +1,6 @@
 #!name=Custom Installed Apps AdBlock V2
-#!desc=Deep ad block & UI purification customized for user's installed apps. 最近更新: 2026-06-27 10:31:57
-#!total=599
+#!desc=Deep ad block & UI purification customized for user's installed apps. 最近更新: 2026-06-27 14:08:47
+#!total=583
 
 [Rule]
 # === SDK Core REJECT Rules ===
@@ -503,22 +503,6 @@ DOMAIN,ads.cup.com.cn,REJECT
 微信_49e4e9 = type=http-response,pattern=^https?:\/\/wx\.mygolbs\.com\/WxBusServer\/ApiData\.do,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/zhangshanggongjiao.js,requires-body=1
 微信_e20812 = type=http-response,pattern=^(https?://)?([a-zA-Z0-9]+(-[a-zA-Z0-9]+)*\.)+[a-zA-Z]{2,}(:\d+)?/wp-json/[a-zA-Z0-9_-]+/(mp\/)?v\d/posts,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/applet.js,requires-body=1
 豆瓣_66d3e4 = type=http-response,pattern=^https?:\/\/m\.douban\.com\/(home_guide|movie|tv|book|group|music),script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/douban.js,requires-body=1
-哲也_解锁关键词屏蔽 = type=http-request,script-path=https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js,pattern=^https?:\/\/api\.zhihu\.com\/feed-root\/block,requires-body=1
-BiliBili_开屏去广告 = type=http-response,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/startup/startup.js,pattern=^https?:\/\/app\.bilibili\.com\/x\/v2\/splash\/list,requires-body=1
-哲也_优化推荐标签页 = type=http-response,script-path=https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js,pattern=^https?:\/\/api\.zhihu\.com\/root\/tab\/v2,requires-body=1
-哲也_关注列表优化 = type=http-response,script-path=https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js,pattern=^https?:\/\/api\.zhihu\.com\/moments\/tab_v2,requires-body=1
-哲也_同步黑名单 = type=http-response,script-path=https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js,pattern=^https?:\/\/api\.zhihu\.com\/settings\/blocked_users,requires-body=1
-哲也_回答信息流优化 = type=http-response,script-path=https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js,pattern=^https?:\/\/api\.zhihu\.com\/next-render,requires-body=1
-哲也_回答列表优化 = type=http-response,script-path=https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js,pattern=^https?:\/\/api\.zhihu\.com\/(v4\/)?questions\/\d+,requires-body=1
-哲也_处理用户信息 = type=http-response,script-path=https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js,pattern=^https?:\/\/api\.zhihu\.com\/people,requires-body=1
-哲也_文章页广告移除 = type=http-response,script-path=https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js,pattern=^https:\/\/api\.zhihu\.com\/articles\/v\d\/\d+,requires-body=1
-哲也_消息优化 = type=http-response,script-path=https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js,pattern=^https?:\/\/api\.zhihu\.com\/notifications\/v3\/(message\?|timeline\/entry\/system_message),requires-body=1
-哲也_热榜优化 = type=http-response,script-path=https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js,pattern=^https?:\/\/api\.zhihu\.com\/topstory\/hot-lists?(\?|\/),requires-body=1
-哲也_猜你想搜去广告 = type=http-response,script-path=https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js,pattern=^https?:\/\/api\.zhihu\.com\/search\/recommend_query,requires-body=1
-哲也_评论优化 = type=http-response,script-path=https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js,pattern=^https?:\/\/api\.zhihu\.com\/(comment_v5\/)?(answers|comments?|articles|pins)\/\d+\/(root_|child_)?comments?,requires-body=1
-哲也_评论摘要优化 = type=http-response,script-path=https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js,pattern=^https?:\/\/www\.zhihu\.com\/api\/v4\/comment_v5\/answers\/\d+\/abstract_comment\?,requires-body=1
-哲也_预置关键词优化 = type=http-response,script-path=https://gist.githubusercontent.com/blackmatrix7/f5f780d0f56b319b6ad9848fd080bb18/raw/zheye.min.js,pattern=^https?:\/\/api\.zhihu\.com\/search\/preset_words\?,requires-body=1
-嘀嗒出行_开屏去广告 = type=http-response,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/startup/startup.js,pattern=^https?:\/\/capis(-?\w*)?\.didapinche\.com\/ad\/cx\/startup\?,requires-body=1
 爱奇艺_开屏去广告 = type=http-response,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/startup/startup.js,pattern=^https?:\/\/(t7z|kjp)\.cupid\.iqiyi\.com\/mixer\?,requires-body=1
 bilibili.helper.v2 = type=http-response,pattern=^https:\/\/app\.bilibili\.com\/x\/v2\/(splash|search\?|feed\/index),requires-body=1,max-size=-1,binary-body-mode=0,script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Bilibili/bilibili.helper.v2.js
 bilibili.helper.dmView = type=http-response,pattern=^https:\/\/grpc\.biliapi\.net\/bilibili\.community\.service\.dm\.v1\.DM\/DmView,requires-body=1,max-size=-1,binary-body-mode=1,script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Bilibili/bilibili.helper.js
