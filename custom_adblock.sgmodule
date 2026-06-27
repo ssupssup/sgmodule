@@ -1,8 +1,20 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-06-27 18:41:40 | Deep ad block & UI purification customized for user's installed apps.
-#!total=558
+#!desc=最近更新: 2026-06-27 19:27:02 | Deep ad block & UI purification customized for user's installed apps.
+#!total=570
 
 [Rule]
+# === Bypass Rules for WeChat, Alipay, Bank and Login App anomalies ===
+DOMAIN,amdc.alipay.com,DIRECT
+DOMAIN,enrichgw.10010.com,DIRECT
+DOMAIN,wxa.wxs.qq.com,DIRECT
+DOMAIN,wximg.wxs.qq.com,DIRECT
+DOMAIN,aedns.weixin.qq.com,DIRECT
+DOMAIN,apd-pcdnwxlogin.teg.tencent-cloud.net,DIRECT
+DOMAIN,mazu.m.qq.com,DIRECT
+DOMAIN,msmp.abchina.com.cn,DIRECT
+DOMAIN,log.cmbchina.com,DIRECT
+DOMAIN,httpdns.music.163.com,DIRECT
+DOMAIN,smartad.10010.com,DIRECT
 # === SDK Core REJECT Rules ===
 AND,((protocol,udp),(dest-port,443),(domain-suffix,baidu.com)),REJECT-NO-DROP
 AND,((protocol,udp),(dest-port,443),(domain-suffix,baidupcs.com)),REJECT-NO-DROP

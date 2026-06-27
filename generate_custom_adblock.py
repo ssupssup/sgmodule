@@ -1217,13 +1217,30 @@ def generate():
     beijing_now = utc_now + datetime.timedelta(hours=8)
     beijing_time_str = beijing_now.strftime('%Y-%m-%d %H:%M:%S')
     
+    BYPASS_RULES = [
+        "# === Bypass Rules for WeChat, Alipay, Bank and Login App anomalies ===",
+        "DOMAIN,amdc.alipay.com,DIRECT",
+        "DOMAIN,enrichgw.10010.com,DIRECT",
+        "DOMAIN,wxa.wxs.qq.com,DIRECT",
+        "DOMAIN,wximg.wxs.qq.com,DIRECT",
+        "DOMAIN,aedns.weixin.qq.com,DIRECT",
+        "DOMAIN,apd-pcdnwxlogin.teg.tencent-cloud.net,DIRECT",
+        "DOMAIN,mazu.m.qq.com,DIRECT",
+        "DOMAIN,msmp.abchina.com.cn,DIRECT",
+        "DOMAIN,log.cmbchina.com,DIRECT",
+        "DOMAIN,httpdns.music.163.com,DIRECT",
+        "DOMAIN,smartad.10010.com,DIRECT"
+    ]
+
     with open(output_path, "w", encoding="utf-8") as f:
         f.write("#!name=custom apps adblock.sgmodule\n")
         f.write(f"#!desc=最近更新: {beijing_time_str} | Deep ad block & UI purification customized for user's installed apps.\n")
-        f.write(f"#!total={len(final_rules) + len(SDK_BLOCK_RULES) + len(final_rewrites) + len(final_scripts)}\n\n")
+        f.write(f"#!total={len(final_rules) + len(SDK_BLOCK_RULES) + len(final_rewrites) + len(final_scripts) + len(BYPASS_RULES)}\n\n")
         
-        if final_rules or SDK_BLOCK_RULES:
+        if final_rules or SDK_BLOCK_RULES or BYPASS_RULES:
             f.write("[Rule]\n")
+            for line in BYPASS_RULES:
+                f.write(line + "\n")
             f.write("# === SDK Core REJECT Rules ===\n")
             for line in SDK_BLOCK_RULES:
                 f.write(line + "\n")
