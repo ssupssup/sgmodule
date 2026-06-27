@@ -1,6 +1,6 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-06-27 16:47:27 | Deep ad block & UI purification customized for user's installed apps.
-#!total=583
+#!desc=最近更新: 2026-06-27 18:21:41 | Deep ad block & UI purification customized for user's installed apps.
+#!total=560
 
 [Rule]
 # === SDK Core REJECT Rules ===
@@ -47,19 +47,11 @@ DOMAIN,s.qd.qingtingfm.com,REJECT
 DOMAIN,adlaunch.qtfm.cn,REJECT
 DOMAIN,ad.qtfm.cn,REJECT
 DOMAIN,adlog.qingting.fm,REJECT
-DOMAIN,mi.gdt.qq.com,REJECT
-DOMAIN,win.gdt.qq.com,REJECT
-DOMAIN,v.gdt.qq.com,REJECT
-DOMAIN,v2.gdt.qq.com,REJECT
-DOMAIN,t.gdt.qq.com,REJECT
-DOMAIN,gdt.qq.com,REJECT
 DOMAIN,pgdt.gtimg.cn,REJECT
 DOMAIN,pgdt.ugdtimg.com,REJECT
-DOMAIN,sdk.e.qq.com,REJECT
 DOMAIN,adsmind.tc.qq.com,REJECT
 DOMAIN,p.l.qq.com,REJECT
 DOMAIN,us.l.qq.com,REJECT
-DOMAIN,tangram.e.qq.com,REJECT
 DOMAIN,oth.str.mdt.qq.com,REJECT
 DOMAIN,resolve.umeng.com,REJECT
 DOMAIN,cnlogs.umeng.com,REJECT
@@ -102,16 +94,13 @@ DOMAIN,sofire.baidu.com,REJECT
 DOMAIN,sensors-collect-prod.bestwehotel.com,REJECT
 DOMAIN,sensors-ma.bestwehotel.com,REJECT
 DOMAIN,sensors-ab.bestwehotel.com,REJECT
-DOMAIN,beacon-api.aliyuncs.com,REJECT
 DOMAIN,iadmusicmat.music.126.net,REJECT
 DOMAIN,iadmatapk.nosdn.127.net,REJECT
 DOMAIN,retargeting.ctrip.com,REJECT
 DOMAIN,apm.zhihu.com,REJECT
-DOMAIN,appcloud.zhihu.com,REJECT
 DOMAIN,appcloud2.in.zhihu.com,REJECT
 DOMAIN,crash2.zhihu.com,REJECT
 DOMAIN,duga.zhihu.com,REJECT
-DOMAIN,mqtt.zhihu.com,REJECT
 DOMAIN,sugar.zhihu.com,REJECT
 URL-REGEX,^https:\/\/api\.zhihu\.com\/guide_center\/strategy,REJECT
 URL-REGEX,^https?:\/\/api\.zhihu\.com\/(notifications\/v\d\/count),REJECT-DICT
@@ -133,7 +122,6 @@ IP-CIDR,118.89.204.198/32,REJECT
 DOMAIN-SUFFIX,apoll.m.taobao.com,REJECT
 DOMAIN-SUFFIX,h-adashx.ut.taobao.com,REJECT
 DOMAIN-SUFFIX,w.m.taobao.com,REJECT
-DOMAIN,tunion-api.m.taobao.com,REJECT
 DOMAIN-SUFFIX,re.m.taobao.com,REJECT
 DOMAIN-SUFFIX,agoodm.m.taobao.com,REJECT
 DOMAIN-SUFFIX,ai.taobao.com,REJECT
@@ -185,7 +173,6 @@ DOMAIN-SUFFIX,e.qq.com,REJECT
 DOMAIN-SUFFIX,v.gdt.qq.com,REJECT
 DOMAIN,amsweb-cdn-gz-1258344696.file.myqcloud.com,REJECT
 DOMAIN,wallpaper-1258344696.file.myqcloud.com,REJECT
-DOMAIN,xs.gdt.qq.com,REJECT
 IP-CIDR,120.222.240.171/32,REJECT
 DOMAIN,sdkconfig.ad.xiaomi.com,REJECT
 DOMAIN-SUFFIX,corp.meitu.com,REJECT
@@ -207,22 +194,12 @@ DOMAIN-KEYWORD,adm3.autoimg.cn,REJECT
 DOMAIN-KEYWORD,collectionpv.che168.com,REJECT
 DOMAIN-KEYWORD,adproxy.autohome.com,REJECT
 DOMAIN-KEYWORD,applogapi.autohome.com,REJECT
-DOMAIN,adproxy.autohome.com.cn,REJECT
-DOMAIN,rd.autohome.com.cn,REJECT
-DOMAIN,al.autohome.com.cn,REJECT
-DOMAIN,applogapi.autohome.com.cn,REJECT
-DOMAIN,adm0.autoimg.cn,REJECT
-DOMAIN,adm1.autoimg.cn,REJECT
-DOMAIN,adm2.autoimg.cn,REJECT
-DOMAIN,adm3.autoimg.cn,REJECT
 DOMAIN-SUFFIX,adm0.autoimg.cn,REJECT
 DOMAIN-SUFFIX,adm1.autoimg.cn,REJECT
 DOMAIN-SUFFIX,adm2.autoimg.cn,REJECT
 DOMAIN-SUFFIX,adm3.autoimg.cn,REJECT
 DOMAIN-SUFFIX,33.autohome.com.cn,REJECT
-DOMAIN-SUFFIX,adproxy.autohome.com.cn,REJECT
 DOMAIN-SUFFIX,al.autohome.com.cn,REJECT
-DOMAIN-SUFFIX,applogapi.autohome.com.cn,REJECT
 DOMAIN-SUFFIX,c.autohome.com.cn,REJECT
 DOMAIN-SUFFIX,cmx.autohome.com.cn,REJECT
 DOMAIN-SUFFIX,dspmnt.autohome.com.cn,REJECT

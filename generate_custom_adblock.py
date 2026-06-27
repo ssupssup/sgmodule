@@ -293,10 +293,6 @@ ALWAYS_INJECT_DOMAINS = [
     "sensors-collect-prod.bestwehotel.com",
     "sensors-ma.bestwehotel.com",
     "sensors-ab.bestwehotel.com",
-    
-    # Aliyun Beacon (阿里云日志上报)
-    "beacon-api.aliyuncs.com",
-    
     # NetEase Cloud Music Ad Materials & CDN (网易云音乐广告素材与CDN)
     "iadmusicmat.music.126.net",
     "iadmatapk.nosdn.127.net",
@@ -367,9 +363,15 @@ def should_bypass_rule_content(pattern_or_line):
        ("pan.baidu.com/component/view/" in line_clean and "vip" in line_clean):
         return True
         
-    # 2. Specific Zhihu config rules that cause blank page or boot crashes
+    # 2. Specific Zhihu config/MQTT retry-loop domains (发热与超时根源)
     if "api.zhihu.com/ab/api/v1/products/zhihu/platforms/ios/config" in line_clean or \
-       "api.zhihu.com/ad-style-service/request" in line_clean:
+       "api.zhihu.com/ad-style-service/request" in line_clean or \
+       "mqtt.zhihu.com" in line_clean or \
+       "appcloud.zhihu.com" in line_clean:
+        return True
+        
+    # Aliyun Beacon analytics bypass (防阿里系 App 闪退)
+    if "beacon-api.aliyuncs.com" in line_clean:
         return True
         
     # 3. High risk domains in rewrites/scripts (since they require MITM to trigger)
@@ -949,6 +951,53 @@ def generate():
         if text_clean not in seen_rules:
             seen_rules.add(text_clean)
             final_rules.append(text_clean)
+    # 智能过滤被 DOMAIN-SUFFIX 或 DOMAIN-KEYWORD REJECT 覆盖的冗余规则
+    suffix_rejects = set()
+    keyword_rejects = set()
+    for r in final_rules:
+        parts = r.split(',')
+        if len(parts) >= 3 and parts[2].upper() == "REJECT":
+            rule_type = parts[0].upper()
+            domain = parts[1].lower()
+            if rule_type == "DOMAIN-SUFFIX":
+                suffix_rejects.add(domain)
+            elif rule_type == "DOMAIN-KEYWORD":
+                keyword_rejects.add(domain)
+                
+    optimized_rules = []
+    for r in final_rules:
+        parts = r.split(',')
+        if len(parts) >= 3 and parts[2].upper() == "REJECT":
+            rule_type = parts[0].upper()
+            domain = parts[1].lower()
+            
+            # 检查是否能被更广范的 DOMAIN-KEYWORD REJECT 覆盖
+            is_covered_by_keyword = False
+            for kw in keyword_rejects:
+                if kw in domain and rule_type in ("DOMAIN", "DOMAIN-SUFFIX"):
+                    if kw != domain:
+                        is_covered_by_keyword = True
+                        break
+            if is_covered_by_keyword:
+                continue
+                
+            # 检查是否能被更广范的 DOMAIN-SUFFIX REJECT 覆盖
+            if rule_type == "DOMAIN":
+                is_covered_by_suffix = False
+                for suffix in suffix_rejects:
+                    if domain.endswith('.' + suffix):
+                        is_covered_by_suffix = True
+                        break
+                if is_covered_by_suffix:
+                    continue
+                    
+            # 检查 DOMAIN 与 DOMAIN-SUFFIX 完全同域并存的情况
+            if rule_type == "DOMAIN" and domain in suffix_rejects:
+                continue
+                
+        optimized_rules.append(r)
+    final_rules = optimized_rules
+
             
     final_rewrites = []
     for item in raw_rewrites:
