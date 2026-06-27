@@ -1130,8 +1130,8 @@ def generate():
     beijing_time_str = beijing_now.strftime('%Y-%m-%d %H:%M:%S')
     
     with open(output_path, "w", encoding="utf-8") as f:
-        f.write("#!name=Custom Installed Apps AdBlock V2\n")
-        f.write(f"#!desc=Deep ad block & UI purification customized for user's installed apps. 最近更新: {beijing_time_str}\n")
+        f.write("#!name=custom apps adblock\n")
+        f.write(f"#!desc=最近更新: {beijing_time_str} | Deep ad block & UI purification customized for user's installed apps.\n")
         f.write(f"#!total={len(final_rules) + len(SDK_BLOCK_RULES) + len(final_rewrites) + len(final_scripts)}\n\n")
         
         if final_rules or SDK_BLOCK_RULES:

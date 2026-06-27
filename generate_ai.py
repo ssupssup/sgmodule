@@ -194,7 +194,7 @@ def main():
 
     with open(output_path, "w", encoding="utf-8") as f:
         f.write("#!name=AI.sgmodule (Apple Intelligence/ChatGPT/Claude/Grok/Gemini/NotebookLM/Poe/Manus/Copilot)\n")
-        f.write(f"#!desc=自用 AI 工具代理分流模块。针对平台: Apple Intelligence, ChatGPT, Claude, Grok, Gemini, NotebookLM, Poe, Manus, Copilot. 最近更新: {beijing_time_str}\n")
+        f.write(f"#!desc=最近更新: {beijing_time_str} | 自用 AI 工具代理分流模块。针对平台: Apple Intelligence, ChatGPT, Claude, Grok, Gemini, NotebookLM, Poe, Manus, Copilot.\n")
         f.write(f"#!total={len(seen)}\n\n")
         
         f.write("[Rule]\n")
