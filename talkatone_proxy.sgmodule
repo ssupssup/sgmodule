@@ -1,5 +1,5 @@
 #!name=Talkatone.Proxy.sgmodule
-#!desc=自用 Talkatone 代理分流模块。合并社区高频更新规则与用户自建静态参考规则. 最近更新: 2026-06-27 10:31:49
+#!desc=自用 Talkatone 代理分流模块。合并社区高频更新规则与用户自建静态参考规则. 最近更新: 2026-06-27 14:10:25
 #!total=22
 
 [Rule]
