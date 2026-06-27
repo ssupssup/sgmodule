@@ -1,6 +1,6 @@
 #!name=Talkatone.AdBlock.sgmodule
-#!desc=自用 Talkatone 去广告模块。整合社区最新规则、自建静态规则与 AdMob, Unity, AppLovin, Amazon 拦截源. 最近更新: 2026-06-27 14:12:33
-#!total=94
+#!desc=最近更新: 2026-06-27 14:22:41 | 自用 Talkatone 去广告模块。整合社区最新规则、自建静态规则与 AdMob, Unity, AppLovin, Amazon 拦截源.
+#!total=80
 
 [Rule]
 DOMAIN-SUFFIX,tk0x1.com,REJECT
@@ -72,22 +72,6 @@ DOMAIN-SUFFIX,view.adjust.com,REJECT
 DOMAIN-SUFFIX,vst.c.appier.net,REJECT
 DOMAIN-SUFFIX,wv.inner-active.mobi,REJECT
 DOMAIN-SUFFIX,www.googletagservices-cn.com,REJECT
-DOMAIN-SUFFIX,doubleclick.net,REJECT
-DOMAIN-SUFFIX,pagead2.googlesyndication.com,REJECT
-DOMAIN-SUFFIX,video-ad-stats.googlesyndication.com,REJECT
-DOMAIN-SUFFIX,google-analytics.com,REJECT
-DOMAIN-SUFFIX,admob.com,REJECT
-DOMAIN-SUFFIX,ads.unity3d.com,REJECT
-DOMAIN-SUFFIX,unityads.unity3d.com,REJECT
-DOMAIN-SUFFIX,applovin.com,REJECT
-DOMAIN-SUFFIX,applvn.com,REJECT
-DOMAIN-SUFFIX,ads.amazon-adsystem.com,REJECT
-DOMAIN-SUFFIX,mobilefuse.com,REJECT
-DOMAIN-SUFFIX,www.smaato.com,REJECT
-DOMAIN-SUFFIX,ow.pubmatic.com,REJECT
-DOMAIN-SUFFIX,paypal-metrics.com,REJECT
-DOMAIN-SUFFIX,ads.tntk.be,REJECT
-DOMAIN-SUFFIX,a1.tntk.be,REJECT
 DOMAIN-SUFFIX,multiplay.cn,REJECT
 DOMAIN-SUFFIX,unity.cn,REJECT
 DOMAIN-SUFFIX,unity.com,REJECT
@@ -97,3 +81,5 @@ DOMAIN-SUFFIX,unitychina.cn,REJECT
 DOMAIN-SUFFIX,unityedu.cn,REJECT
 DOMAIN-SUFFIX,unityedu.com,REJECT
 DOMAIN-SUFFIX,unityedu.com.cn,REJECT
+DOMAIN-SUFFIX,applovin.com,REJECT
+DOMAIN-SUFFIX,applvn.com,REJECT

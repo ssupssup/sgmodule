@@ -1,24 +1,9 @@
 #!name=Talkatone.Proxy.sgmodule
-#!desc=自用 Talkatone 代理分流模块。合并社区高频更新规则与用户自建静态参考规则. 最近更新: 2026-06-27 14:12:33
-#!total=22
+#!desc=最近更新: 2026-06-27 14:22:40 | 自用 Talkatone 代理分流模块。合并社区高频更新规则与用户自建静态参考规则.
+#!total=18
 
 [Rule]
 # === 1. User Customized & Remapped Rules ===
-DOMAIN-SUFFIX,talkatone.com,PROXY
-DOMAIN-SUFFIX,crashlytics.com,PROXY
-DOMAIN-SUFFIX,mobilefuse.com,PROXY
-DOMAIN-SUFFIX,inmobi.com,PROXY
-DOMAIN-SUFFIX,kochava.com,PROXY
-DOMAIN-SUFFIX,cohere.com,PROXY
-DOMAIN-SUFFIX,ip-api.com,PROXY
-IP-CIDR,50.117.27.0/24,PROXY
-IP-CIDR,69.46.75.0/24,PROXY
-IP-CIDR,69.171.224.0/19,PROXY
-IP-CIDR,205.164.56.0/24,PROXY
-IP-CIDR,63.251.124.0/24,PROXY
-DOMAIN-SUFFIX,paypal.com,PROXY
-DOMAIN-SUFFIX,paypalobjects.com,PROXY
-DOMAIN-SUFFIX,braintreegateway.com,PROXY
 
 # === 2. Community High-frequency Proxy Rules ===
 DOMAIN-SUFFIX,tktn.at,PROXY
@@ -28,5 +13,16 @@ DOMAIN-SUFFIX,tenor.com,PROXY
 
 # === 3. Community High-frequency Direct Rules ===
 DOMAIN-SUFFIX,agkn.com,DIRECT
+DOMAIN-SUFFIX,cohere.com,DIRECT
+DOMAIN-SUFFIX,crashlytics.com,DIRECT
+DOMAIN-SUFFIX,inmobi.com,DIRECT
 DOMAIN-SUFFIX,inner-active.mobi,DIRECT
+DOMAIN-SUFFIX,ip-api.com,DIRECT
+DOMAIN-SUFFIX,kochava.com,DIRECT
+DOMAIN-SUFFIX,mobilefuse.com,DIRECT
+DOMAIN-SUFFIX,talkatone.com,DIRECT
+IP-CIDR,205.164.56.0/24,DIRECT
 IP-CIDR,216.172.154.0/24,DIRECT
+IP-CIDR,50.117.27.0/24,DIRECT
+IP-CIDR,63.251.124.0/24,DIRECT
+IP-CIDR,69.46.75.0/24,DIRECT
