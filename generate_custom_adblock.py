@@ -749,14 +749,11 @@ MANDATORY_MITM_DOMAINS = [
     "preload-impression.uve.weibo.com", # 微博
     "gw.api.ddxq.mobi",              # 叮咚买菜
     "weathercn.com",                 # 天气通
-    "*.weathercn.com",               # 天气通
     "ads-img-al.xhscdn.com",         # 小红书
     "zhstatic.zhihu.com",            # 知乎
     "zhuanlan.zhihu.com",            # 知乎
-    "capis.didapinche.com",          # 嘀嗒出行
-    "*.didapinche.com",              # 嘀嗒出行
+    "didapinche.com",                # 嘀嗒出行 (后缀匹配，涵盖 capis, www 等子域)
     "ct.xiaojukeji.com",             # 滴滴出行
-    "www.didapinche.com",            # 嘀嗒出行
     "ndstatic.cdn.bcebos.com",       # 百度网盘广告
     "staticsns.cdn.bcebos.com",      # 百度网盘广告
     "issuecdn.baidupcs.com",         # 百度网盘广告
@@ -768,8 +765,7 @@ MANDATORY_MITM_DOMAINS = [
     "gateway.shouqiev.com",          # 首汽约车
     "gw-passenger.01zhuanche.com",   # 首汽约车
     "pinggai.caixin.com",            # 财新
-    "choicegw2.eastmoney.com",       # 东方财富开屏
-    "*.eastmoney.com",               # 东方财富
+    "eastmoney.com",                 # 东方财富 (后缀匹配，涵盖 choicegw2 等子域)
     "zdmimg.com"                     # 值得买
 ]
 
