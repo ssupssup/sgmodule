@@ -1109,6 +1109,11 @@ def generate():
         if h_clean and '.' in h_clean and not is_high_risk_mitm(h_clean):
             cleaned_mitm.add(h_clean)
             
+    # Force include WeChat unblock domains if enabled
+    if "微信解除链接限制" in INSTALLED_APPS:
+        cleaned_mitm.add("weixin110.qq.com")
+        cleaned_mitm.add("security.wechat.com")
+        
     # Force include mandatory MITM domains
     for h in MANDATORY_MITM_DOMAINS:
         cleaned_mitm.add(h)
