@@ -1092,6 +1092,40 @@ def generate():
     final_rewrites = list(dict.fromkeys(optimized_rewrites))
     final_scripts = list(dict.fromkeys(final_scripts_texts))
     
+    # 自动筛查并剔除与 Script 动态清洗冲突的同路径静态 REJECT 重写
+    def patterns_conflict(rew_pat, scr_pat):
+        def clean(p):
+            return p.replace('\\', '').replace('^', '').replace('$', '').replace('?', '').strip()
+        c_rew = clean(rew_pat)
+        c_scr = clean(scr_pat)
+        if c_rew == c_scr or (c_rew in c_scr and len(c_scr) - len(c_rew) < 15) or (c_scr in c_rew and len(c_rew) - len(c_scr) < 15):
+            return True
+        return False
+
+    script_patterns = []
+    for s in final_scripts:
+        match = re.search(r'pattern=([^,]+)', s)
+        if match:
+            script_patterns.append(match.group(1).strip())
+
+    clean_rewrites = []
+    for rw in final_rewrites:
+        parts = rw.split()
+        if len(parts) >= 3 and parts[1] == '-':
+            action = parts[2].lower()
+            if "reject" in action:
+                pat = parts[0].strip()
+                conflict = False
+                for scr_pat in script_patterns:
+                    if patterns_conflict(pat, scr_pat):
+                        print(f"[CONFLICT FILTER] Removed redundant rewrite '{pat}' because it conflicts with script '{scr_pat}'")
+                        conflict = True
+                        break
+                if conflict:
+                    continue
+        clean_rewrites.append(rw)
+    final_rewrites = clean_rewrites
+
     # Exclude any rule that is exactly in SDK_BLOCK_RULES
     sdk_set = set(SDK_BLOCK_RULES)
     final_rules = [r for r in final_rules if r not in sdk_set]
