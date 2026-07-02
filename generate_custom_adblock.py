@@ -821,12 +821,11 @@ DYNAMIC_REJECT_APP_FILTERS = {
     "Firefox": [r"firefoxchina\.cn"]
 }
 
-def fetch_and_extract_dynamic_rules():
+def fetch_and_extract_dynamic_rules(target_apps):
     import urllib.request
     import urllib.error
     dynamic_rules = []
     url = "https://raw.githubusercontent.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/release/sr_ad_only.conf"
-    target_apps = ["Outlook", "LinkedIn", "Firefox"]
     
     print("Downloading Johnshall rules for dynamic extraction...")
     try:
@@ -845,11 +844,12 @@ def fetch_and_extract_dynamic_rules():
                 
                 # Check pattern matches for targets
                 for app in target_apps:
-                    for pattern in DYNAMIC_REJECT_APP_FILTERS[app]:
-                        if re.search(pattern, domain):
-                            standard_rule = f"{parts[0].strip()},{domain},REJECT"
-                            dynamic_rules.append(standard_rule)
-                            break
+                    if app in DYNAMIC_REJECT_APP_FILTERS:
+                        for pattern in DYNAMIC_REJECT_APP_FILTERS[app]:
+                            if re.search(pattern, domain):
+                                standard_rule = f"{parts[0].strip()},{domain},REJECT"
+                                dynamic_rules.append(standard_rule)
+                                break
                             
         print(f"Successfully extracted {len(dynamic_rules)} dynamic rules from Johnshall's conf.")
     except Exception as e:
@@ -859,10 +859,13 @@ def fetch_and_extract_dynamic_rules():
 
 def generate():
     import os
+    supported_apps = set(APP_KEYWORDS.keys()) | set(OVERRIDE_APPS.keys())
+    unsupported_installed_apps = [app for app in INSTALLED_APPS if app not in supported_apps]
+    
     IS_GITHUB_ACTIONS = "GITHUB_ACTIONS" in os.environ
     FORCE_FETCH = "FORCE_FETCH" in os.environ
     if IS_GITHUB_ACTIONS or FORCE_FETCH:
-        dynamic_rules = fetch_and_extract_dynamic_rules()
+        dynamic_rules = fetch_and_extract_dynamic_rules(unsupported_installed_apps)
         SDK_BLOCK_RULES.extend(dynamic_rules)
         print(f"Added {len(dynamic_rules)} dynamic rules into SDK_BLOCK_RULES.")
 
