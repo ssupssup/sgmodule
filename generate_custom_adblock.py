@@ -815,7 +815,57 @@ def extract_pattern(line, is_script=False):
             return parts[0]
     return line_stripped
 
+DYNAMIC_REJECT_APP_FILTERS = {
+    "Outlook": [r"outlookads\.live\.com"],
+    "LinkedIn": [r"ads\.linkedin\.com", r"analytics\.pointdrive\.linkedin\.com"],
+    "Firefox": [r"firefoxchina\.cn"]
+}
+
+def fetch_and_extract_dynamic_rules():
+    import urllib.request
+    import urllib.error
+    dynamic_rules = []
+    url = "https://raw.githubusercontent.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/release/sr_ad_only.conf"
+    target_apps = ["Outlook", "LinkedIn", "Firefox"]
+    
+    print("Downloading Johnshall rules for dynamic extraction...")
+    try:
+        req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+        with urllib.request.urlopen(req, timeout=10) as response:
+            content = response.read().decode('utf-8')
+            
+        for line in content.splitlines():
+            line_stripped = line.strip()
+            if not line_stripped or line_stripped.startswith("#"):
+                continue
+            
+            parts = line_stripped.split(",")
+            if len(parts) >= 2 and parts[-1].strip().lower() == "reject":
+                domain = parts[1].strip().lower()
+                
+                # Check pattern matches for targets
+                for app in target_apps:
+                    for pattern in DYNAMIC_REJECT_APP_FILTERS[app]:
+                        if re.search(pattern, domain):
+                            standard_rule = f"{parts[0].strip()},{domain},REJECT"
+                            dynamic_rules.append(standard_rule)
+                            break
+                            
+        print(f"Successfully extracted {len(dynamic_rules)} dynamic rules from Johnshall's conf.")
+    except Exception as e:
+        print(f"Warning: Could not fetch dynamic rules locally ({e}). Using static cache.")
+        
+    return list(set(dynamic_rules))
+
 def generate():
+    import os
+    IS_GITHUB_ACTIONS = "GITHUB_ACTIONS" in os.environ
+    FORCE_FETCH = "FORCE_FETCH" in os.environ
+    if IS_GITHUB_ACTIONS or FORCE_FETCH:
+        dynamic_rules = fetch_and_extract_dynamic_rules()
+        SDK_BLOCK_RULES.extend(dynamic_rules)
+        print(f"Added {len(dynamic_rules)} dynamic rules into SDK_BLOCK_RULES.")
+
     # 1. Download and parse BlackMatrix7 AllInOne
     aio_url = "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rewrite/Shadowrocket/AllInOne/AllInOne.sgmodule"
     aio_content = download_url(aio_url)
