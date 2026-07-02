@@ -719,7 +719,11 @@ SDK_BLOCK_RULES = [
     "DOMAIN-SUFFIX,mobads-logs.baidu.com,REJECT",
     # 天目/快手/广告聚合
     "DOMAIN-SUFFIX,tianmu.mobi,REJECT",
-    "DOMAIN-SUFFIX,1rtb.net,REJECT"
+    "DOMAIN-SUFFIX,1rtb.net,REJECT",
+    
+    # PCDN / 视频上传劫持 拦截
+    "DOMAIN-SUFFIX,pkoplink.com,REJECT",
+    "DOMAIN-SUFFIX,sjxydc.com,REJECT"
 ]
 
 MANDATORY_MITM_DOMAINS = [
