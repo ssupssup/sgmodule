@@ -31,7 +31,8 @@ WHITELIST_DOMAINS = [
     "amazonaws.com.cn",
     "amazonaws-china.com",
     "cloudfront.net",
-    "amazon.com"
+    "amazon.com",
+    "amazon-adsystem.com"
 ]
 
 def download_url(url):

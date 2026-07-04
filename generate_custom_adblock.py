@@ -139,12 +139,13 @@ APP_KEYWORDS = {
     "Speedtest": ["speedtest", "ookla"],
     "数字人民币": ["ecny"],
     "中国联合航空": ["cueair", "flycua"],
+    "剪映": ["jianying", "capcut"],
 }
 
 # Apps that we will fetch from ddgksf2013 or Maasea instead of BlackMatrix7 (excluding China Unicom)
 OVERRIDE_APPS = {
     "微博轻享版": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/AdBlock/WeiboAds.conf",
-    "百度贴吧": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/AdBlock/TieBaAds.conf",
+    # "百度贴吧": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/AdBlock/TieBaAds.conf",
     "网易云音乐": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/AdBlock/NeteaseAds.conf",
     "闲鱼": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/AdBlock/GoofishAds.conf",
     "微信": [
@@ -159,8 +160,8 @@ OVERRIDE_APPS = {
     "哔哩哔哩": "https://raw.githubusercontent.com/Maasea/sgmodule/master/Bilibili.Helper.sgmodule",
     
     # 新增的高级专属规则
-    "通用开屏广告": "https://ddgksf2013.top/rewrite/StartUpAds.conf",
-    "小红书": "https://ddgksf2013.top/rewrite/XiaoHongShuAds.conf",
+    "通用开屏广告": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rewrite/Shadowrocket/Advertising/Advertising.sgmodule",
+    # "小红书": "https://ddgksf2013.top/rewrite/XiaoHongShuAds.conf",
     "百度网盘": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partB/BaiduNetdisk.snippet",
     "知乎": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partZ/Zhihu.snippet",
     "淘宝": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partT/Taobao.snippet",
@@ -179,7 +180,7 @@ OVERRIDE_APPS = {
     "网易新闻": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partW/NetEaseNews.snippet",
     "拼多多": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partP/Pinduoduo.snippet",
     "美图秀秀": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partM/MeituXiuxiu.snippet",
-    "叮咚买菜": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partD/DingDongMaiCai.snippet",
+    # "叮咚买菜": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partD/DingDongMaiCai.snippet",
     "汽车之家": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partQ/Autohome.snippet",
     "锦江荟": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partJ/JinJiangHuiAPP.snippet",
     # "爱奇艺": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partA/iQIYI.snippet",
@@ -708,18 +709,18 @@ SDK_BLOCK_RULES = [
     "AND,((protocol,udp),(dest-port,443),(domain-suffix,sofire.baidu.com)),REJECT-NO-DROP",
     
     # 穿山甲
-    "DOMAIN-KEYWORD,pangle,REJECT",
-    "DOMAIN-SUFFIX,pangle.io,REJECT",
-    "DOMAIN-SUFFIX,pangolin-sdk-toutiao,REJECT",
+    "DOMAIN-KEYWORD,pangle,REJECT-200",
+    "DOMAIN-SUFFIX,pangle.io,REJECT-200",
+    "DOMAIN-SUFFIX,pangolin-sdk-toutiao,REJECT-200",
     # 腾讯广点通
-    "DOMAIN-SUFFIX,gdt.qq.com,REJECT",
-    "DOMAIN-SUFFIX,ugdtimg.com,REJECT",
+    "DOMAIN-SUFFIX,gdt.qq.com,REJECT-200",
+    "DOMAIN-SUFFIX,ugdtimg.com,REJECT-200",
     # 百度联盟
-    "DOMAIN-SUFFIX,mobads.baidu.com,REJECT",
-    "DOMAIN-SUFFIX,mobads-logs.baidu.com,REJECT",
+    "DOMAIN-SUFFIX,mobads.baidu.com,REJECT-200",
+    "DOMAIN-SUFFIX,mobads-logs.baidu.com,REJECT-200",
     # 天目/快手/广告聚合
-    "DOMAIN-SUFFIX,tianmu.mobi,REJECT",
-    "DOMAIN-SUFFIX,1rtb.net,REJECT",
+    "DOMAIN-SUFFIX,tianmu.mobi,REJECT-200",
+    "DOMAIN-SUFFIX,1rtb.net,REJECT-200",
     
     # PCDN / 视频上传劫持 拦截
     "DOMAIN-SUFFIX,pkoplink.com,REJECT",
@@ -772,7 +773,12 @@ MANDATORY_MITM_DOMAINS = [
     "gw-passenger.01zhuanche.com",   # 首汽约车
     "pinggai.caixin.com",            # 财新
     "eastmoney.com",                 # 东方财富 (后缀匹配，涵盖 choicegw2 等子域)
-    "zdmimg.com"                     # 值得买
+    "zdmimg.com",                    # 值得买
+    
+    # 新增开屏解密以防绕过
+    "babytree.com",                  # 宝宝树孕育
+    "jianying.com",                  # 剪映
+    "lf.snssdk.com"                  # 字节系数据及开屏广告上报 (剪映等)
 ]
 
 CUSTOM_REWRITE_RULES = [
@@ -979,7 +985,7 @@ def generate():
             for domain in domains:
                 domain_san = sanitize_hostname(domain)
                 if not is_high_risk_mitm(domain_san):
-                    rule_text = f"DOMAIN,{domain_san},REJECT"
+                    rule_text = f"DOMAIN,{domain_san},REJECT-200"
                     raw_rules.append({'text': rule_text, 'pattern': rule_text, 'priority': 1, 'app': app_name})
             print(f" - [RULE INJECTION] {app_name}: {len(domains)} domains injected as rules")
             
@@ -987,7 +993,7 @@ def generate():
     for domain in ALWAYS_INJECT_DOMAINS:
         domain_san = sanitize_hostname(domain)
         if not is_high_risk_mitm(domain_san):
-            rule_text = f"DOMAIN,{domain_san},REJECT"
+            rule_text = f"DOMAIN,{domain_san},REJECT-200"
             raw_rules.append({'text': rule_text, 'pattern': rule_text, 'priority': 1, 'app': "通用广告SDK"})
             
     # Inject Custom Rewrite Rules
