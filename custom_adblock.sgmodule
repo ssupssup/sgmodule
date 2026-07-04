@@ -1,6 +1,6 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-07-05 07:34:41 | Deep ad block & UI purification customized for user's installed apps.
-#!total=1167
+#!desc=最近更新: 2026-07-05 07:47:37 | Deep ad block & UI purification customized for user's installed apps.
+#!total=1119
 
 [Rule]
 # === Bypass Rules for WeChat, Alipay, Bank and Login App anomalies ===
@@ -15,6 +15,13 @@ DOMAIN,msmp.abchina.com.cn,DIRECT
 DOMAIN,log.cmbchina.com,DIRECT
 DOMAIN,httpdns.music.163.com,DIRECT
 DOMAIN,smartad.10010.com,DIRECT
+DOMAIN,sofire.baidu.com,DIRECT
+DOMAIN,nsclick.baidu.com,DIRECT
+DOMAIN-SUFFIX,amazon.com,DIRECT
+DOMAIN-SUFFIX,amazon.cn,DIRECT
+DOMAIN-SUFFIX,media-amazon.com,DIRECT
+DOMAIN-SUFFIX,ssl-images-amazon.com,DIRECT
+DOMAIN-SUFFIX,amazon-adsystem.com,DIRECT
 # === SDK Core REJECT Rules ===
 AND,((protocol,udp),(dest-port,443),(domain-suffix,baidu.com)),REJECT-NO-DROP
 AND,((protocol,udp),(dest-port,443),(domain-suffix,baidupcs.com)),REJECT-NO-DROP
@@ -44,12 +51,9 @@ DOMAIN-SUFFIX,mobads.baidu.com,REJECT-200
 DOMAIN-SUFFIX,mobads-logs.baidu.com,REJECT-200
 DOMAIN-SUFFIX,tianmu.mobi,REJECT-200
 DOMAIN-SUFFIX,1rtb.net,REJECT-200
+IP-CIDR,180.76.76.200/32,REJECT-200
 DOMAIN-SUFFIX,pkoplink.com,REJECT
 DOMAIN-SUFFIX,sjxydc.com,REJECT
-DOMAIN-SUFFIX,ads.linkedin.com,REJECT
-DOMAIN-SUFFIX,a1.firefoxchina.cn,REJECT
-DOMAIN-SUFFIX,analytics.pointdrive.linkedin.com,REJECT
-DOMAIN-SUFFIX,outlookads.live.com,REJECT
 # === Compiled App Rules ===
 DOMAIN,sdkapp.uve.weibo.com,DIRECT
 DOMAIN,adstrategy.biz.weibo.com,REJECT
@@ -87,7 +91,6 @@ DOMAIN,ios.bugly.qq.com,REJECT-200
 DOMAIN,mobads.baidu.com,REJECT-200
 DOMAIN,wn.pos.baidu.com,REJECT-200
 DOMAIN,mobads-logs.baidu.com,REJECT-200
-DOMAIN,nsclick.baidu.com,REJECT-200
 DOMAIN,union.baidu.com,REJECT-200
 DOMAIN,mtj.baidu.com,REJECT-200
 DOMAIN,eclick.baidu.com,REJECT-200
@@ -115,7 +118,6 @@ DOMAIN,smartop-sdkapi.jiguang.cn,REJECT-200
 DOMAIN,smartop-sdkapi-ipv6.jiguang.cn,REJECT-200
 DOMAIN,ali-stats.jpush.cn,REJECT-200
 DOMAIN,stats.jpush.cn,REJECT-200
-DOMAIN,sofire.baidu.com,REJECT-200
 DOMAIN,sensors-collect-prod.bestwehotel.com,REJECT-200
 DOMAIN,sensors-ma.bestwehotel.com,REJECT-200
 DOMAIN,sensors-ab.bestwehotel.com,REJECT-200
@@ -205,18 +207,6 @@ DOMAIN,amsweb-cdn-gz-1258344696.file.myqcloud.com,REJECT
 DOMAIN,wallpaper-1258344696.file.myqcloud.com,REJECT
 IP-CIDR,120.222.240.171/32,REJECT
 DOMAIN,sdkconfig.ad.xiaomi.com,REJECT
-DOMAIN-SUFFIX,corp.meitu.com,REJECT
-DOMAIN-SUFFIX,gg.meitu.com,REJECT
-DOMAIN-SUFFIX,message.meitu.com,REJECT
-DOMAIN-SUFFIX,tuiguang.meitu.com,REJECT
-DOMAIN-SUFFIX,xiuxiu.android.dl.meitu.com,REJECT
-DOMAIN-SUFFIX,adui.tg.meitu.com,REJECT
-DOMAIN-SUFFIX,rabbit.tg.meitu.com,REJECT
-DOMAIN-SUFFIX,meitubeauty.meitudata.com,REJECT
-DOMAIN-SUFFIX,xiuxiu.mobile.meitudata.com,REJECT
-DOMAIN-SUFFIX,dc.meitustat.com,REJECT
-DOMAIN-SUFFIX,mdc.meitustat.com,REJECT
-DOMAIN-SUFFIX,rabbit.meitustat.com,REJECT
 DOMAIN-KEYWORD,adm3.autoimg.cn,REJECT
 DOMAIN-KEYWORD,collectionpv.che168.com,REJECT
 DOMAIN-KEYWORD,adproxy.autohome.com,REJECT
@@ -247,6 +237,7 @@ DOMAIN,switch.cup.com.cn,REJECT
 DOMAIN,ads.cup.com.cn,REJECT
 
 [URL Rewrite]
+^https?:\/\/maicai\.api\.ddxq\.mobi\/advert\/ - reject-200
 ^https:\/\/api\.douban\.com\/v\d\/app_ads\/splash - reject-dict
 ^https:\/\/frodo\.douban\.com\/api\/v\d\/app_ads\/splash - reject-dict
 ^https:\/\/frodo\.douban\.com\/api\/v\d\/erebor\/feed_ad - reject-dict
@@ -281,21 +272,10 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/api\.weibo\.cn\/\d\/cardlist\?v_f=.*Weibo_intl - reject-dict
 ^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php\?a=hot_search_users - reject-dict
 ^https?:\/\/m?api\.weibo\.c(n|om)\/\d\/ad\/weibointl\? - reject-dict
-^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/content\/activity\/music\/jar\/template\/list - reject-200
-^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/sp\/flow\/popup\/query - reject-200
-^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/vipmall\/couponcfg\/get - reject-200
-^https?:\/\/interface(\d)?\.music\.163\.com\/w?eapi\/(resource-exposure\/)?activity - reject-200
-^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/comment\/feed\/inserted\/resources - reject-200
-^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/resource-exposure\/config - reject-200
 ^https?:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop.*splash\.ads - reject-200
 ^https?:\/\/(g-)?acs\.m\.goofish\.com\/gw\/mtop.idle.ad.expose - reject-200
 ^https?:\/\/api\.blibee\.com\/cvsnotify-api\/cvs\/notify\/app\/banner\/v\d+$ - reject-200
 ^https?:\/\/ucmp\.sf-express\.com\/proxy\/operation-platform\/info-flow-adver\/query$ - reject-200
-^https?:\/\/dashi\.163\.com\/task-center-api\/fapi\/task - reject-dict
-^https?:\/\/appconf\.mail\.163\.com\/mmad\/master\/get\.do - reject-200
-^https?:\/\/appconf\.mail\.163\.com\/mailoperating\/mailmaster\/api\/operator\/get - reject-dict
-^https?:\/\/appconf\.mail\.163\.com\/mailmaster\/getRegConfig\.do - reject-dict
-^https?:\/\/appconf\.mail\.163\.com\/mailmaster\/api\/config\/function\.do - reject-dict
 (^https?:\/\/app\.biliintl\.com\/(x\/)?(intl|dm|reply|history|v\d\/(fav|msgfeed)).+?)(&s_locale=zh-Hans_[A-Z]{2})(.+?)(&sim_code=\d+)(.+) $1&s_locale=zh-Hans_PH$6&sim_code=51503$8 302
 (^https?:\/\/passport\.biliintl\.com\/x\/intl\/passport-login\/.+)(&s_locale=zh-Hans_[A-Z]{2})(.+)(&sim_code=\d+)(.+) $1&s_locale=zh-Hans_PH$35&sim_code=51503$5 302
 (?i)\bvmind\.qqvideo\.tc\.qq\.com\/[\w\/\.-]+[a-z]\d+\.mp4\? - reject
@@ -825,7 +805,6 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/m\d\.amap\.com\/ws\/mapapi\/hint_text\/offline_data? - reject-dict
 ^https?:\/\/m\d\.amap\.com\/ws\/message\/notice\/list\? - reject-dict
 ^https?:\/\/mage\.if\.qidian\.com\/argus\/api\/v\d\/client\/getsplashscreen - reject
-^https?:\/\/maicai\.api\.ddxq\.mobi\/advert\/ - reject
 ^https?:\/\/maicai\.api\.ddxq\.mobi\/advert\/startUpScreen - reject-200
 ^https?:\/\/mama\.dxy\.com\/api\/cms\/client\/popup-window\/list - reject-200
 ^https?:\/\/mangaapi\.manhuaren\.com\/v2\/public\/getShelfActivity - reject
@@ -1022,8 +1001,6 @@ https://dynamicad.kfc.com.cn/api/app5/homepage/ai/popup - reject-200
 ^https:\/\/oss\.umetrip\.com\/fs\/advert\/polite - reject
 ^http?:\/\/(discardrp|startup)\.umetrip\.com\/gateway\/api\/umetrip\/native - reject
 ^https?:\/\/qde\.qunar\.com\/preload - reject-200
-^https?:\/\/m\.ctrip\.com\/restapi\/soa2\/[0-9]{5}\/json\/getTimeZoneServerIpList\?__gw_os=IOS - reject-200
-^https?:\/\/m\.ctrip\.com\/restapi\/soa2\/13916\/json\/tripAds - reject-200
 ^https?:\/\/us\.l\.qq\.com\/exapp - reject
 ^https?:\/\/y\.gtimg\.cn\/music\/common\/upload\/t_splash_info\/ - reject
 ^https?:\/\/.+?\/music\/common\/upload\/t_splash_info\/ - reject
@@ -1032,8 +1009,6 @@ https://dynamicad.kfc.com.cn/api/app5/homepage/ai/popup - reject-200
 ^https?:\/\/home\.mi\.com\/cgi-op\/api\/v1\/resource\/realtime\/openingBanner - reject-dict
 ^https?:\/\/c\.m\.163\.com\/nc\/gl\/ - reject-200
 ^https?:\/\/api\.pinduoduo\.com\/api\/aquarius\/hungary\/global\/homepage\? - reject-dict
-^https?:\/\/mea\.meitudata\.com\/kaiping - reject
-^https?:\/\/adui\.tg\.meitu\.com - reject-dict
 ^https:\/\/booking\.bestwehotel\.com\/proxy\/trip-hotel-banner\/activity\/getActivityInfo - reject-200
 ^https?:\/\/(ad-h5-station-cdn)\.soulapp\.cn\/ - reject-dict
 
@@ -1063,29 +1038,6 @@ https://dynamicad.kfc.com.cn/api/app5/homepage/ai/popup - reject-200
 微博轻享版_54d4e1 = type=http-response,pattern=^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php.*a=trends,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js,requires-body=1
 微博轻享版_134ee3 = type=http-response,pattern=^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=user_center,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js,requires-body=1
 微博轻享版_8d7364 = type=http-response,pattern=^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=search_topic,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js,requires-body=1
-网易云音乐_58eef5 = type=http-response,pattern=^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/link\/home\/framework\/tab,script-path=https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js,requires-body=1
-网易云音乐_8e6140 = type=http-response,pattern=^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/link\/page\/discovery\/resource\/show,script-path=https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js,requires-body=1
-网易云音乐_af3152 = type=http-response,pattern=^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/link\/page\/rcmd\/resource\/show,script-path=https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js,requires-body=1
-网易云音乐_ad21c4 = type=http-response,pattern=^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/ios\/upgrade\/get,script-path=https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js,requires-body=1
-网易云音乐_7cc25f = type=http-response,pattern=^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/search\/default\/keyword\/list,script-path=https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js,requires-body=1
-网易云音乐_2bc4cd = type=http-response,pattern=^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/search\/rcmd\/keyword\/get,script-path=https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js,requires-body=1
-网易云音乐_f64330 = type=http-response,pattern=^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/search\/chart\/list,script-path=https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js,requires-body=1
-网易云音乐_fb40ca = type=http-response,pattern=^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/search\/chart\/detail,script-path=https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js,requires-body=1
-网易云音乐_4b5a4b = type=http-response,pattern=^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/search\/suggest\/keyword\/get,script-path=https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js,requires-body=1
-网易云音乐_d4245f = type=http-response,pattern=^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/search\/specialkeyword\/get,script-path=https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js,requires-body=1
-网易云音乐_b3cd71 = type=http-response,pattern=^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/ad\/loading\/get,script-path=https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js,requires-body=1
-网易云音乐_bf56f2 = type=http-response,pattern=^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/ad\/loading\/current,script-path=https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js,requires-body=1
-网易云音乐_158993 = type=http-response,pattern=^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/ad\/get,script-path=https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js,requires-body=1
-网易云音乐_43795d = type=http-response,pattern=^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/link\/position\/show\/resource,script-path=https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js,requires-body=1
-网易云音乐_21875a = type=http-response,pattern=^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/link\/scene\/show\/resource,script-path=https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js,requires-body=1
-网易云音乐_1ed277 = type=http-response,pattern=^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/vip\/cashier\/tspopup\/get,script-path=https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js,requires-body=1
-网易云音乐_ac0211 = type=http-response,pattern=^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/vipnewcenter\/app\/resource\/newaccountpage,script-path=https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js,requires-body=1
-网易云音乐_532498 = type=http-response,pattern=^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/side-bar\/mini-program\/music-service\/account,script-path=https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js,requires-body=1
-网易云音乐_4bd243 = type=http-response,pattern=^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/delivery\/deliver,script-path=https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js,requires-body=1
-网易云音乐_4817ef = type=http-response,pattern=^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/delivery\/batch-deliver,script-path=https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js,requires-body=1
-网易云音乐_8d1cf2 = type=http-response,pattern=^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/yunbei\/account\/entrance\/get,script-path=https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js,requires-body=1
-网易云音乐_96374b = type=http-response,pattern=^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/creator\/musician\/reminder\/message\/get,script-path=https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js,requires-body=1
-网易云音乐_e5a9c8 = type=http-response,pattern=^https?:\/\/interface(\d)?\.music\.163\.com\/e?api\/batch,script-path=https://gist.githubusercontent.com/ddgksf2013/4f53b7c6083678df25fecc8ff68b52c4/raw/netease.adblock.js,requires-body=1
 闲鱼_0f6197 = type=http-response,pattern=^http:\/\/[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){1,4}(:\d+)?\/amdc\/mobileDispatch,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amdc.js,requires-body=1
 微信_49e4e9 = type=http-response,pattern=^https?:\/\/wx\.mygolbs\.com\/WxBusServer\/ApiData\.do,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/zhangshanggongjiao.js,requires-body=1
 微信_e20812 = type=http-response,pattern=^(https?://)?([a-zA-Z0-9]+(-[a-zA-Z0-9]+)*\.)+[a-zA-Z]{2,}(:\d+)?/wp-json/[a-zA-Z0-9_-]+/(mp\/)?v\d/posts,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/applet.js,requires-body=1
@@ -1178,4 +1130,4 @@ soul_081fb3 = type=http-response,pattern=^https?:\/\/vod-license-[a-z]+\.volccdn
 soul_c70705 = type=http-response,pattern=^https?:\/\/47\.110\.187\.87\/,script-path=https://raw.githubusercontent.com/Xo776/byead/main/soul_config_ads.js,requires-body=1
 
 [MITM]
-hostname = %APPEND% 103.91.210.141,3g.csair.com,3pp.starbucks.com.cn,47.110.187.87,5eplay.com,aastocks.com,access.mypikpak.com,acs-m.freshippo.com,acs.m.goofish.com,acs.m.taobao.com,act.vip.iqiyi.com,ad-h5-station-cdn.soulapp.cn,ad.12306.cn,ad.cj.sina.cn,ad.lofter.com,ad.mcloud.139.com,adapi.izuiyou.com,adproxy.autohome.com.cn,ads-img-al.xhscdn.com,ads.closeli.cn,ads.ishansong.com,ads.zhinengxiyifang.cn,adui.tg.meitu.com,advertise.bczeducation.cn,adx-cn.anythinktech.com,adx.zuoyebang.com,aikanvod.miguvideo.com,alittle-tea.oss-cn-shanghai.aliyuncs.com,amap-aos-info-nogw.amap.com,ap.dongqiudi.com,api-a.soulapp.cn,api-access.pangolin-sdk-toutiao.com,api-account.soulapp.cn,api-fouth-mem.huazhu.com,api-sams.walmartmobile.cn,api-ucc.soulapp.cn,api-user.soulapp.cn,api.00bang.cn,api.21ec74.com,api.abema.io,api.ahmobile.cn,api.blibee.com,api.coolapk.com,api.dnurse.com,api.douban.com,api.gameplus.qq.com,api.gamer.com.tw,api.gotokeep.com,api.hellobike.com,api.internetofcity.cn,api.ireader.mobi,api.izuiyou.com,api.jxedt.com,api.kmovie.gifshow.com,api.kuaidihelp.com,api.kurobbs.com,api.mcd.cn,api.medlive.cn,api.merach.com,api.moomoo.com,api.musical.ly,api.pinduoduo.com,api.qd-metro.com,api.sfacg.com,api.smart.jd.com,api.sodalife.xyz,api.songguo7.com,api.tipsoon.com,api.ulife.group,api.vistopia.com.cn,api.weibo.cn,api.wmpvp.com,api.xiachufang.com,api.xiaoheihe.cn,api.yonghuivip.com,api.ys7.com,api.zcool.com.cn,api.zhihu.com,api0.musical.ly,api1.34580.com,api1.musical.ly,api2.musical.ly,api2.picooc.com,api3.cls.cn,api3.musical.ly,api4.musical.ly,api5.musical.ly,api6.musical.ly,api7.musical.ly,api8.musical.ly,api9.musical.ly,apiproxy.zuche.com,apis.alenable.com,app-api.medsci.cn,app-cdn.2q10.com,app-gateway.leisuapi.com,app-gw.csdn.net,app.10099.com.cn,app.api.qjjfin.com,app.bilibili.com,app.c.nf.migu.cn,app.duxiaoman.com,app.flymodem.com.cn,app.hbooker.com,app.homeinns.com,app.ibuscloud.com,app.jiantou8.com,app.peopleapp.com,app.zhuanzhuan.com,appactive.1234567.com.cn,appcloud2.zhihu.com,appconf.mail.163.com,apps.api.ke.com,appuser-static.huolala.cn,axxd.xmseeyouyima.com,babytree.com,bbs-api.miyoushe.com,bgw.xinyue.qq.com,booking.bestwehotel.com,boot.weibo.com,c.m.163.com,c.tieba.baidu.com,cap.caocaokeji.cn,capi.lkcoffee.com,capis-w.didapinche.com,carapp.gtmc.com.cn,careapi.oclean.com,ccsp-egmas.sf-express.com,cdke.youdao.com,cdn-evone-ceph.echargenet.com,cdn.cmgadx.com,cdn.w3.chelaileapp.cn,cdn.web.chelaile.net.cn,cdns.chinastock.com.cn,client-api-v2.oray.com,client-api.oray.com,client.app.coc.10086.cn,client.tujia.com,cmt.comp.360os.com,cn-acs.m.cainiao.com,cn-app.narwaltech.com,comapi.reader.qq.com,comicapi.manhuashe.com,commontgw.reader.qq.com,compus.xiaofubao.com,conf.diditaxi.com.cn,cq11344-app-https-api-1.ictun.com,ct.xiaojukeji.com,customer-app.sto.cn,dashi.163.com,data-collector.soulapp.cn,dcloud.net.cn,device-box.onethingpcs.com,didapinche.com,dj.palmestore.com,djcapp.game.qq.com,dq.dxy.cn,dsp.fcbox.com,dynamicad.kfc.com.cn,eastmoney.com,edith.xiaohongshu.com,entree-ws.igetget.com,entry.ubixioe.com,esdk.tymcdn.com,evs.500.com,fc-video.cdn.bcebos.com,fenbi.com,file.dian.so,file.mylyg.net,frodo.douban.com,ftapi.10jqka.com.cn,fuwu.nhsa.gov.cn,gameapi.hellobike.com,games.mobileapi.hupu.com,gateway-api.dushu365.com,gateway-mobile-gray.soulapp.cn,gateway.36kr.com,gateway.abite.com,gateway.shouqiev.com,gateway2.etnet.com.hk,gd.10086.cn,gha.ghac.cn,gongdu.youshu.cc,gorgon.youdao.com,grpc.biliapi.net,guide-acs.m.taobao.com,gw-app-gateway.gwmapp-w.com,gw-passenger-wap.01zhuanche.com,gw-passenger.01zhuanche.com,gw.api.ddxq.mobi,gw.csdn.net,gx.10086.cn,hc-ssp.sm.cn,hcz-member.pingan.com.cn,hd.mina.mi.com,hdgateway.zto.com,hfapp-service.qweather.net,hkj178.com,home.mi.com,home.umetrip.com,htwkop.xiaojukeji.com,hwimg.beingfine.cn,hwy-gapi.bestwehotel.com,hxqapi.hiyun.tv,i.ys7.com,i.zhaojinapp.com,i0.hoopchina.com.cn,i1.hoopchina.com.cn,i2.hoopchina.com.cn,i3.hoopchina.com.cn,i4.hoopchina.com.cn,i5.hoopchina.com.cn,i6.hoopchina.com.cn,i7.hoopchina.com.cn,i8.hoopchina.com.cn,i9.hoopchina.com.cn,iface.iqiyi.com,iface2.iqiyi.com,igetcool-gateway.igetcool.com,images.qmai.cn,interface.music.163.com,interface0.music.163.com,interface1.music.163.com,interface2.music.163.com,interface3.music.163.com,interface4.music.163.com,interface5.music.163.com,interface6.music.163.com,interface7.music.163.com,interface8.music.163.com,interface9.music.163.com,intl.iqiyi.com,iobs.pingan.com.cn,iphone.ac.qq.com,issuecdn.baidupcs.com,iyes.youku.com,j1.pupuapi.com,jdread-api.jd.com,jianying.com,js-ad.ayximgs.com,js-ad.ayximgs.com.ad-universe-cdn.hzhcbkj.cn,jz.wacaijizhang.com,kjp.cupid.iqiyi.com,lchttpapi.xczim.com,learnywhere.cn,lens.leoao.com,lf.snssdk.com,lop-proxy.jd.com,m-adphone.wenhua.com.cn,m-cloud.zhihu.com,m.api.shaoxing.com.cn,m.ctrip.com,m.douban.com,m.meitun.com,m.msyc.cc,m.sd.10086.cn,m.stock.pingan.com,m.you.163.com,m0.amap.com,m1.amap.com,m2.amap.com,m3.amap.com,m4.amap.com,m5.amap.com,m6.amap.com,m7.amap.com,m8.amap.com,m9.amap.com,maicai.api.ddxq.mobi,mail.163.com,mama.dxy.com,mapi.weibo.cn,mapi.weibo.com,mea.meitudata.com,media-service.soulapp.cn,member.alipan.com,member.lxjchina.com.cn,mi.gdt.qq.com,minicap.caocaokeji.cn,miniprogram.ishansong.com,mix-api.camera360.com,mlol.qt.qq.com,mob.bz.mgtv.com,mobads.baidu.com,mobile-api.imlaidian.com,mobile.api.mgtv.com,mobile.da.mgtv.com,mobile.laichon.com,mobileapi-v6.elong.com,mobileapi.xiamenair.com,mp.weixin.qq.com,mpos-pic.helipay.com,mxsa.mxbc.net,ndstatic.cdn.bcebos.com,new.vip.weibo.cn,newapp2.szsmk.com,newsuperapp.ftms.com.cn,notify.baicizhan.com,nuc.api.mgtv.com,oneapp-api.faw-vw.com,open.78dm.net,open.e.kuaishou.com,open.fitdays.cn,optimus-ads.amap.com,orders.kfc.com.cn,oss.umetrip.com,p0.pipi.cn,pages.xiaohongshu.com,pan-api.bitqiu.com,passenger.t3go.cn,passengerapi.saicmobility.com,patientgate.91160.com,pcvideoyd.titan.mgtv.com,pinggai.caixin.com,pipi.4kya.com,pjlapi.paojd.cn,plt.yorentown.com,poplayer.template.alibaba.com,post.soulapp.cn,preload-click.uve.weibo.com,preload-impression.uve.weibo.com,promotion.medlive.cn,pzoap.moedot.net,qadx.qinlinad.com,qapi.huolala.cn,qcwx.medproad.com,qde.qunar.com,qt.qq.com,quanguo.mygolbs.com,r.inews.qq.com,referee.xiaohongshu.com,render-oss-cdn.amap.com,rengine-platform.llsapp.com,res.hongyibo.com.cn,res.kfc.com.cn,res.pizzahut.com.cn,res.xiaojukeji.com,restapi.iyunmai.com,richmanapi.jxedt.com,router-app-api.jdcloud.com,rp.hpplay.cn,s.jiediankeji.com,saad.ms.zhangyue.net,sdk.alibaba.com.ailbaba.me,sdk.tianmu.mobi,sdkapp.uve.weibo.com,security.wechat.com,sf3-fe-tos.pglstatp-toutiao.com,sh-gateway.shihuo.cn,shop-api.retail.mi.com,shop.laichon.com,siteapi.zaixs.com,smarket.dian.so,smsrebuild1.mail.10086.cn,sns.amap.com,ssp.soulapp.cn,staticsns.cdn.bcebos.com,sto-customer-app.oss-cn-shanghai.aliyuncs.co,sto-customer-app.oss-cn-shanghai.aliyuncs.com,superapp.xgimi.com,supplier-api.imdada.cn,suyun-guest.daojia.com,t1.market.xiaomi.com,t7z.cupid.iqiyi.com,tcmobileapi.17usoft.com,td.cgmcare.cn,tg.feidee.com,tieba.baidu.com,tiebac.baidu.com,tipatipa.xyz,tk.lanjiyin.com,tk.lanjiyin.com.cn,tm-api.pin-dao.cn,top-widgets-api.xiaozujian.com,tqt.weibo.cn,triangle.wearemanner.com,u0.iqiyipic.com,u1.iqiyipic.com,u2.iqiyipic.com,u3.iqiyipic.com,u4.iqiyipic.com,u5.iqiyipic.com,u6.iqiyipic.com,u7.iqiyipic.com,u8.iqiyipic.com,u9.iqiyipic.com,ucmp.sf-express.com,umetrip.com,vidz.3hxq.cn,vip7.fzwdyy.cn,wallpaper.soutushenqi.com,wbapp.uve.weibo.com,wcprd.hilton.com,wcprd.hilton.com.cn,weathercn.com,web-opin.bestwehotel.com,webapi.qmai.cn,webchatapp.fcbox.com,wechat-api.i-xiaoma.com.cn,weibointl.api.weibo.cn,weibointl.api.weibo.com,weixin110.qq.com,www.ahzs10000.com,www.ctm.net,www.deppon.com,www.flyert.com,www.kujiale.com,www.pansearch.me,www.xiaohongshu.com,www.xqpark.cn,www.zhihu.com,www.zjyilin.com,wx.bthhotels.com,wx.mygolbs.com,wxapp.bestwehotel.com,wxproj.seeyouyima.com,wxs-weixin.sd.zhumanggroup.com,xapi.xinmanhua.net,xyst.yuanfudao.com,y.gtimg.cn,yanxuan.nosdn.127.net,you.163.com,ytmsout.radio.cn,yxyapi2.yuxueyuan.cn,yyfapi.huatu.com,zdmimg.com,zhangyuyidong.cn,zhstatic.zhihu.com,zhuanlan.zhihu.com,zjdr666.com,zjh5api.ott4china.com,zjmbank.js96008.com,zlsdk.1rtb.net,zongheng.com,ztoread.ziroom.com
+hostname = %APPEND% 103.91.210.141,3g.csair.com,3pp.starbucks.com.cn,47.110.187.87,5eplay.com,aastocks.com,access.mypikpak.com,acs-m.freshippo.com,acs.m.goofish.com,acs.m.taobao.com,act.vip.iqiyi.com,ad-h5-station-cdn.soulapp.cn,ad.12306.cn,ad.cj.sina.cn,ad.lofter.com,ad.mcloud.139.com,adapi.izuiyou.com,adproxy.autohome.com.cn,ads-img-al.xhscdn.com,ads.closeli.cn,ads.ishansong.com,ads.zhinengxiyifang.cn,advertise.bczeducation.cn,adx-cn.anythinktech.com,adx.zuoyebang.com,aikanvod.miguvideo.com,alittle-tea.oss-cn-shanghai.aliyuncs.com,amap-aos-info-nogw.amap.com,ap.dongqiudi.com,api-a.soulapp.cn,api-access.pangolin-sdk-toutiao.com,api-account.soulapp.cn,api-fouth-mem.huazhu.com,api-sams.walmartmobile.cn,api-ucc.soulapp.cn,api-user.soulapp.cn,api.00bang.cn,api.21ec74.com,api.abema.io,api.ahmobile.cn,api.blibee.com,api.coolapk.com,api.dnurse.com,api.douban.com,api.gameplus.qq.com,api.gamer.com.tw,api.gotokeep.com,api.hellobike.com,api.internetofcity.cn,api.ireader.mobi,api.izuiyou.com,api.jxedt.com,api.kmovie.gifshow.com,api.kuaidihelp.com,api.kurobbs.com,api.mcd.cn,api.medlive.cn,api.merach.com,api.moomoo.com,api.musical.ly,api.pinduoduo.com,api.qd-metro.com,api.sfacg.com,api.smart.jd.com,api.sodalife.xyz,api.songguo7.com,api.tipsoon.com,api.ulife.group,api.vistopia.com.cn,api.weibo.cn,api.wmpvp.com,api.xiachufang.com,api.xiaoheihe.cn,api.yonghuivip.com,api.ys7.com,api.zcool.com.cn,api.zhihu.com,api0.musical.ly,api1.34580.com,api1.musical.ly,api2.musical.ly,api2.picooc.com,api3.cls.cn,api3.musical.ly,api4.musical.ly,api5.musical.ly,api6.musical.ly,api7.musical.ly,api8.musical.ly,api9.musical.ly,apiproxy.zuche.com,apis.alenable.com,app-api.medsci.cn,app-cdn.2q10.com,app-gateway.leisuapi.com,app-gw.csdn.net,app.10099.com.cn,app.api.qjjfin.com,app.bilibili.com,app.c.nf.migu.cn,app.duxiaoman.com,app.flymodem.com.cn,app.hbooker.com,app.homeinns.com,app.ibuscloud.com,app.jiantou8.com,app.peopleapp.com,app.zhuanzhuan.com,appactive.1234567.com.cn,appcloud2.zhihu.com,apps.api.ke.com,appuser-static.huolala.cn,axxd.xmseeyouyima.com,babytree.com,bbs-api.miyoushe.com,bgw.xinyue.qq.com,booking.bestwehotel.com,boot.weibo.com,c.m.163.com,c.tieba.baidu.com,cap.caocaokeji.cn,capi.lkcoffee.com,capis-w.didapinche.com,carapp.gtmc.com.cn,careapi.oclean.com,ccsp-egmas.sf-express.com,cdke.youdao.com,cdn-evone-ceph.echargenet.com,cdn.cmgadx.com,cdn.w3.chelaileapp.cn,cdn.web.chelaile.net.cn,cdns.chinastock.com.cn,client-api-v2.oray.com,client-api.oray.com,client.app.coc.10086.cn,client.tujia.com,cmt.comp.360os.com,cn-acs.m.cainiao.com,cn-app.narwaltech.com,comapi.reader.qq.com,comicapi.manhuashe.com,commontgw.reader.qq.com,compus.xiaofubao.com,conf.diditaxi.com.cn,cq11344-app-https-api-1.ictun.com,ct.xiaojukeji.com,customer-app.sto.cn,data-collector.soulapp.cn,dcloud.net.cn,device-box.onethingpcs.com,didapinche.com,dj.palmestore.com,djcapp.game.qq.com,dq.dxy.cn,dsp.fcbox.com,dynamicad.kfc.com.cn,eastmoney.com,edith.xiaohongshu.com,entree-ws.igetget.com,entry.ubixioe.com,esdk.tymcdn.com,evs.500.com,fc-video.cdn.bcebos.com,fenbi.com,file.dian.so,file.mylyg.net,frodo.douban.com,ftapi.10jqka.com.cn,fuwu.nhsa.gov.cn,gameapi.hellobike.com,games.mobileapi.hupu.com,gateway-api.dushu365.com,gateway-mobile-gray.soulapp.cn,gateway.36kr.com,gateway.abite.com,gateway.shouqiev.com,gateway2.etnet.com.hk,gd.10086.cn,gha.ghac.cn,gongdu.youshu.cc,gorgon.youdao.com,grpc.biliapi.net,guide-acs.m.taobao.com,gw-app-gateway.gwmapp-w.com,gw-passenger-wap.01zhuanche.com,gw-passenger.01zhuanche.com,gw.csdn.net,gx.10086.cn,hc-ssp.sm.cn,hcz-member.pingan.com.cn,hd.mina.mi.com,hdgateway.zto.com,hfapp-service.qweather.net,hkj178.com,home.mi.com,home.umetrip.com,htwkop.xiaojukeji.com,hwimg.beingfine.cn,hwy-gapi.bestwehotel.com,hxqapi.hiyun.tv,i.ys7.com,i.zhaojinapp.com,i0.hoopchina.com.cn,i1.hoopchina.com.cn,i2.hoopchina.com.cn,i3.hoopchina.com.cn,i4.hoopchina.com.cn,i5.hoopchina.com.cn,i6.hoopchina.com.cn,i7.hoopchina.com.cn,i8.hoopchina.com.cn,i9.hoopchina.com.cn,iface.iqiyi.com,iface2.iqiyi.com,igetcool-gateway.igetcool.com,images.qmai.cn,interface.music.163.com,interface0.music.163.com,interface1.music.163.com,interface2.music.163.com,interface3.music.163.com,interface4.music.163.com,interface5.music.163.com,interface6.music.163.com,interface7.music.163.com,interface8.music.163.com,interface9.music.163.com,intl.iqiyi.com,iobs.pingan.com.cn,iphone.ac.qq.com,issuecdn.baidupcs.com,iyes.youku.com,j1.pupuapi.com,jdread-api.jd.com,jianying.com,js-ad.ayximgs.com,js-ad.ayximgs.com.ad-universe-cdn.hzhcbkj.cn,jz.wacaijizhang.com,kjp.cupid.iqiyi.com,lchttpapi.xczim.com,learnywhere.cn,lens.leoao.com,lf.snssdk.com,lop-proxy.jd.com,m-adphone.wenhua.com.cn,m-cloud.zhihu.com,m.api.shaoxing.com.cn,m.ctrip.com,m.douban.com,m.meitun.com,m.msyc.cc,m.sd.10086.cn,m.stock.pingan.com,m.you.163.com,m0.amap.com,m1.amap.com,m2.amap.com,m3.amap.com,m4.amap.com,m5.amap.com,m6.amap.com,m7.amap.com,m8.amap.com,m9.amap.com,maicai.api.ddxq.mobi,mama.dxy.com,mapi.weibo.cn,mapi.weibo.com,mea.meitudata.com,media-service.soulapp.cn,member.alipan.com,member.lxjchina.com.cn,mi.gdt.qq.com,minicap.caocaokeji.cn,miniprogram.ishansong.com,mix-api.camera360.com,mlol.qt.qq.com,mob.bz.mgtv.com,mobads.baidu.com,mobile-api.imlaidian.com,mobile.api.mgtv.com,mobile.da.mgtv.com,mobile.laichon.com,mobileapi-v6.elong.com,mobileapi.xiamenair.com,mp.weixin.qq.com,mpos-pic.helipay.com,mxsa.mxbc.net,ndstatic.cdn.bcebos.com,new.vip.weibo.cn,newapp2.szsmk.com,newsuperapp.ftms.com.cn,notify.baicizhan.com,nuc.api.mgtv.com,oneapp-api.faw-vw.com,open.78dm.net,open.e.kuaishou.com,open.fitdays.cn,optimus-ads.amap.com,orders.kfc.com.cn,oss.umetrip.com,p0.pipi.cn,pages.xiaohongshu.com,pan-api.bitqiu.com,passenger.t3go.cn,passengerapi.saicmobility.com,patientgate.91160.com,pcvideoyd.titan.mgtv.com,pinggai.caixin.com,pipi.4kya.com,pjlapi.paojd.cn,plt.yorentown.com,poplayer.template.alibaba.com,post.soulapp.cn,preload-click.uve.weibo.com,preload-impression.uve.weibo.com,promotion.medlive.cn,pzoap.moedot.net,qadx.qinlinad.com,qapi.huolala.cn,qcwx.medproad.com,qde.qunar.com,qt.qq.com,quanguo.mygolbs.com,r.inews.qq.com,referee.xiaohongshu.com,render-oss-cdn.amap.com,rengine-platform.llsapp.com,res.hongyibo.com.cn,res.kfc.com.cn,res.pizzahut.com.cn,res.xiaojukeji.com,restapi.iyunmai.com,richmanapi.jxedt.com,router-app-api.jdcloud.com,rp.hpplay.cn,s.jiediankeji.com,saad.ms.zhangyue.net,sdk.alibaba.com.ailbaba.me,sdk.tianmu.mobi,sdkapp.uve.weibo.com,security.wechat.com,sf3-fe-tos.pglstatp-toutiao.com,sh-gateway.shihuo.cn,shop-api.retail.mi.com,shop.laichon.com,siteapi.zaixs.com,smarket.dian.so,smsrebuild1.mail.10086.cn,sns.amap.com,ssp.soulapp.cn,staticsns.cdn.bcebos.com,sto-customer-app.oss-cn-shanghai.aliyuncs.co,sto-customer-app.oss-cn-shanghai.aliyuncs.com,superapp.xgimi.com,supplier-api.imdada.cn,suyun-guest.daojia.com,t1.market.xiaomi.com,t7z.cupid.iqiyi.com,tcmobileapi.17usoft.com,td.cgmcare.cn,tg.feidee.com,tipatipa.xyz,tk.lanjiyin.com,tk.lanjiyin.com.cn,tm-api.pin-dao.cn,top-widgets-api.xiaozujian.com,tqt.weibo.cn,triangle.wearemanner.com,u0.iqiyipic.com,u1.iqiyipic.com,u2.iqiyipic.com,u3.iqiyipic.com,u4.iqiyipic.com,u5.iqiyipic.com,u6.iqiyipic.com,u7.iqiyipic.com,u8.iqiyipic.com,u9.iqiyipic.com,ucmp.sf-express.com,umetrip.com,vidz.3hxq.cn,vip7.fzwdyy.cn,wallpaper.soutushenqi.com,wbapp.uve.weibo.com,wcprd.hilton.com,wcprd.hilton.com.cn,weathercn.com,web-opin.bestwehotel.com,webapi.qmai.cn,webchatapp.fcbox.com,wechat-api.i-xiaoma.com.cn,weibointl.api.weibo.cn,weibointl.api.weibo.com,weixin110.qq.com,www.ahzs10000.com,www.ctm.net,www.deppon.com,www.flyert.com,www.kujiale.com,www.pansearch.me,www.xiaohongshu.com,www.xqpark.cn,www.zhihu.com,www.zjyilin.com,wx.bthhotels.com,wx.mygolbs.com,wxapp.bestwehotel.com,wxproj.seeyouyima.com,wxs-weixin.sd.zhumanggroup.com,xapi.xinmanhua.net,xyst.yuanfudao.com,y.gtimg.cn,yanxuan.nosdn.127.net,you.163.com,ytmsout.radio.cn,yxyapi2.yuxueyuan.cn,yyfapi.huatu.com,zdmimg.com,zhangyuyidong.cn,zhstatic.zhihu.com,zhuanlan.zhihu.com,zjdr666.com,zjh5api.ott4china.com,zjmbank.js96008.com,zlsdk.1rtb.net,zongheng.com,ztoread.ziroom.com

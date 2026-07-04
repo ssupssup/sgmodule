@@ -238,7 +238,6 @@ ALWAYS_INJECT_DOMAINS = [
     "mobads.baidu.com",
     "wn.pos.baidu.com",
     "mobads-logs.baidu.com",
-    "nsclick.baidu.com",
     "union.baidu.com",
     "mtj.baidu.com",
     "eclick.baidu.com",
@@ -287,8 +286,6 @@ ALWAYS_INJECT_DOMAINS = [
     "ali-stats.jpush.cn",
     "stats.jpush.cn",
     
-    # Baidu Sofire (百度热更新/广告推送)
-    "sofire.baidu.com",
     
     # Sensors Data Analytics (神策分析数据埋点 - 阻断广告个性化追踪并加速)
     "sensors-collect-prod.bestwehotel.com",
@@ -722,15 +719,16 @@ SDK_BLOCK_RULES = [
     "DOMAIN-SUFFIX,tianmu.mobi,REJECT-200",
     "DOMAIN-SUFFIX,1rtb.net,REJECT-200",
     
+    # 百度 HTTPDNS 拦截（防贴吧等 App 绕过域名规则）
+    "IP-CIDR,180.76.76.200/32,REJECT-200",
+    
     # PCDN / 视频上传劫持 拦截
     "DOMAIN-SUFFIX,pkoplink.com,REJECT",
     "DOMAIN-SUFFIX,sjxydc.com,REJECT"
 ]
 
 MANDATORY_MITM_DOMAINS = [
-    # 百度与贴吧
-    "tieba.baidu.com",
-    "tiebac.baidu.com",
+    # 百度与贴吧（移出主站域名，保留 c. 用去广告，彻底解决登录死循环）
     "c.tieba.baidu.com",
     
     # 豆瓣
@@ -754,7 +752,6 @@ MANDATORY_MITM_DOMAINS = [
     "boot.weibo.com",                # 微博
     "preload-click.uve.weibo.com",   # 微博
     "preload-impression.uve.weibo.com", # 微博
-    "gw.api.ddxq.mobi",              # 叮咚买菜
     "weathercn.com",                 # 天气通
     "ads-img-al.xhscdn.com",         # 小红书
     "zhstatic.zhihu.com",            # 知乎
@@ -782,6 +779,8 @@ MANDATORY_MITM_DOMAINS = [
 ]
 
 CUSTOM_REWRITE_RULES = [
+    # 叮咚买菜 App 开屏广告拦截（静态放行，彻底消除 JS 挂起和断网）
+    {'text': '^https?:\/\/maicai\.api\.ddxq\.mobi\/advert\/ - reject-200', 'pattern': '^https?:\/\/maicai\.api\.ddxq\.mobi\/advert\/', 'priority': 0, 'app': '叮咚买菜'},
     # 豆瓣 App 开屏与内含广告
     {'text': '^https:\/\/api\.douban\.com\/v\d\/app_ads\/splash - reject-dict', 'pattern': '^https:\/\/api\.douban\.com\/v\d\/app_ads\/splash', 'priority': 0, 'app': '豆瓣'},
     {'text': '^https:\/\/frodo\.douban\.com\/api\/v\d\/app_ads\/splash - reject-dict', 'pattern': '^https:\/\/frodo\.douban\.com\/api\/v\d\/app_ads\/splash', 'priority': 0, 'app': '豆瓣'},
@@ -1292,7 +1291,16 @@ def generate():
         "DOMAIN,msmp.abchina.com.cn,DIRECT",
         "DOMAIN,log.cmbchina.com,DIRECT",
         "DOMAIN,httpdns.music.163.com,DIRECT",
-        "DOMAIN,smartad.10010.com,DIRECT"
+        "DOMAIN,smartad.10010.com,DIRECT",
+        # 解决宝宝知道等百度系 App 误杀，恢复推荐和视频加载
+        "DOMAIN,sofire.baidu.com,DIRECT",
+        "DOMAIN,nsclick.baidu.com,DIRECT",
+        # 解决亚马逊海外购加载报错问题，绕过代理解密风控
+        "DOMAIN-SUFFIX,amazon.com,DIRECT",
+        "DOMAIN-SUFFIX,amazon.cn,DIRECT",
+        "DOMAIN-SUFFIX,media-amazon.com,DIRECT",
+        "DOMAIN-SUFFIX,ssl-images-amazon.com,DIRECT",
+        "DOMAIN-SUFFIX,amazon-adsystem.com,DIRECT"
     ]
 
     with open(output_path, "w", encoding="utf-8") as f:
