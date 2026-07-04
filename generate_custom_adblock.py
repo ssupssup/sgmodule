@@ -719,8 +719,8 @@ SDK_BLOCK_RULES = [
     "DOMAIN-SUFFIX,tianmu.mobi,REJECT-200",
     "DOMAIN-SUFFIX,1rtb.net,REJECT-200",
     
-    # 百度 HTTPDNS 拦截（防贴吧等 App 绕过域名规则）
-    "IP-CIDR,180.76.76.200/32,REJECT-200",
+    # 百度 HTTPDNS 拦截（防贴吧等 App 绕过域名规则，使用 REJECT-NO-DROP 以触发常规 DNS 降级回退）
+    "IP-CIDR,180.76.76.200/32,REJECT-NO-DROP",
     
     # PCDN / 视频上传劫持 拦截
     "DOMAIN-SUFFIX,pkoplink.com,REJECT",
@@ -728,8 +728,9 @@ SDK_BLOCK_RULES = [
 ]
 
 MANDATORY_MITM_DOMAINS = [
-    # 百度与贴吧（移出主站域名，保留 c. 用去广告，彻底解决登录死循环）
+    # 百度与贴吧（移出主站域名，保留 c. 和 tiebac. 用去广告，彻底解决登录死循环）
     "c.tieba.baidu.com",
+    "tiebac.baidu.com",
     
     # 豆瓣
     "api.douban.com",
@@ -775,12 +776,17 @@ MANDATORY_MITM_DOMAINS = [
     # 新增开屏解密以防绕过
     "babytree.com",                  # 宝宝树孕育
     "jianying.com",                  # 剪映
-    "lf.snssdk.com"                  # 字节系数据及开屏广告上报 (剪映等)
+    "lf.snssdk.com",                 # 字节系数据及开屏广告上报 (剪映等)
+    "maicai.api.ddxq.mobi"           # 叮咚买菜开屏域名
 ]
 
 CUSTOM_REWRITE_RULES = [
     # 叮咚买菜 App 开屏广告拦截（静态放行，彻底消除 JS 挂起和断网）
-    {'text': '^https?:\/\/maicai\.api\.ddxq\.mobi\/advert\/ - reject-200', 'pattern': '^https?:\/\/maicai\.api\.ddxq\.mobi\/advert\/', 'priority': 0, 'app': '叮咚买菜'},
+    {'text': '^https?:\/\/maicai\.api\.ddxq\.mobi\/advert\/ reject-200', 'pattern': '^https?:\/\/maicai\.api\.ddxq\.mobi\/advert\/', 'priority': 0, 'app': '叮咚买菜'},
+    # 百度贴吧 App 开屏与广告接口静态拦截补充 (防绕过且不伤登录与白屏)
+    {'text': '^https?:\/\/(c|tiebac)\.tieba\.baidu\.com\/c\/s\/(ad|splash)\/ reject-dict', 'pattern': '^https?:\/\/(c|tiebac)\.tieba\.baidu\.com\/c\/s\/(ad|splash)\/', 'priority': 0, 'app': '百度贴吧'},
+    {'text': '^https?:\/\/(c|tiebac)\.tieba\.baidu\.com\/c\/f\/ad\/ reject-dict', 'pattern': '^https?:\/\/(c|tiebac)\.tieba\.baidu\.com\/c\/f\/ad\/', 'priority': 0, 'app': '百度贴吧'},
+    {'text': '^https?:\/\/tbapi\.baidu\.com\/c\/s\/(ad|splash)\/ reject-dict', 'pattern': '^https?:\/\/tbapi\.baidu\.com\/c\/s\/(ad|splash)\/', 'priority': 0, 'app': '百度贴吧'},
     # 豆瓣 App 开屏与内含广告
     {'text': '^https:\/\/api\.douban\.com\/v\d\/app_ads\/splash - reject-dict', 'pattern': '^https:\/\/api\.douban\.com\/v\d\/app_ads\/splash', 'priority': 0, 'app': '豆瓣'},
     {'text': '^https:\/\/frodo\.douban\.com\/api\/v\d\/app_ads\/splash - reject-dict', 'pattern': '^https:\/\/frodo\.douban\.com\/api\/v\d\/app_ads\/splash', 'priority': 0, 'app': '豆瓣'},
