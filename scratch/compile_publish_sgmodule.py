@@ -51,55 +51,59 @@ def main():
     else:
         print("⚠️ 警告：未找到 .gitignore 文件！")
 
-    # 3. 远程发布到 iStoreOS 静态服务器
-    print("\n📡 [3/3] 远程发布模块至 iStoreOS (192.168.2.1:2200)...")
+    # 3. 自动提交并推送至 GitHub 远程仓库
+    print("\n📡 [3/3] 自动提交并推送模块至 GitHub 远程仓库...")
     
-    router_host = "root@192.168.2.1"
-    router_port = "2200"
-    ssh_key = "/Users/shizupeng/.ssh/id_ed25519_istoreos"
-    remote_dir = "/www/sgmodule"
-    
-    # 创建远程目录
-    mkdir_cmd = f"ssh -i {ssh_key} -p {router_port} -o ConnectTimeout=5 {router_host} 'mkdir -p {remote_dir}'"
-    success, err = run_command(mkdir_cmd)
+    # 检查是否有文件改动
+    success, status_out = run_command(["git", "status", "--porcelain"], cwd=sgmodule_dir)
     if not success:
-        print("❌ 远程连接软路由失败，请检查是否处于局域网环境、SSH 2200 端口以及公钥免密登录。")
+        print("❌ 获取 git 状态失败！")
         sys.exit(1)
         
-    # 上传模块文件
-    sgmodule_files = [
+    if not status_out.strip():
+        print("✅ 无任何文件变动，无需推送 GitHub。")
+        print("\n🎉 小火箭模块本地编译验证已完成！")
+        return
+
+    # 添加需要提交的小火箭相关文件
+    files_to_add = [
+        "generate_custom_adblock.py",
+        "generate_ai.py",
+        "generate_talkatone.py",
         "custom_adblock.sgmodule",
         "ai.sgmodule",
         "talkatone_proxy.sgmodule",
         "talkatone_adblock.sgmodule"
     ]
     
-    upload_success = True
-    for f in sgmodule_files:
-        local_file = os.path.join(sgmodule_dir, f)
-        if not os.path.exists(local_file):
-            print(f"❌ 未找到生成的模块文件: {local_file}")
-            upload_success = False
-            continue
-            
-        scp_cmd = f"scp -O -i {ssh_key} -P {router_port} -o ConnectTimeout=5 {local_file} {router_host}:{remote_dir}/"
-        ok, err = run_command(scp_cmd)
-        if not ok:
-            print(f"❌ 上传 {f} 失败！")
-            upload_success = False
-        else:
-            print(f"✅ 成功发布: {f}")
-            
-    if upload_success:
-        print("\n🎉 小火箭模块本地编译并远程发布成功！")
-        print("📱 手机端本地订阅地址如下：")
-        print(f"   - 定制去广告模块: http://192.168.2.1/sgmodule/custom_adblock.sgmodule")
-        print(f"   - AI 分流代理模块: http://192.168.2.1/sgmodule/ai.sgmodule")
-        print(f"   - Talkatone 代理模块: http://192.168.2.1/sgmodule/talkatone_proxy.sgmodule")
-        print(f"   - Talkatone 拦截模块: http://192.168.2.1/sgmodule/talkatone_adblock.sgmodule")
-    else:
-        print("❌ 部分模块发布失败，请检查错误日志。")
+    # 确保只添加存在的文件
+    existing_files = [f for f in files_to_add if os.path.exists(os.path.join(sgmodule_dir, f))]
+    
+    print("git add...")
+    success, _ = run_command(["git", "add"] + existing_files, cwd=sgmodule_dir)
+    if not success:
+        print("❌ git add 失败！")
         sys.exit(1)
+        
+    # 提交变动
+    print("git commit...")
+    success, commit_out = run_command(["git", "commit", "-m", "chore: compile and update shadowrocket modules"], cwd=sgmodule_dir)
+    if not success:
+        # 如果是因为没东西提交报错，可以忽略
+        if "nothing to commit" in commit_out:
+            print("✅ 没有需要提交的内容。")
+        else:
+            print(f"❌ git commit 失败！\n{commit_out}")
+            sys.exit(1)
+            
+    # 推送至 GitHub
+    print("git push...")
+    success, push_out = run_command(["git", "push"], cwd=sgmodule_dir)
+    if not success:
+        print(f"❌ git push 失败！\n{push_out}")
+        sys.exit(1)
+        
+    print("\n🎉 小火箭 4 个模块本地编译验证成功并已推送至 GitHub 远程仓库！")
 
 if __name__ == "__main__":
     main()
