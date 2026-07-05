@@ -246,7 +246,6 @@ ALWAYS_INJECT_DOMAINS = [
     "bdbus-turbonet.baidu.com",
     "bgg.baidu.com",
     "gsp0.baidu.com",
-    "tieba-ares.cdn.bcebos.com",
     
     # ByteDance Pangle
     "api-access.pangolin-sdk-toutiao-b.com",
@@ -797,6 +796,9 @@ CUSTOM_REWRITE_RULES = [
     {'text': '^https?:\/\/c\.tieba\.baidu\.com\/c\/f\/ad\/ reject-dict', 'pattern': '^https?:\/\/c\.tieba\.baidu\.com\/c\/f\/ad\/', 'priority': 0, 'app': '百度贴吧'},
     {'text': '^https?:\/\/tbapi\.baidu\.com\/c\/s\/(ad|splashSchedule|splash) reject-dict', 'pattern': '^https?:\/\/tbapi\.baidu\.com\/c\/s\/(ad|splashSchedule|splash)', 'priority': 0, 'app': '百度贴吧'},
     {'text': '^https?:\/\/tbapi\.baidu\.com\/c\/f\/ad\/ reject-dict', 'pattern': '^https?:\/\/tbapi\.baidu\.com\/c\/f\/ad\/', 'priority': 0, 'app': '百度贴吧'},
+    # 百度移动广告联盟重写拦截 (解决贴吧及其他百度系开屏广告顽疾，以 reject-200 响应空包)
+    {'text': '^https?:\/\/mobads\.baidu\.com\/ads\/pa\/ reject-200', 'pattern': '^https?:\/\/mobads\.baidu\.com\/ads\/pa\/', 'priority': 0, 'app': '百度联盟广告'},
+    {'text': '^https?:\/\/mobads\.baidu\.com\/[a-zA-Z0-9_\/]+\.php reject-200', 'pattern': '^https?:\/\/mobads\.baidu\.com\/[a-zA-Z0-9_\/]+\.php', 'priority': 0, 'app': '百度联盟广告'},
     # 豆瓣 App 开屏与内含广告 (改回标准的 reject 动作以保证模块完美读取)
     {'text': '^https:\/\/api\.douban\.com\/v\d\/app_ads\/splash reject', 'pattern': '^https:\/\/api\.douban\.com\/v\d\/app_ads\/splash', 'priority': 0, 'app': '豆瓣'},
     {'text': '^https:\/\/frodo\.douban\.com\/api\/v\d\/app_ads\/splash reject', 'pattern': '^https:\/\/frodo\.douban\.com\/api\/v\d\/app_ads\/splash', 'priority': 0, 'app': '豆瓣'},
