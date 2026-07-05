@@ -280,7 +280,14 @@ ALWAYS_INJECT_DOMAINS = [
     "iadmatapk.nosdn.127.net",
     
     # Ctrip Ad Retargeting (携程广告重定向追踪)
-    "retargeting.ctrip.com"
+    "retargeting.ctrip.com",
+
+    # 2026-07-05 双端对齐补齐的去广告拦截域名
+    "ads.twitter.com",
+    "tanx.com",
+    "adm.10jqka.com.cn",
+    "f10.baidu.com",
+    "fc-.cdn.bcebos.com"
 ]
 
 ALWAYS_KEEP_KEYWORDS = [
@@ -823,7 +830,7 @@ def fetch_and_extract_dynamic_rules(target_apps):
     import urllib.request
     import urllib.error
     dynamic_rules = []
-    url = "https://raw.githubusercontent.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever/release/sr_ad_only.conf"
+    url = "https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_ad_only.conf"
     
     print("Downloading Johnshall rules for dynamic extraction...")
     try:
