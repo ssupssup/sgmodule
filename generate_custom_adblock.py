@@ -284,6 +284,7 @@ ALWAYS_INJECT_DOMAINS = [
 
     # 2026-07-05 双端对齐补齐的去广告拦截域名
     "ads.twitter.com",
+    "ads-api.x.com",
     "tanx.com",
     "adm.10jqka.com.cn",
     "f10.baidu.com",
