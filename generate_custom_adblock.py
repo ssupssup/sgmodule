@@ -721,8 +721,10 @@ SDK_BLOCK_RULES = [
 ]
 
 MANDATORY_MITM_DOMAINS = [
-    # 百度与贴吧（只保留核心广告解密域名，移出 tiebac 保证登录与设置项正常）
+    # 百度与贴吧（重新解密主域名以使去开屏重写生效，依赖直连白名单防御登录风控）
     "c.tieba.baidu.com",
+    "tieba.baidu.com",
+    "tiebac.baidu.com",
     
     # 豆瓣
     "api.douban.com",
