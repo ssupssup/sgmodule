@@ -224,16 +224,6 @@ ALWAYS_INJECT_DOMAINS = [
     "tangram.e.qq.com",
     "oth.str.mdt.qq.com",
     
-    # Umeng Analytics & Logging (友盟统计)
-    "resolve.umeng.com",
-    "cnlogs.umeng.com",
-    "cnlogs.umengcloud.com",
-    "errnewlog.umeng.com",
-    "utoken.umeng.com",
-    
-    # Tencent Bugly (腾讯崩溃上报)
-    "ios.bugly.qq.com",
-    
     # Baidu Mobads
     "mobads.baidu.com",
     "wn.pos.baidu.com",
@@ -1319,7 +1309,12 @@ def generate():
         "DOMAIN-SUFFIX,jpush.cn,DIRECT",
         # 彻底解决百度广告联盟强证书校验导致死循环重连发热的异常
         "DOMAIN-SUFFIX,mobads.baidu.com,DIRECT",
-        "DOMAIN-SUFFIX,mobads-logs.baidu.com,DIRECT"
+        "DOMAIN-SUFFIX,mobads-logs.baidu.com,DIRECT",
+        # 彻底解决崩溃统计、打点与归因阻断引发后台重试发热的异常
+        "DOMAIN,ios.bugly.qq.com,DIRECT",
+        "DOMAIN-SUFFIX,umeng.com,DIRECT",
+        "DOMAIN-SUFFIX,umengcloud.com,DIRECT",
+        "DOMAIN-SUFFIX,adjust.com,DIRECT"
     ]
 
     with open(output_path, "w", encoding="utf-8") as f:

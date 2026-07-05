@@ -32,7 +32,10 @@ WHITELIST_DOMAINS = [
     "amazonaws-china.com",
     "cloudfront.net",
     "amazon.com",
-    "amazon-adsystem.com"
+    "amazon-adsystem.com",
+    # 彻底解决归因/崩溃统计拦截导致后台重试发热
+    "adjust.com",
+    "crashlytics.com"
 ]
 
 def download_url(url):
