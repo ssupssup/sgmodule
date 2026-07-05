@@ -239,6 +239,9 @@ ALWAYS_INJECT_DOMAINS = [
     "wn.pos.baidu.com",
     "mobads-logs.baidu.com",
     "union.baidu.com",
+    "ada.baidu.com",
+    "als.baidu.com",
+    "afd.baidu.com",
     
     # ByteDance Pangle
     "api-access.pangolin-sdk-toutiao-b.com",

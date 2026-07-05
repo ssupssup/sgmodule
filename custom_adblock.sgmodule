@@ -1,6 +1,6 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-07-05 08:24:25 | Deep ad block & UI purification customized for user's installed apps.
-#!total=1175
+#!desc=最近更新: 2026-07-05 08:35:58 | Deep ad block & UI purification customized for user's installed apps.
+#!total=1167
 
 [Rule]
 # === Bypass Rules for WeChat, Alipay, Bank and Login App anomalies ===
@@ -60,10 +60,6 @@ DOMAIN-SUFFIX,1rtb.net,REJECT-200
 IP-CIDR,180.76.76.200/32,REJECT-NO-DROP
 DOMAIN-SUFFIX,pkoplink.com,REJECT
 DOMAIN-SUFFIX,sjxydc.com,REJECT
-DOMAIN-SUFFIX,analytics.pointdrive.linkedin.com,REJECT
-DOMAIN-SUFFIX,ads.linkedin.com,REJECT
-DOMAIN-SUFFIX,a1.firefoxchina.cn,REJECT
-DOMAIN-SUFFIX,outlookads.live.com,REJECT
 # === Compiled App Rules ===
 DOMAIN,sdkapp.uve.weibo.com,DIRECT
 DOMAIN,adstrategy.biz.weibo.com,REJECT
@@ -102,6 +98,9 @@ DOMAIN,mobads.baidu.com,REJECT-200
 DOMAIN,wn.pos.baidu.com,REJECT-200
 DOMAIN,mobads-logs.baidu.com,REJECT-200
 DOMAIN,union.baidu.com,REJECT-200
+DOMAIN,ada.baidu.com,REJECT-200
+DOMAIN,als.baidu.com,REJECT-200
+DOMAIN,afd.baidu.com,REJECT-200
 DOMAIN,api-access.pangolin-sdk-toutiao-b.com,REJECT-200
 DOMAIN,pangle.io,REJECT-200
 DOMAIN,sdk.beizi.biz,REJECT-200
@@ -146,8 +145,6 @@ URL-REGEX,^https?:\/\/api\.zhihu\.com\/moments\/recent,REJECT-DICT
 URL-REGEX,^https?:\/\/api\.zhihu\.com\/root\/window,REJECT-DICT
 URL-REGEX,^https?:\/\/api\.zhihu\.com\/settings\/new\/notification,REJECT
 DOMAIN-WILDCARD,*pcdn*.biliapi.net,REJECT
-DOMAIN-SUFFIX,erebor.douban.com,REJECT
-DOMAIN-SUFFIX,ad.doubanio.com,REJECT
 DOMAIN,118.89.204.198,REJECT
 IP-CIDR,118.89.204.198/32,REJECT
 DOMAIN-SUFFIX,apoll.m.taobao.com,REJECT
@@ -394,11 +391,6 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/www\.didapinche\.com\/app\/adstat\/ - reject
 ^https?:\/\/www\.xiaohongshu\.com\/api\/sns\/v\d\/ads\/ - reject-dict
 ^https?:\/\/www\.xiaohongshu\.com\/api\/sns\/v\d\/system_service\/splash_config - reject
-^https?:\/\/api\.douban\.com\/v\d\/app_ads\/ - reject-dict
-^https?:\/\/api\.douban\.com\/b.*\/common_ads\?.* - reject-dict
-^https?:\/\/img\d\.doubanio\.com\/view\/dale-online\/dale_ad\/ - reject
-^https?:\/\/frodo\.douban\.com\/api\/v2\/movie\/banner - reject
-^https?:\/\/erebor\.douban\.com\/count\/\?ad= - reject
 (?i)\b\.ott\.cibntv\.net\/[\w\/-]+?\.mp4\?sid= - reject
 (?i)\b\/(outadservice|ting\/preload)\/ - reject
 (?i)\b\/ad\/ - reject
@@ -576,6 +568,7 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/api\.coolapk\.com\/v6\/search\?.*type=hotSearch - reject-dict
 ^https?:\/\/api\.dangdang\.com\/mapi\d\/mobile\/init - reject
 ^https?:\/\/api\.dnurse\.com\/api\/boot\/get-latest-items - reject-200
+^https?:\/\/api\.douban\.com\/b.*\/common_ads\?.* - reject-dict
 ^https?:\/\/api\.futunn\.com\/v\d\/ad\/ - reject
 ^https?:\/\/api\.gameplus\.qq\.com\/community\.OnloadSrv\/GetPreloadScreenInfo - reject-200
 ^https?:\/\/api\.gamer\.com\.tw\/mobile_app\/anime\/v\d\/anime_get_question\.php - reject-dict
@@ -1121,7 +1114,6 @@ bilibili.helper.dynAll = type=http-response,pattern=^https:\/\/grpc\.biliapi\.ne
 淘宝_315581 = type=http-response,pattern=^https?:\/\/poplayer\.template\.alibaba\.com\/\w+\.json,script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/myBlockAds.js,requires-body=1
 航旅纵横_908b41 = type=http-response,pattern=^http?:\/\/(114\.115\.217\.129)|(home\.umetrip\.com)\/gateway\/api\/umetrip\/native$,script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/umetrip/umetrip_ads.js,requires-body=1
 12306 = type=http-request, pattern=^https?:\/\/ad\.12306\.cn\/ad\/ser\/getAdList, script-path=https://raw.githubusercontent.com/kokoryh/Script/master/js/12306.js, requires-body=true, timeout=60
-微信解除链接限制_9875cc = type=http-response,pattern=^https\:\/\/(weixin110\.qq|security.wechat)\.com\/cgi-bin\/mmspamsupport-bin\/newredirectconfirmcgi\?,script-path=https://raw.githubusercontent.com/zZPiglet/Task/master/asset/UnblockURLinWeChat.js,requires-body=1
 soul_d6cb74 = type=http-response,pattern=^https?://ssp\.soulapp\.cn\/,script-path=https://raw.githubusercontent.com/Xo776/byead/main/soul_ssp_ads.js,requires-body=1
 soul_253be9 = type=http-response,pattern=^https?:\/\/ssp\.soulapp\.cn\/api\/(q|ad\/config),script-path=https://raw.githubusercontent.com/Xo776/byead/main/soul_block.js,requires-body=1
 soul_7238af = type=http-request,pattern=^https?:\/\/data-collector\.soulapp\.cn\/api\/data\/report,script-path=https://raw.githubusercontent.com/Xo776/byead/main/soul_report_req.js,requires-body=1
