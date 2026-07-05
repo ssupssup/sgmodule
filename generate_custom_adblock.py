@@ -278,13 +278,6 @@ ALWAYS_INJECT_DOMAINS = [
     "log-api.pangolin-sdk-toutiao.com",
     "api-access.pangolin-sdk-toutiao.com",
     
-    # JPush Ads/Stats (极光推送广告统计)
-    "smartop-sdkapi.jiguang.cn",
-    "smartop-sdkapi-ipv6.jiguang.cn",
-    "ali-stats.jpush.cn",
-    "stats.jpush.cn",
-    
-    
     # Sensors Data Analytics (神策分析数据埋点 - 阻断广告个性化追踪并加速)
     "sensors-collect-prod.bestwehotel.com",
     "sensors-ma.bestwehotel.com",
@@ -700,7 +693,6 @@ SDK_BLOCK_RULES = [
     "AND,((protocol,udp),(dest-port,443),(domain-suffix,hubcloud.com.cn)),REJECT-NO-DROP",
     "AND,((protocol,udp),(dest-port,443),(domain-suffix,zztfly.com)),REJECT-NO-DROP",
     "AND,((protocol,udp),(dest-port,443),(domain-suffix,qtfm.cn)),REJECT-NO-DROP",
-    "AND,((protocol,udp),(dest-port,443),(domain-suffix,jiguang.cn)),REJECT-NO-DROP",
     "AND,((protocol,udp),(dest-port,443),(domain-suffix,sofire.baidu.com)),REJECT-NO-DROP",
     
     # 穿山甲
@@ -1306,7 +1298,10 @@ def generate():
         "DOMAIN-SUFFIX,baidupcs.com,DIRECT",
         "DOMAIN-SUFFIX,bdstatic.com,DIRECT",
         "DOMAIN-SUFFIX,tieba.com,DIRECT",
-        "DOMAIN-SUFFIX,tbapi.baidu.com,DIRECT"
+        "DOMAIN-SUFFIX,tbapi.baidu.com,DIRECT",
+        # 解决极光长连接被拦截引发 App 判定无网的异常（如宝宝知道）
+        "DOMAIN-SUFFIX,jiguang.cn,DIRECT",
+        "DOMAIN-SUFFIX,jpush.cn,DIRECT"
     ]
 
     with open(output_path, "w", encoding="utf-8") as f:
