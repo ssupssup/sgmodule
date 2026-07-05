@@ -779,10 +779,10 @@ CUSTOM_REWRITE_RULES = [
     # 叮咚买菜 App 开屏广告拦截（使用标准小火箭 reject 动作以保证 100% 兼容）
     {'text': '^https?:\/\/maicai\.api\.ddxq\.mobi\/advert\/ reject', 'pattern': '^https?:\/\/maicai\.api\.ddxq\.mobi\/advert\/', 'priority': 0, 'app': '叮咚买菜'},
     # 百度贴吧 App 开屏与广告接口静态拦截补充 (防绕过，修正斜杠脱靶与语法兼容)
-    {'text': '^https?:\/\/c\.tieba\.baidu\.com\/c\/s\/(ad|splashSchedule|splash) reject', 'pattern': '^https?:\/\/c\.tieba\.baidu\.com\/c\/s\/(ad|splashSchedule|splash)', 'priority': 0, 'app': '百度贴吧'},
-    {'text': '^https?:\/\/c\.tieba\.baidu\.com\/c\/f\/ad\/ reject', 'pattern': '^https?:\/\/c\.tieba\.baidu\.com\/c\/f\/ad\/', 'priority': 0, 'app': '百度贴吧'},
-    {'text': '^https?:\/\/tbapi\.baidu\.com\/c\/s\/(ad|splashSchedule|splash) reject', 'pattern': '^https?:\/\/tbapi\.baidu\.com\/c\/s\/(ad|splashSchedule|splash)', 'priority': 0, 'app': '百度贴吧'},
-    {'text': '^https?:\/\/tbapi\.baidu\.com\/c\/f\/ad\/ reject', 'pattern': '^https?:\/\/tbapi\.baidu\.com\/c\/f\/ad\/', 'priority': 0, 'app': '百度贴吧'},
+    {'text': '^https?:\/\/c\.tieba\.baidu\.com\/c\/s\/(ad|splashSchedule|splash) reject-dict', 'pattern': '^https?:\/\/c\.tieba\.baidu\.com\/c\/s\/(ad|splashSchedule|splash)', 'priority': 0, 'app': '百度贴吧'},
+    {'text': '^https?:\/\/c\.tieba\.baidu\.com\/c\/f\/ad\/ reject-dict', 'pattern': '^https?:\/\/c\.tieba\.baidu\.com\/c\/f\/ad\/', 'priority': 0, 'app': '百度贴吧'},
+    {'text': '^https?:\/\/tbapi\.baidu\.com\/c\/s\/(ad|splashSchedule|splash) reject-dict', 'pattern': '^https?:\/\/tbapi\.baidu\.com\/c\/s\/(ad|splashSchedule|splash)', 'priority': 0, 'app': '百度贴吧'},
+    {'text': '^https?:\/\/tbapi\.baidu\.com\/c\/f\/ad\/ reject-dict', 'pattern': '^https?:\/\/tbapi\.baidu\.com\/c\/f\/ad\/', 'priority': 0, 'app': '百度贴吧'},
     # 豆瓣 App 开屏与内含广告 (改回标准的 reject 动作以保证模块完美读取)
     {'text': '^https:\/\/api\.douban\.com\/v\d\/app_ads\/splash reject', 'pattern': '^https:\/\/api\.douban\.com\/v\d\/app_ads\/splash', 'priority': 0, 'app': '豆瓣'},
     {'text': '^https:\/\/frodo\.douban\.com\/api\/v\d\/app_ads\/splash reject', 'pattern': '^https:\/\/frodo\.douban\.com\/api\/v\d\/app_ads\/splash', 'priority': 0, 'app': '豆瓣'},
