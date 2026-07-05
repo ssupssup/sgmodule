@@ -226,13 +226,10 @@ ALWAYS_INJECT_DOMAINS = [
     
     # Baidu Mobads
     "mobads.baidu.com",
-    "wn.pos.baidu.com",
     "mobads-logs.baidu.com",
     "union.baidu.com",
     "ada.baidu.com",
     "als.baidu.com",
-    "afd.baidu.com",
-    "afdconf.baidu.com",
     "bdbus-turbonet.baidu.com",
     "bgg.baidu.com",
     "gsp0.baidu.com",
@@ -272,7 +269,6 @@ ALWAYS_INJECT_DOMAINS = [
     
     # Pangolin Additions (字节穿山甲补充)
     "api-access.pangolin-sdk-toutiao1.com",
-    "log-api.pangolin-sdk-toutiao.com",
     "api-access.pangolin-sdk-toutiao.com",
     
     # Sensors Data Analytics (神策分析数据埋点 - 阻断广告个性化追踪并加速)
@@ -1314,7 +1310,12 @@ def generate():
         "DOMAIN,ios.bugly.qq.com,DIRECT",
         "DOMAIN-SUFFIX,umeng.com,DIRECT",
         "DOMAIN-SUFFIX,umengcloud.com,DIRECT",
-        "DOMAIN-SUFFIX,adjust.com,DIRECT"
+        "DOMAIN-SUFFIX,adjust.com,DIRECT",
+        # 彻底解决百度/穿山甲广告埋点上报失败引起的高频重连发热
+        "DOMAIN,log-api.pangolin-sdk-toutiao.com,DIRECT",
+        "DOMAIN,wn.pos.baidu.com,DIRECT",
+        "DOMAIN,afd.baidu.com,DIRECT",
+        "DOMAIN,afdconf.baidu.com,DIRECT"
     ]
 
     with open(output_path, "w", encoding="utf-8") as f:
