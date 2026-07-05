@@ -239,8 +239,6 @@ ALWAYS_INJECT_DOMAINS = [
     "wn.pos.baidu.com",
     "mobads-logs.baidu.com",
     "union.baidu.com",
-    "mtj.baidu.com",
-    "eclick.baidu.com",
     
     # ByteDance Pangle
     "api-access.pangolin-sdk-toutiao-b.com",
@@ -776,7 +774,8 @@ MANDATORY_MITM_DOMAINS = [
     "babytree.com",                  # 宝宝树孕育
     "jianying.com",                  # 剪映
     "lf.snssdk.com",                 # 字节系数据及开屏广告上报 (剪映等)
-    "maicai.api.ddxq.mobi"           # 叮咚买菜开屏域名
+    "maicai.api.ddxq.mobi",          # 叮咚买菜开屏域名
+    "tbapi.baidu.com"                # 贴吧 API 子网关网域
 ]
 
 CUSTOM_REWRITE_RULES = [
@@ -785,6 +784,8 @@ CUSTOM_REWRITE_RULES = [
     # 百度贴吧 App 开屏与广告接口静态拦截补充 (防绕过，修正斜杠脱靶与语法兼容)
     {'text': '^https?:\/\/c\.tieba\.baidu\.com\/c\/s\/(ad|splashSchedule|splash) reject', 'pattern': '^https?:\/\/c\.tieba\.baidu\.com\/c\/s\/(ad|splashSchedule|splash)', 'priority': 0, 'app': '百度贴吧'},
     {'text': '^https?:\/\/c\.tieba\.baidu\.com\/c\/f\/ad\/ reject', 'pattern': '^https?:\/\/c\.tieba\.baidu\.com\/c\/f\/ad\/', 'priority': 0, 'app': '百度贴吧'},
+    {'text': '^https?:\/\/tbapi\.baidu\.com\/c\/s\/(ad|splashSchedule|splash) reject', 'pattern': '^https?:\/\/tbapi\.baidu\.com\/c\/s\/(ad|splashSchedule|splash)', 'priority': 0, 'app': '百度贴吧'},
+    {'text': '^https?:\/\/tbapi\.baidu\.com\/c\/f\/ad\/ reject', 'pattern': '^https?:\/\/tbapi\.baidu\.com\/c\/f\/ad\/', 'priority': 0, 'app': '百度贴吧'},
     # 豆瓣 App 开屏与内含广告 (改回标准的 reject 动作以保证模块完美读取)
     {'text': '^https:\/\/api\.douban\.com\/v\d\/app_ads\/splash reject', 'pattern': '^https:\/\/api\.douban\.com\/v\d\/app_ads\/splash', 'priority': 0, 'app': '豆瓣'},
     {'text': '^https:\/\/frodo\.douban\.com\/api\/v\d\/app_ads\/splash reject', 'pattern': '^https:\/\/frodo\.douban\.com\/api\/v\d\/app_ads\/splash', 'priority': 0, 'app': '豆瓣'},
