@@ -734,9 +734,6 @@ SDK_BLOCK_RULES = [
 ]
 
 MANDATORY_MITM_DOMAINS = [
-    # 百度与贴吧（永久移出主站与广告联盟以防发热和登录死循环，仅解密 c.tieba.baidu.com）
-    "c.tieba.baidu.com",
-    
     # 豆瓣
     "api.douban.com",
     "m.douban.com",
