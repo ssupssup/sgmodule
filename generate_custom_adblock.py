@@ -10,7 +10,7 @@ ssl._create_default_https_context = ssl._create_unverified_context
 # User's installed apps (excluding China Unicom)
 INSTALLED_APPS = [
     "BookPlayer", "微信", "FTPManager", "AVPlayer", "VLC", "海贝音乐", "MOMO陌陌", "EZMP3Pro", "抖音", 
-    "Edge Gallery", "探探", "闲鱼", "Telegram", "钉钉", "QQ", "航旅纵横", "豆包", "夸克", "京东", "豆瓣", 
+    "Edge Gallery", "探探", "闲鱼", "Telegram", "钉钉", "航旅纵横", "豆包", "夸克", "京东", "豆瓣", 
     "LocalSend", "百度网盘", "支付宝", "Chrome", "哔哩哔哩", "剪映", "百度地图", "淘宝", "网易云音乐", 
     "今日头条", "TikTok", "SOUL", "小红书", "米家", "铁路12306", "美团", "Ever Play", "知乎", "美图秀秀", 
     "大众点评", "iSub", "携程旅行", "萤石云视频", "GoodReader", "南方航空", "币安", "Gmail", "Bitget Wallet", 
@@ -140,6 +140,7 @@ APP_KEYWORDS = {
     "数字人民币": ["ecny"],
     "中国联合航空": ["cueair", "flycua"],
     "剪映": ["jianying", "capcut"],
+    "多点": ["dmall"],
 }
 
 # Apps that we will fetch from ddgksf2013 or Maasea instead of BlackMatrix7 (excluding China Unicom)
