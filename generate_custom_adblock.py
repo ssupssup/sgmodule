@@ -140,7 +140,6 @@ APP_KEYWORDS = {
     "数字人民币": ["ecny"],
     "中国联合航空": ["cueair", "flycua"],
     "剪映": ["jianying", "capcut"],
-    "多点": ["dmall"],
 }
 
 # Apps that we will fetch from ddgksf2013 or Maasea instead of BlackMatrix7 (excluding China Unicom)
@@ -810,9 +809,8 @@ CUSTOM_REWRITE_RULES = [
     {'text': '^https?:\/\/tg\.feidee\.com\/online_ad\/ reject', 'pattern': '^https?:\/\/tg\.feidee\.com\/online_ad\/', 'priority': 0, 'app': '随手记'},
     {'text': '^https?:\/\/tg\.feidee\.com\/vis-ad-engine-ws\/api\/ reject', 'pattern': '^https?:\/\/tg\.feidee\.com\/vis-ad-engine-ws\/api\/', 'priority': 0, 'app': '随手记'},
     
-    # 多点 App 广告拦截补充 (开屏广告及主页弹窗)
-    {'text': '^https?:\/\/cmsapi\.dmall\.com\/app\/home\/homepageStartUpPic reject', 'pattern': '^https?:\/\/cmsapi\.dmall\.com\/app\/home\/homepageStartUpPic', 'priority': 0, 'app': '多点'},
-    {'text': '^https?:\/\/flow\.dmall\.com\/app\/home\/pops reject', 'pattern': '^https?:\/\/flow\.dmall\.com\/app\/home\/pops', 'priority': 0, 'app': '多点'}
+    # 多点 App 广告拦截 (泛子域名本地 Reject 阻断，彻底解决远程 JS 超时放行及子域名逃逸)
+    {'text': '^https?:\/\/([a-z0-9\\-]+\\.)?dmall\\.com\\/app\\/home\\/(homepageStartUpPic|pops) reject', 'pattern': '^https?:\/\/([a-z0-9\\-]+\\.)?dmall\\.com\\/app\\/home\\/(homepageStartUpPic|pops)', 'priority': 0, 'app': '多点'}
 ]
 
 def extract_pattern(line, is_script=False):
