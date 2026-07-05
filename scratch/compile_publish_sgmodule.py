@@ -96,6 +96,10 @@ def main():
             print(f"❌ git commit 失败！\n{commit_out}")
             sys.exit(1)
             
+    # 拉取并变基以防冲突（自动以本地编译结果解决冲突）
+    print("git pull --rebase -X ours...")
+    run_command(["git", "pull", "--rebase", "-X", "ours"], cwd=sgmodule_dir)
+            
     # 推送至 GitHub
     print("git push...")
     success, push_out = run_command(["git", "push"], cwd=sgmodule_dir)
