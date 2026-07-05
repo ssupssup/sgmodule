@@ -737,6 +737,8 @@ SDK_BLOCK_RULES = [
 MANDATORY_MITM_DOMAINS = [
     # 百度与贴吧（永久移除主站以防登录死循环，仅解密广告与网关 API 子域，强力拦截 HTTPDNS 强迫其走域名解析）
     "c.tieba.baidu.com",
+    "mobads.baidu.com",
+    "mobads-logs.baidu.com",
     
     # 豆瓣
     "api.douban.com",
