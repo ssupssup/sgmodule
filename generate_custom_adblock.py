@@ -242,6 +242,8 @@ ALWAYS_INJECT_DOMAINS = [
     "ada.baidu.com",
     "als.baidu.com",
     "afd.baidu.com",
+    "httpdns.baidu.com",
+    "httpdns.baidubce.com",
     
     # ByteDance Pangle
     "api-access.pangolin-sdk-toutiao-b.com",
@@ -721,10 +723,8 @@ SDK_BLOCK_RULES = [
 ]
 
 MANDATORY_MITM_DOMAINS = [
-    # 百度与贴吧（重新解密主域名以使去开屏重写生效，依赖直连白名单防御登录风控）
+    # 百度与贴吧（永久移除主站以防登录死循环，仅解密广告与网关 API 子域，强力拦截 HTTPDNS 强迫其走域名解析）
     "c.tieba.baidu.com",
-    "tieba.baidu.com",
-    "tiebac.baidu.com",
     
     # 豆瓣
     "api.douban.com",
