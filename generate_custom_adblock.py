@@ -734,10 +734,8 @@ SDK_BLOCK_RULES = [
 ]
 
 MANDATORY_MITM_DOMAINS = [
-    # 百度与贴吧（永久移除主站以防登录死循环，仅解密广告与网关 API 子域，强力拦截 HTTPDNS 强迫其走域名解析）
+    # 百度与贴吧（永久移出主站与广告联盟以防发热和登录死循环，仅解密 c.tieba.baidu.com）
     "c.tieba.baidu.com",
-    "mobads.baidu.com",
-    "mobads-logs.baidu.com",
     
     # 豆瓣
     "api.douban.com",
@@ -784,8 +782,7 @@ MANDATORY_MITM_DOMAINS = [
     "babytree.com",                  # 宝宝树孕育
     "jianying.com",                  # 剪映
     "lf.snssdk.com",                 # 字节系数据及开屏广告上报 (剪映等)
-    "maicai.api.ddxq.mobi",          # 叮咚买菜开屏域名
-    "tbapi.baidu.com"                # 贴吧 API 子网关网域
+    "maicai.api.ddxq.mobi"          # 叮咚买菜开屏域名
 ]
 
 CUSTOM_REWRITE_RULES = [
@@ -1322,7 +1319,10 @@ def generate():
         "DOMAIN-SUFFIX,tbapi.baidu.com,DIRECT",
         # 解决极光长连接被拦截引发 App 判定无网的异常（如宝宝知道）
         "DOMAIN-SUFFIX,jiguang.cn,DIRECT",
-        "DOMAIN-SUFFIX,jpush.cn,DIRECT"
+        "DOMAIN-SUFFIX,jpush.cn,DIRECT",
+        # 彻底解决百度广告联盟强证书校验导致死循环重连发热的异常
+        "DOMAIN-SUFFIX,mobads.baidu.com,DIRECT",
+        "DOMAIN-SUFFIX,mobads-logs.baidu.com,DIRECT"
     ]
 
     with open(output_path, "w", encoding="utf-8") as f:
