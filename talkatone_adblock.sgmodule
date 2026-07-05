@@ -1,6 +1,6 @@
 #!name=Talkatone.AdBlock.sgmodule
-#!desc=最近更新: 2026-07-05 08:08:56 | 自用 Talkatone 去广告模块。整合社区最新规则、自建静态规则与 AdMob, Unity, AppLovin, Amazon 拦截源.
-#!total=65
+#!desc=最近更新: 2026-07-05 08:09:08 | 自用 Talkatone 去广告模块。整合社区最新规则、自建静态规则与 AdMob, Unity, AppLovin, Amazon 拦截源.
+#!total=74
 
 [Rule]
 DOMAIN-SUFFIX,tk0x1.com,REJECT
@@ -66,5 +66,14 @@ DOMAIN-SUFFIX,view.adjust.com,REJECT
 DOMAIN-SUFFIX,vst.c.appier.net,REJECT
 DOMAIN-SUFFIX,wv.inner-active.mobi,REJECT
 DOMAIN-SUFFIX,www.googletagservices-cn.com,REJECT
+DOMAIN-SUFFIX,multiplay.cn,REJECT
+DOMAIN-SUFFIX,unity.cn,REJECT
+DOMAIN-SUFFIX,unity.com,REJECT
+DOMAIN-SUFFIX,unity3d.com,REJECT
+DOMAIN-SUFFIX,unity3dusercontent.com,REJECT
+DOMAIN-SUFFIX,unitychina.cn,REJECT
+DOMAIN-SUFFIX,unityedu.cn,REJECT
+DOMAIN-SUFFIX,unityedu.com,REJECT
+DOMAIN-SUFFIX,unityedu.com.cn,REJECT
 DOMAIN-SUFFIX,applovin.com,REJECT
 DOMAIN-SUFFIX,applvn.com,REJECT
