@@ -773,8 +773,7 @@ MANDATORY_MITM_DOMAINS = [
     "babytree.com",                  # 宝宝树孕育
     "jianying.com",                  # 剪映
     "lf.snssdk.com",                 # 字节系数据及开屏广告上报 (剪映等)
-    "maicai.api.ddxq.mobi",          # 叮咚买菜开屏域名
-    "dmall.com"                     # 多点 (后缀匹配，涵盖 cmsapi, flow 等子域)
+    "maicai.api.ddxq.mobi"           # 叮咚买菜开屏域名
 ]
 
 CUSTOM_REWRITE_RULES = [
@@ -807,10 +806,7 @@ CUSTOM_REWRITE_RULES = [
     
     # 随手记 App 广告拦截补充
     {'text': '^https?:\/\/tg\.feidee\.com\/online_ad\/ reject', 'pattern': '^https?:\/\/tg\.feidee\.com\/online_ad\/', 'priority': 0, 'app': '随手记'},
-    {'text': '^https?:\/\/tg\.feidee\.com\/vis-ad-engine-ws\/api\/ reject', 'pattern': '^https?:\/\/tg\.feidee\.com\/vis-ad-engine-ws\/api\/', 'priority': 0, 'app': '随手记'},
-    
-    # 多点 App 广告拦截 (泛子域名本地 Reject 阻断，彻底解决远程 JS 超时放行及子域名逃逸)
-    {'text': '^https?:\/\/([a-z0-9\\-]+\\.)?dmall\\.com\\/app\\/home\\/(homepageStartUpPic|pops) reject', 'pattern': '^https?:\/\/([a-z0-9\\-]+\\.)?dmall\\.com\\/app\\/home\\/(homepageStartUpPic|pops)', 'priority': 0, 'app': '多点'}
+    {'text': '^https?:\/\/tg\.feidee\.com\/vis-ad-engine-ws\/api\/ reject', 'pattern': '^https?:\/\/tg\.feidee\.com\/vis-ad-engine-ws\/api\/', 'priority': 0, 'app': '随手记'}
 ]
 
 def extract_pattern(line, is_script=False):
