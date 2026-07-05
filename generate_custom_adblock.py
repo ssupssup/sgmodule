@@ -242,8 +242,11 @@ ALWAYS_INJECT_DOMAINS = [
     "ada.baidu.com",
     "als.baidu.com",
     "afd.baidu.com",
-    "httpdns.baidu.com",
-    "httpdns.baidubce.com",
+    "afdconf.baidu.com",
+    "bdbus-turbonet.baidu.com",
+    "bgg.baidu.com",
+    "gsp0.baidu.com",
+    "tieba-ares.cdn.bcebos.com",
     
     # ByteDance Pangle
     "api-access.pangolin-sdk-toutiao-b.com",
@@ -714,8 +717,17 @@ SDK_BLOCK_RULES = [
     "DOMAIN-SUFFIX,tianmu.mobi,REJECT-200",
     "DOMAIN-SUFFIX,1rtb.net,REJECT-200",
     
-    # 百度 HTTPDNS 拦截（防贴吧等 App 绕过域名规则，使用 REJECT-NO-DROP 以触发常规 DNS 降级回退）
+    # 百度 HTTPDNS 拦截（防贴吧等 App 绕过域名规则，使用 REJECT-NO-DROP/REJECT 拒绝以触发系统 DNS 降级回退）
     "IP-CIDR,180.76.76.200/32,REJECT-NO-DROP",
+    "IP-CIDR,180.76.76.112/32,REJECT-NO-DROP",
+    "DOMAIN,httpdns.baidu.com,REJECT",
+    "DOMAIN,httpdns.baidubce.com,REJECT",
+    
+    # 新增联盟与广告物料、追踪封锁（基于贴吧代理日志的精准收网）
+    "DOMAIN-SUFFIX,ubixioe.com,REJECT",
+    "DOMAIN-SUFFIX,pangolin-dsp-toutiao.com,REJECT",
+    "DOMAIN-SUFFIX,pglstatp-toutiao.com,REJECT",
+    "DOMAIN-SUFFIX,xdplt.com,REJECT",
     
     # PCDN / 视频上传劫持 拦截
     "DOMAIN-SUFFIX,pkoplink.com,REJECT",
