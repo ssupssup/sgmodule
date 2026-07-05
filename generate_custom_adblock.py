@@ -774,7 +774,8 @@ MANDATORY_MITM_DOMAINS = [
     "babytree.com",                  # 宝宝树孕育
     "jianying.com",                  # 剪映
     "lf.snssdk.com",                 # 字节系数据及开屏广告上报 (剪映等)
-    "maicai.api.ddxq.mobi"          # 叮咚买菜开屏域名
+    "maicai.api.ddxq.mobi",          # 叮咚买菜开屏域名
+    "dmall.com"                     # 多点 (后缀匹配，涵盖 cmsapi, flow 等子域)
 ]
 
 CUSTOM_REWRITE_RULES = [
@@ -807,7 +808,11 @@ CUSTOM_REWRITE_RULES = [
     
     # 随手记 App 广告拦截补充
     {'text': '^https?:\/\/tg\.feidee\.com\/online_ad\/ reject', 'pattern': '^https?:\/\/tg\.feidee\.com\/online_ad\/', 'priority': 0, 'app': '随手记'},
-    {'text': '^https?:\/\/tg\.feidee\.com\/vis-ad-engine-ws\/api\/ reject', 'pattern': '^https?:\/\/tg\.feidee\.com\/vis-ad-engine-ws\/api\/', 'priority': 0, 'app': '随手记'}
+    {'text': '^https?:\/\/tg\.feidee\.com\/vis-ad-engine-ws\/api\/ reject', 'pattern': '^https?:\/\/tg\.feidee\.com\/vis-ad-engine-ws\/api\/', 'priority': 0, 'app': '随手记'},
+    
+    # 多点 App 广告拦截补充 (开屏广告及主页弹窗)
+    {'text': '^https?:\/\/cmsapi\.dmall\.com\/app\/home\/homepageStartUpPic reject', 'pattern': '^https?:\/\/cmsapi\.dmall\.com\/app\/home\/homepageStartUpPic', 'priority': 0, 'app': '多点'},
+    {'text': '^https?:\/\/flow\.dmall\.com\/app\/home\/pops reject', 'pattern': '^https?:\/\/flow\.dmall\.com\/app\/home\/pops', 'priority': 0, 'app': '多点'}
 ]
 
 def extract_pattern(line, is_script=False):
