@@ -728,9 +728,8 @@ SDK_BLOCK_RULES = [
 ]
 
 MANDATORY_MITM_DOMAINS = [
-    # 百度与贴吧（移出主站域名，保留 c. 和 tiebac. 用去广告，彻底解决登录死循环）
+    # 百度与贴吧（只保留核心广告解密域名，移出 tiebac 保证登录与设置项正常）
     "c.tieba.baidu.com",
-    "tiebac.baidu.com",
     
     # 豆瓣
     "api.douban.com",
@@ -781,37 +780,31 @@ MANDATORY_MITM_DOMAINS = [
 ]
 
 CUSTOM_REWRITE_RULES = [
-    # 叮咚买菜 App 开屏广告拦截（静态放行，彻底消除 JS 挂起和断网）
-    {'text': '^https?:\/\/maicai\.api\.ddxq\.mobi\/advert\/ reject-200', 'pattern': '^https?:\/\/maicai\.api\.ddxq\.mobi\/advert\/', 'priority': 0, 'app': '叮咚买菜'},
-    # 百度贴吧 App 开屏与广告接口静态拦截补充 (防绕过且不伤登录与白屏)
-    {'text': '^https?:\/\/(c|tiebac)\.tieba\.baidu\.com\/c\/s\/(ad|splash)\/ reject-dict', 'pattern': '^https?:\/\/(c|tiebac)\.tieba\.baidu\.com\/c\/s\/(ad|splash)\/', 'priority': 0, 'app': '百度贴吧'},
-    {'text': '^https?:\/\/(c|tiebac)\.tieba\.baidu\.com\/c\/f\/ad\/ reject-dict', 'pattern': '^https?:\/\/(c|tiebac)\.tieba\.baidu\.com\/c\/f\/ad\/', 'priority': 0, 'app': '百度贴吧'},
-    {'text': '^https?:\/\/tbapi\.baidu\.com\/c\/s\/(ad|splash)\/ reject-dict', 'pattern': '^https?:\/\/tbapi\.baidu\.com\/c\/s\/(ad|splash)\/', 'priority': 0, 'app': '百度贴吧'},
-    # 豆瓣 App 开屏与内含广告
-    {'text': '^https:\/\/api\.douban\.com\/v\d\/app_ads\/splash - reject-dict', 'pattern': '^https:\/\/api\.douban\.com\/v\d\/app_ads\/splash', 'priority': 0, 'app': '豆瓣'},
-    {'text': '^https:\/\/frodo\.douban\.com\/api\/v\d\/app_ads\/splash - reject-dict', 'pattern': '^https:\/\/frodo\.douban\.com\/api\/v\d\/app_ads\/splash', 'priority': 0, 'app': '豆瓣'},
-    {'text': '^https:\/\/frodo\.douban\.com\/api\/v\d\/erebor\/feed_ad - reject-dict', 'pattern': '^https:\/\/frodo\.douban\.com\/api\/v\d\/erebor\/feed_ad', 'priority': 0, 'app': '豆瓣'},
-    {'text': '^https:\/\/frodo\.douban\.com\/api\/v\d\/home_banner - reject-dict', 'pattern': '^https:\/\/frodo\.douban\.com\/api\/v\d\/home_banner', 'priority': 0, 'app': '豆瓣'},
-    {'text': '^https:\/\/frodo\.douban\.com\/api\/v\d\/search\/found_words - reject-dict', 'pattern': '^https:\/\/frodo\.douban\.com\/api\/v\d\/search\/found_words', 'priority': 0, 'app': '豆瓣'},
-    
-    # 百度贴吧 App 开屏与内含广告补充
-    {'text': '^https?:\/\/c\.tieba\.baidu\.com\/c\/s\/splashSchedule - reject-dict', 'pattern': '^https?:\/\/c\.tieba\.baidu\.com\/c\/s\/splashSchedule', 'priority': 0, 'app': '百度贴吧'},
-    {'text': '^https?:\/\/c\.tieba\.baidu\.com\/c\/f\/forum\/getAdInfo - reject-dict', 'pattern': '^https?:\/\/c\.tieba\.baidu\.com\/c\/f\/forum\/getAdInfo', 'priority': 0, 'app': '百度贴吧'},
-    {'text': '^https?:\/\/tieba(c)?\.baidu\.com\/c\/f\/ad\/getFeedAd - reject-dict', 'pattern': '^https?:\/\/tieba(c)?\.baidu\.com\/c\/f\/ad\/getFeedAd', 'priority': 0, 'app': '百度贴吧'},
+    # 叮咚买菜 App 开屏广告拦截（使用标准小火箭 reject 动作以保证 100% 兼容）
+    {'text': '^https?:\/\/maicai\.api\.ddxq\.mobi\/advert\/ reject', 'pattern': '^https?:\/\/maicai\.api\.ddxq\.mobi\/advert\/', 'priority': 0, 'app': '叮咚买菜'},
+    # 百度贴吧 App 开屏与广告接口静态拦截补充 (防绕过，修正斜杠脱靶与语法兼容)
+    {'text': '^https?:\/\/c\.tieba\.baidu\.com\/c\/s\/(ad|splashSchedule|splash) reject', 'pattern': '^https?:\/\/c\.tieba\.baidu\.com\/c\/s\/(ad|splashSchedule|splash)', 'priority': 0, 'app': '百度贴吧'},
+    {'text': '^https?:\/\/c\.tieba\.baidu\.com\/c\/f\/ad\/ reject', 'pattern': '^https?:\/\/c\.tieba\.baidu\.com\/c\/f\/ad\/', 'priority': 0, 'app': '百度贴吧'},
+    # 豆瓣 App 开屏与内含广告 (改回标准的 reject 动作以保证模块完美读取)
+    {'text': '^https:\/\/api\.douban\.com\/v\d\/app_ads\/splash reject', 'pattern': '^https:\/\/api\.douban\.com\/v\d\/app_ads\/splash', 'priority': 0, 'app': '豆瓣'},
+    {'text': '^https:\/\/frodo\.douban\.com\/api\/v\d\/app_ads\/splash reject', 'pattern': '^https:\/\/frodo\.douban\.com\/api\/v\d\/app_ads\/splash', 'priority': 0, 'app': '豆瓣'},
+    {'text': '^https:\/\/frodo\.douban\.com\/api\/v\d\/erebor\/feed_ad reject', 'pattern': '^https:\/\/frodo\.douban\.com\/api\/v\d\/erebor\/feed_ad', 'priority': 0, 'app': '豆瓣'},
+    {'text': '^https:\/\/frodo\.douban\.com\/api\/v\d\/home_banner reject', 'pattern': '^https:\/\/frodo\.douban\.com\/api\/v\d\/home_banner', 'priority': 0, 'app': '豆瓣'},
+    {'text': '^https:\/\/frodo\.douban\.com\/api\/v\d\/search\/found_words reject', 'pattern': '^https:\/\/frodo\.douban\.com\/api\/v\d\/search\/found_words', 'priority': 0, 'app': '豆瓣'},
     
     # 锦江荟 App 开屏广告拦截补充
-    {'text': '^https?:\\/\\/wxapp\\.bestwehotel\\.com\\/gw3\\/app-mini\\/trip-hotel-banner\\/activity\\/getActivityInfo - reject-200', 'pattern': '^https?:\\/\\/wxapp\\.bestwehotel\\.com\\/gw3\\/app-mini\\/trip-hotel-banner\\/activity\\/getActivityInfo', 'priority': 0, 'app': '锦江荟'},
-    {'text': '^https?:\\/\\/booking\\.bestwehotel\\.com\\/proxy\\/trip-hotel-banner\\/activity\\/getActivityInfo - reject-200', 'pattern': '^https?:\\/\\/booking\\.bestwehotel\\.com\\/proxy\\/trip-hotel-banner\\/activity\\/getActivityInfo', 'priority': 0, 'app': '锦江荟'},
-    {'text': '^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/gw3\\/app-mini\\/trip-hotel-banner\\/activity\\/getActivityInfo - reject-200', 'pattern': '^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/gw3\\/app-mini\\/trip-hotel-banner\\/activity\\/getActivityInfo', 'priority': 0, 'app': '锦江荟'},
-    {'text': '^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/proxy\\/trip-hotel-banner\\/activity\\/getActivityInfo - reject-200', 'pattern': '^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/proxy\\/trip-hotel-banner\\/activity\\/getActivityInfo', 'priority': 0, 'app': '锦江荟'},
-    {'text': '^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/message\\/adLabel\\/v2\\/getAdList - reject-dict', 'pattern': '^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/message\\/adLabel\\/v2\\/getAdList', 'priority': 0, 'app': '锦江荟'},
-    {'text': '^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/adSettlement\\/app\\/idfa\\/v1\\/collect - reject-200', 'pattern': '^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/adSettlement\\/app\\/idfa\\/v1\\/collect', 'priority': 0, 'app': '锦江荟'},
-    {'text': '^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/applog\\/requestPage\\/request - reject-200', 'pattern': '^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/applog\\/requestPage\\/request', 'priority': 0, 'app': '锦江荟'},
-    {'text': '^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/proxy\\/trip-client-monitor\\/log\\/monitor - reject-200', 'pattern': '^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/proxy\\/trip-client-monitor\\/log\\/monitor', 'priority': 0, 'app': '锦江荟'},
+    {'text': '^https?:\\/\\/wxapp\\.bestwehotel\\.com\\/gw3\\/app-mini\\/trip-hotel-banner\\/activity\\/getActivityInfo reject', 'pattern': '^https?:\\/\\/wxapp\\.bestwehotel\\.com\\/gw3\\/app-mini\\/trip-hotel-banner\\/activity\\/getActivityInfo', 'priority': 0, 'app': '锦江荟'},
+    {'text': '^https?:\\/\\/booking\\.bestwehotel\\.com\\/proxy\\/trip-hotel-banner\\/activity\\/getActivityInfo reject', 'pattern': '^https?:\\/\\/booking\\.bestwehotel\\.com\\/proxy\\/trip-hotel-banner\\/activity\\/getActivityInfo', 'priority': 0, 'app': '锦江荟'},
+    {'text': '^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/gw3\\/app-mini\\/trip-hotel-banner\\/activity\\/getActivityInfo reject', 'pattern': '^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/gw3\\/app-mini\\/trip-hotel-banner\\/activity\\/getActivityInfo', 'priority': 0, 'app': '锦江荟'},
+    {'text': '^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/proxy\\/trip-hotel-banner\\/activity\\/getActivityInfo reject', 'pattern': '^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/proxy\\/trip-hotel-banner\\/activity\\/getActivityInfo', 'priority': 0, 'app': '锦江荟'},
+    {'text': '^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/message\\/adLabel\\/v2\\/getAdList reject', 'pattern': '^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/message\\/adLabel\\/v2\\/getAdList', 'priority': 0, 'app': '锦江荟'},
+    {'text': '^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/adSettlement\\/app\\/idfa\\/v1\\/collect reject', 'pattern': '^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/adSettlement\\/app\\/idfa\\/v1\\/collect', 'priority': 0, 'app': '锦江荟'},
+    {'text': '^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/applog\\/requestPage\\/request reject', 'pattern': '^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/applog\\/requestPage\\/request', 'priority': 0, 'app': '锦江荟'},
+    {'text': '^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/proxy\\/trip-client-monitor\\/log\\/monitor reject', 'pattern': '^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/proxy\\/trip-client-monitor\\/log\\/monitor', 'priority': 0, 'app': '锦江荟'},
     
     # 随手记 App 广告拦截补充
-    {'text': '^https?:\/\/tg\.feidee\.com\/online_ad\/ - reject-dict', 'pattern': '^https?:\/\/tg\.feidee\.com\/online_ad\/', 'priority': 0, 'app': '随手记'},
-    {'text': '^https?:\/\/tg\.feidee\.com\/vis-ad-engine-ws\/api\/ - reject-dict', 'pattern': '^https?:\/\/tg\.feidee\.com\/vis-ad-engine-ws\/api\/', 'priority': 0, 'app': '随手记'}
+    {'text': '^https?:\/\/tg\.feidee\.com\/online_ad\/ reject', 'pattern': '^https?:\/\/tg\.feidee\.com\/online_ad\/', 'priority': 0, 'app': '随手记'},
+    {'text': '^https?:\/\/tg\.feidee\.com\/vis-ad-engine-ws\/api\/ reject', 'pattern': '^https?:\/\/tg\.feidee\.com\/vis-ad-engine-ws\/api\/', 'priority': 0, 'app': '随手记'}
 ]
 
 def extract_pattern(line, is_script=False):
@@ -1306,7 +1299,13 @@ def generate():
         "DOMAIN-SUFFIX,amazon.cn,DIRECT",
         "DOMAIN-SUFFIX,media-amazon.com,DIRECT",
         "DOMAIN-SUFFIX,ssl-images-amazon.com,DIRECT",
-        "DOMAIN-SUFFIX,amazon-adsystem.com,DIRECT"
+        "DOMAIN-SUFFIX,amazon-adsystem.com,DIRECT",
+        # 解决百度系 App 代理风控（登录频繁要求、设置失效、推荐无内容等）
+        "DOMAIN-SUFFIX,baidu.com,DIRECT",
+        "DOMAIN-SUFFIX,baidupcs.com,DIRECT",
+        "DOMAIN-SUFFIX,bdstatic.com,DIRECT",
+        "DOMAIN-SUFFIX,tieba.com,DIRECT",
+        "DOMAIN-SUFFIX,tbapi.baidu.com,DIRECT"
     ]
 
     with open(output_path, "w", encoding="utf-8") as f:
