@@ -1318,6 +1318,10 @@ def generate():
         "DOMAIN,ios.bugly.qq.com,DIRECT",
         "DOMAIN-SUFFIX,umeng.com,DIRECT",
         "DOMAIN-SUFFIX,umengcloud.com,DIRECT",
+        # 2026-07-05 联动加白：防客户端重试发热与地图/验证码误杀
+        "DOMAIN,apikey.map.qq.com,DIRECT",
+        "DOMAIN,cdn.ynuf.aliapp.org,DIRECT",
+        "DOMAIN,mdap.alipay.com,DIRECT",
         "DOMAIN-SUFFIX,adjust.com,DIRECT",
         # 彻底解决百度/穿山甲广告埋点上报失败引起的高频重连发热
         "DOMAIN,log-api.pangolin-sdk-toutiao.com,DIRECT",
