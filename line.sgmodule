@@ -1,6 +1,6 @@
 #!name=LINE App 新闻报错修复(Taboola合流版)
 #!desc=修复 LINE TODAY 新闻提示临时性错误及页面空白。已全面补齐 Taboola 新闻信息流引擎、苹果位置验证、谷歌样式库及 LINE 核心域名。
-#!category=社交优化
+#!category=社交优化，但会导致Taboola代理放行，暂时不用该模块
 
 [Rule]
 # ----- Taboola 新闻信息流与广告引擎（解决空白的关键）-----
