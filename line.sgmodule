@@ -1,0 +1,35 @@
+
+
+#!name=LINE App 新闻报错修复(强效版)
+#!desc=修复 LINE TODAY 新闻提示临时性错误、内容转圈、页面空白的问题。通过高优先级关键字与 Host 绑定，强制拦截所有相关流量。
+#!category=社交优化
+
+[Rule]
+# 1. 顶级高优先级关键字拦截（防止任何漏网的子域名/CDN 掉入下方的 GEOIP,CN）
+DOMAIN-KEYWORD,line,PROXY
+DOMAIN-KEYWORD,naver,PROXY
+DOMAIN-KEYWORD,livedoor,PROXY
+DOMAIN-KEYWORD,linetoday,PROXY
+
+# 2. 核心域名后缀强校验
+DOMAIN-SUFFIX,line.me,PROXY
+DOMAIN-SUFFIX,line-apps.com,PROXY
+DOMAIN-SUFFIX,line-scdn.net,PROXY
+DOMAIN-SUFFIX,lin.ee,PROXY
+DOMAIN-SUFFIX,line.naver.jp,PROXY
+DOMAIN-SUFFIX,naver.jp,PROXY
+DOMAIN-SUFFIX,naver.com,PROXY
+DOMAIN-SUFFIX,livedoor.com,PROXY
+DOMAIN-SUFFIX,livedoor.biz,PROXY
+DOMAIN-SUFFIX,lnwfile.com,PROXY
+
+[Host]
+# 强制让小火箭在本地跳过 DNS 解析，断绝本地局域网 DNS 抢答或污染的可能性
+*.line.me = proxy
+*.line-apps.com = proxy
+*.line-scdn.net = proxy
+*.lin.ee = proxy
+*.naver.jp = proxy
+*.naver.com = proxy
+*.line.naver.jp = proxy
+*.livedoor.com = proxy
