@@ -8,6 +8,10 @@ on:
     branches:
       - main
       - master
+    paths-ignore:
+      - 'README.md'
+      - 'CHANGELOG.md'
+      - '*.sgmodule'
 
 permissions:
   contents: write         # 允许写入仓库
