@@ -1,6 +1,6 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-07-07 05:48:40 | Deep ad block & UI purification customized for user's installed apps.
-#!total=1198
+#!desc=最近更新: 2026-07-07 19:53:31 | Deep ad block & UI purification customized for user's installed apps.
+#!total=1214
 
 [Rule]
 # === Bypass Rules for WeChat, Alipay, Bank and Login App anomalies ===
@@ -42,6 +42,26 @@ DOMAIN,log-api.pangolin-sdk-toutiao.com,DIRECT
 DOMAIN,wn.pos.baidu.com,DIRECT
 DOMAIN,afd.baidu.com,DIRECT
 DOMAIN,afdconf.baidu.com,DIRECT
+DOMAIN,aweme.snssdk.com,DIRECT
+DOMAIN,i.snssdk.com,DIRECT
+DOMAIN,api.snssdk.com,DIRECT
+DOMAIN,api-access.snssdk.com,DIRECT
+DOMAIN,security.snssdk.com,DIRECT
+DOMAIN,verify.snssdk.com,DIRECT
+DOMAIN,lf.snssdk.com,DIRECT
+DOMAIN,log.snssdk.com,DIRECT
+DOMAIN,rtlog.snssdk.com,DIRECT
+DOMAIN,mcs.snssdk.com,DIRECT
+DOMAIN,dm.snssdk.com,DIRECT
+DOMAIN,vcs.zijieapi.com,DIRECT
+DOMAIN,mon.zijieapi.com,DIRECT
+DOMAIN,mcs.zijieapi.com,DIRECT
+DOMAIN,toblog.ctobsnssdk.com,DIRECT
+DOMAIN-SUFFIX,mssdk.bytedance.com,DIRECT
+DOMAIN-SUFFIX,mssdk.volces.com,DIRECT
+DOMAIN-SUFFIX,apmplus.volces.com,DIRECT
+DOMAIN-KEYWORD,mssdk,DIRECT
+DOMAIN-KEYWORD,tnc,DIRECT
 # === SDK Core REJECT Rules ===
 AND,((protocol,udp),(dest-port,443),(domain-suffix,baidu.com)),REJECT-NO-DROP
 AND,((protocol,udp),(dest-port,443),(domain-suffix,baidupcs.com)),REJECT-NO-DROP
@@ -80,10 +100,6 @@ DOMAIN-SUFFIX,pglstatp-toutiao.com,REJECT
 DOMAIN-SUFFIX,xdplt.com,REJECT
 DOMAIN-SUFFIX,pkoplink.com,REJECT
 DOMAIN-SUFFIX,sjxydc.com,REJECT
-DOMAIN-SUFFIX,ads.linkedin.com,REJECT
-DOMAIN-SUFFIX,analytics.pointdrive.linkedin.com,REJECT
-DOMAIN-SUFFIX,outlookads.live.com,REJECT
-DOMAIN-SUFFIX,a1.firefoxchina.cn,REJECT
 # === Compiled App Rules ===
 DOMAIN,sdkapp.uve.weibo.com,DIRECT
 DOMAIN,adstrategy.biz.weibo.com,REJECT

@@ -1327,7 +1327,28 @@ def generate():
         "DOMAIN,log-api.pangolin-sdk-toutiao.com,DIRECT",
         "DOMAIN,wn.pos.baidu.com,DIRECT",
         "DOMAIN,afd.baidu.com,DIRECT",
-        "DOMAIN,afdconf.baidu.com,DIRECT"
+        "DOMAIN,afdconf.baidu.com,DIRECT",
+        # 2026-07-07 联动加白：解决字节/抖音核心及打点上报重试引发的发热 (不放行根域名)
+        "DOMAIN,aweme.snssdk.com,DIRECT",
+        "DOMAIN,i.snssdk.com,DIRECT",
+        "DOMAIN,api.snssdk.com,DIRECT",
+        "DOMAIN,api-access.snssdk.com,DIRECT",
+        "DOMAIN,security.snssdk.com,DIRECT",
+        "DOMAIN,verify.snssdk.com,DIRECT",
+        "DOMAIN,lf.snssdk.com,DIRECT",
+        "DOMAIN,log.snssdk.com,DIRECT",
+        "DOMAIN,rtlog.snssdk.com,DIRECT",
+        "DOMAIN,mcs.snssdk.com,DIRECT",
+        "DOMAIN,dm.snssdk.com,DIRECT",
+        "DOMAIN,vcs.zijieapi.com,DIRECT",
+        "DOMAIN,mon.zijieapi.com,DIRECT",
+        "DOMAIN,mcs.zijieapi.com,DIRECT",
+        "DOMAIN,toblog.ctobsnssdk.com,DIRECT",
+        "DOMAIN-SUFFIX,mssdk.bytedance.com,DIRECT",
+        "DOMAIN-SUFFIX,mssdk.volces.com,DIRECT",
+        "DOMAIN-SUFFIX,apmplus.volces.com,DIRECT",
+        "DOMAIN-KEYWORD,mssdk,DIRECT",
+        "DOMAIN-KEYWORD,tnc,DIRECT"
     ]
 
     with open(output_path, "w", encoding="utf-8") as f:
