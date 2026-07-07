@@ -772,7 +772,7 @@ MANDATORY_MITM_DOMAINS = [
     # 新增开屏解密以防绕过
     "babytree.com",                  # 宝宝树孕育
     "jianying.com",                  # 剪映
-    "lf.snssdk.com",                 # 字节系数据及开屏广告上报 (剪映等)
+    
     "maicai.api.ddxq.mobi"           # 叮咚买菜开屏域名
 ]
 
@@ -1347,8 +1347,11 @@ def generate():
         "DOMAIN-SUFFIX,mssdk.bytedance.com,DIRECT",
         "DOMAIN-SUFFIX,mssdk.volces.com,DIRECT",
         "DOMAIN-SUFFIX,apmplus.volces.com,DIRECT",
-        "DOMAIN-KEYWORD,mssdk,DIRECT",
-        "DOMAIN-KEYWORD,tnc,DIRECT"
+        "DOMAIN-SUFFIX,mssdk.zijieapi.com,DIRECT",
+        "DOMAIN-SUFFIX,tnc.zijieapi.com,DIRECT",
+        "DOMAIN-SUFFIX,tnc3-sz.zijieapi.com,DIRECT",
+        "DOMAIN-SUFFIX,tnc3-alipay.zijieapi.com,DIRECT",
+        "DOMAIN-SUFFIX,tnc11.zijieapi.com,DIRECT"
     ]
 
     with open(output_path, "w", encoding="utf-8") as f:
