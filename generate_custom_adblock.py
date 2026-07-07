@@ -1351,7 +1351,10 @@ def generate():
         "DOMAIN-SUFFIX,tnc.zijieapi.com,DIRECT",
         "DOMAIN-SUFFIX,tnc3-sz.zijieapi.com,DIRECT",
         "DOMAIN-SUFFIX,tnc3-alipay.zijieapi.com,DIRECT",
-        "DOMAIN-SUFFIX,tnc11.zijieapi.com,DIRECT"
+        "DOMAIN-SUFFIX,tnc11.zijieapi.com,DIRECT",
+        "DOMAIN,is.snssdk.com,DIRECT",
+        "DOMAIN,applog.snssdk.com,DIRECT",
+        "DOMAIN-KEYWORD,dy.snssdk,DIRECT"
     ]
 
     with open(output_path, "w", encoding="utf-8") as f:
