@@ -1,6 +1,6 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-07-08 13:26:27 | Deep ad block & UI purification customized for user's installed apps.
-#!total=1228
+#!desc=最近更新: 2026-07-08 15:13:39 | Deep ad block & UI purification customized for user's installed apps.
+#!total=1202
 
 [Rule]
 # === Bypass Rules for WeChat, Alipay, Bank and Login App anomalies ===
@@ -91,6 +91,11 @@ DOMAIN,afdconf.baidu.com,REJECT-NO-DROP
 DOMAIN,stats.jpush.cn,REJECT-NO-DROP
 DOMAIN,crashlytics.com,REJECT-NO-DROP
 DOMAIN-SUFFIX,adjust.com,REJECT-NO-DROP
+DOMAIN-SUFFIX,appsflyersdk.com,REJECT-NO-DROP
+DOMAIN,app-log-lab.tantanapp.com,REJECT-NO-DROP
+DOMAIN,io-sm-log.tantanapp.com,REJECT-NO-DROP
+DOMAIN,client-monitor.tantanapp.com,REJECT-NO-DROP
+DOMAIN,f10.baidu.com,REJECT-NO-DROP
 DOMAIN-KEYWORD,pangle,REJECT-200
 DOMAIN-SUFFIX,pangle.io,REJECT-200
 DOMAIN-SUFFIX,pangolin-sdk-toutiao,REJECT-200
@@ -110,10 +115,6 @@ DOMAIN-SUFFIX,pglstatp-toutiao.com,REJECT
 DOMAIN-SUFFIX,xdplt.com,REJECT
 DOMAIN-SUFFIX,pkoplink.com,REJECT
 DOMAIN-SUFFIX,sjxydc.com,REJECT
-DOMAIN-SUFFIX,analytics.pointdrive.linkedin.com,REJECT
-DOMAIN-SUFFIX,ads.linkedin.com,REJECT
-DOMAIN-SUFFIX,a1.firefoxchina.cn,REJECT
-DOMAIN-SUFFIX,outlookads.live.com,REJECT
 # === Compiled App Rules ===
 DOMAIN,sdkapp.uve.weibo.com,DIRECT
 DOMAIN,adstrategy.biz.weibo.com,REJECT
@@ -179,7 +180,6 @@ DOMAIN,ads.twitter.com,REJECT-200
 DOMAIN,ads-api.x.com,REJECT-200
 DOMAIN,tanx.com,REJECT-200
 DOMAIN,adm.10jqka.com.cn,REJECT-200
-DOMAIN,f10.baidu.com,REJECT-200
 DOMAIN,fc-.cdn.bcebos.com,REJECT-200
 DOMAIN,apm.zhihu.com,REJECT
 DOMAIN,appcloud2.in.zhihu.com,REJECT
@@ -241,28 +241,6 @@ DOMAIN-SUFFIX,meituan.xn,REJECT
 DOMAIN-SUFFIX,meituan.yoga,REJECT
 DOMAIN-SUFFIX,meituangov.cn,REJECT
 DOMAIN-SUFFIX,ad.e.waimai.sankuai.com,REJECT
-DOMAIN,adstats.tencentmusic.com,REJECT
-DOMAIN,ad.tencentmusic.com,REJECT
-DOMAIN,adcdn.tencentmusic.com,REJECT
-DOMAIN,adcdn6.tencentmusic.com,REJECT
-DOMAIN,adexpo.tencentmusic.com,REJECT
-DOMAIN,adclick.tencentmusic.com,REJECT
-DOMAIN,monitor.music.qq.com,REJECT
-DOMAIN,stat.y.qq.com,REJECT
-DOMAIN,tmead.y.qq.com,REJECT
-DOMAIN,oth.str.mdt.qq.com,REJECT
-DOMAIN,h.trace.qq.com,REJECT
-DOMAIN,p.l.qq.com,REJECT
-DOMAIN,us.l.qq.com,REJECT
-DOMAIN,tmeadbak.y.qq.com,REJECT
-DOMAIN-SUFFIX,imtmp.net,REJECT
-DOMAIN,tmeadcomm.y.qq.com,REJECT
-DOMAIN-SUFFIX,gdt.qq.com,REJECT
-DOMAIN-SUFFIX,e.qq.com,REJECT
-DOMAIN-SUFFIX,v.gdt.qq.com,REJECT
-DOMAIN,amsweb-cdn-gz-1258344696.file.myqcloud.com,REJECT
-DOMAIN,wallpaper-1258344696.file.myqcloud.com,REJECT
-IP-CIDR,120.222.240.171/32,REJECT
 DOMAIN,sdkconfig.ad.xiaomi.com,REJECT
 DOMAIN-SUFFIX,corp.meitu.com,REJECT
 DOMAIN-SUFFIX,gg.meitu.com,REJECT
@@ -1085,10 +1063,6 @@ https://dynamicad.kfc.com.cn/api/app5/homepage/ai/popup - reject-200
 ^https?:\/\/qde\.qunar\.com\/preload - reject-200
 ^https?:\/\/m\.ctrip\.com\/restapi\/soa2\/[0-9]{5}\/json\/getTimeZoneServerIpList\?__gw_os=IOS - reject-200
 ^https?:\/\/m\.ctrip\.com\/restapi\/soa2\/13916\/json\/tripAds - reject-200
-^https?:\/\/us\.l\.qq\.com\/exapp - reject
-^https?:\/\/y\.gtimg\.cn\/music\/common\/upload\/t_splash_info\/ - reject
-^https?:\/\/.+?\/music\/common\/upload\/t_splash_info\/ - reject
-^https?:\/\/((25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\.){3}(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\/music\/common\/upload\/t_splash_info\/ - reject
 ^https?:\/\/home\.mi\.com\/cgi-op\/api\/v1\/recommendation\/(banner|carousel\/banners|myTab|openingBanner) - reject-dict
 ^https?:\/\/home\.mi\.com\/cgi-op\/api\/v1\/resource\/realtime\/openingBanner - reject-dict
 ^https?:\/\/c\.m\.163\.com\/nc\/gl\/ - reject-200

@@ -287,7 +287,6 @@ ALWAYS_INJECT_DOMAINS = [
     "ads-api.x.com",
     "tanx.com",
     "adm.10jqka.com.cn",
-    "f10.baidu.com",
     "fc-.cdn.bcebos.com"
 ]
 
@@ -731,6 +730,11 @@ SDK_BLOCK_RULES = [
     "DOMAIN,stats.jpush.cn,REJECT-NO-DROP",
     "DOMAIN,crashlytics.com,REJECT-NO-DROP",
     "DOMAIN-SUFFIX,adjust.com,REJECT-NO-DROP",
+    "DOMAIN-SUFFIX,appsflyersdk.com,REJECT-NO-DROP",
+    "DOMAIN,app-log-lab.tantanapp.com,REJECT-NO-DROP",
+    "DOMAIN,io-sm-log.tantanapp.com,REJECT-NO-DROP",
+    "DOMAIN,client-monitor.tantanapp.com,REJECT-NO-DROP",
+    "DOMAIN,f10.baidu.com,REJECT-NO-DROP",
 
     # 穿山甲
     "DOMAIN-KEYWORD,pangle,REJECT-200",
