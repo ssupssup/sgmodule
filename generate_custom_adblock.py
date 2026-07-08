@@ -715,7 +715,6 @@ SDK_BLOCK_RULES = [
     "DOMAIN,rtlog.snssdk.com,REJECT-NO-DROP",
     "DOMAIN,mcs.snssdk.com,REJECT-NO-DROP",
     "DOMAIN,dm.snssdk.com,REJECT-NO-DROP",
-    "DOMAIN,mon.zijieapi.com,REJECT-NO-DROP",
     "DOMAIN,mcs.zijieapi.com,REJECT-NO-DROP",
     "DOMAIN,toblog.ctobsnssdk.com,REJECT-NO-DROP",
     "DOMAIN-SUFFIX,apmplus.volces.com,REJECT-NO-DROP",
