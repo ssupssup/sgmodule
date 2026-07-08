@@ -388,15 +388,30 @@ def is_advanced_rewrite(rw_line):
 
 def download_url(url):
     print(f"Downloading: {url}")
+    # Local cache settings
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    cache_dir = os.path.join(base_dir, "scratch")
+    url_hash = hashlib.md5(url.encode('utf-8')).hexdigest()
+    cache_path = os.path.join(cache_dir, f"cache_{url_hash}.txt")
+    
     try:
         req = urllib.request.Request(
             url, 
             headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'}
         )
-        with urllib.request.urlopen(req) as response:
-            return response.read().decode('utf-8')
+        with urllib.request.urlopen(req, timeout=10) as response:
+            content = response.read().decode('utf-8')
+            # Save successful download to cache
+            os.makedirs(cache_dir, exist_ok=True)
+            with open(cache_path, "w", encoding="utf-8") as f:
+                f.write(content)
+            return content
     except Exception as e:
         print(f"Error downloading {url}: {e}")
+        if os.path.exists(cache_path):
+            print(f"[WARNING] Network request failed. Falling back to offline local cache: scratch/cache_{url_hash}.txt")
+            with open(cache_path, "r", encoding="utf-8") as f:
+                return f.read()
         return None
 
 def clean_line_for_matching(line):
@@ -696,6 +711,27 @@ SDK_BLOCK_RULES = [
     "AND,((protocol,udp),(dest-port,443),(domain-suffix,qtfm.cn)),REJECT-NO-DROP",
     "AND,((protocol,udp),(dest-port,443),(domain-suffix,sofire.baidu.com)),REJECT-NO-DROP",
     
+    # 大厂打点与 SDK 隐私遥测 REJECT-NO-DROP 拦截（防重试发热）
+    "DOMAIN,log.snssdk.com,REJECT-NO-DROP",
+    "DOMAIN,rtlog.snssdk.com,REJECT-NO-DROP",
+    "DOMAIN,mcs.snssdk.com,REJECT-NO-DROP",
+    "DOMAIN,dm.snssdk.com,REJECT-NO-DROP",
+    "DOMAIN,mon.zijieapi.com,REJECT-NO-DROP",
+    "DOMAIN,mcs.zijieapi.com,REJECT-NO-DROP",
+    "DOMAIN,toblog.ctobsnssdk.com,REJECT-NO-DROP",
+    "DOMAIN-SUFFIX,apmplus.volces.com,REJECT-NO-DROP",
+    "DOMAIN,log-api.pangolin-sdk-toutiao.com,REJECT-NO-DROP",
+    "DOMAIN,beacon.qq.com,REJECT-NO-DROP",
+    "DOMAIN,rqd.qq.com,REJECT-NO-DROP",
+    "DOMAIN,ios.bugly.qq.com,REJECT-NO-DROP",
+    "DOMAIN,mdap.alipay.com,REJECT-NO-DROP",
+    "DOMAIN,wn.pos.baidu.com,REJECT-NO-DROP",
+    "DOMAIN,afd.baidu.com,REJECT-NO-DROP",
+    "DOMAIN,afdconf.baidu.com,REJECT-NO-DROP",
+    "DOMAIN,stats.jpush.cn,REJECT-NO-DROP",
+    "DOMAIN,crashlytics.com,REJECT-NO-DROP",
+    "DOMAIN-SUFFIX,adjust.com,REJECT-NO-DROP",
+
     # 穿山甲
     "DOMAIN-KEYWORD,pangle,REJECT-200",
     "DOMAIN-SUFFIX,pangle.io,REJECT-200",
@@ -1315,19 +1351,12 @@ def generate():
         "DOMAIN-SUFFIX,mobads.baidu.com,DIRECT",
         "DOMAIN-SUFFIX,mobads-logs.baidu.com,DIRECT",
         # 彻底解决崩溃统计、打点与归因阻断引发后台重试发热的异常
-        "DOMAIN,ios.bugly.qq.com,DIRECT",
         "DOMAIN-SUFFIX,umeng.com,DIRECT",
         "DOMAIN-SUFFIX,umengcloud.com,DIRECT",
         # 2026-07-05 联动加白：防客户端重试发热与地图/验证码误杀
         "DOMAIN,apikey.map.qq.com,DIRECT",
         "DOMAIN,cdn.ynuf.aliapp.org,DIRECT",
-        "DOMAIN,mdap.alipay.com,DIRECT",
-        "DOMAIN-SUFFIX,adjust.com,DIRECT",
         # 彻底解决百度/穿山甲广告埋点上报失败引起的高频重连发热
-        "DOMAIN,log-api.pangolin-sdk-toutiao.com,DIRECT",
-        "DOMAIN,wn.pos.baidu.com,DIRECT",
-        "DOMAIN,afd.baidu.com,DIRECT",
-        "DOMAIN,afdconf.baidu.com,DIRECT",
         # 2026-07-07 联动加白：解决字节/抖音核心及打点上报重试引发的发热 (不放行根域名)
         "DOMAIN,aweme.snssdk.com,DIRECT",
         "DOMAIN,i.snssdk.com,DIRECT",
@@ -1336,17 +1365,9 @@ def generate():
         "DOMAIN,security.snssdk.com,DIRECT",
         "DOMAIN,verify.snssdk.com,DIRECT",
         "DOMAIN,lf.snssdk.com,DIRECT",
-        "DOMAIN,log.snssdk.com,DIRECT",
-        "DOMAIN,rtlog.snssdk.com,DIRECT",
-        "DOMAIN,mcs.snssdk.com,DIRECT",
-        "DOMAIN,dm.snssdk.com,DIRECT",
         "DOMAIN,vcs.zijieapi.com,DIRECT",
-        "DOMAIN,mon.zijieapi.com,DIRECT",
-        "DOMAIN,mcs.zijieapi.com,DIRECT",
-        "DOMAIN,toblog.ctobsnssdk.com,DIRECT",
         "DOMAIN-SUFFIX,mssdk.bytedance.com,DIRECT",
         "DOMAIN-SUFFIX,mssdk.volces.com,DIRECT",
-        "DOMAIN-SUFFIX,apmplus.volces.com,DIRECT",
         "DOMAIN-SUFFIX,mssdk.zijieapi.com,DIRECT",
         "DOMAIN-SUFFIX,tnc.zijieapi.com,DIRECT",
         "DOMAIN-SUFFIX,tnc3-sz.zijieapi.com,DIRECT",

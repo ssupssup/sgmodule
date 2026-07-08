@@ -1,6 +1,6 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-07-08 05:43:00 | Deep ad block & UI purification customized for user's installed apps.
-#!total=1224
+#!desc=最近更新: 2026-07-08 13:24:53 | Deep ad block & UI purification customized for user's installed apps.
+#!total=1198
 
 [Rule]
 # === Bypass Rules for WeChat, Alipay, Bank and Login App anomalies ===
@@ -31,17 +31,10 @@ DOMAIN-SUFFIX,jiguang.cn,DIRECT
 DOMAIN-SUFFIX,jpush.cn,DIRECT
 DOMAIN-SUFFIX,mobads.baidu.com,DIRECT
 DOMAIN-SUFFIX,mobads-logs.baidu.com,DIRECT
-DOMAIN,ios.bugly.qq.com,DIRECT
 DOMAIN-SUFFIX,umeng.com,DIRECT
 DOMAIN-SUFFIX,umengcloud.com,DIRECT
 DOMAIN,apikey.map.qq.com,DIRECT
 DOMAIN,cdn.ynuf.aliapp.org,DIRECT
-DOMAIN,mdap.alipay.com,DIRECT
-DOMAIN-SUFFIX,adjust.com,DIRECT
-DOMAIN,log-api.pangolin-sdk-toutiao.com,DIRECT
-DOMAIN,wn.pos.baidu.com,DIRECT
-DOMAIN,afd.baidu.com,DIRECT
-DOMAIN,afdconf.baidu.com,DIRECT
 DOMAIN,aweme.snssdk.com,DIRECT
 DOMAIN,i.snssdk.com,DIRECT
 DOMAIN,api.snssdk.com,DIRECT
@@ -49,17 +42,9 @@ DOMAIN,api-access.snssdk.com,DIRECT
 DOMAIN,security.snssdk.com,DIRECT
 DOMAIN,verify.snssdk.com,DIRECT
 DOMAIN,lf.snssdk.com,DIRECT
-DOMAIN,log.snssdk.com,DIRECT
-DOMAIN,rtlog.snssdk.com,DIRECT
-DOMAIN,mcs.snssdk.com,DIRECT
-DOMAIN,dm.snssdk.com,DIRECT
 DOMAIN,vcs.zijieapi.com,DIRECT
-DOMAIN,mon.zijieapi.com,DIRECT
-DOMAIN,mcs.zijieapi.com,DIRECT
-DOMAIN,toblog.ctobsnssdk.com,DIRECT
 DOMAIN-SUFFIX,mssdk.bytedance.com,DIRECT
 DOMAIN-SUFFIX,mssdk.volces.com,DIRECT
-DOMAIN-SUFFIX,apmplus.volces.com,DIRECT
 DOMAIN-SUFFIX,mssdk.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,tnc.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,tnc3-sz.zijieapi.com,DIRECT
@@ -87,6 +72,25 @@ AND,((protocol,udp),(dest-port,443),(domain-suffix,hubcloud.com.cn)),REJECT-NO-D
 AND,((protocol,udp),(dest-port,443),(domain-suffix,zztfly.com)),REJECT-NO-DROP
 AND,((protocol,udp),(dest-port,443),(domain-suffix,qtfm.cn)),REJECT-NO-DROP
 AND,((protocol,udp),(dest-port,443),(domain-suffix,sofire.baidu.com)),REJECT-NO-DROP
+DOMAIN,log.snssdk.com,REJECT-NO-DROP
+DOMAIN,rtlog.snssdk.com,REJECT-NO-DROP
+DOMAIN,mcs.snssdk.com,REJECT-NO-DROP
+DOMAIN,dm.snssdk.com,REJECT-NO-DROP
+DOMAIN,mon.zijieapi.com,REJECT-NO-DROP
+DOMAIN,mcs.zijieapi.com,REJECT-NO-DROP
+DOMAIN,toblog.ctobsnssdk.com,REJECT-NO-DROP
+DOMAIN-SUFFIX,apmplus.volces.com,REJECT-NO-DROP
+DOMAIN,log-api.pangolin-sdk-toutiao.com,REJECT-NO-DROP
+DOMAIN,beacon.qq.com,REJECT-NO-DROP
+DOMAIN,rqd.qq.com,REJECT-NO-DROP
+DOMAIN,ios.bugly.qq.com,REJECT-NO-DROP
+DOMAIN,mdap.alipay.com,REJECT-NO-DROP
+DOMAIN,wn.pos.baidu.com,REJECT-NO-DROP
+DOMAIN,afd.baidu.com,REJECT-NO-DROP
+DOMAIN,afdconf.baidu.com,REJECT-NO-DROP
+DOMAIN,stats.jpush.cn,REJECT-NO-DROP
+DOMAIN,crashlytics.com,REJECT-NO-DROP
+DOMAIN-SUFFIX,adjust.com,REJECT-NO-DROP
 DOMAIN-KEYWORD,pangle,REJECT-200
 DOMAIN-SUFFIX,pangle.io,REJECT-200
 DOMAIN-SUFFIX,pangolin-sdk-toutiao,REJECT-200
@@ -106,10 +110,6 @@ DOMAIN-SUFFIX,pglstatp-toutiao.com,REJECT
 DOMAIN-SUFFIX,xdplt.com,REJECT
 DOMAIN-SUFFIX,pkoplink.com,REJECT
 DOMAIN-SUFFIX,sjxydc.com,REJECT
-DOMAIN-SUFFIX,ads.linkedin.com,REJECT
-DOMAIN-SUFFIX,analytics.pointdrive.linkedin.com,REJECT
-DOMAIN-SUFFIX,a1.firefoxchina.cn,REJECT
-DOMAIN-SUFFIX,outlookads.live.com,REJECT
 # === Compiled App Rules ===
 DOMAIN,sdkapp.uve.weibo.com,DIRECT
 DOMAIN,adstrategy.biz.weibo.com,REJECT
@@ -237,28 +237,6 @@ DOMAIN-SUFFIX,meituan.xn,REJECT
 DOMAIN-SUFFIX,meituan.yoga,REJECT
 DOMAIN-SUFFIX,meituangov.cn,REJECT
 DOMAIN-SUFFIX,ad.e.waimai.sankuai.com,REJECT
-DOMAIN,adstats.tencentmusic.com,REJECT
-DOMAIN,ad.tencentmusic.com,REJECT
-DOMAIN,adcdn.tencentmusic.com,REJECT
-DOMAIN,adcdn6.tencentmusic.com,REJECT
-DOMAIN,adexpo.tencentmusic.com,REJECT
-DOMAIN,adclick.tencentmusic.com,REJECT
-DOMAIN,monitor.music.qq.com,REJECT
-DOMAIN,stat.y.qq.com,REJECT
-DOMAIN,tmead.y.qq.com,REJECT
-DOMAIN,oth.str.mdt.qq.com,REJECT
-DOMAIN,h.trace.qq.com,REJECT
-DOMAIN,p.l.qq.com,REJECT
-DOMAIN,us.l.qq.com,REJECT
-DOMAIN,tmeadbak.y.qq.com,REJECT
-DOMAIN-SUFFIX,imtmp.net,REJECT
-DOMAIN,tmeadcomm.y.qq.com,REJECT
-DOMAIN-SUFFIX,gdt.qq.com,REJECT
-DOMAIN-SUFFIX,e.qq.com,REJECT
-DOMAIN-SUFFIX,v.gdt.qq.com,REJECT
-DOMAIN,amsweb-cdn-gz-1258344696.file.myqcloud.com,REJECT
-DOMAIN,wallpaper-1258344696.file.myqcloud.com,REJECT
-IP-CIDR,120.222.240.171/32,REJECT
 DOMAIN,sdkconfig.ad.xiaomi.com,REJECT
 DOMAIN-SUFFIX,corp.meitu.com,REJECT
 DOMAIN-SUFFIX,gg.meitu.com,REJECT
@@ -1081,10 +1059,6 @@ https://dynamicad.kfc.com.cn/api/app5/homepage/ai/popup - reject-200
 ^https?:\/\/qde\.qunar\.com\/preload - reject-200
 ^https?:\/\/m\.ctrip\.com\/restapi\/soa2\/[0-9]{5}\/json\/getTimeZoneServerIpList\?__gw_os=IOS - reject-200
 ^https?:\/\/m\.ctrip\.com\/restapi\/soa2\/13916\/json\/tripAds - reject-200
-^https?:\/\/us\.l\.qq\.com\/exapp - reject
-^https?:\/\/y\.gtimg\.cn\/music\/common\/upload\/t_splash_info\/ - reject
-^https?:\/\/.+?\/music\/common\/upload\/t_splash_info\/ - reject
-^https?:\/\/((25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\.){3}(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\/music\/common\/upload\/t_splash_info\/ - reject
 ^https?:\/\/home\.mi\.com\/cgi-op\/api\/v1\/recommendation\/(banner|carousel\/banners|myTab|openingBanner) - reject-dict
 ^https?:\/\/home\.mi\.com\/cgi-op\/api\/v1\/resource\/realtime\/openingBanner - reject-dict
 ^https?:\/\/c\.m\.163\.com\/nc\/gl\/ - reject-200
