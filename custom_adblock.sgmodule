@@ -1,6 +1,6 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-07-09 05:32:41 | Deep ad block & UI purification customized for user's installed apps.
-#!total=1233
+#!desc=最近更新: 2026-07-09 19:47:26 | Deep ad block & UI purification customized for user's installed apps.
+#!total=1242
 
 [Rule]
 # === Bypass Rules for WeChat, Alipay, Bank and Login App anomalies ===
@@ -97,6 +97,19 @@ DOMAIN,app-log-lab.tantanapp.com,REJECT-NO-DROP
 DOMAIN,io-sm-log.tantanapp.com,REJECT-NO-DROP
 DOMAIN,client-monitor.tantanapp.com,REJECT-NO-DROP
 DOMAIN,f10.baidu.com,REJECT-NO-DROP
+DOMAIN,ad.snssdk.com,REJECT-NO-DROP
+DOMAIN,ads.snssdk.com,REJECT-NO-DROP
+DOMAIN,mask.icloud.com,REJECT-NO-DROP
+DOMAIN,mask-api.icloud.com,REJECT-NO-DROP
+DOMAIN,mask-h2.icloud.com,REJECT-NO-DROP
+DOMAIN,monitor.ipv6-tantanapp.com.master.vip.tantanapp.com,REJECT-NO-DROP
+DOMAIN,pkoplink.com,REJECT-NO-DROP
+DOMAIN,sjxydc.com,REJECT-NO-DROP
+DOMAIN,metrics.icloud.com,REJECT-NO-DROP
+DOMAIN,ad.zijieapi.com,REJECT-NO-DROP
+DOMAIN,ads.zijieapi.com,REJECT-NO-DROP
+DOMAIN,pangolin.zijieapi.com,REJECT-NO-DROP
+DOMAIN,pangle.zijieapi.com,REJECT-NO-DROP
 DOMAIN-KEYWORD,pangle,REJECT-200
 DOMAIN-SUFFIX,pangle.io,REJECT-200
 DOMAIN-SUFFIX,pangolin-sdk-toutiao,REJECT-200
@@ -116,10 +129,6 @@ DOMAIN-SUFFIX,pglstatp-toutiao.com,REJECT
 DOMAIN-SUFFIX,xdplt.com,REJECT
 DOMAIN-SUFFIX,pkoplink.com,REJECT
 DOMAIN-SUFFIX,sjxydc.com,REJECT
-DOMAIN-SUFFIX,analytics.pointdrive.linkedin.com,REJECT
-DOMAIN-SUFFIX,a1.firefoxchina.cn,REJECT
-DOMAIN-SUFFIX,ads.linkedin.com,REJECT
-DOMAIN-SUFFIX,outlookads.live.com,REJECT
 # === Compiled App Rules ===
 DOMAIN,sdkapp.uve.weibo.com,DIRECT
 DOMAIN,adstrategy.biz.weibo.com,REJECT
