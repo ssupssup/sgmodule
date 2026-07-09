@@ -1337,6 +1337,7 @@ def generate():
     BYPASS_RULES = [
         "# === Bypass Rules for WeChat, Alipay, Bank and Login App anomalies ===",
         "DOMAIN,amdc.alipay.com,DIRECT",
+        "DOMAIN,re.m.taobao.com,DIRECT",
         "DOMAIN,enrichgw.10010.com,DIRECT",
         "DOMAIN,wxa.wxs.qq.com,DIRECT",
         "DOMAIN,wximg.wxs.qq.com,DIRECT",
