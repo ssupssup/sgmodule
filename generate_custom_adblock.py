@@ -1340,6 +1340,7 @@ def generate():
         "DOMAIN,enrichgw.10010.com,DIRECT",
         "DOMAIN,wxa.wxs.qq.com,DIRECT",
         "DOMAIN,wximg.wxs.qq.com,DIRECT",
+        "DOMAIN,wxsnsencsvp.wxs.qq.com,DIRECT",
         "DOMAIN,aedns.weixin.qq.com,DIRECT",
         "DOMAIN,apd-pcdnwxlogin.teg.tencent-cloud.net,DIRECT",
         "DOMAIN,mazu.m.qq.com,DIRECT",
