@@ -751,6 +751,9 @@ SDK_BLOCK_RULES = [
     "DOMAIN,pangolin.zijieapi.com,REJECT-NO-DROP",
     "DOMAIN,pangle.zijieapi.com,REJECT-NO-DROP",
     "DOMAIN,h-adashx.dingtalkapps.com,REJECT-NO-DROP",
+    "DOMAIN,h-adashx.ut.taobao.com,REJECT-NO-DROP",
+    "DOMAIN,firebaselogging-pa.googleapis.com,REJECT-NO-DROP",
+    "DOMAIN,app-analytics-services.com,REJECT-NO-DROP",
 
     # 穿山甲
     "DOMAIN-KEYWORD,pangle,REJECT-200",
