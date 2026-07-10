@@ -750,6 +750,7 @@ SDK_BLOCK_RULES = [
     "DOMAIN,ads.zijieapi.com,REJECT-NO-DROP",
     "DOMAIN,pangolin.zijieapi.com,REJECT-NO-DROP",
     "DOMAIN,pangle.zijieapi.com,REJECT-NO-DROP",
+    "DOMAIN,h-adashx.dingtalkapps.com,REJECT-NO-DROP",
 
     # 穿山甲
     "DOMAIN-KEYWORD,pangle,REJECT-200",
