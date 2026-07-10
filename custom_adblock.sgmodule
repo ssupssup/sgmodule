@@ -1,6 +1,6 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-07-10 05:47:46 | Deep ad block & UI purification customized for user's installed apps.
-#!total=1248
+#!desc=最近更新: 2026-07-10 16:04:48 | Deep ad block & UI purification customized for user's installed apps.
+#!total=1246
 
 [Rule]
 # === Bypass Rules for WeChat, Alipay, Bank and Login App anomalies ===
@@ -37,6 +37,7 @@ DOMAIN-SUFFIX,umeng.com,DIRECT
 DOMAIN-SUFFIX,umengcloud.com,DIRECT
 DOMAIN,apikey.map.qq.com,DIRECT
 DOMAIN,cdn.ynuf.aliapp.org,DIRECT
+DOMAIN,p3-ad-sign.byteimg.com,DIRECT
 DOMAIN,aweme.snssdk.com,DIRECT
 DOMAIN,i.snssdk.com,DIRECT
 DOMAIN,api.snssdk.com,DIRECT
@@ -84,6 +85,7 @@ DOMAIN,pc-mon.zijieapi.com,REJECT-NO-DROP
 DOMAIN,toblog.ctobsnssdk.com,REJECT-NO-DROP
 DOMAIN-SUFFIX,apmplus.volces.com,REJECT-NO-DROP
 DOMAIN,log-api.pangolin-sdk-toutiao.com,REJECT-NO-DROP
+DOMAIN,dig.bdurl.net,REJECT-NO-DROP
 DOMAIN,beacon.qq.com,REJECT-NO-DROP
 DOMAIN,rqd.qq.com,REJECT-NO-DROP
 DOMAIN,ios.bugly.qq.com,REJECT-NO-DROP
@@ -131,10 +133,6 @@ DOMAIN-SUFFIX,pglstatp-toutiao.com,REJECT
 DOMAIN-SUFFIX,xdplt.com,REJECT
 DOMAIN-SUFFIX,pkoplink.com,REJECT
 DOMAIN-SUFFIX,sjxydc.com,REJECT
-DOMAIN-SUFFIX,ads.linkedin.com,REJECT
-DOMAIN-SUFFIX,analytics.pointdrive.linkedin.com,REJECT
-DOMAIN-SUFFIX,outlookads.live.com,REJECT
-DOMAIN-SUFFIX,a1.firefoxchina.cn,REJECT
 # === Compiled App Rules ===
 DOMAIN,sdkapp.uve.weibo.com,DIRECT
 DOMAIN,adstrategy.biz.weibo.com,REJECT

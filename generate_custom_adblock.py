@@ -721,6 +721,7 @@ SDK_BLOCK_RULES = [
     "DOMAIN,toblog.ctobsnssdk.com,REJECT-NO-DROP",
     "DOMAIN-SUFFIX,apmplus.volces.com,REJECT-NO-DROP",
     "DOMAIN,log-api.pangolin-sdk-toutiao.com,REJECT-NO-DROP",
+    "DOMAIN,dig.bdurl.net,REJECT-NO-DROP",
     "DOMAIN,beacon.qq.com,REJECT-NO-DROP",
     "DOMAIN,rqd.qq.com,REJECT-NO-DROP",
     "DOMAIN,ios.bugly.qq.com,REJECT-NO-DROP",
@@ -1378,6 +1379,7 @@ def generate():
         "DOMAIN,cdn.ynuf.aliapp.org,DIRECT",
         # 彻底解决百度/穿山甲广告埋点上报失败引起的高频重连发热
         # 2026-07-07 联动加白：解决字节/抖音核心及打点上报重试引发的发热 (不放行根域名)
+        "DOMAIN,p3-ad-sign.byteimg.com,DIRECT",
         "DOMAIN,aweme.snssdk.com,DIRECT",
         "DOMAIN,i.snssdk.com,DIRECT",
         "DOMAIN,api.snssdk.com,DIRECT",
