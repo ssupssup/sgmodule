@@ -712,6 +712,7 @@ SDK_BLOCK_RULES = [
     
     # 大厂打点与 SDK 隐私遥测 REJECT-NO-DROP 拦截（防重试发热）
     "DOMAIN,log.snssdk.com,REJECT-NO-DROP",
+    "DOMAIN,log-hl.snssdk.com,REJECT-NO-DROP",
     "DOMAIN,rtlog.snssdk.com,REJECT-NO-DROP",
     "DOMAIN,mcs.snssdk.com,REJECT-NO-DROP",
     "DOMAIN,dm.snssdk.com,REJECT-NO-DROP",
