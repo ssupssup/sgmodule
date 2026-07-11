@@ -815,7 +815,17 @@ SDK_BLOCK_RULES = [
     "DOMAIN,upc.zztfly.com,REJECT-NO-DROP",
     "DOMAIN,log-auth.zztfly.com,REJECT-NO-DROP",
     "DOMAIN,sofire.baidu.com,REJECT-NO-DROP",
-    "DOMAIN,pangolin-sdk-toutiao.com,REJECT-NO-DROP"
+    "DOMAIN,pangolin-sdk-toutiao.com,REJECT-NO-DROP",
+    
+    # 2026-07-11 补强对齐：将 AdGuard Home 轨道 B 中遗漏的 8 个广告/遥测阻断同步至小火箭
+    "DOMAIN,ads.cdn.tvb.com,REJECT-NO-DROP",
+    "DOMAIN,ads.google.com,REJECT-NO-DROP",
+    "DOMAIN,df.tanx.com,REJECT-NO-DROP",
+    "DOMAIN,firefoxchina.cn,REJECT-NO-DROP",
+    "DOMAIN,iadsdk.apple.com,REJECT-NO-DROP",
+    "DOMAIN,log.noxiaohao.com,REJECT-NO-DROP",
+    "DOMAIN,pushstat-hk.engagelab.com,REJECT-NO-DROP",
+    "DOMAIN,whois.arin.net,REJECT-NO-DROP"
 ]
 
 MANDATORY_MITM_DOMAINS = [
