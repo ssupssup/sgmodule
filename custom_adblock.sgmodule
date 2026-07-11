@@ -1,6 +1,6 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-07-11 13:13:29 | Deep ad block & UI purification customized for user's installed apps.
-#!total=1186
+#!desc=最近更新: 2026-07-11 14:11:30 | Deep ad block & UI purification customized for user's installed apps.
+#!total=1184
 
 [Rule]
 # === Bypass Rules for WeChat, Alipay, Bank and Login App anomalies ===
@@ -72,10 +72,10 @@ AND,((protocol,udp),(dest-port,443),(domain-suffix,hubcloud.com.cn)),REJECT-NO-D
 AND,((protocol,udp),(dest-port,443),(domain-suffix,zztfly.com)),REJECT-NO-DROP
 AND,((protocol,udp),(dest-port,443),(domain-suffix,qtfm.cn)),REJECT-NO-DROP
 AND,((protocol,udp),(dest-port,443),(domain-suffix,sofire.baidu.com)),REJECT-NO-DROP
-DOMAIN-SUFFIX,outlookads.live.com,REJECT
-DOMAIN-SUFFIX,analytics.pointdrive.linkedin.com,REJECT
-DOMAIN-SUFFIX,ads.linkedin.com,REJECT
 DOMAIN-SUFFIX,a1.firefoxchina.cn,REJECT
+DOMAIN-SUFFIX,outlookads.live.com,REJECT
+DOMAIN-SUFFIX,ads.linkedin.com,REJECT
+DOMAIN-SUFFIX,analytics.pointdrive.linkedin.com,REJECT
 # === Compiled App Rules ===
 DOMAIN,sdkapp.uve.weibo.com,DIRECT
 DOMAIN,adstrategy.biz.weibo.com,REJECT
