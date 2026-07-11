@@ -17,7 +17,6 @@ DOMAIN,msmp.abchina.com.cn,DIRECT
 DOMAIN,log.cmbchina.com,DIRECT
 DOMAIN,httpdns.music.163.com,DIRECT
 DOMAIN,smartad.10010.com,DIRECT
-DOMAIN,sofire.baidu.com,DIRECT
 DOMAIN,nsclick.baidu.com,DIRECT
 DOMAIN-SUFFIX,amazon.com,DIRECT
 DOMAIN-SUFFIX,amazon.cn,DIRECT
@@ -156,7 +155,6 @@ DOMAIN,s.qd.qingtingfm.com,REJECT-200
 DOMAIN,adlaunch.qtfm.cn,REJECT-200
 DOMAIN,ad.qtfm.cn,REJECT-200
 DOMAIN,adlog.qingting.fm,REJECT-200
-DOMAIN,mi.gdt.qq.com,REJECT-200
 DOMAIN,win.gdt.qq.com,REJECT-200
 DOMAIN,v.gdt.qq.com,REJECT-200
 DOMAIN,v2.gdt.qq.com,REJECT-200
@@ -164,7 +162,6 @@ DOMAIN,t.gdt.qq.com,REJECT-200
 DOMAIN,gdt.qq.com,REJECT-200
 DOMAIN,pgdt.gtimg.cn,REJECT-200
 DOMAIN,pgdt.ugdtimg.com,REJECT-200
-DOMAIN,sdk.e.qq.com,REJECT-200
 DOMAIN,adsmind.tc.qq.com,REJECT-200
 DOMAIN,p.l.qq.com,REJECT-200
 DOMAIN,us.l.qq.com,REJECT-200
@@ -190,9 +187,6 @@ DOMAIN,resource.ad-scope.com.cn,REJECT-200
 DOMAIN,sdk-log.partner.sm.cn,REJECT-200
 DOMAIN,mobads-pre-config.cdn.bcebos.com,REJECT-200
 DOMAIN,cdn-api-auth.zztfly.com,REJECT-200
-DOMAIN,upc.zztfly.com,REJECT-200
-DOMAIN,cfgc.zztfly.com,REJECT-200
-DOMAIN,log-auth.zztfly.com,REJECT-200
 DOMAIN,gdfp.gifshow.com,REJECT-200
 DOMAIN,open.e.kuaishou.com,REJECT-200
 DOMAIN,api-access.pangolin-sdk-toutiao1.com,REJECT-200

@@ -209,7 +209,6 @@ EXTRA_REWRITE_DOMAINS = {
 # Universal Ad SDK domains to reject unconditionally via Rules
 ALWAYS_INJECT_DOMAINS = [
     # Tencent GDT Ads
-    "mi.gdt.qq.com",
     "win.gdt.qq.com",
     "v.gdt.qq.com",
     "v2.gdt.qq.com",
@@ -217,7 +216,6 @@ ALWAYS_INJECT_DOMAINS = [
     "gdt.qq.com",
     "pgdt.gtimg.cn",
     "pgdt.ugdtimg.com",
-    "sdk.e.qq.com",
     "adsmind.tc.qq.com",
     "p.l.qq.com",
     "us.l.qq.com",
@@ -259,9 +257,7 @@ ALWAYS_INJECT_DOMAINS = [
     
     # Zztfly Ads (浙报/其他广告)
     "cdn-api-auth.zztfly.com",
-    "upc.zztfly.com",
-    "cfgc.zztfly.com",
-    "log-auth.zztfly.com",
+    
     
     # Kuaishou Ads (快手联盟)
     "gdfp.gifshow.com",
@@ -784,7 +780,41 @@ SDK_BLOCK_RULES = [
     
     # PCDN / 视频上传劫持 拦截
     "DOMAIN-SUFFIX,pkoplink.com,REJECT",
-    "DOMAIN-SUFFIX,sjxydc.com,REJECT"
+    "DOMAIN-SUFFIX,sjxydc.com,REJECT",
+    
+    # 2026-07-11 联动 iStoreOS 降温阻断二期增补：统一为 REJECT-NO-DROP 极致拦截
+    "DOMAIN,app-measurement.com,REJECT-NO-DROP",
+    "DOMAIN,fp-it.fengkongcloud.com,REJECT-NO-DROP",
+    "DOMAIN,puata.info,REJECT-NO-DROP",
+    "DOMAIN,apm-native.xiaohongshu.com,REJECT-NO-DROP",
+    "DOMAIN,t2.xiaohongshu.com,REJECT-NO-DROP",
+    "DOMAIN,spider-tracker.xiaohongshu.com,REJECT-NO-DROP",
+    "DOMAIN,lng.xiaohongshu.com,REJECT-NO-DROP",
+    "DOMAIN,apm-fe.xiaohongshu.com,REJECT-NO-DROP",
+    "DOMAIN,utoken.umeng.com,REJECT-NO-DROP",
+    "DOMAIN,cnlogs.umengcloud.com,REJECT-NO-DROP",
+    "DOMAIN,resolve.umeng.com,REJECT-NO-DROP",
+    "DOMAIN,cnlogs.umeng.com,REJECT-NO-DROP",
+    "DOMAIN,errnewlog.umeng.com,REJECT-NO-DROP",
+    "DOMAIN,snowflake.qq.com,REJECT-NO-DROP",
+    "DOMAIN,xs.gdt.qq.com,REJECT-NO-DROP",
+    "DOMAIN,pangolin-sdk-toutiao1.com,REJECT-NO-DROP",
+    "DOMAIN,logs.amap.com,REJECT-NO-DROP",
+    "DOMAIN,dualstack-logs.amap.com,REJECT-NO-DROP",
+    "DOMAIN,opencloud.wostore.cn,REJECT-NO-DROP",
+    "DOMAIN,id6.me,REJECT-NO-DROP",
+    "DOMAIN,ma-adx.ctrip.com,REJECT-NO-DROP",
+    "DOMAIN,config.cmpassport.com,REJECT-NO-DROP",
+    "DOMAIN,tdid.m.qq.com,REJECT-NO-DROP",
+    "DOMAIN,rmonitor.qq.com,REJECT-NO-DROP",
+    "DOMAIN,gd-stats.jpush.cn,REJECT-NO-DROP",
+    "DOMAIN,ali-stats.jpush.cn,REJECT-NO-DROP",
+    "DOMAIN,mi.gdt.qq.com,REJECT-NO-DROP",
+    "DOMAIN,sdk.e.qq.com,REJECT-NO-DROP",
+    "DOMAIN,cfgc.zztfly.com,REJECT-NO-DROP",
+    "DOMAIN,upc.zztfly.com,REJECT-NO-DROP",
+    "DOMAIN,log-auth.zztfly.com,REJECT-NO-DROP",
+    "DOMAIN,sofire.baidu.com,REJECT-NO-DROP"
 ]
 
 MANDATORY_MITM_DOMAINS = [
@@ -1356,7 +1386,6 @@ def generate():
         "DOMAIN,httpdns.music.163.com,DIRECT",
         "DOMAIN,smartad.10010.com,DIRECT",
         # 解决宝宝知道等百度系 App 误杀，恢复推荐和视频加载
-        "DOMAIN,sofire.baidu.com,DIRECT",
         "DOMAIN,nsclick.baidu.com,DIRECT",
         # 解决亚马逊海外购加载报错问题，绕过代理解密风控
         "DOMAIN-SUFFIX,amazon.com,DIRECT",
