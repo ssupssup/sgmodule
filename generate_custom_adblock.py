@@ -1345,6 +1345,11 @@ def generate():
         "DOMAIN-KEYWORD,dy.snssdk,DIRECT"
     ]
 
+    final_rules = [r for r in final_rules if "pglstatp-toutiao.com" not in r]
+    final_rewrites = [r for r in final_rewrites if "pglstatp-toutiao.com" not in r]
+    final_scripts = [s for s in final_scripts if "pglstatp-toutiao.com" not in s]
+    final_mitm = [m for m in final_mitm if "pglstatp-toutiao.com" not in m]
+
     with open(output_path, "w", encoding="utf-8") as f:
         f.write("#!name=custom apps adblock.sgmodule\n")
         f.write(f"#!desc=最近更新: {beijing_time_str} | Deep ad block & UI purification customized for user's installed apps.\n")
