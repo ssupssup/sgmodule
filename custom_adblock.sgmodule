@@ -1,6 +1,6 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-07-11 05:29:18 | Deep ad block & UI purification customized for user's installed apps.
-#!total=1255
+#!desc=最近更新: 2026-07-11 10:02:14 | Deep ad block & UI purification customized for user's installed apps.
+#!total=1281
 
 [Rule]
 # === Bypass Rules for WeChat, Alipay, Bank and Login App anomalies ===
@@ -137,10 +137,42 @@ DOMAIN-SUFFIX,pglstatp-toutiao.com,REJECT
 DOMAIN-SUFFIX,xdplt.com,REJECT
 DOMAIN-SUFFIX,pkoplink.com,REJECT
 DOMAIN-SUFFIX,sjxydc.com,REJECT
+DOMAIN,app-measurement.com,REJECT-NO-DROP
+DOMAIN,fp-it.fengkongcloud.com,REJECT-NO-DROP
+DOMAIN,puata.info,REJECT-NO-DROP
+DOMAIN,apm-native.xiaohongshu.com,REJECT-NO-DROP
+DOMAIN,t2.xiaohongshu.com,REJECT-NO-DROP
+DOMAIN,spider-tracker.xiaohongshu.com,REJECT-NO-DROP
+DOMAIN,lng.xiaohongshu.com,REJECT-NO-DROP
+DOMAIN,apm-fe.xiaohongshu.com,REJECT-NO-DROP
+DOMAIN,utoken.umeng.com,REJECT-NO-DROP
+DOMAIN,cnlogs.umengcloud.com,REJECT-NO-DROP
+DOMAIN,resolve.umeng.com,REJECT-NO-DROP
+DOMAIN,cnlogs.umeng.com,REJECT-NO-DROP
+DOMAIN,errnewlog.umeng.com,REJECT-NO-DROP
+DOMAIN,snowflake.qq.com,REJECT-NO-DROP
+DOMAIN,xs.gdt.qq.com,REJECT-NO-DROP
+DOMAIN,pangolin-sdk-toutiao1.com,REJECT-NO-DROP
+DOMAIN,logs.amap.com,REJECT-NO-DROP
+DOMAIN,dualstack-logs.amap.com,REJECT-NO-DROP
+DOMAIN,opencloud.wostore.cn,REJECT-NO-DROP
+DOMAIN,id6.me,REJECT-NO-DROP
+DOMAIN,ma-adx.ctrip.com,REJECT-NO-DROP
+DOMAIN,config.cmpassport.com,REJECT-NO-DROP
+DOMAIN,tdid.m.qq.com,REJECT-NO-DROP
+DOMAIN,rmonitor.qq.com,REJECT-NO-DROP
+DOMAIN,gd-stats.jpush.cn,REJECT-NO-DROP
+DOMAIN,ali-stats.jpush.cn,REJECT-NO-DROP
+DOMAIN,mi.gdt.qq.com,REJECT-NO-DROP
+DOMAIN,sdk.e.qq.com,REJECT-NO-DROP
+DOMAIN,cfgc.zztfly.com,REJECT-NO-DROP
+DOMAIN,upc.zztfly.com,REJECT-NO-DROP
+DOMAIN,log-auth.zztfly.com,REJECT-NO-DROP
+DOMAIN,sofire.baidu.com,REJECT-NO-DROP
 DOMAIN-SUFFIX,ads.linkedin.com,REJECT
+DOMAIN-SUFFIX,outlookads.live.com,REJECT
 DOMAIN-SUFFIX,analytics.pointdrive.linkedin.com,REJECT
 DOMAIN-SUFFIX,a1.firefoxchina.cn,REJECT
-DOMAIN-SUFFIX,outlookads.live.com,REJECT
 # === Compiled App Rules ===
 DOMAIN,sdkapp.uve.weibo.com,DIRECT
 DOMAIN,adstrategy.biz.weibo.com,REJECT
