@@ -705,128 +705,30 @@ SDK_BLOCK_RULES = [
     "AND,((protocol,udp),(dest-port,443),(domain-suffix,zztfly.com)),REJECT-NO-DROP",
     "AND,((protocol,udp),(dest-port,443),(domain-suffix,qtfm.cn)),REJECT-NO-DROP",
     "AND,((protocol,udp),(dest-port,443),(domain-suffix,sofire.baidu.com)),REJECT-NO-DROP",
-    
-    # 大厂打点与 SDK 隐私遥测 REJECT-NO-DROP 拦截（防重试发热）
-    "DOMAIN,log.snssdk.com,REJECT-NO-DROP",
-    "DOMAIN,log-hl.snssdk.com,REJECT-NO-DROP",
-    "DOMAIN,rtlog.snssdk.com,REJECT-NO-DROP",
-    "DOMAIN,mcs.snssdk.com,REJECT-NO-DROP",
-    "DOMAIN,dm.snssdk.com,REJECT-NO-DROP",
-    "DOMAIN,mcs.zijieapi.com,REJECT-NO-DROP",
-    "DOMAIN,mon.zijieapi.com,REJECT-NO-DROP",
-    "DOMAIN,pc-mon.zijieapi.com,REJECT-NO-DROP",
-    "DOMAIN,toblog.ctobsnssdk.com,REJECT-NO-DROP",
-    "DOMAIN-SUFFIX,apmplus.volces.com,REJECT-NO-DROP",
-    "DOMAIN,log-api.pangolin-sdk-toutiao.com,REJECT-NO-DROP",
-    "DOMAIN,dig.bdurl.net,REJECT-NO-DROP",
-    "DOMAIN,beacon.qq.com,REJECT-NO-DROP",
-    "DOMAIN,rqd.qq.com,REJECT-NO-DROP",
-    "DOMAIN,ios.bugly.qq.com,REJECT-NO-DROP",
-    "DOMAIN,mdap.alipay.com,REJECT-NO-DROP",
-    "DOMAIN,wn.pos.baidu.com,REJECT-NO-DROP",
-    "DOMAIN,afd.baidu.com,REJECT-NO-DROP",
-    "DOMAIN,afdconf.baidu.com,REJECT-NO-DROP",
-    "DOMAIN,stats.jpush.cn,REJECT-NO-DROP",
-    "DOMAIN,crashlytics.com,REJECT-NO-DROP",
-    "DOMAIN-SUFFIX,adjust.com,REJECT-NO-DROP",
-    "DOMAIN-SUFFIX,appsflyersdk.com,REJECT-NO-DROP",
-    "DOMAIN,app-log-lab.tantanapp.com,REJECT-NO-DROP",
-    "DOMAIN,io-sm-log.tantanapp.com,REJECT-NO-DROP",
-    "DOMAIN,client-monitor.tantanapp.com,REJECT-NO-DROP",
-    "DOMAIN,f10.baidu.com,REJECT-NO-DROP",
-    "DOMAIN,ad.snssdk.com,REJECT-NO-DROP",
-    "DOMAIN,ads.snssdk.com,REJECT-NO-DROP",
-    "DOMAIN,mask.icloud.com,REJECT-NO-DROP",
-    "DOMAIN,mask-api.icloud.com,REJECT-NO-DROP",
-    "DOMAIN,mask-h2.icloud.com,REJECT-NO-DROP",
-    "DOMAIN,monitor.ipv6-tantanapp.com.master.vip.tantanapp.com,REJECT-NO-DROP",
-    "DOMAIN,pkoplink.com,REJECT-NO-DROP",
-    "DOMAIN,sjxydc.com,REJECT-NO-DROP",
-    "DOMAIN,metrics.icloud.com,REJECT-NO-DROP",
-    "DOMAIN,ad.zijieapi.com,REJECT-NO-DROP",
-    "DOMAIN,ads.zijieapi.com,REJECT-NO-DROP",
-    "DOMAIN,pangolin.zijieapi.com,REJECT-NO-DROP",
-    "DOMAIN,pangle.zijieapi.com,REJECT-NO-DROP",
-    "DOMAIN,h-adashx.dingtalkapps.com,REJECT-NO-DROP",
-    "DOMAIN,h-adashx.ut.taobao.com,REJECT-NO-DROP",
-    "DOMAIN,firebaselogging-pa.googleapis.com,REJECT-NO-DROP",
-    "DOMAIN,app-analytics-services.com,REJECT-NO-DROP",
-
-    # 穿山甲
-    "DOMAIN-KEYWORD,pangle,REJECT-200",
-    "DOMAIN-SUFFIX,pangle.io,REJECT-200",
-    "DOMAIN-SUFFIX,pangolin-sdk-toutiao,REJECT-200",
-    # 腾讯广点通
-    "DOMAIN-SUFFIX,gdt.qq.com,REJECT-200",
-    "DOMAIN-SUFFIX,ugdtimg.com,REJECT-200",
-    # 百度联盟
-    "DOMAIN-SUFFIX,mobads.baidu.com,REJECT-200",
-    "DOMAIN-SUFFIX,mobads-logs.baidu.com,REJECT-200",
-    # 天目/快手/广告聚合
-    "DOMAIN-SUFFIX,tianmu.mobi,REJECT-200",
-    "DOMAIN-SUFFIX,1rtb.net,REJECT-200",
-    
-    # 百度 HTTPDNS 拦截（防贴吧等 App 绕过域名规则，使用 REJECT-NO-DROP/REJECT 拒绝以触发系统 DNS 降级回退）
-    "IP-CIDR,180.76.76.200/32,REJECT-NO-DROP",
-    "IP-CIDR,180.76.76.112/32,REJECT-NO-DROP",
-    "DOMAIN,httpdns.baidu.com,REJECT",
-    "DOMAIN,httpdns.baidubce.com,REJECT",
-    
-    # 新增联盟与广告物料、追踪封锁（基于贴吧代理日志的精准收网）
-    "DOMAIN-SUFFIX,ubixioe.com,REJECT",
-    "DOMAIN-SUFFIX,pangolin-dsp-toutiao.com,REJECT",
-    "DOMAIN-SUFFIX,pglstatp-toutiao.com,REJECT",
-    "DOMAIN-SUFFIX,xdplt.com,REJECT",
-    
-    # PCDN / 视频上传劫持 拦截
-    "DOMAIN-SUFFIX,pkoplink.com,REJECT",
-    "DOMAIN-SUFFIX,sjxydc.com,REJECT",
-    
-    # 2026-07-11 联动 iStoreOS 降温阻断二期增补：统一为 REJECT-NO-DROP 极致拦截
-    "DOMAIN,app-measurement.com,REJECT-NO-DROP",
-    "DOMAIN,fp-it.fengkongcloud.com,REJECT-NO-DROP",
-    "DOMAIN,puata.info,REJECT-NO-DROP",
-    "DOMAIN,apm-native.xiaohongshu.com,REJECT-NO-DROP",
-    "DOMAIN,t2.xiaohongshu.com,REJECT-NO-DROP",
-    "DOMAIN,spider-tracker.xiaohongshu.com,REJECT-NO-DROP",
-    "DOMAIN,lng.xiaohongshu.com,REJECT-NO-DROP",
-    "DOMAIN,apm-fe.xiaohongshu.com,REJECT-NO-DROP",
-    "DOMAIN,utoken.umeng.com,REJECT-NO-DROP",
-    "DOMAIN,cnlogs.umengcloud.com,REJECT-NO-DROP",
-    "DOMAIN,resolve.umeng.com,REJECT-NO-DROP",
-    "DOMAIN,cnlogs.umeng.com,REJECT-NO-DROP",
-    "DOMAIN,errnewlog.umeng.com,REJECT-NO-DROP",
-    "DOMAIN,snowflake.qq.com,REJECT-NO-DROP",
-    "DOMAIN,xs.gdt.qq.com,REJECT-NO-DROP",
-    "DOMAIN,pangolin-sdk-toutiao1.com,REJECT-NO-DROP",
-    "DOMAIN,logs.amap.com,REJECT-NO-DROP",
-    "DOMAIN,dualstack-logs.amap.com,REJECT-NO-DROP",
-    "DOMAIN,opencloud.wostore.cn,REJECT-NO-DROP",
-    "DOMAIN,id6.me,REJECT-NO-DROP",
-    "DOMAIN,ma-adx.ctrip.com,REJECT-NO-DROP",
-    "DOMAIN,config.cmpassport.com,REJECT-NO-DROP",
-    "DOMAIN,tdid.m.qq.com,REJECT-NO-DROP",
-    "DOMAIN,rmonitor.qq.com,REJECT-NO-DROP",
-    "DOMAIN,gd-stats.jpush.cn,REJECT-NO-DROP",
-    "DOMAIN,ali-stats.jpush.cn,REJECT-NO-DROP",
-    "DOMAIN,mi.gdt.qq.com,REJECT-NO-DROP",
-    "DOMAIN,sdk.e.qq.com,REJECT-NO-DROP",
-    "DOMAIN,cfgc.zztfly.com,REJECT-NO-DROP",
-    "DOMAIN,upc.zztfly.com,REJECT-NO-DROP",
-    "DOMAIN,log-auth.zztfly.com,REJECT-NO-DROP",
-    "DOMAIN,sofire.baidu.com,REJECT-NO-DROP",
-    "DOMAIN,pangolin-sdk-toutiao.com,REJECT-NO-DROP",
-    
-    # 2026-07-11 补强对齐：将 AdGuard Home 轨道 B 中遗漏的 8 个广告/遥测阻断同步至小火箭
-    "DOMAIN,ads.cdn.tvb.com,REJECT-NO-DROP",
-    "DOMAIN,ads.google.com,REJECT-NO-DROP",
-    "DOMAIN,df.tanx.com,REJECT-NO-DROP",
-    "DOMAIN,firefoxchina.cn,REJECT-NO-DROP",
-    "DOMAIN,iadsdk.apple.com,REJECT-NO-DROP",
-    "DOMAIN,log.noxiaohao.com,REJECT-NO-DROP",
-    "DOMAIN,pushstat-hk.engagelab.com,REJECT-NO-DROP",
-    "DOMAIN,whois.arin.net,REJECT-NO-DROP"
 ]
+
+# =================================================================
+# 🚀 动态同步机制：自动从 Clash /ini 仓 of sdkdomain.list 动态追加全部核心打点域名
+# =================================================================
+_sdkdomain_list_file = os.path.join(os.path.dirname(__file__), "../ini/sdkdomain.list")
+if os.path.exists(_sdkdomain_list_file):
+    print(f"Loading dynamic domains from: {_sdkdomain_list_file}")
+    with open(_sdkdomain_list_file, "r", encoding="utf-8") as f:
+        _dynamic_count = 0
+        for _line in f.read().splitlines():
+            _line = _line.strip()
+            if not _line or _line.startswith("#"):
+                continue
+            _parts = _line.split(",")
+            if len(_parts) >= 2:
+                _dom = _parts[1].strip().lower()
+                _rule = f"DOMAIN,{_dom},REJECT-NO-DROP"
+                if _rule not in SDK_BLOCK_RULES:
+                    SDK_BLOCK_RULES.append(_rule)
+                    _dynamic_count += 1
+    print(f"Dynamically appended {_dynamic_count} domains from sdkdomain.list into SDK_BLOCK_RULES.")
+else:
+    print(f"Warning: {_sdkdomain_list_file} not found! Dynamic alignment fallback.")
 
 MANDATORY_MITM_DOMAINS = [
     # 豆瓣
