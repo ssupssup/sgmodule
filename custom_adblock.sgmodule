@@ -1,5 +1,5 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-07-11 10:04:10 | Deep ad block & UI purification customized for user's installed apps.
+#!desc=最近更新: 2026-07-11 11:12:24 | Deep ad block & UI purification customized for user's installed apps.
 #!total=1277
 
 [Rule]
@@ -166,9 +166,9 @@ DOMAIN,ali-stats.jpush.cn,REJECT-NO-DROP
 DOMAIN,mi.gdt.qq.com,REJECT-NO-DROP
 DOMAIN,sdk.e.qq.com,REJECT-NO-DROP
 DOMAIN,cfgc.zztfly.com,REJECT-NO-DROP
-DOMAIN,upc.zztfly.com,REJECT-NO-DROP
 DOMAIN,log-auth.zztfly.com,REJECT-NO-DROP
 DOMAIN,sofire.baidu.com,REJECT-NO-DROP
+DOMAIN,pangolin-sdk-toutiao.com,REJECT-NO-DROP
 # === Compiled App Rules ===
 DOMAIN,sdkapp.uve.weibo.com,DIRECT
 DOMAIN,adstrategy.biz.weibo.com,REJECT
