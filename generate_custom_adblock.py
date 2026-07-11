@@ -812,6 +812,7 @@ SDK_BLOCK_RULES = [
     "DOMAIN,mi.gdt.qq.com,REJECT-NO-DROP",
     "DOMAIN,sdk.e.qq.com,REJECT-NO-DROP",
     "DOMAIN,cfgc.zztfly.com,REJECT-NO-DROP",
+    "DOMAIN,upc.zztfly.com,REJECT-NO-DROP",
     "DOMAIN,log-auth.zztfly.com,REJECT-NO-DROP",
     "DOMAIN,sofire.baidu.com,REJECT-NO-DROP",
     "DOMAIN,pangolin-sdk-toutiao.com,REJECT-NO-DROP"
