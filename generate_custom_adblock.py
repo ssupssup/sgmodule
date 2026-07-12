@@ -311,6 +311,53 @@ HIGH_RISK_MITM_DOMAINS = [
     "pan.baidu.com"
 ]
 
+def load_agh_blocked_domains():
+    agh_file = "/Users/shizupeng/Documents/antigravity/istoreos/scratch/adguardhome_custom_rules.txt"
+    if not os.path.exists(agh_file):
+        print(f"Warning: AGH custom rules file not found at {agh_file}")
+        return []
+    
+    domains = []
+    try:
+        with open(agh_file, "r", encoding="utf-8") as f:
+            lines = f.readlines()
+            
+        in_track_a = False
+        in_track_b = False
+        
+        for line in lines:
+            line_str = line.strip()
+            
+            if "轨道 A · Fake-IP" in line_str:
+                in_track_a = True
+                in_track_b = False
+                continue
+            elif "轨道 B · NXDOMAIN" in line_str:
+                in_track_a = False
+                in_track_b = True
+                continue
+            elif "第二部分：常规严格拦截" in line_str or ("\u0001F534 \u4e13\u5c5e\u533a\u57df" in line_str and "轨道 B" not in line_str):
+                in_track_a = False
+                in_track_b = False
+            
+            if in_track_a:
+                if line_str.startswith("@@||") and "$important" in line_str:
+                    domain = line_str.replace("@@||", "").split("^")[0].strip()
+                    if domain:
+                        domains.append(domain)
+            elif in_track_b:
+                if line_str.startswith("||") and "$dnsrewrite=NXDOMAIN" in line_str:
+                    domain = line_str.replace("||", "").split("^")[0].strip()
+                    if domain:
+                        domains.append(domain)
+    except Exception as e:
+        print(f"Error parsing AGH rules: {e}")
+        
+    return sorted(list(set(domains)))
+
+_agh_domains = load_agh_blocked_domains()
+
+
 def sanitize_hostname(host):
     host = host.strip()
     # Remove protocol prefix if present
@@ -729,6 +776,17 @@ if os.path.exists(_sdkdomain_list_file):
     print(f"Dynamically appended {_dynamic_count} domains from sdkdomain.list into SDK_BLOCK_RULES.")
 else:
     print(f"Warning: {_sdkdomain_list_file} not found! Dynamic alignment fallback.")
+
+# =================================================================
+# 🚀 双端联动：自动从本地 AdGuard Home 自定义规则 (Track A + Track B) 动态加载全部核心拦截域名并强制统一为 REJECT-NO-DROP
+# =================================================================
+_agh_count = 0
+for _dom in _agh_domains:
+    _rule = f"DOMAIN,{_dom},REJECT-NO-DROP"
+    if _rule not in SDK_BLOCK_RULES:
+        SDK_BLOCK_RULES.append(_rule)
+        _agh_count += 1
+print(f"Dynamically appended {_agh_count} domains from AdGuard Home (Track A + B) into SDK_BLOCK_RULES.")
 
 MANDATORY_MITM_DOMAINS = [
     # 豆瓣
@@ -1345,19 +1403,22 @@ def generate():
         "DOMAIN-KEYWORD,dy.snssdk,DIRECT"
     ]
 
-    final_rules = [r for r in final_rules if "pglstatp-toutiao.com" not in r]
-    final_rewrites = [r for r in final_rewrites if "pglstatp-toutiao.com" not in r]
-    final_scripts = [s for s in final_scripts if "pglstatp-toutiao.com" not in s]
-    final_mitm = [m for m in final_mitm if "pglstatp-toutiao.com" not in m]
+    # 动态排除 AGH 的打点/拦截域名及字节 TNC 相关，防止编译生成的 final_rules 等地方带入普通 REJECT 或重写
+    _filter_domains = set(_agh_domains) | {"pglstatp-toutiao.com"}
+    final_rules = [r for r in final_rules if not any(d in r.lower() for d in _filter_domains)]
+    final_rewrites = [r for r in final_rewrites if not any(d in r.lower() for d in _filter_domains)]
+    final_scripts = [s for s in final_scripts if not any(d in s.lower() for d in _filter_domains)]
+    final_mitm = [m for m in final_mitm if not any(d in m.lower() for d in _filter_domains)]
+    final_bypass = [r for r in BYPASS_RULES if not any(d in r.lower() for d in _filter_domains)]
 
     with open(output_path, "w", encoding="utf-8") as f:
         f.write("#!name=custom apps adblock.sgmodule\n")
         f.write(f"#!desc=最近更新: {beijing_time_str} | Deep ad block & UI purification customized for user's installed apps.\n")
-        f.write(f"#!total={len(final_rules) + len(SDK_BLOCK_RULES) + len(final_rewrites) + len(final_scripts) + len(BYPASS_RULES)}\n\n")
+        f.write(f"#!total={len(final_rules) + len(SDK_BLOCK_RULES) + len(final_rewrites) + len(final_scripts) + len(final_bypass)}\n\n")
         
-        if final_rules or SDK_BLOCK_RULES or BYPASS_RULES:
+        if final_rules or SDK_BLOCK_RULES or final_bypass:
             f.write("[Rule]\n")
-            for line in BYPASS_RULES:
+            for line in final_bypass:
                 f.write(line + "\n")
             f.write("# === SDK Core REJECT Rules ===\n")
             for line in SDK_BLOCK_RULES:
