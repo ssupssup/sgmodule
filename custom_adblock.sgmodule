@@ -1,6 +1,6 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-07-13 11:38:13 | Deep ad block & UI purification customized for user's installed apps.
-#!total=1265
+#!desc=最近更新: 2026-07-17 14:01:17 | Deep ad block & UI purification customized for user's installed apps.
+#!total=1272
 
 [Rule]
 # === Bypass Rules for WeChat, Alipay, Bank and Login App anomalies ===
@@ -83,7 +83,6 @@ DOMAIN,mon.zijieapi.com,REJECT-NO-DROP
 DOMAIN,mcs.zijieapi.com,REJECT-NO-DROP
 DOMAIN,pc-mon.zijieapi.com,REJECT-NO-DROP
 DOMAIN,toblog.ctobsnssdk.com,REJECT-NO-DROP
-DOMAIN,apmplus.volces.com,REJECT-NO-DROP
 DOMAIN,log-api.pangolin-sdk-toutiao.com,REJECT-NO-DROP
 DOMAIN,beacon.qq.com,REJECT-NO-DROP
 DOMAIN,rqd.qq.com,REJECT-NO-DROP
@@ -152,9 +151,17 @@ DOMAIN,ali-stats.jpush.cn,REJECT-NO-DROP
 DOMAIN,log-auth.zztfly.com,REJECT-NO-DROP
 DOMAIN,iadsdk.apple.com,REJECT-NO-DROP
 DOMAIN,df.tanx.com,REJECT-NO-DROP
+DOMAIN,6.0.0.192.in-addr.arpa,REJECT-NO-DROP
+DOMAIN,adashx.m.taobao.com,REJECT-NO-DROP
+DOMAIN,analytics.umetrip.com,REJECT-NO-DROP
 DOMAIN,badjs.weixinbridge.com,REJECT-NO-DROP
+DOMAIN,browser.events.data.microsoft.com,REJECT-NO-DROP
+DOMAIN,data.bilibili.com,REJECT-NO-DROP
+DOMAIN,mars.jd.com,REJECT-NO-DROP
+DOMAIN,mllog.jd.com,REJECT-NO-DROP
 DOMAIN,mobile.events.data.microsoft.com,REJECT-NO-DROP
 DOMAIN,report.tantanapp.com,REJECT-NO-DROP
+DOMAIN,res.mmstat.com,REJECT-NO-DROP
 DOMAIN,sc-report.tantanapp.com,REJECT-NO-DROP
 DOMAIN,sla-media.immomo.com,REJECT-NO-DROP
 DOMAIN,soul-ad.soulapp.cn,REJECT-NO-DROP

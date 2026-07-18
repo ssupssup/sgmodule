@@ -1,0 +1,900 @@
+{
+  "INSTALLED_APPS": [
+    "BookPlayer",
+    "微信",
+    "FTPManager",
+    "AVPlayer",
+    "VLC",
+    "海贝音乐",
+    "MOMO陌陌",
+    "EZMP3Pro",
+    "抖音",
+    "Edge Gallery",
+    "探探",
+    "闲鱼",
+    "Telegram",
+    "钉钉",
+    "航旅纵横",
+    "豆包",
+    "夸克",
+    "京东",
+    "豆瓣",
+    "LocalSend",
+    "百度网盘",
+    "支付宝",
+    "Chrome",
+    "哔哩哔哩",
+    "剪映",
+    "百度地图",
+    "淘宝",
+    "网易云音乐",
+    "今日头条",
+    "TikTok",
+    "SOUL",
+    "小红书",
+    "米家",
+    "铁路12306",
+    "美团",
+    "Ever Play",
+    "知乎",
+    "美图秀秀",
+    "大众点评",
+    "iSub",
+    "携程旅行",
+    "萤石云视频",
+    "GoodReader",
+    "南方航空",
+    "币安",
+    "Gmail",
+    "Bitget Wallet",
+    "滴滴企业版",
+    "千问",
+    "腾讯视频",
+    "Edge",
+    "上海银行",
+    "优酷",
+    "多邻国",
+    "芒果TV",
+    "百度贴吧",
+    "QQ音乐",
+    "X",
+    "Instagram",
+    "Facebook",
+    "KakaoTalk",
+    "贝壳找房",
+    "Bybit",
+    "一嗨租车",
+    "汽车之家",
+    "网易邮箱大师",
+    "Word",
+    "网易新闻",
+    "Outlook",
+    "PayPal",
+    "腾讯会议",
+    "Google Maps",
+    "Google",
+    "LinkedIn",
+    "宝宝树孕育",
+    "中信银行",
+    "腾讯新闻",
+    "Tinder",
+    "爱奇艺",
+    "北京一卡通",
+    "M365 Copilot",
+    "PowerPoint",
+    "Excel",
+    "华夏银行",
+    "X Corp.",
+    "涨乐财富通",
+    "Wise",
+    "滴滴",
+    "叮咚买菜",
+    "LINE",
+    "交管12123",
+    "中国国航",
+    "YouTube",
+    "北京银行",
+    "航班管家",
+    "Chat",
+    "去哪儿旅行",
+    "阿里云盘",
+    "首旅如家",
+    "Firefox",
+    "光大银行",
+    "WhatsApp",
+    "华住会",
+    "SAVO",
+    "中国建设银行",
+    "浦发银行",
+    "招商银行",
+    "万年历纯净版",
+    "Gemini",
+    "58同城",
+    "东方航空",
+    "拼多多",
+    "Clubhouse",
+    "Bumble",
+    "随手记",
+    "MEGA",
+    "Snapseed",
+    "掌上生活",
+    "欧路词典",
+    "Grok",
+    "首汽约车",
+    "蜻蜓FM",
+    "个人所得税",
+    "神州租车",
+    "QQ邮箱",
+    "Spotify",
+    "ChatGPT",
+    "易捷加油",
+    "向日葵",
+    "宝宝知道",
+    "下厨房",
+    "艺龙旅行",
+    "小米音箱",
+    "海南航空",
+    "Voice",
+    "Copilot",
+    "Manus",
+    "云闪付",
+    "NotebookLM",
+    "小米商城",
+    "微博轻享版",
+    "GoFun出行",
+    "Orion",
+    "多点",
+    "Claude",
+    "XChat",
+    "DeepL",
+    "Hiddify",
+    "Authenticator",
+    "Speedtest",
+    "数字人民币",
+    "Google Earth",
+    "伴生活",
+    "厦门航空",
+    "Shadowrocket",
+    "锦江荟",
+    "Swiftfin iOS",
+    "Karing",
+    "天气通Pro",
+    "城通网盘",
+    "FTP Rush",
+    "ShadowShare",
+    "Clash Mi",
+    "新浪邮箱",
+    "AdBlocker",
+    "凤凰视频",
+    "OPlayer Lite",
+    "速8酒店",
+    "小米WiFi",
+    "购物党",
+    "Talkatone",
+    "资和信亿方",
+    "小米电视助手",
+    "DeepSeek",
+    "中国联合航空",
+    "RustDesk",
+    "EasyConnect",
+    "Poe",
+    "亚马逊购物",
+    "sing-box",
+    "PrivadoVPN",
+    "北京燃气",
+    "AMonitor",
+    "mimi 听力测试",
+    "北京公积金",
+    "图乐园",
+    "Microsoft Corporation",
+    "Kodi Remote",
+    "通用开屏广告",
+    "微信解除链接限制"
+  ],
+  "APP_KEYWORDS": {
+    "微信": [
+      "wechat",
+      "applet",
+      "tenpay",
+      "weixin"
+    ],
+    "哔哩哔哩": [
+      "bilibili",
+      "biliintl",
+      "biliapi",
+      "bili"
+    ],
+    "知乎": [
+      "zhihu"
+    ],
+    "微博轻享版": [
+      "weibo",
+      "weico"
+    ],
+    "豆瓣": [
+      "douban"
+    ],
+    "闲鱼": [
+      "goofish",
+      "idle",
+      "taobao.idle"
+    ],
+    "网易云音乐": [
+      "netease",
+      "music.163",
+      "music.126",
+      "163.com",
+      "126.net"
+    ],
+    "百度贴吧": [
+      "tieba"
+    ],
+    "高德地图": [
+      "amap"
+    ],
+    "百度地图": [
+      "baidu.com/client",
+      "map.baidu",
+      "baidu.com/baidu"
+    ],
+    "支付宝": [
+      "alipay"
+    ],
+    "美团": [
+      "meituan",
+      "wmapi.meituan"
+    ],
+    "大众点评": [
+      "dianping"
+    ],
+    "今日头条": [
+      "toutiao"
+    ],
+    "小红书": [
+      "xiaohongshu",
+      "xhs",
+      "edith.xiaohongshu"
+    ],
+    "去哪儿旅行": [
+      "qunar"
+    ],
+    "携程旅行": [
+      "ctrip"
+    ],
+    "南方航空": [
+      "csair"
+    ],
+    "厦门航空": [
+      "xiamenair"
+    ],
+    "海南航空": [
+      "hnair"
+    ],
+    "中国国航": [
+      "airchina"
+    ],
+    "东方航空": [
+      "ceair"
+    ],
+    "华住会": [
+      "huazhu"
+    ],
+    "首旅如家": [
+      "bthhotels",
+      "homeinns"
+    ],
+    "58同城": [
+      "app.58.com",
+      "58.com"
+    ],
+    "拼多多": [
+      "pinduoduo",
+      "yangkeduo"
+    ],
+    "车来了": [
+      "chelaile"
+    ],
+    "网易邮箱大师": [
+      "neteasemail",
+      "mail.163"
+    ],
+    "宝宝树孕育": [
+      "babytree"
+    ],
+    "腾讯新闻": [
+      "qqnews",
+      "inews.qq.com"
+    ],
+    "爱奇艺": [
+      "iqiyi"
+    ],
+    "优酷": [
+      "youku"
+    ],
+    "芒果TV": [
+      "mgtv"
+    ],
+    "腾讯视频": [
+      "qqvideo",
+      "video.qq.com"
+    ],
+    "叮咚买菜": [
+      "ddxq"
+    ],
+    "下厨房": [
+      "xiachufang"
+    ],
+    "中国移动": [
+      "10086",
+      "chinamobile"
+    ],
+    "中国电信": [
+      "189.cn",
+      "chinatelecom"
+    ],
+    "星巴克": [
+      "starbucks"
+    ],
+    "麦当劳": [
+      "mcd.cn"
+    ],
+    "肯德基": [
+      "kfc.com"
+    ],
+    "顺丰速运": [
+      "sf-express"
+    ],
+    "中通快递": [
+      "zto.com"
+    ],
+    "个人所得税": [
+      "chinatax"
+    ],
+    "铁路12306": [
+      "12306"
+    ],
+    "同程旅行": [
+      "ly.com",
+      "17usoft"
+    ],
+    "航班管家": [
+      "feeyo"
+    ],
+    "艺龙旅行": [
+      "elong"
+    ],
+    "QQ音乐": [
+      "qqmusic",
+      "music.qq.com",
+      "tencentmusic",
+      "y.qq.com"
+    ],
+    "淘宝": [
+      "taobao",
+      "alicdn",
+      "alimama"
+    ],
+    "京东": [
+      "jd.com",
+      "360buy",
+      "jdcloud"
+    ],
+    "一嗨租车": [
+      "1hi",
+      "yihi"
+    ],
+    "神州租车": [
+      "zuche"
+    ],
+    "首汽约车": [
+      "01zhuanche",
+      "shouqiev"
+    ],
+    "滴滴": [
+      "diditaxi",
+      "didapinche",
+      "xiaojukeji",
+      "didi"
+    ],
+    "招商银行": [
+      "cmbchina",
+      "cmb"
+    ],
+    "掌上生活": [
+      "cmbchina",
+      "cmb"
+    ],
+    "中信银行": [
+      "ecitic"
+    ],
+    "北京银行": [
+      "bankofbeijing",
+      "bob"
+    ],
+    "上海银行": [
+      "bankofshanghai",
+      "bos"
+    ],
+    "浦发银行": [
+      "spdb"
+    ],
+    "光大银行": [
+      "cebbank"
+    ],
+    "华夏银行": [
+      "hxb"
+    ],
+    "中国建设银行": [
+      "ccb.com"
+    ],
+    "随手记": [
+      "suishouji"
+    ],
+    "欧路词典": [
+      "eudic"
+    ],
+    "城通网盘": [
+      "ctfile",
+      "ctpocket"
+    ],
+    "天气通Pro": [
+      "tianqitong",
+      "weathercn"
+    ],
+    "凤凰视频": [
+      "ifeng"
+    ],
+    "OPlayer Lite": [
+      "oplayer"
+    ],
+    "速8酒店": [
+      "super8"
+    ],
+    "小米WiFi": [
+      "miwifi"
+    ],
+    "米家": [
+      "mihome",
+      "xiaomi"
+    ],
+    "小米商城": [
+      "mi.com"
+    ],
+    "抖音": [
+      "amemv",
+      "douyin",
+      "snssdk"
+    ],
+    "TikTok": [
+      "tiktok",
+      "musical.ly"
+    ],
+    "SOUL": [
+      "soul"
+    ],
+    "Tinder": [
+      "tinder"
+    ],
+    "Bumble": [
+      "bumble"
+    ],
+    "Clubhouse": [
+      "clubhouse"
+    ],
+    "Instagram": [
+      "instagram"
+    ],
+    "Facebook": [
+      "facebook"
+    ],
+    "Telegram": [
+      "telegram"
+    ],
+    "WhatsApp": [
+      "whatsapp"
+    ],
+    "LINE": [
+      "line.me"
+    ],
+    "KakaoTalk": [
+      "kakaotalk"
+    ],
+    "X": [
+      "twitter",
+      "x.com"
+    ],
+    "YouTube": [
+      "youtube",
+      "googlevideo"
+    ],
+    "Spotify": [
+      "spotify"
+    ],
+    "ChatGPT": [
+      "openai"
+    ],
+    "Gemini": [
+      "gemini.google"
+    ],
+    "Claude": [
+      "anthropic",
+      "claude"
+    ],
+    "DeepSeek": [
+      "deepseek"
+    ],
+    "Poe": [
+      "poe.com"
+    ],
+    "Manus": [
+      "manus"
+    ],
+    "LocalSend": [
+      "localsend"
+    ],
+    "VLC": [
+      "videolan"
+    ],
+    "AVPlayer": [
+      "avplayer"
+    ],
+    "GoodReader": [
+      "goodreader"
+    ],
+    "BookPlayer": [
+      "bookplayer"
+    ],
+    "Snapseed": [
+      "snapseed"
+    ],
+    "Speedtest": [
+      "speedtest",
+      "ookla"
+    ],
+    "数字人民币": [
+      "ecny"
+    ],
+    "中国联合航空": [
+      "cueair",
+      "flycua"
+    ],
+    "剪映": [
+      "jianying",
+      "capcut"
+    ]
+  },
+  "OVERRIDE_APPS": {
+    "微博轻享版": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/AdBlock/WeiboAds.conf",
+    "网易云音乐": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/AdBlock/NeteaseAds.conf",
+    "闲鱼": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/AdBlock/GoofishAds.conf",
+    "微信": [
+      "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/AdBlock/WeChat.conf",
+      "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/AdBlock/Applet.conf"
+    ],
+    "网易邮箱大师": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/AdBlock/NeteaseMailAds.conf",
+    "豆瓣": [
+      "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/Html/Douban.conf",
+      "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partD/Douban.snippet"
+    ],
+    "哔哩哔哩": "https://raw.githubusercontent.com/Maasea/sgmodule/master/Bilibili.Helper.sgmodule",
+    "通用开屏广告": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rewrite/Shadowrocket/Advertising/Advertising.sgmodule",
+    "百度网盘": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partB/BaiduNetdisk.snippet",
+    "知乎": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partZ/Zhihu.snippet",
+    "淘宝": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partT/Taobao.snippet",
+    "蜻蜓FM": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partQ/QingTingFM.snippet",
+    "美团": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partM/Meituan.snippet",
+    "大众点评": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partD/DianPing.snippet",
+    "滴滴": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partX/XiaoJuTechnology.snippet",
+    "航旅纵横": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partH/HangLvZongHeng.snippet",
+    "去哪儿旅行": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partQ/Qunar.snippet",
+    "携程旅行": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partX/Ctrip.snippet",
+    "铁路12306": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/part1/12306.sgmodule",
+    "QQ音乐": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partQ/QQMusic.snippet",
+    "米家": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partM/Mijia.snippet",
+    "网易新闻": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partW/NetEaseNews.snippet",
+    "拼多多": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partP/Pinduoduo.snippet",
+    "美图秀秀": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partM/MeituXiuxiu.snippet",
+    "汽车之家": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partQ/Autohome.snippet",
+    "锦江荟": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partJ/JinJiangHuiAPP.snippet",
+    "云闪付": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partY/UnionPayCloudPay.snippet",
+    "微信解除链接限制": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partW/WeChatUnlockLinkRestrict.snippet",
+    "SOUL": "https://raw.githubusercontent.com/Xo776/byead/refs/heads/main/soul_ads.conf"
+  },
+  "EXTRA_REWRITE_DOMAINS": {
+    "蜻蜓FM": [
+      "ad.qingting.fm",
+      "admgr.qingting.fm",
+      "dload.qd.qingting.fm",
+      "logger.qingting.fm",
+      "s.qd.qingting.fm",
+      "s.qd.qingtingfm.com",
+      "adlaunch.qtfm.cn",
+      "ad.qtfm.cn",
+      "adlog.qingting.fm"
+    ]
+  },
+  "SDK_BLOCK_RULES": [
+    "AND,((protocol,udp),(dest-port,443),(domain-suffix,baidu.com)),REJECT-NO-DROP",
+    "AND,((protocol,udp),(dest-port,443),(domain-suffix,baidupcs.com)),REJECT-NO-DROP",
+    "AND,((protocol,udp),(dest-port,443),(domain-suffix,douban.com)),REJECT-NO-DROP",
+    "AND,((protocol,udp),(dest-port,443),(domain-suffix,weibo.com)),REJECT-NO-DROP",
+    "AND,((protocol,udp),(dest-port,443),(domain-suffix,weibo.cn)),REJECT-NO-DROP",
+    "AND,((protocol,udp),(dest-port,443),(domain-suffix,gdt.qq.com)),REJECT-NO-DROP",
+    "AND,((protocol,udp),(dest-port,443),(domain-suffix,ugdtimg.com)),REJECT-NO-DROP",
+    "AND,((protocol,udp),(dest-port,443),(domain-suffix,pangle.io)),REJECT-NO-DROP",
+    "AND,((protocol,udp),(dest-port,443),(domain-suffix,mobads.baidu.com)),REJECT-NO-DROP",
+    "AND,((protocol,udp),(dest-port,443),(domain-suffix,bestwehotel.com)),REJECT-NO-DROP",
+    "AND,((protocol,udp),(dest-port,443),(domain-suffix,feidee.com)),REJECT-NO-DROP",
+    "AND,((protocol,udp),(dest-port,443),(domain-suffix,qingting.fm)),REJECT-NO-DROP",
+    "AND,((protocol,udp),(dest-port,443),(domain-suffix,qingtingfm.com)),REJECT-NO-DROP",
+    "AND,((protocol,udp),(dest-port,443),(domain-suffix,beizi.biz)),REJECT-NO-DROP",
+    "AND,((protocol,udp),(dest-port,443),(domain-suffix,hubcloud.com.cn)),REJECT-NO-DROP",
+    "AND,((protocol,udp),(dest-port,443),(domain-suffix,zztfly.com)),REJECT-NO-DROP",
+    "AND,((protocol,udp),(dest-port,443),(domain-suffix,qtfm.cn)),REJECT-NO-DROP",
+    "AND,((protocol,udp),(dest-port,443),(domain-suffix,sofire.baidu.com)),REJECT-NO-DROP",
+    "DOMAIN,log.snssdk.com,REJECT-NO-DROP",
+    "DOMAIN,rtlog.snssdk.com,REJECT-NO-DROP",
+    "DOMAIN,mcs.snssdk.com,REJECT-NO-DROP",
+    "DOMAIN,dm.snssdk.com,REJECT-NO-DROP",
+    "DOMAIN,mon.zijieapi.com,REJECT-NO-DROP",
+    "DOMAIN,mcs.zijieapi.com,REJECT-NO-DROP",
+    "DOMAIN,pc-mon.zijieapi.com,REJECT-NO-DROP",
+    "DOMAIN,toblog.ctobsnssdk.com,REJECT-NO-DROP",
+    "DOMAIN,log-api.pangolin-sdk-toutiao.com,REJECT-NO-DROP",
+    "DOMAIN,beacon.qq.com,REJECT-NO-DROP",
+    "DOMAIN,rqd.qq.com,REJECT-NO-DROP",
+    "DOMAIN,ios.bugly.qq.com,REJECT-NO-DROP",
+    "DOMAIN,mdap.alipay.com,REJECT-NO-DROP",
+    "DOMAIN,wn.pos.baidu.com,REJECT-NO-DROP",
+    "DOMAIN,afd.baidu.com,REJECT-NO-DROP",
+    "DOMAIN,afdconf.baidu.com,REJECT-NO-DROP",
+    "DOMAIN,stats.jpush.cn,REJECT-NO-DROP",
+    "DOMAIN,crashlytics.com,REJECT-NO-DROP",
+    "DOMAIN,adjust.com,REJECT-NO-DROP",
+    "DOMAIN,appsflyersdk.com,REJECT-NO-DROP",
+    "DOMAIN,app-log-lab.tantanapp.com,REJECT-NO-DROP",
+    "DOMAIN,io-sm-log.tantanapp.com,REJECT-NO-DROP",
+    "DOMAIN,client-monitor.tantanapp.com,REJECT-NO-DROP",
+    "DOMAIN,f10.baidu.com,REJECT-NO-DROP",
+    "DOMAIN,ad.snssdk.com,REJECT-NO-DROP",
+    "DOMAIN,ads.snssdk.com,REJECT-NO-DROP",
+    "DOMAIN,mask.icloud.com,REJECT-NO-DROP",
+    "DOMAIN,mask-api.icloud.com,REJECT-NO-DROP",
+    "DOMAIN,mask-h2.icloud.com,REJECT-NO-DROP",
+    "DOMAIN,monitor.ipv6-tantanapp.com.master.vip.tantanapp.com,REJECT-NO-DROP",
+    "DOMAIN,pkoplink.com,REJECT-NO-DROP",
+    "DOMAIN,sjxydc.com,REJECT-NO-DROP",
+    "DOMAIN,metrics.icloud.com,REJECT-NO-DROP",
+    "DOMAIN,ad.zijieapi.com,REJECT-NO-DROP",
+    "DOMAIN,ads.zijieapi.com,REJECT-NO-DROP",
+    "DOMAIN,pangolin.zijieapi.com,REJECT-NO-DROP",
+    "DOMAIN,pangle.zijieapi.com,REJECT-NO-DROP",
+    "DOMAIN,dig.bdurl.net,REJECT-NO-DROP",
+    "DOMAIN,h-adashx.dingtalkapps.com,REJECT-NO-DROP",
+    "DOMAIN,h-adashx.ut.taobao.com,REJECT-NO-DROP",
+    "DOMAIN,firebaselogging-pa.googleapis.com,REJECT-NO-DROP",
+    "DOMAIN,app-analytics-services.com,REJECT-NO-DROP",
+    "DOMAIN,log-hl.snssdk.com,REJECT-NO-DROP",
+    "DOMAIN,app-measurement.com,REJECT-NO-DROP",
+    "DOMAIN,fp-it.fengkongcloud.com,REJECT-NO-DROP",
+    "DOMAIN,puata.info,REJECT-NO-DROP",
+    "DOMAIN,apm-native.xiaohongshu.com,REJECT-NO-DROP",
+    "DOMAIN,t2.xiaohongshu.com,REJECT-NO-DROP",
+    "DOMAIN,spider-tracker.xiaohongshu.com,REJECT-NO-DROP",
+    "DOMAIN,lng.xiaohongshu.com,REJECT-NO-DROP",
+    "DOMAIN,apm-fe.xiaohongshu.com,REJECT-NO-DROP",
+    "DOMAIN,utoken.umeng.com,REJECT-NO-DROP",
+    "DOMAIN,cnlogs.umengcloud.com,REJECT-NO-DROP",
+    "DOMAIN,resolve.umeng.com,REJECT-NO-DROP",
+    "DOMAIN,cnlogs.umeng.com,REJECT-NO-DROP",
+    "DOMAIN,errnewlog.umeng.com,REJECT-NO-DROP",
+    "DOMAIN,sdk.e.qq.com,REJECT-NO-DROP",
+    "DOMAIN,mi.gdt.qq.com,REJECT-NO-DROP",
+    "DOMAIN,snowflake.qq.com,REJECT-NO-DROP",
+    "DOMAIN,xs.gdt.qq.com,REJECT-NO-DROP",
+    "DOMAIN,pangolin-sdk-toutiao.com,REJECT-NO-DROP",
+    "DOMAIN,pangolin-sdk-toutiao1.com,REJECT-NO-DROP",
+    "DOMAIN,pglstatp-toutiao.com,REJECT-NO-DROP",
+    "DOMAIN,logs.amap.com,REJECT-NO-DROP",
+    "DOMAIN,dualstack-logs.amap.com,REJECT-NO-DROP",
+    "DOMAIN,sofire.baidu.com,REJECT-NO-DROP",
+    "DOMAIN,cfgc.zztfly.com,REJECT-NO-DROP",
+    "DOMAIN,upc.zztfly.com,REJECT-NO-DROP",
+    "DOMAIN,ma-adx.ctrip.com,REJECT-NO-DROP",
+    "DOMAIN,tdid.m.qq.com,REJECT-NO-DROP",
+    "DOMAIN,rmonitor.qq.com,REJECT-NO-DROP",
+    "DOMAIN,gd-stats.jpush.cn,REJECT-NO-DROP",
+    "DOMAIN,ali-stats.jpush.cn,REJECT-NO-DROP",
+    "DOMAIN,log-auth.zztfly.com,REJECT-NO-DROP",
+    "DOMAIN,iadsdk.apple.com,REJECT-NO-DROP",
+    "DOMAIN,df.tanx.com,REJECT-NO-DROP",
+    "DOMAIN,6.0.0.192.in-addr.arpa,REJECT-NO-DROP",
+    "DOMAIN,adashx.m.taobao.com,REJECT-NO-DROP",
+    "DOMAIN,analytics.umetrip.com,REJECT-NO-DROP",
+    "DOMAIN,badjs.weixinbridge.com,REJECT-NO-DROP",
+    "DOMAIN,browser.events.data.microsoft.com,REJECT-NO-DROP",
+    "DOMAIN,data.bilibili.com,REJECT-NO-DROP",
+    "DOMAIN,mars.jd.com,REJECT-NO-DROP",
+    "DOMAIN,mllog.jd.com,REJECT-NO-DROP",
+    "DOMAIN,mobile.events.data.microsoft.com,REJECT-NO-DROP",
+    "DOMAIN,report.tantanapp.com,REJECT-NO-DROP",
+    "DOMAIN,res.mmstat.com,REJECT-NO-DROP",
+    "DOMAIN,sc-report.tantanapp.com,REJECT-NO-DROP",
+    "DOMAIN,sla-media.immomo.com,REJECT-NO-DROP",
+    "DOMAIN,soul-ad.soulapp.cn,REJECT-NO-DROP",
+    "DOMAIN,stats-ipv6.jpush.cn,REJECT-NO-DROP",
+    "DOMAIN,tracking.miui.com,REJECT-NO-DROP"
+  ],
+  "MANDATORY_MITM_DOMAINS": [
+    "api.douban.com",
+    "m.douban.com",
+    "frodo.douban.com",
+    "booking.bestwehotel.com",
+    "wxapp.bestwehotel.com",
+    "web-opin.bestwehotel.com",
+    "hwy-gapi.bestwehotel.com",
+    "tg.feidee.com",
+    "adproxy.autohome.com.cn",
+    "y.gtimg.cn",
+    "tqt.weibo.cn",
+    "boot.weibo.com",
+    "preload-click.uve.weibo.com",
+    "preload-impression.uve.weibo.com",
+    "weathercn.com",
+    "ads-img-al.xhscdn.com",
+    "zhstatic.zhihu.com",
+    "zhuanlan.zhihu.com",
+    "didapinche.com",
+    "ct.xiaojukeji.com",
+    "ndstatic.cdn.bcebos.com",
+    "staticsns.cdn.bcebos.com",
+    "issuecdn.baidupcs.com",
+    "fc-video.cdn.bcebos.com",
+    "rp.hpplay.cn",
+    "oss.umetrip.com",
+    "mea.meitudata.com",
+    "mobileapi-v6.elong.com",
+    "gateway.shouqiev.com",
+    "gw-passenger.01zhuanche.com",
+    "pinggai.caixin.com",
+    "eastmoney.com",
+    "zdmimg.com",
+    "babytree.com",
+    "jianying.com",
+    "maicai.api.ddxq.mobi"
+  ],
+  "CUSTOM_REWRITE_RULES": [
+    {
+      "text": "^https?:\\/\\/maicai\\.api\\.ddxq\\.mobi\\/advert\\/ reject",
+      "pattern": "^https?:\\/\\/maicai\\.api\\.ddxq\\.mobi\\/advert\\/",
+      "priority": 0,
+      "app": "叮咚买菜"
+    },
+    {
+      "text": "^https?:\\/\\/c\\.tieba\\.baidu\\.com\\/c\\/s\\/(ad|splashSchedule|splash) reject-dict",
+      "pattern": "^https?:\\/\\/c\\.tieba\\.baidu\\.com\\/c\\/s\\/(ad|splashSchedule|splash)",
+      "priority": 0,
+      "app": "百度贴吧"
+    },
+    {
+      "text": "^https?:\\/\\/c\\.tieba\\.baidu\\.com\\/c\\/f\\/ad\\/ reject-dict",
+      "pattern": "^https?:\\/\\/c\\.tieba\\.baidu\\.com\\/c\\/f\\/ad\\/",
+      "priority": 0,
+      "app": "百度贴吧"
+    },
+    {
+      "text": "^https?:\\/\\/tbapi\\.baidu\\.com\\/c\\/s\\/(ad|splashSchedule|splash) reject-dict",
+      "pattern": "^https?:\\/\\/tbapi\\.baidu\\.com\\/c\\/s\\/(ad|splashSchedule|splash)",
+      "priority": 0,
+      "app": "百度贴吧"
+    },
+    {
+      "text": "^https?:\\/\\/tbapi\\.baidu\\.com\\/c\\/f\\/ad\\/ reject-dict",
+      "pattern": "^https?:\\/\\/tbapi\\.baidu\\.com\\/c\\/f\\/ad\\/",
+      "priority": 0,
+      "app": "百度贴吧"
+    },
+    {
+      "text": "^https?:\\/\\/mobads\\.baidu\\.com\\/ads\\/pa\\/ reject-200",
+      "pattern": "^https?:\\/\\/mobads\\.baidu\\.com\\/ads\\/pa\\/",
+      "priority": 0,
+      "app": "百度联盟广告"
+    },
+    {
+      "text": "^https?:\\/\\/mobads\\.baidu\\.com\\/[a-zA-Z0-9_\\/]+\\.php reject-200",
+      "pattern": "^https?:\\/\\/mobads\\.baidu\\.com\\/[a-zA-Z0-9_\\/]+\\.php",
+      "priority": 0,
+      "app": "百度联盟广告"
+    },
+    {
+      "text": "^https:\\/\\/api\\.douban\\.com\\/v\\d\\/app_ads\\/splash reject",
+      "pattern": "^https:\\/\\/api\\.douban\\.com\\/v\\d\\/app_ads\\/splash",
+      "priority": 0,
+      "app": "豆瓣"
+    },
+    {
+      "text": "^https:\\/\\/frodo\\.douban\\.com\\/api\\/v\\d\\/app_ads\\/splash reject",
+      "pattern": "^https:\\/\\/frodo\\.douban\\.com\\/api\\/v\\d\\/app_ads\\/splash",
+      "priority": 0,
+      "app": "豆瓣"
+    },
+    {
+      "text": "^https:\\/\\/frodo\\.douban\\.com\\/api\\/v\\d\\/erebor\\/feed_ad reject",
+      "pattern": "^https:\\/\\/frodo\\.douban\\.com\\/api\\/v\\d\\/erebor\\/feed_ad",
+      "priority": 0,
+      "app": "豆瓣"
+    },
+    {
+      "text": "^https:\\/\\/frodo\\.douban\\.com\\/api\\/v\\d\\/home_banner reject",
+      "pattern": "^https:\\/\\/frodo\\.douban\\.com\\/api\\/v\\d\\/home_banner",
+      "priority": 0,
+      "app": "豆瓣"
+    },
+    {
+      "text": "^https:\\/\\/frodo\\.douban\\.com\\/api\\/v\\d\\/search\\/found_words reject",
+      "pattern": "^https:\\/\\/frodo\\.douban\\.com\\/api\\/v\\d\\/search\\/found_words",
+      "priority": 0,
+      "app": "豆瓣"
+    },
+    {
+      "text": "^https?:\\/\\/wxapp\\.bestwehotel\\.com\\/gw3\\/app-mini\\/trip-hotel-banner\\/activity\\/getActivityInfo reject",
+      "pattern": "^https?:\\/\\/wxapp\\.bestwehotel\\.com\\/gw3\\/app-mini\\/trip-hotel-banner\\/activity\\/getActivityInfo",
+      "priority": 0,
+      "app": "锦江荟"
+    },
+    {
+      "text": "^https?:\\/\\/booking\\.bestwehotel\\.com\\/proxy\\/trip-hotel-banner\\/activity\\/getActivityInfo reject",
+      "pattern": "^https?:\\/\\/booking\\.bestwehotel\\.com\\/proxy\\/trip-hotel-banner\\/activity\\/getActivityInfo",
+      "priority": 0,
+      "app": "锦江荟"
+    },
+    {
+      "text": "^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/gw3\\/app-mini\\/trip-hotel-banner\\/activity\\/getActivityInfo reject",
+      "pattern": "^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/gw3\\/app-mini\\/trip-hotel-banner\\/activity\\/getActivityInfo",
+      "priority": 0,
+      "app": "锦江荟"
+    },
+    {
+      "text": "^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/proxy\\/trip-hotel-banner\\/activity\\/getActivityInfo reject",
+      "pattern": "^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/proxy\\/trip-hotel-banner\\/activity\\/getActivityInfo",
+      "priority": 0,
+      "app": "锦江荟"
+    },
+    {
+      "text": "^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/message\\/adLabel\\/v2\\/getAdList reject",
+      "pattern": "^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/message\\/adLabel\\/v2\\/getAdList",
+      "priority": 0,
+      "app": "锦江荟"
+    },
+    {
+      "text": "^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/adSettlement\\/app\\/idfa\\/v1\\/collect reject",
+      "pattern": "^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/adSettlement\\/app\\/idfa\\/v1\\/collect",
+      "priority": 0,
+      "app": "锦江荟"
+    },
+    {
+      "text": "^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/applog\\/requestPage\\/request reject",
+      "pattern": "^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/applog\\/requestPage\\/request",
+      "priority": 0,
+      "app": "锦江荟"
+    },
+    {
+      "text": "^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/proxy\\/trip-client-monitor\\/log\\/monitor reject",
+      "pattern": "^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/proxy\\/trip-client-monitor\\/log\\/monitor",
+      "priority": 0,
+      "app": "锦江荟"
+    },
+    {
+      "text": "^https?:\\/\\/tg\\.feidee\\.com\\/online_ad\\/ reject",
+      "pattern": "^https?:\\/\\/tg\\.feidee\\.com\\/online_ad\\/",
+      "priority": 0,
+      "app": "随手记"
+    },
+    {
+      "text": "^https?:\\/\\/tg\\.feidee\\.com\\/vis-ad-engine-ws\\/api\\/ reject",
+      "pattern": "^https?:\\/\\/tg\\.feidee\\.com\\/vis-ad-engine-ws\\/api\\/",
+      "priority": 0,
+      "app": "随手记"
+    }
+  ]
+}

@@ -8,308 +8,34 @@ import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
 
 # User's installed apps (excluding China Unicom)
-INSTALLED_APPS = [
-    "BookPlayer", "微信", "FTPManager", "AVPlayer", "VLC", "海贝音乐", "MOMO陌陌", "EZMP3Pro", "抖音", 
-    "Edge Gallery", "探探", "闲鱼", "Telegram", "钉钉", "航旅纵横", "豆包", "夸克", "京东", "豆瓣", 
-    "LocalSend", "百度网盘", "支付宝", "Chrome", "哔哩哔哩", "剪映", "百度地图", "淘宝", "网易云音乐", 
-    "今日头条", "TikTok", "SOUL", "小红书", "米家", "铁路12306", "美团", "Ever Play", "知乎", "美图秀秀", 
-    "大众点评", "iSub", "携程旅行", "萤石云视频", "GoodReader", "南方航空", "币安", "Gmail", "Bitget Wallet", 
-    "滴滴企业版", "千问", "腾讯视频", "Edge", "上海银行", "优酷", "多邻国", "芒果TV", "百度贴吧", "QQ音乐", 
-    "X", "Instagram", "Facebook", "KakaoTalk", "贝壳找房", "Bybit", "一嗨租车", "汽车之家", "网易邮箱大师", 
-    "Word", "网易新闻", "Outlook", "PayPal", "腾讯会议", "Google Maps", "Google", "LinkedIn", "宝宝树孕育", 
-    "中信银行", "腾讯新闻", "Tinder", "爱奇艺", "北京一卡通", "M365 Copilot", "PowerPoint", "Excel", "华夏银行", 
-    "X Corp.", "涨乐财富通", "Wise", "滴滴", "叮咚买菜", "LINE", "交管12123", "中国国航", "YouTube", "北京银行", 
-    "航班管家", "Chat", "去哪儿旅行", "阿里云盘", "首旅如家", "Firefox", "光大银行", "WhatsApp", "华住会", "SAVO", 
-    "中国建设银行", "浦发银行", "招商银行", "万年历纯净版", "Gemini", "58同城", "东方航空", "拼多多", 
-    "Clubhouse", "Bumble", "随手记", "MEGA", "Snapseed", "掌上生活", "欧路词典", "Grok", "首汽约车", "蜻蜓FM", 
-    "个人所得税", "神州租车", "QQ邮箱", "Spotify", "ChatGPT", "易捷加油", "向日葵", "宝宝知道", "下厨房", "艺龙旅行", 
-    "小米音箱", "海南航空", "Voice", "Copilot", "Manus", "云闪付", "NotebookLM", "小米商城", "微博轻享版", 
-    "GoFun出行", "Orion", "多点", "Claude", "XChat", "DeepL", "Hiddify", "Authenticator", "Speedtest", 
-    "数字人民币", "Google Earth", "伴生活", "厦门航空", "Shadowrocket", "锦江荟", "Swiftfin iOS", "Karing", 
-    "天气通Pro", "城通网盘", "FTP Rush", "ShadowShare", "Clash Mi", "新浪邮箱", "AdBlocker", "凤凰视频", 
-    "OPlayer Lite", "速8酒店", "小米WiFi", "购物党", "Talkatone", "资和信亿方", "小米电视助手", "DeepSeek", 
-    "中国联合航空", "RustDesk", "EasyConnect", "Poe", "亚马逊购物", "sing-box", "PrivadoVPN", "北京燃气", 
-    "AMonitor", "mimi 听力测试", "北京公积金", "图乐园", "Microsoft Corporation", "Kodi Remote", "通用开屏广告",
-    "微信解除链接限制"
-]
+# Load config and rules data from separate JSON file
+import json
+with open(os.path.join(os.path.dirname(__file__), 'references', 'adblock_rules_data.json'), 'r', encoding='utf-8') as _f:
+    _rules_data = json.load(_f)
+INSTALLED_APPS = _rules_data['INSTALLED_APPS']
+APP_KEYWORDS = _rules_data['APP_KEYWORDS']
+OVERRIDE_APPS = _rules_data['OVERRIDE_APPS']
+EXTRA_REWRITE_DOMAINS = _rules_data['EXTRA_REWRITE_DOMAINS']
+SDK_BLOCK_RULES = _rules_data['SDK_BLOCK_RULES']
+MANDATORY_MITM_DOMAINS = _rules_data['MANDATORY_MITM_DOMAINS']
+CUSTOM_REWRITE_RULES = _rules_data['CUSTOM_REWRITE_RULES']
+
 
 # App keywords mapping for BlackMatrix7 filtering (excluding China Unicom)
-APP_KEYWORDS = {
-    "微信": ["wechat", "applet", "tenpay", "weixin"],
-    "哔哩哔哩": ["bilibili", "biliintl", "biliapi", "bili"],
-    "知乎": ["zhihu"],
-    "微博轻享版": ["weibo", "weico"],
-    "豆瓣": ["douban"],
-    "闲鱼": ["goofish", "idle", "taobao.idle"],
-    "网易云音乐": ["netease", "music.163", "music.126", "163.com", "126.net"],
-    "百度贴吧": ["tieba"],
-    "高德地图": ["amap"],
-    "百度地图": ["baidu.com/client", "map.baidu", "baidu.com/baidu"],
-    "支付宝": ["alipay"],
-    "美团": ["meituan", "wmapi.meituan"],
-    "大众点评": ["dianping"],
-    "今日头条": ["toutiao"],
-    "小红书": ["xiaohongshu", "xhs", "edith.xiaohongshu"],
-    "去哪儿旅行": ["qunar"],
-    "携程旅行": ["ctrip"],
-    "南方航空": ["csair"],
-    "厦门航空": ["xiamenair"],
-    "海南航空": ["hnair"],
-    "中国国航": ["airchina"],
-    "东方航空": ["ceair"],
-    "华住会": ["huazhu"],
-    "首旅如家": ["bthhotels", "homeinns"],
-    "58同城": ["app.58.com", "58.com"],
-    "拼多多": ["pinduoduo", "yangkeduo"],
-    "车来了": ["chelaile"],
-    "网易邮箱大师": ["neteasemail", "mail.163"],
-    "宝宝树孕育": ["babytree"],
-    "腾讯新闻": ["qqnews", "inews.qq.com"],
-    "爱奇艺": ["iqiyi"],
-    "优酷": ["youku"],
-    "芒果TV": ["mgtv"],
-    "腾讯视频": ["qqvideo", "video.qq.com"],
-    "叮咚买菜": ["ddxq"],
-    "下厨房": ["xiachufang"],
-    "中国移动": ["10086", "chinamobile"],
-    "中国电信": ["189.cn", "chinatelecom"],
-    "星巴克": ["starbucks"],
-    "麦当劳": ["mcd.cn"],
-    "肯德基": ["kfc.com"],
-    "顺丰速运": ["sf-express"],
-    "中通快递": ["zto.com"],
-    "个人所得税": ["chinatax"],
-    "铁路12306": ["12306"],
-    "同程旅行": ["ly.com", "17usoft"],
-    "航班管家": ["feeyo"],
-    "艺龙旅行": ["elong"],
-    "QQ音乐": ["qqmusic", "music.qq.com", "tencentmusic", "y.qq.com"],
-    "淘宝": ["taobao", "alicdn", "alimama"],
-    "京东": ["jd.com", "360buy", "jdcloud"],
-    "一嗨租车": ["1hi", "yihi"],
-    "神州租车": ["zuche"],
-    "首汽约车": ["01zhuanche", "shouqiev"],
-    "滴滴": ["diditaxi", "didapinche", "xiaojukeji", "didi"],
-    "招商银行": ["cmbchina", "cmb"],
-    "掌上生活": ["cmbchina", "cmb"],
-    "中信银行": ["ecitic"],
-    "北京银行": ["bankofbeijing", "bob"],
-    "上海银行": ["bankofshanghai", "bos"],
-    "浦发银行": ["spdb"],
-    "光大银行": ["cebbank"],
-    "华夏银行": ["hxb"],
-    "中国建设银行": ["ccb.com"],
-    "随手记": ["suishouji"],
-    "欧路词典": ["eudic"],
-    "城通网盘": ["ctfile", "ctpocket"],
-    "天气通Pro": ["tianqitong", "weathercn"],
-    "凤凰视频": ["ifeng"],
-    "OPlayer Lite": ["oplayer"],
-    "速8酒店": ["super8"],
-    "小米WiFi": ["miwifi"],
-    "米家": ["mihome", "xiaomi"],
-    "小米商城": ["mi.com"],
-    "抖音": ["amemv", "douyin", "snssdk"],
-    "TikTok": ["tiktok", "musical.ly"],
-    "SOUL": ["soul"],
-    "Tinder": ["tinder"],
-    "Bumble": ["bumble"],
-    "Clubhouse": ["clubhouse"],
-    "Instagram": ["instagram"],
-    "Facebook": ["facebook"],
-    "Telegram": ["telegram"],
-    "WhatsApp": ["whatsapp"],
-    "LINE": ["line.me"],
-    "KakaoTalk": ["kakaotalk"],
-    "X": ["twitter", "x.com"],
-    "YouTube": ["youtube", "googlevideo"],
-    "Spotify": ["spotify"],
-    "ChatGPT": ["openai"],
-    "Gemini": ["gemini.google"],
-    "Claude": ["anthropic", "claude"],
-    "DeepSeek": ["deepseek"],
-    "Poe": ["poe.com"],
-    "Manus": ["manus"],
-    "LocalSend": ["localsend"],
-    "VLC": ["videolan"],
-    "AVPlayer": ["avplayer"],
-    "GoodReader": ["goodreader"],
-    "BookPlayer": ["bookplayer"],
-    "Snapseed": ["snapseed"],
-    "Speedtest": ["speedtest", "ookla"],
-    "数字人民币": ["ecny"],
-    "中国联合航空": ["cueair", "flycua"],
-    "剪映": ["jianying", "capcut"],
-}
 
 # Apps that we will fetch from ddgksf2013 or Maasea instead of BlackMatrix7 (excluding China Unicom)
-OVERRIDE_APPS = {
-    "微博轻享版": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/AdBlock/WeiboAds.conf",
-    # "百度贴吧": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/AdBlock/TieBaAds.conf",
-    "网易云音乐": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/AdBlock/NeteaseAds.conf",
-    "闲鱼": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/AdBlock/GoofishAds.conf",
-    "微信": [
-        "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/AdBlock/WeChat.conf",
-        "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/AdBlock/Applet.conf"
-    ],
-    "网易邮箱大师": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/AdBlock/NeteaseMailAds.conf",
-    "豆瓣": [
-        "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/Html/Douban.conf",
-        "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partD/Douban.snippet"
-    ],
-    "哔哩哔哩": "https://raw.githubusercontent.com/Maasea/sgmodule/master/Bilibili.Helper.sgmodule",
-    
-    # 新增的高级专属规则
-    "通用开屏广告": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rewrite/Shadowrocket/Advertising/Advertising.sgmodule",
-    # "小红书": "https://ddgksf2013.top/rewrite/XiaoHongShuAds.conf",
-    "百度网盘": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partB/BaiduNetdisk.snippet",
-    "知乎": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partZ/Zhihu.snippet",
-    "淘宝": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partT/Taobao.snippet",
-    "蜻蜓FM": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partQ/QingTingFM.snippet",
-    "美团": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partM/Meituan.snippet",
-    "大众点评": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partD/DianPing.snippet",
-    "滴滴": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partX/XiaoJuTechnology.snippet",
-    "航旅纵横": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partH/HangLvZongHeng.snippet",
-    "去哪儿旅行": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partQ/Qunar.snippet",
-    "携程旅行": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partX/Ctrip.snippet",
-    "铁路12306": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/Surge/module/split/part1/12306.sgmodule",
-    
-    # 补强和优化的 App 去广告规则
-    "QQ音乐": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partQ/QQMusic.snippet",
-    "米家": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partM/Mijia.snippet",
-    "网易新闻": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partW/NetEaseNews.snippet",
-    "拼多多": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partP/Pinduoduo.snippet",
-    "美图秀秀": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partM/MeituXiuxiu.snippet",
-    # "叮咚买菜": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partD/DingDongMaiCai.snippet",
-    "汽车之家": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partQ/Autohome.snippet",
-    "锦江荟": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partJ/JinJiangHuiAPP.snippet",
-    # "爱奇艺": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partA/iQIYI.snippet",
-    # "优酷": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partY/Youku.snippet",
-    # "芒果TV": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partM/MangoTV.snippet",
-    "云闪付": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partY/UnionPayCloudPay.snippet",
-    "微信解除链接限制": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partW/WeChatUnlockLinkRestrict.snippet",
-    "SOUL": "https://raw.githubusercontent.com/Xo776/byead/refs/heads/main/soul_ads.conf"
-}
 
 # Extra domains that we want to reject via Rules (like QQ Music)
-EXTRA_REWRITE_DOMAINS = {
-    "蜻蜓FM": [
-        "ad.qingting.fm",
-        "admgr.qingting.fm",
-        "dload.qd.qingting.fm",
-        "logger.qingting.fm",
-        "s.qd.qingting.fm",
-        "s.qd.qingtingfm.com",
-        "adlaunch.qtfm.cn",
-        "ad.qtfm.cn",
-        "adlog.qingting.fm"
-    ]
-}
 
 # Universal Ad SDK domains to reject unconditionally via Rules
-ALWAYS_INJECT_DOMAINS = [
-    # Tencent GDT Ads
-    "win.gdt.qq.com",
-    "v.gdt.qq.com",
-    "v2.gdt.qq.com",
-    "t.gdt.qq.com",
-    "gdt.qq.com",
-    "pgdt.gtimg.cn",
-    "pgdt.ugdtimg.com",
-    "adsmind.tc.qq.com",
-    "p.l.qq.com",
-    "us.l.qq.com",
-    "tangram.e.qq.com",
-    "oth.str.mdt.qq.com",
-    
-    # Baidu Mobads
-    "mobads.baidu.com",
-    "mobads-logs.baidu.com",
-    "union.baidu.com",
-    "ada.baidu.com",
-    "als.baidu.com",
-    "bdbus-turbonet.baidu.com",
-    "bgg.baidu.com",
-    "gsp0.baidu.com",
-    
-    # ByteDance Pangle
-    "api-access.pangolin-sdk-toutiao-b.com",
-    "pangle.io",
-    
-    # Beizi Ads (倍孜广告)
-    "sdk.beizi.biz",
-    "api-htp.beizi.biz",
-    
-    # HubCloud Ads (汇量广告)
-    "sdktmp.hubcloud.com.cn",
-    "v.adx.hubcloud.com.cn",
-    "api.htp.hubcloud.com.cn",
-    
-    # Ad-Plus & Ad-Scope
-    "dsp-tracer.adn-plus.com.cn",
-    "resource.ad-scope.com.cn",
-    
-    # Partner Search Ads (神马)
-    "sdk-log.partner.sm.cn",
-    
-    # Baidu Mobads config
-    "mobads-pre-config.cdn.bcebos.com",
-    
-    # Zztfly Ads (浙报/其他广告)
-    "cdn-api-auth.zztfly.com",
-    
-    
-    # Kuaishou Ads (快手联盟)
-    "gdfp.gifshow.com",
-    "open.e.kuaishou.com",
-    
-    # Pangolin Additions (字节穿山甲补充)
-    "api-access.pangolin-sdk-toutiao1.com",
-    "api-access.pangolin-sdk-toutiao.com",
-    
-    # Sensors Data Analytics (神策分析数据埋点 - 阻断广告个性化追踪并加速)
-    "sensors-collect-prod.bestwehotel.com",
-    "sensors-ma.bestwehotel.com",
-    "sensors-ab.bestwehotel.com",
-    # NetEase Cloud Music Ad Materials & CDN (网易云音乐广告素材与CDN)
-    "iadmusicmat.music.126.net",
-    "iadmatapk.nosdn.127.net",
-    
-    # Ctrip Ad Retargeting (携程广告重定向追踪)
-    "retargeting.ctrip.com",
+# Load decoupled static rules data
+static_data_path = os.path.join(os.path.dirname(__file__), 'references', 'generator_static_data.json')
+with open(static_data_path, 'r', encoding='utf-8') as _sf:
+    _s_data = json.load(_sf)
 
-    # 2026-07-05 双端对齐补齐的去广告拦截域名
-    "ads.twitter.com",
-    "ads-api.x.com",
-    "tanx.com",
-    "adm.10jqka.com.cn",
-    "fc-.cdn.bcebos.com"
-]
-
-ALWAYS_KEEP_KEYWORDS = [
-    "pangle", "pangolin", "gdt.qq.com", "ugdtimg", "mobads.baidu.com", "mobads-logs", 
-    "admobile", "ranfenghd", "tianmu", "anythinktech", "1rtb.net",
-    "advert", "advertise", "telemetry", "analytics", "tracker", "doubleclick",
-    "beizi", "hubcloud", "zztfly", "adn-plus", "ad-scope"
-]
-
-# High risk domains to completely exclude from MITM to avoid security and app issues
-HIGH_RISK_MITM_DOMAINS = [
-    # Banks & Payments
-    "cmbchina.com", "cmbimg.com", "alipay.com", "alipayobjects.com", "95516.com", "unionpay.com",
-    "ccb.com", "spdb.com.cn", "ecitic.com", "bankofbeijing.com.cn", "bankofshanghai.com",
-    "cebbank.com", "hxb.com.cn", "icbc.com.cn", "abchina.com", "boc.cn", "bankcomm.com",
-    # Meituan & Dianping (Wind control & network crashed issues)
-    "meituan.com", "meituan.net", "dianping.com", "dpfile.com", "maoyan.com",
-    # China Unicom (Affects cellular one-key login)
-    "10010.com", "chinaunicom.com",
-    # Spotify
-    "spotify.com", "wg.spotify.com",
-    # Finance/Crypto
-    "binance.com", "bitget.com", "bybit.com", "wise.com",
-    # Baidu Netdisk (SSL Pinning prevents logins if decrypted)
-    "pan.baidu.com"
-]
+ALWAYS_INJECT_DOMAINS = [x for x in _s_data["ALWAYS_INJECT_DOMAINS"] if not x.startswith("#")]
+ALWAYS_KEEP_KEYWORDS = _s_data["ALWAYS_KEEP_KEYWORDS"]
+HIGH_RISK_MITM_DOMAINS = [x for x in _s_data["HIGH_RISK_MITM_DOMAINS"] if not x.startswith("#")]
 
 def load_agh_blocked_domains():
     agh_file = "/Users/shizupeng/Documents/antigravity/istoreos/scratch/adguardhome_custom_rules.txt"
@@ -732,27 +458,6 @@ def hostname_matches_pattern(host, pattern):
             return True
     return False
 
-SDK_BLOCK_RULES = [
-    # 限制性阻止 QUIC 流量以防绕过去广告（仅针对特定广告及目标域名，避免干扰银行等 App）
-    "AND,((protocol,udp),(dest-port,443),(domain-suffix,baidu.com)),REJECT-NO-DROP",
-    "AND,((protocol,udp),(dest-port,443),(domain-suffix,baidupcs.com)),REJECT-NO-DROP",
-    "AND,((protocol,udp),(dest-port,443),(domain-suffix,douban.com)),REJECT-NO-DROP",
-    "AND,((protocol,udp),(dest-port,443),(domain-suffix,weibo.com)),REJECT-NO-DROP",
-    "AND,((protocol,udp),(dest-port,443),(domain-suffix,weibo.cn)),REJECT-NO-DROP",
-    "AND,((protocol,udp),(dest-port,443),(domain-suffix,gdt.qq.com)),REJECT-NO-DROP",
-    "AND,((protocol,udp),(dest-port,443),(domain-suffix,ugdtimg.com)),REJECT-NO-DROP",
-    "AND,((protocol,udp),(dest-port,443),(domain-suffix,pangle.io)),REJECT-NO-DROP",
-    "AND,((protocol,udp),(dest-port,443),(domain-suffix,mobads.baidu.com)),REJECT-NO-DROP",
-    "AND,((protocol,udp),(dest-port,443),(domain-suffix,bestwehotel.com)),REJECT-NO-DROP",
-    "AND,((protocol,udp),(dest-port,443),(domain-suffix,feidee.com)),REJECT-NO-DROP",
-    "AND,((protocol,udp),(dest-port,443),(domain-suffix,qingting.fm)),REJECT-NO-DROP",
-    "AND,((protocol,udp),(dest-port,443),(domain-suffix,qingtingfm.com)),REJECT-NO-DROP",
-    "AND,((protocol,udp),(dest-port,443),(domain-suffix,beizi.biz)),REJECT-NO-DROP",
-    "AND,((protocol,udp),(dest-port,443),(domain-suffix,hubcloud.com.cn)),REJECT-NO-DROP",
-    "AND,((protocol,udp),(dest-port,443),(domain-suffix,zztfly.com)),REJECT-NO-DROP",
-    "AND,((protocol,udp),(dest-port,443),(domain-suffix,qtfm.cn)),REJECT-NO-DROP",
-    "AND,((protocol,udp),(dest-port,443),(domain-suffix,sofire.baidu.com)),REJECT-NO-DROP",
-]
 
 # =================================================================
 # 🚀 动态同步机制：自动从 Clash /ini 仓 of sdkdomain.list 动态追加全部核心打点域名
@@ -788,87 +493,7 @@ for _dom in _agh_domains:
         _agh_count += 1
 print(f"Dynamically appended {_agh_count} domains from AdGuard Home (Track A + B) into SDK_BLOCK_RULES.")
 
-MANDATORY_MITM_DOMAINS = [
-    # 豆瓣
-    "api.douban.com",
-    "m.douban.com",
-    "frodo.douban.com",
-    
-    # 锦江荟 (bestwehotel)
-    "booking.bestwehotel.com",
-    "wxapp.bestwehotel.com",
-    "web-opin.bestwehotel.com",
-    "hwy-gapi.bestwehotel.com",
-    
-    # 随手记 (feidee)
-    "tg.feidee.com",
-    
-    # 航旅/美团/知乎/微博/Didi 等核心 App 的补充解密
-    "adproxy.autohome.com.cn",
-    "y.gtimg.cn",                    # QQ音乐开屏
-    "tqt.weibo.cn",                  # 微博
-    "boot.weibo.com",                # 微博
-    "preload-click.uve.weibo.com",   # 微博
-    "preload-impression.uve.weibo.com", # 微博
-    "weathercn.com",                 # 天气通
-    "ads-img-al.xhscdn.com",         # 小红书
-    "zhstatic.zhihu.com",            # 知乎
-    "zhuanlan.zhihu.com",            # 知乎
-    "didapinche.com",                # 嘀嗒出行 (后缀匹配，涵盖 capis, www 等子域)
-    "ct.xiaojukeji.com",             # 滴滴出行
-    "ndstatic.cdn.bcebos.com",       # 百度网盘广告
-    "staticsns.cdn.bcebos.com",      # 百度网盘广告
-    "issuecdn.baidupcs.com",         # 百度网盘广告
-    "fc-video.cdn.bcebos.com",       # 百度网盘视频广告
-    "rp.hpplay.cn",                  # 投屏广告
-    "oss.umetrip.com",               # 航旅纵横
-    "mea.meitudata.com",             # 美图秀秀
-    "mobileapi-v6.elong.com",        # 艺龙旅行
-    "gateway.shouqiev.com",          # 首汽约车
-    "gw-passenger.01zhuanche.com",   # 首汽约车
-    "pinggai.caixin.com",            # 财新
-    "eastmoney.com",                 # 东方财富 (后缀匹配，涵盖 choicegw2 等子域)
-    "zdmimg.com",                    # 值得买
-    
-    # 新增开屏解密以防绕过
-    "babytree.com",                  # 宝宝树孕育
-    "jianying.com",                  # 剪映
-    
-    "maicai.api.ddxq.mobi"           # 叮咚买菜开屏域名
-]
 
-CUSTOM_REWRITE_RULES = [
-    # 叮咚买菜 App 开屏广告拦截（使用标准小火箭 reject 动作以保证 100% 兼容）
-    {'text': '^https?:\/\/maicai\.api\.ddxq\.mobi\/advert\/ reject', 'pattern': '^https?:\/\/maicai\.api\.ddxq\.mobi\/advert\/', 'priority': 0, 'app': '叮咚买菜'},
-    # 百度贴吧 App 开屏与广告接口静态拦截补充 (防绕过，修正斜杠脱靶与语法兼容)
-    {'text': '^https?:\/\/c\.tieba\.baidu\.com\/c\/s\/(ad|splashSchedule|splash) reject-dict', 'pattern': '^https?:\/\/c\.tieba\.baidu\.com\/c\/s\/(ad|splashSchedule|splash)', 'priority': 0, 'app': '百度贴吧'},
-    {'text': '^https?:\/\/c\.tieba\.baidu\.com\/c\/f\/ad\/ reject-dict', 'pattern': '^https?:\/\/c\.tieba\.baidu\.com\/c\/f\/ad\/', 'priority': 0, 'app': '百度贴吧'},
-    {'text': '^https?:\/\/tbapi\.baidu\.com\/c\/s\/(ad|splashSchedule|splash) reject-dict', 'pattern': '^https?:\/\/tbapi\.baidu\.com\/c\/s\/(ad|splashSchedule|splash)', 'priority': 0, 'app': '百度贴吧'},
-    {'text': '^https?:\/\/tbapi\.baidu\.com\/c\/f\/ad\/ reject-dict', 'pattern': '^https?:\/\/tbapi\.baidu\.com\/c\/f\/ad\/', 'priority': 0, 'app': '百度贴吧'},
-    # 百度移动广告联盟重写拦截 (解决贴吧及其他百度系开屏广告顽疾，以 reject-200 响应空包)
-    {'text': '^https?:\/\/mobads\.baidu\.com\/ads\/pa\/ reject-200', 'pattern': '^https?:\/\/mobads\.baidu\.com\/ads\/pa\/', 'priority': 0, 'app': '百度联盟广告'},
-    {'text': '^https?:\/\/mobads\.baidu\.com\/[a-zA-Z0-9_\/]+\.php reject-200', 'pattern': '^https?:\/\/mobads\.baidu\.com\/[a-zA-Z0-9_\/]+\.php', 'priority': 0, 'app': '百度联盟广告'},
-    # 豆瓣 App 开屏与内含广告 (改回标准的 reject 动作以保证模块完美读取)
-    {'text': '^https:\/\/api\.douban\.com\/v\d\/app_ads\/splash reject', 'pattern': '^https:\/\/api\.douban\.com\/v\d\/app_ads\/splash', 'priority': 0, 'app': '豆瓣'},
-    {'text': '^https:\/\/frodo\.douban\.com\/api\/v\d\/app_ads\/splash reject', 'pattern': '^https:\/\/frodo\.douban\.com\/api\/v\d\/app_ads\/splash', 'priority': 0, 'app': '豆瓣'},
-    {'text': '^https:\/\/frodo\.douban\.com\/api\/v\d\/erebor\/feed_ad reject', 'pattern': '^https:\/\/frodo\.douban\.com\/api\/v\d\/erebor\/feed_ad', 'priority': 0, 'app': '豆瓣'},
-    {'text': '^https:\/\/frodo\.douban\.com\/api\/v\d\/home_banner reject', 'pattern': '^https:\/\/frodo\.douban\.com\/api\/v\d\/home_banner', 'priority': 0, 'app': '豆瓣'},
-    {'text': '^https:\/\/frodo\.douban\.com\/api\/v\d\/search\/found_words reject', 'pattern': '^https:\/\/frodo\.douban\.com\/api\/v\d\/search\/found_words', 'priority': 0, 'app': '豆瓣'},
-    
-    # 锦江荟 App 开屏广告拦截补充
-    {'text': '^https?:\\/\\/wxapp\\.bestwehotel\\.com\\/gw3\\/app-mini\\/trip-hotel-banner\\/activity\\/getActivityInfo reject', 'pattern': '^https?:\\/\\/wxapp\\.bestwehotel\\.com\\/gw3\\/app-mini\\/trip-hotel-banner\\/activity\\/getActivityInfo', 'priority': 0, 'app': '锦江荟'},
-    {'text': '^https?:\\/\\/booking\\.bestwehotel\\.com\\/proxy\\/trip-hotel-banner\\/activity\\/getActivityInfo reject', 'pattern': '^https?:\\/\\/booking\\.bestwehotel\\.com\\/proxy\\/trip-hotel-banner\\/activity\\/getActivityInfo', 'priority': 0, 'app': '锦江荟'},
-    {'text': '^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/gw3\\/app-mini\\/trip-hotel-banner\\/activity\\/getActivityInfo reject', 'pattern': '^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/gw3\\/app-mini\\/trip-hotel-banner\\/activity\\/getActivityInfo', 'priority': 0, 'app': '锦江荟'},
-    {'text': '^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/proxy\\/trip-hotel-banner\\/activity\\/getActivityInfo reject', 'pattern': '^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/proxy\\/trip-hotel-banner\\/activity\\/getActivityInfo', 'priority': 0, 'app': '锦江荟'},
-    {'text': '^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/message\\/adLabel\\/v2\\/getAdList reject', 'pattern': '^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/message\\/adLabel\\/v2\\/getAdList', 'priority': 0, 'app': '锦江荟'},
-    {'text': '^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/adSettlement\\/app\\/idfa\\/v1\\/collect reject', 'pattern': '^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/adSettlement\\/app\\/idfa\\/v1\\/collect', 'priority': 0, 'app': '锦江荟'},
-    {'text': '^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/applog\\/requestPage\\/request reject', 'pattern': '^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/applog\\/requestPage\\/request', 'priority': 0, 'app': '锦江荟'},
-    {'text': '^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/proxy\\/trip-client-monitor\\/log\\/monitor reject', 'pattern': '^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/proxy\\/trip-client-monitor\\/log\\/monitor', 'priority': 0, 'app': '锦江荟'},
-    
-    # 随手记 App 广告拦截补充
-    {'text': '^https?:\/\/tg\.feidee\.com\/online_ad\/ reject', 'pattern': '^https?:\/\/tg\.feidee\.com\/online_ad\/', 'priority': 0, 'app': '随手记'},
-    {'text': '^https?:\/\/tg\.feidee\.com\/vis-ad-engine-ws\/api\/ reject', 'pattern': '^https?:\/\/tg\.feidee\.com\/vis-ad-engine-ws\/api\/', 'priority': 0, 'app': '随手记'}
-]
 
 def extract_pattern(line, is_script=False):
     line_stripped = line.strip()
@@ -1341,71 +966,7 @@ def generate():
     beijing_now = utc_now + datetime.timedelta(hours=8)
     beijing_time_str = beijing_now.strftime('%Y-%m-%d %H:%M:%S')
     
-    BYPASS_RULES = [
-        "# === Bypass Rules for WeChat, Alipay, Bank and Login App anomalies ===",
-        "DOMAIN,amdc.alipay.com,DIRECT",
-        "DOMAIN,re.m.taobao.com,DIRECT",
-        "DOMAIN,enrichgw.10010.com,DIRECT",
-        "DOMAIN-SUFFIX,wxs.qq.com,DIRECT",
-        "DOMAIN,aedns.weixin.qq.com,DIRECT",
-        "DOMAIN,apd-pcdnwxlogin.teg.tencent-cloud.net,DIRECT",
-        "DOMAIN-SUFFIX,wechatpay.cn,DIRECT",
-        "DOMAIN-SUFFIX,tenpay.com,DIRECT",
-        "DOMAIN-SUFFIX,qpic.cn,DIRECT",
-        "DOMAIN-SUFFIX,qlogo.cn,DIRECT",
-        "DOMAIN,mazu.m.qq.com,DIRECT",
-        "DOMAIN,msmp.abchina.com.cn,DIRECT",
-        "DOMAIN,log.cmbchina.com,DIRECT",
-        "DOMAIN,httpdns.music.163.com,DIRECT",
-        "DOMAIN,smartad.10010.com,DIRECT",
-        # 解决宝宝知道等百度系 App 误杀，恢复推荐和视频加载
-        "DOMAIN,nsclick.baidu.com,DIRECT",
-        # 解决亚马逊海外购加载报错问题，绕过代理解密风控
-        "DOMAIN-SUFFIX,amazon.com,DIRECT",
-        "DOMAIN-SUFFIX,amazon.cn,DIRECT",
-        "DOMAIN-SUFFIX,media-amazon.com,DIRECT",
-        "DOMAIN-SUFFIX,ssl-images-amazon.com,DIRECT",
-        "DOMAIN-SUFFIX,amazon-adsystem.com,DIRECT",
-        # 解决百度系 App 代理风控（登录频繁要求、设置失效、推荐无内容等）
-        "DOMAIN-SUFFIX,baidu.com,DIRECT",
-        "DOMAIN-SUFFIX,baidupcs.com,DIRECT",
-        "DOMAIN-SUFFIX,bdstatic.com,DIRECT",
-        "DOMAIN-SUFFIX,tieba.com,DIRECT",
-        "DOMAIN-SUFFIX,tbapi.baidu.com,DIRECT",
-        # 解决极光长连接被拦截引发 App 判定无网的异常（如宝宝知道）
-        "DOMAIN-SUFFIX,jiguang.cn,DIRECT",
-        "DOMAIN-SUFFIX,jpush.cn,DIRECT",
-        # 彻底解决百度广告联盟强证书校验导致死循环重连发热的异常
-        "DOMAIN-SUFFIX,mobads.baidu.com,DIRECT",
-        "DOMAIN-SUFFIX,mobads-logs.baidu.com,DIRECT",
-        # 彻底解决崩溃统计、打点与归因阻断引发后台重试发热的异常
-        "DOMAIN-SUFFIX,umeng.com,DIRECT",
-        "DOMAIN-SUFFIX,umengcloud.com,DIRECT",
-        # 2026-07-05 联动加白：防客户端重试发热与地图/验证码误杀
-        "DOMAIN,apikey.map.qq.com,DIRECT",
-        "DOMAIN,cdn.ynuf.aliapp.org,DIRECT",
-        # 彻底解决百度/穿山甲广告埋点上报失败引起的高频重连发热
-        # 2026-07-07 联动加白：解决字节/抖音核心及打点上报重试引发的发热 (不放行根域名)
-        "DOMAIN,p3-ad-sign.byteimg.com,DIRECT",
-        "DOMAIN,aweme.snssdk.com,DIRECT",
-        "DOMAIN,i.snssdk.com,DIRECT",
-        "DOMAIN,api.snssdk.com,DIRECT",
-        "DOMAIN,api-access.snssdk.com,DIRECT",
-        "DOMAIN,security.snssdk.com,DIRECT",
-        "DOMAIN,verify.snssdk.com,DIRECT",
-        "DOMAIN,lf.snssdk.com,DIRECT",
-        "DOMAIN,vcs.zijieapi.com,DIRECT",
-        "DOMAIN-SUFFIX,mssdk.bytedance.com,DIRECT",
-        "DOMAIN-SUFFIX,mssdk.volces.com,DIRECT",
-        "DOMAIN-SUFFIX,mssdk.zijieapi.com,DIRECT",
-        "DOMAIN-SUFFIX,tnc.zijieapi.com,DIRECT",
-        "DOMAIN-SUFFIX,tnc3-sz.zijieapi.com,DIRECT",
-        "DOMAIN-SUFFIX,tnc3-alipay.zijieapi.com,DIRECT",
-        "DOMAIN-SUFFIX,tnc11.zijieapi.com,DIRECT",
-        "DOMAIN,is.snssdk.com,DIRECT",
-        "DOMAIN,applog.snssdk.com,DIRECT",
-        "DOMAIN-KEYWORD,dy.snssdk,DIRECT"
-    ]
+    BYPASS_RULES = [x for x in _s_data["BYPASS_RULES"] if not x.startswith("#") or "Bypass Rules" in x]
 
     # 动态排除 AGH 的打点/拦截域名及字节 TNC 相关，防止编译生成的 final_rules 等地方带入普通 REJECT 或重写
     _filter_domains = set(_agh_domains) | {"pglstatp-toutiao.com"}
