@@ -296,7 +296,6 @@ DOMAIN,adcdn.tencentmusic.com,REJECT
 DOMAIN,adcdn6.tencentmusic.com,REJECT
 DOMAIN,adexpo.tencentmusic.com,REJECT
 DOMAIN,adclick.tencentmusic.com,REJECT
-DOMAIN,monitor.music.qq.com,REJECT
 DOMAIN,stat.y.qq.com,REJECT
 DOMAIN,tmead.y.qq.com,REJECT
 DOMAIN,oth.str.mdt.qq.com,REJECT
