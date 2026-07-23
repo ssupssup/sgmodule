@@ -1,6 +1,6 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-07-23 20:45:54 | Deep ad block & UI purification customized for user's installed apps.
-#!total=1307
+#!desc=最近更新: 2026-07-23 21:23:35 | Deep ad block & UI purification customized for user's installed apps.
+#!total=1322
 
 [Rule]
 # === Bypass Rules for WeChat, Alipay, Bank and Login App anomalies ===
@@ -164,16 +164,20 @@ DOMAIN,stats-ipv6.jpush.cn,REJECT-NO-DROP
 DOMAIN,tracking.miui.com,REJECT-NO-DROP
 DOMAIN,1sapp.com,REJECT-NO-DROP
 DOMAIN,ac.dun.163.com,REJECT-NO-DROP
+DOMAIN,ads.inmobi.com,REJECT-NO-DROP
 DOMAIN,advlion.com,REJECT-NO-DROP
 DOMAIN,al.autohome.com.cn,REJECT-NO-DROP
 DOMAIN,als.baidu.com,REJECT-NO-DROP
 DOMAIN,bgg.baidu.com,REJECT-NO-DROP
+DOMAIN,c.amazon-adsystem.com,REJECT-NO-DROP
 DOMAIN,clientlogdep.music.163.com,REJECT-NO-DROP
 DOMAIN,clientlogsf.music.163.com,REJECT-NO-DROP
 DOMAIN,collection.decibelinsight.net,REJECT-NO-DROP
 DOMAIN,combine.urbanairship.com,REJECT-NO-DROP
+DOMAIN,config.inmobi.com,REJECT-NO-DROP
 DOMAIN,cpatrk.net,REJECT-NO-DROP
 DOMAIN,crashlyticsreports-pa.googleapis.com,REJECT-NO-DROP
+DOMAIN,creatives.smadex.com,REJECT-NO-DROP
 DOMAIN,data-sdk-uuid-log.d.meituan.net,REJECT-NO-DROP
 DOMAIN,datadoghq.com,REJECT-NO-DROP
 DOMAIN,device-api.urbanairship.com,REJECT-NO-DROP
@@ -182,14 +186,19 @@ DOMAIN,events.mapbox.com,REJECT-NO-DROP
 DOMAIN,g.cn.miaozhen.com,REJECT-NO-DROP
 DOMAIN,gdt.qq.com,REJECT-NO-DROP
 DOMAIN,google-analytics.com,REJECT-NO-DROP
+DOMAIN,got.iad3rs0zonea.pubnative.net,REJECT-NO-DROP
 DOMAIN,h.trace.qq.com,REJECT-NO-DROP
 DOMAIN,h2tcbox.baidu.com,REJECT-NO-DROP
 DOMAIN,hpplay.cn,REJECT-NO-DROP
 DOMAIN,httpdns.kg.qq.com,REJECT-NO-DROP
+DOMAIN,jddebug.com,REJECT-NO-DROP
 DOMAIN,logrcv.yunxish.com,REJECT-NO-DROP
+DOMAIN,mads.amazon-adsystem.com,REJECT-NO-DROP
 DOMAIN,mam.netease.com,REJECT-NO-DROP
+DOMAIN,mdtb-cf-3.ads.aps.amazon-adsystem.com,REJECT-NO-DROP
 DOMAIN,meitustat.com,REJECT-NO-DROP
 DOMAIN,metrics-picture.dreport.meituan.net,REJECT-NO-DROP
+DOMAIN,mfx.mobilefuse.com,REJECT-NO-DROP
 DOMAIN,mobads-logs.baidu.com,REJECT-NO-DROP
 DOMAIN,mobads.baidu.com,REJECT-NO-DROP
 DOMAIN,mobile-data.onetrust.io,REJECT-NO-DROP
@@ -198,10 +207,12 @@ DOMAIN,netapm.music.163.com,REJECT-NO-DROP
 DOMAIN,oth.bls.mdt.qq.com,REJECT-NO-DROP
 DOMAIN,oth.eve.mdt.qq.com,REJECT-NO-DROP
 DOMAIN,oth.str.mdt.qq.com,REJECT-NO-DROP
+DOMAIN,ow.pubmatic.com,REJECT-NO-DROP
 DOMAIN,pangolin-sdk-toutiao*.com,REJECT-NO-DROP
 DOMAIN,posthog.com,REJECT-NO-DROP
 DOMAIN,remote-data.urbanairship.com,REJECT-NO-DROP
 DOMAIN,report.meituan.com,REJECT-NO-DROP
+DOMAIN,sdk-dnt.ad.smaato.net,REJECT-NO-DROP
 DOMAIN,sdk.1rtb.net,REJECT-NO-DROP
 DOMAIN,sdk.beizi.biz,REJECT-NO-DROP
 DOMAIN,sdkquic.e.qq.com,REJECT-NO-DROP
@@ -209,7 +220,9 @@ DOMAIN,sdkreport.e.qq.com,REJECT-NO-DROP
 DOMAIN,sdktmp.hubcloud.com.cn,REJECT-NO-DROP
 DOMAIN,seiya.tantanapp.com,REJECT-NO-DROP
 DOMAIN,sq.bls.mdt.qq.com,REJECT-NO-DROP
+DOMAIN,ssp.api.tappx.com,REJECT-NO-DROP
 DOMAIN,ssp.qq.com,REJECT-NO-DROP
+DOMAIN,st.pubmatic.com,REJECT-NO-DROP
 DOMAIN,status-ipv6.jpush.cn,REJECT-NO-DROP
 DOMAIN,tangram.e.qq.com,REJECT-NO-DROP
 DOMAIN,tanx.com,REJECT-NO-DROP
@@ -221,6 +234,8 @@ DOMAIN,ubixioe.com,REJECT-NO-DROP
 DOMAIN,ulogimap.baidu.com,REJECT-NO-DROP
 DOMAIN,usr-api.yunxish.com,REJECT-NO-DROP
 DOMAIN,vi.bls.mdt.qq.com,REJECT-NO-DROP
+DOMAIN,wv.inner-active.mobi,REJECT-NO-DROP
+DOMAIN,www.inmobi.com,REJECT-NO-DROP
 DOMAIN,xdrig.com,REJECT-NO-DROP
 DOMAIN,zhangyuyidong.cn,REJECT-NO-DROP
 # === Compiled App Rules ===
