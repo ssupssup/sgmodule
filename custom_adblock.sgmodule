@@ -1,6 +1,6 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-07-24 05:29:38 | Deep ad block & UI purification customized for user's installed apps.
-#!total=1292
+#!desc=最近更新: 2026-07-24 21:23:59 | Deep ad block & UI purification customized for user's installed apps.
+#!total=1294
 
 [Rule]
 # === Bypass Rules for WeChat, Alipay, Bank and Login App anomalies ===
@@ -245,6 +245,8 @@ DOMAIN,got.iad3rs0zonea.pubnative.net,REJECT-200
 DOMAIN,mads.amazon-adsystem.com,REJECT-200
 DOMAIN,c.amazon-adsystem.com,REJECT-200
 DOMAIN,mdtb-cf-3.ads.aps.amazon-adsystem.com,REJECT-200
+DOMAIN,collector.github.com,REJECT-200
+DOMAIN,ads.pubmatic.com,REJECT-200
 DOMAIN,apm.zhihu.com,REJECT
 DOMAIN,appcloud2.in.zhihu.com,REJECT
 DOMAIN,crash2.zhihu.com,REJECT
