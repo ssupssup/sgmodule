@@ -91,7 +91,10 @@
     "got.iad3rs0zonea.pubnative.net",
     "mads.amazon-adsystem.com",
     "c.amazon-adsystem.com",
-    "mdtb-cf-3.ads.aps.amazon-adsystem.com"
+    "mdtb-cf-3.ads.aps.amazon-adsystem.com",
+    "# 2026-07-24 联动补齐：GitHub 开发者遥测与 PubMatic 广告全系列",
+    "collector.github.com",
+    "ads.pubmatic.com"
   ],
   "ALWAYS_KEEP_KEYWORDS": [
     "pangle", "pangolin", "gdt.qq.com", "ugdtimg", "mobads.baidu.com", "mobads-logs", 
