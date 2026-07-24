@@ -1,6 +1,6 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-07-24 21:23:59 | Deep ad block & UI purification customized for user's installed apps.
-#!total=1294
+#!desc=最近更新: 2026-07-24 22:10:09 | Deep ad block & UI purification customized for user's installed apps.
+#!total=1325
 
 [Rule]
 # === Bypass Rules for WeChat, Alipay, Bank and Login App anomalies ===
@@ -188,6 +188,7 @@ DOMAIN,events.mapbox.com,REJECT-NO-DROP
 DOMAIN,g.cn.miaozhen.com,REJECT-NO-DROP
 DOMAIN,gdt.qq.com,REJECT-NO-DROP
 DOMAIN,google-analytics.com,REJECT-NO-DROP
+DOMAIN,googleads.g.doubleclick.net,REJECT-NO-DROP
 DOMAIN,got.iad3rs0zonea.pubnative.net,REJECT-NO-DROP
 DOMAIN,h.trace.qq.com,REJECT-NO-DROP
 DOMAIN,h2tcbox.baidu.com,REJECT-NO-DROP
@@ -287,23 +288,6 @@ DOMAIN,ads.twitter.com,REJECT-200
 DOMAIN,ads-api.x.com,REJECT-200
 DOMAIN,adm.10jqka.com.cn,REJECT-200
 DOMAIN,fc-.cdn.bcebos.com,REJECT-200
-DOMAIN,jddebug.com,REJECT-200
-DOMAIN,ads.inmobi.com,REJECT-200
-DOMAIN,www.inmobi.com,REJECT-200
-DOMAIN,config.inmobi.com,REJECT-200
-DOMAIN,ow.pubmatic.com,REJECT-200
-DOMAIN,st.pubmatic.com,REJECT-200
-DOMAIN,sdk-dnt.ad.smaato.net,REJECT-200
-DOMAIN,wv.inner-active.mobi,REJECT-200
-DOMAIN,mfx.mobilefuse.com,REJECT-200
-DOMAIN,ssp.api.tappx.com,REJECT-200
-DOMAIN,creatives.smadex.com,REJECT-200
-DOMAIN,got.iad3rs0zonea.pubnative.net,REJECT-200
-DOMAIN,mads.amazon-adsystem.com,REJECT-200
-DOMAIN,c.amazon-adsystem.com,REJECT-200
-DOMAIN,mdtb-cf-3.ads.aps.amazon-adsystem.com,REJECT-200
-DOMAIN,collector.github.com,REJECT-200
-DOMAIN,ads.pubmatic.com,REJECT-200
 DOMAIN,apm.zhihu.com,REJECT
 DOMAIN,appcloud2.in.zhihu.com,REJECT
 DOMAIN,crash2.zhihu.com,REJECT
