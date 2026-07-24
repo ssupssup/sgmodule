@@ -1,6 +1,6 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-07-25 05:30:05 | Deep ad block & UI purification customized for user's installed apps.
-#!total=1295
+#!desc=最近更新: 2026-07-25 07:46:18 | Deep ad block & UI purification customized for user's installed apps.
+#!total=1298
 
 [Rule]
 # === Bypass Rules for WeChat, Alipay, Bank and Login App anomalies ===
@@ -166,9 +166,9 @@ DOMAIN,soul-ad.soulapp.cn,REJECT-NO-DROP
 DOMAIN,stats-ipv6.jpush.cn,REJECT-NO-DROP
 DOMAIN,tracking.miui.com,REJECT-NO-DROP
 DOMAIN-SUFFIX,a1.firefoxchina.cn,REJECT
-DOMAIN-SUFFIX,outlookads.live.com,REJECT
-DOMAIN-SUFFIX,analytics.pointdrive.linkedin.com,REJECT
 DOMAIN-SUFFIX,ads.linkedin.com,REJECT
+DOMAIN-SUFFIX,analytics.pointdrive.linkedin.com,REJECT
+DOMAIN-SUFFIX,outlookads.live.com,REJECT
 # === Compiled App Rules ===
 DOMAIN,sdkapp.uve.weibo.com,DIRECT
 DOMAIN,adstrategy.biz.weibo.com,REJECT
@@ -248,6 +248,9 @@ DOMAIN,mdtb-cf-3.ads.aps.amazon-adsystem.com,REJECT-200
 DOMAIN,collector.github.com,REJECT-200
 DOMAIN,ads.pubmatic.com,REJECT-200
 DOMAIN,googleads.g.doubleclick.net,REJECT-200
+DOMAIN,analytics.twitter.com,REJECT-200
+DOMAIN,px.effirst.com,REJECT-200
+DOMAIN,adashx.ut.dingtalk.com,REJECT-200
 DOMAIN,apm.zhihu.com,REJECT
 DOMAIN,appcloud2.in.zhihu.com,REJECT
 DOMAIN,crash2.zhihu.com,REJECT
