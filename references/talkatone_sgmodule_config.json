@@ -1,0 +1,10 @@
+{
+  "community_rules_url": "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule",
+  "ad_sources": {
+    "UnityAds": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Unity/Unity.yaml",
+    "AppLovin": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AppLovin/AppLovin.yaml"
+  },
+  "whitelist_domains": [
+    "talkatone.com", "tktn.be", "tktn.at", "google.com", "googleapis.com", "youtube.com", "ytimg.com", "ggpht.com", "amazonaws.com", "amazonaws.com.cn", "amazonaws-china.com", "cloudfront.net", "amazon.com"
+  ]
+}

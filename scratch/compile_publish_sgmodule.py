@@ -65,7 +65,7 @@ def main():
         print("\n🎉 小火箭模块本地编译验证已完成！")
         return
 
-    # 添加需要提交的小火箭相关文件
+    # 添加需要提交的小火箭相关文件与解耦配置文件
     files_to_add = [
         "generate_custom_adblock.py",
         "generate_ai.py",
@@ -73,7 +73,11 @@ def main():
         "custom_adblock.sgmodule",
         "ai.sgmodule",
         "talkatone_proxy.sgmodule",
-        "talkatone_adblock.sgmodule"
+        "talkatone_adblock.sgmodule",
+        "references/ai_sgmodule_config.json",
+        "references/talkatone_sgmodule_config.json",
+        "references/adblock_rules_data.json",
+        "references/generator_static_data.json"
     ]
     
     # 确保只添加存在的文件
