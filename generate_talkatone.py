@@ -2,41 +2,20 @@ import urllib.request
 import re
 import os
 import ssl
+import json
 
 ssl._create_default_https_context = ssl._create_unverified_context
 
 # -------------------------------------------------------------
-# 1. 抓取与规则配置
+# 1. 动态载入解耦后的静态 JSON 规则与白名单配置
 # -------------------------------------------------------------
-# 社区高频更新的 Talkatone 核心规则文件（LOWERTOP 维护）
-COMMUNITY_RULES_URL = "https://raw.githubusercontent.com/LOWERTOP/Shadowrocket-First/refs/heads/main/Talkatone.sgmodule"
+CONFIG_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "references", "talkatone_sgmodule_config.json")
+with open(CONFIG_PATH, "r", encoding="utf-8") as f:
+    config = json.load(f)
 
-# 社区主要的广告联盟规则集（用于动态更新 Talkatone 中的联盟广告拦截）
-AD_SOURCES = {
-    "UnityAds": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Unity/Unity.yaml",
-    "AppLovin": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/AppLovin/AppLovin.yaml"
-}
-
-# 防误杀白名单（绝对禁止 REJECT 的核心网络域）
-WHITELIST_DOMAINS = [
-    "talkatone.com",
-    "tktn.be",
-    "tktn.at",
-    "google.com",
-    "googleapis.com",
-    "youtube.com",
-    "ytimg.com",
-    "ggpht.com",
-    "amazonaws.com",
-    "amazonaws.com.cn",
-    "amazonaws-china.com",
-    "cloudfront.net",
-    "amazon.com",
-    "amazon-adsystem.com",
-    # 彻底解决归因/崩溃统计拦截导致后台重试发热
-    "adjust.com",
-    "crashlytics.com"
-]
+COMMUNITY_RULES_URL = config["community_rules_url"]
+AD_SOURCES = config["ad_sources"]
+WHITELIST_DOMAINS = config["whitelist_domains"]
 
 def download_url(url):
     print(f"Downloading: {url}")

@@ -4,31 +4,18 @@ import sys
 import os
 import ssl
 
+import json
+
 ssl._create_default_https_context = ssl._create_unverified_context
 
-# Target AI sources from BlackMatrix7
-AI_SOURCES = {
-    "OpenAI": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.yaml",
-    "Claude": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Claude/Claude.yaml",
-    "Gemini": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini.yaml",
-    "Copilot": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Copilot/Copilot.yaml"
-}
+# 动态载入解耦后的静态 JSON 规则与防污染配置
+CONFIG_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "references", "ai_sgmodule_config.json")
+with open(CONFIG_PATH, "r", encoding="utf-8") as f:
+    config = json.load(f)
 
-# Domains that are too broad and will pollute everyday direct browsing
-# We strip/bypass these top-level domains unless they match the allow-subdomains list below
-POLLUTION_DOMAINS = [
-    "google.com", "microsoft.com", "bing.com", "live.com", "x.com", "twitter.com", "apple.com"
-]
-
-# Specifically allowed subdomains/keywords for the above parent domains
-ALLOWED_SUBDOMAINS = [
-    # Gemini / Google AI
-    "gemini.google.com", "generativelanguage.googleapis.com", "notebooklm.google.com", "alkalimira-pa.clients6.google.com",
-    # Copilot / Bing AI
-    "copilot.microsoft.com", "sydney.bing.com", "edgeservices.bing.com",
-    # Apple Intelligence
-    "guzzoni.apple.com", "smoot.apple.com", "gspe1-ssl.ls.apple.com"
-]
+AI_SOURCES = config["sources"]
+POLLUTION_DOMAINS = config["pollution_domains"]
+ALLOWED_SUBDOMAINS = config["allowed_subdomains"]
 
 # User's manually verified custom rules (Highest priority)
 CUSTOM_RULES = """# === User Custom AI & Apple Intelligence Rules ===
