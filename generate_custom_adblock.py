@@ -602,6 +602,19 @@ def generate():
             
     # 3. Fetch and parse Override Apps (ddgksf2013, Maasea, fmz200 etc.)
     override_mitm = set()
+    all_urls = [aio_url]
+    for app_name, urls in OVERRIDE_APPS.items():
+        if isinstance(urls, str):
+            all_urls.append(urls)
+        elif isinstance(urls, list):
+            all_urls.extend(urls)
+            
+    # Parallel pre-fetch all URLs to reduce execution time to < 1.5s
+    from concurrent.futures import ThreadPoolExecutor
+    print(f"Parallel pre-fetching {len(all_urls)} rule source URLs...")
+    with ThreadPoolExecutor(max_workers=20) as executor:
+        executor.map(download_url, all_urls)
+
     for app_name, urls in OVERRIDE_APPS.items():
         installed_name = None
         if app_name == "微博轻享版":

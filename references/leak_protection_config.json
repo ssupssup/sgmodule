@@ -1,0 +1,74 @@
+{
+  "general": {
+    "dns_direct_system": false,
+    "dns_fallback_system": false,
+    "dns_server": [
+      "8.8.8.8",
+      "1.1.1.1",
+      "https://dns.google/dns-query",
+      "https://1.1.1.1/dns-query"
+    ],
+    "direct_dns_server": [
+      "223.5.5.5",
+      "119.29.29.29",
+      "https://223.5.5.5/dns-query",
+      "https://doh.pub/dns-query"
+    ],
+    "dns_mode": "fake-ip",
+    "fake_ip_filter": [
+      "*.dygangs.me",
+      "*.5266ys.com",
+      "*.66tutup.com",
+      "*.200610.cc.cd",
+      "*.200610.xyz",
+      "*.cn1.gi-de.com",
+      "*.lc0011.net",
+      "*.pm001.net",
+      "*.lan",
+      "*.local",
+      "*.home.arpa",
+      "*.workgroup",
+      "*.invalid",
+      "*.localhost",
+      "*.test",
+      "*.localdomain",
+      "captive.apple.com",
+      "time*.apple.com",
+      "time*.asia.apple.com",
+      "time*.windows.com",
+      "time*.nist.gov",
+      "*.ntp.org",
+      "msftconnecttest.com",
+      "msftncsi.com",
+      "*.mp.weixin.qq.com"
+    ]
+  },
+  "custom_direct_domains": [
+    "dygangs.me",
+    "5266ys.com",
+    "66tutup.com",
+    "200610.cc.cd",
+    "200610.xyz",
+    "cn1.gi-de.com",
+    "lc0011.net",
+    "pm001.net"
+  ],
+  "rule_sets": [
+    {
+      "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Shadowrocket/Copilot/Copilot.list",
+      "policy": "PROXY"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/apple-cn.txt",
+      "policy": "DIRECT"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/microsoft.txt",
+      "policy": "DIRECT"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/apple.txt",
+      "policy": "PROXY"
+    }
+  ]
+}

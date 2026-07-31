@@ -1,0 +1,65 @@
+#!name=防泄露与分流优化模块(强化版)
+#!desc=最近更新: 2026-07-31 22:34:24 | 包含 0 DNS/WebRTC 泄露防护、Fake-IP 优化、微信/局域网体验保护及精细分流
+
+[General]
+# 1. 禁用系统自带 DNS 转发，强制小火箭接管
+dns-direct-system = false
+dns-fallback-system = false
+
+# 2. 远程加密 DNS (含 8.8.8.8/1.1.1.1 引导 IP，防止 DoH 解析死锁)
+dns-server = 8.8.8.8, 1.1.1.1, https://dns.google/dns-query, https://1.1.1.1/dns-query
+
+# 3. 国内直连专属 DNS (阿里/腾讯 DoH 极速解析)
+direct-dns-server = 223.5.5.5, 119.29.29.29, https://223.5.5.5/dns-query, https://doh.pub/dns-query
+
+# 4. 全局 Fake-IP 模式 (远端节点解析，杜绝 DNS 泄露)
+dns-mode = fake-ip
+
+# 5. 必须使用 Real-IP 的域名列表 (保护微信音视频、局域网 mDNS、系统校时)
+fake-ip-filter = *.dygangs.me, *.5266ys.com, *.66tutup.com, *.200610.cc.cd, *.200610.xyz, *.cn1.gi-de.com, *.lc0011.net, *.pm001.net, *.lan, *.local, *.home.arpa, *.workgroup, *.invalid, *.localhost, *.test, *.localdomain, captive.apple.com, time*.apple.com, time*.asia.apple.com, time*.windows.com, time*.nist.gov, *.ntp.org, msftconnecttest.com, msftncsi.com, *.mp.weixin.qq.com
+
+[Rule]
+# ==========================================
+# 1. 局域网与内网直连 (最高优先级，保障 NAS/软路由连接)
+# ==========================================
+IP-CIDR,10.0.0.0/8,DIRECT
+IP-CIDR,172.16.0.0/12,DIRECT
+IP-CIDR,192.168.0.0/16,DIRECT
+IP-CIDR,127.0.0.0/8,DIRECT
+IP-CIDR,224.0.0.0/4,DIRECT
+GEOIP,LAN,DIRECT
+
+# ==========================================
+# 2. 封堵 WebRTC / STUN 泄露 (阻断真实 IP 探针)
+# ==========================================
+DOMAIN-KEYWORD,stun,REJECT
+DOMAIN-KEYWORD,turn,REJECT
+DOMAIN-SUFFIX,stun.l.google.com,REJECT
+AND,((PROTOCOL,UDP),(DEST-PORT,3478)),REJECT
+AND,((PROTOCOL,UDP),(DEST-PORT,5349)),REJECT
+
+# ==========================================
+# 3. 自动直连域名
+# ==========================================
+DOMAIN-SUFFIX,dygangs.me,DIRECT
+DOMAIN-SUFFIX,5266ys.com,DIRECT
+DOMAIN-SUFFIX,66tutup.com,DIRECT
+DOMAIN-SUFFIX,200610.cc.cd,DIRECT
+DOMAIN-SUFFIX,200610.xyz,DIRECT
+DOMAIN-SUFFIX,cn1.gi-de.com,DIRECT
+DOMAIN-SUFFIX,lc0011.net,DIRECT
+DOMAIN-SUFFIX,pm001.net,DIRECT
+
+# ==========================================
+# 4. 远程规则集精细分流
+# ==========================================
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Shadowrocket/Copilot/Copilot.list,PROXY
+RULE-SET,https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/apple-cn.txt,DIRECT
+RULE-SET,https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/microsoft.txt,DIRECT
+RULE-SET,https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/apple.txt,PROXY
+
+# ==========================================
+# 5. 国内 IP 直连与最终兜底
+# ==========================================
+GEOIP,CN,DIRECT
+FINAL,PROXY

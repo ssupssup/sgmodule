@@ -18,11 +18,12 @@ def main():
     
     print("🚀 [1/3] 开始本地编译小火箭模块...")
     
-    # 1. 运行三个生成脚本
+    # 1. 运行四个生成脚本
     scripts = [
         "generate_custom_adblock.py",
         "generate_ai.py",
-        "generate_talkatone.py"
+        "generate_talkatone.py",
+        "generate_leak_protection.py"
     ]
     
     for script in scripts:
@@ -70,15 +71,22 @@ def main():
         "generate_custom_adblock.py",
         "generate_ai.py",
         "generate_talkatone.py",
+        "generate_leak_protection.py",
         "custom_adblock.sgmodule",
         "ai.sgmodule",
         "talkatone_proxy.sgmodule",
         "talkatone_adblock.sgmodule",
+        "leak_protection.sgmodule",
         "references/ai_sgmodule_config.json",
         "references/talkatone_sgmodule_config.json",
+        "references/leak_protection_config.json",
         "references/adblock_rules_data.json",
-        "references/generator_static_data.json"
+        "references/generator_static_data.json",
+        ".github/workflows/auto_update.yml"
     ]
+
+
+
     
     # 确保只添加存在的文件
     existing_files = [f for f in files_to_add if os.path.exists(os.path.join(sgmodule_dir, f))]
