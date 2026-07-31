@@ -11,6 +11,7 @@ def main():
         config = json.load(f)
 
     general = config.get("general", {})
+    leak_test_proxy = config.get("leak_test_proxy_domains", [])
     custom_direct = config.get("custom_direct_domains", [])
     rule_sets = config.get("rule_sets", [])
 
@@ -22,28 +23,32 @@ def main():
     dns_fallback_system = "true" if general.get("dns_fallback_system", False) else "false"
     dns_servers = ", ".join(general.get("dns_server", []))
     direct_dns_servers = ", ".join(general.get("direct_dns_server", []))
+    hijack_dns_servers = ", ".join(general.get("hijack_dns", []))
     dns_mode = general.get("dns_mode", "fake-ip")
     fake_ip_filters = ", ".join(general.get("fake_ip_filter", []))
 
     lines = []
     lines.append("#!name=防泄露与分流优化模块(强化版)")
-    lines.append(f"#!desc=最近更新: {beijing_time_str} | 包含 0 DNS/WebRTC 泄露防护、Fake-IP 优化、微信/局域网体验保护及精细分流\n")
+    lines.append(f"#!desc=最近更新: {beijing_time_str} | 包含 0 DNS/WebRTC 泄露防护、DNS 劫持强化、Fake-IP 优化与精细分流\n")
 
     lines.append("[General]")
     lines.append("# 1. 禁用系统自带 DNS 转发，强制小火箭接管")
     lines.append(f"dns-direct-system = {dns_direct_system}")
     lines.append(f"dns-fallback-system = {dns_fallback_system}\n")
 
-    lines.append("# 2. 远程加密 DNS (含 8.8.8.8/1.1.1.1 引导 IP，防止 DoH 解析死锁)")
+    lines.append("# 2. 强制系统 DNS 劫持 (拦截所有 53 端口暗度陈仓流量)")
+    lines.append(f"hijack-dns = {hijack_dns_servers}\n")
+
+    lines.append("# 3. 远程加密 DNS (含 8.8.8.8/1.1.1.1 引导 IP，防止 DoH 解析死锁)")
     lines.append(f"dns-server = {dns_servers}\n")
 
-    lines.append("# 3. 国内直连专属 DNS (阿里/腾讯 DoH 极速解析)")
+    lines.append("# 4. 国内直连专属 DNS (阿里/腾讯 DoH 极速解析)")
     lines.append(f"direct-dns-server = {direct_dns_servers}\n")
 
-    lines.append("# 4. 全局 Fake-IP 模式 (远端节点解析，杜绝 DNS 泄露)")
+    lines.append("# 5. 全局 Fake-IP 模式 (远端节点解析，杜绝 DNS 泄露)")
     lines.append(f"dns-mode = {dns_mode}\n")
 
-    lines.append("# 5. 必须使用 Real-IP 的域名列表 (保护微信音视频、局域网 mDNS、系统校时)")
+    lines.append("# 6. 必须使用 Real-IP 的域名列表 (保护微信音视频、局域网 mDNS、系统校时)")
     lines.append(f"fake-ip-filter = {fake_ip_filters}\n")
 
     lines.append("[Rule]")
@@ -67,21 +72,28 @@ def main():
     lines.append("AND,((PROTOCOL,UDP),(DEST-PORT,5349)),REJECT\n")
 
     lines.append("# ==========================================")
-    lines.append("# 3. 自动直连域名")
+    lines.append("# 3. 防泄露测试网站强走代理 (防止 GEOIP 判断前触发本地 DNS 查询)")
+    lines.append("# ==========================================")
+    for domain in leak_test_proxy:
+        lines.append(f"DOMAIN-SUFFIX,{domain},PROXY")
+    lines.append("")
+
+    lines.append("# ==========================================")
+    lines.append("# 4. 自动直连域名")
     lines.append("# ==========================================")
     for domain in custom_direct:
         lines.append(f"DOMAIN-SUFFIX,{domain},DIRECT")
     lines.append("")
 
     lines.append("# ==========================================")
-    lines.append("# 4. 远程规则集精细分流")
+    lines.append("# 5. 远程规则集精细分流")
     lines.append("# ==========================================")
     for rs in rule_sets:
         lines.append(f"RULE-SET,{rs['url']},{rs['policy']}")
     lines.append("")
 
     lines.append("# ==========================================")
-    lines.append("# 5. 国内 IP 直连与最终兜底")
+    lines.append("# 6. 国内 IP 直连与最终兜底")
     lines.append("# ==========================================")
     lines.append("GEOIP,CN,DIRECT")
     lines.append("FINAL,PROXY")

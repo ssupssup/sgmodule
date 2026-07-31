@@ -15,6 +15,14 @@
       "https://doh.pub/dns-query"
     ],
     "dns_mode": "fake-ip",
+    "hijack_dns": [
+      "8.8.8.8:53",
+      "8.8.4.4:53",
+      "1.1.1.1:53",
+      "1.0.0.1:53",
+      "223.5.5.5:53",
+      "119.29.29.29:53"
+    ],
     "fake_ip_filter": [
       "*.dygangs.me",
       "*.5266ys.com",
@@ -43,6 +51,16 @@
       "*.mp.weixin.qq.com"
     ]
   },
+  "leak_test_proxy_domains": [
+    "ippure.com",
+    "browserleaks.com",
+    "dnsleaktest.com",
+    "dnsleak.com",
+    "ipleak.net",
+    "expressvpn.com",
+    "perfect-privacy.com",
+    "ip.skk.moe"
+  ],
   "custom_direct_domains": [
     "dygangs.me",
     "5266ys.com",
