@@ -29,20 +29,20 @@ def main():
 
     lines = []
     lines.append("#!name=防泄露与分流优化模块(强化版)")
-    lines.append(f"#!desc=最近更新: {beijing_time_str} | 包含 0 DNS/WebRTC 泄露防护、DNS 劫持强化、Fake-IP 优化与精细分流\n")
+    lines.append(f"#!desc=最近更新: {beijing_time_str} | 100% 纯 IP 加密 DoH (0 明文 UDP 53)、0 DNS/WebRTC 泄露防护、Fake-IP 优化与精细分流\n")
 
     lines.append("[General]")
     lines.append("# 1. 禁用系统自带 DNS 转发，强制小火箭接管")
     lines.append(f"dns-direct-system = {dns_direct_system}")
     lines.append(f"dns-fallback-system = {dns_fallback_system}\n")
 
-    lines.append("# 2. 强制系统 DNS 劫持 (拦截所有 53 端口暗度陈仓流量)")
+    lines.append("# 2. 强制系统 DNS 劫持 (拦截所有 UDP 53 端口暗度陈仓流量)")
     lines.append(f"hijack-dns = {hijack_dns_servers}\n")
 
-    lines.append("# 3. 远程加密 DNS (含 8.8.8.8/1.1.1.1 引导 IP，防止 DoH 解析死锁)")
+    lines.append("# 3. 远程全加密 DNS (100% 纯 IP/DoH 形式，无明文 UDP 53 且零引导死锁)")
     lines.append(f"dns-server = {dns_servers}\n")
 
-    lines.append("# 4. 国内直连专属 DNS (阿里/腾讯 DoH 极速解析)")
+    lines.append("# 4. 国内直连全加密 DNS (阿里/腾讯 纯 IP 形式 DoH 极速解析)")
     lines.append(f"direct-dns-server = {direct_dns_servers}\n")
 
     lines.append("# 5. 全局 Fake-IP 模式 (远端节点解析，杜绝 DNS 泄露)")

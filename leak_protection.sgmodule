@@ -6,14 +6,14 @@
 dns-direct-system = false
 dns-fallback-system = false
 
-# 2. 强制系统 DNS 劫持 (拦截所有 53 端口暗度陈仓流量)
+# 2. 强制系统 DNS 劫持 (拦截所有 UDP 53 端口暗度陈仓流量)
 hijack-dns = 8.8.8.8:53, 8.8.4.4:53, 1.1.1.1:53, 1.0.0.1:53, 223.5.5.5:53, 119.29.29.29:53
 
-# 3. 远程加密 DNS (含 8.8.8.8/1.1.1.1 引导 IP，防止 DoH 解析死锁)
-dns-server = 8.8.8.8, 1.1.1.1, https://dns.google/dns-query, https://1.1.1.1/dns-query
+# 3. 远程全加密 DNS (100% 纯 IP/DoH 形式，无明文 UDP 53 且零引导死锁)
+dns-server = https://1.1.1.1/dns-query, https://8.8.8.8/dns-query, https://dns.google/dns-query
 
-# 4. 国内直连专属 DNS (阿里/腾讯 DoH 极速解析)
-direct-dns-server = 223.5.5.5, 119.29.29.29, https://223.5.5.5/dns-query, https://doh.pub/dns-query
+# 4. 国内直连全加密 DNS (阿里/腾讯 纯 IP 形式 DoH 极速解析)
+direct-dns-server = https://223.5.5.5/dns-query, https://1.12.12.12/dns-query, https://doh.pub/dns-query
 
 # 5. 全局 Fake-IP 模式 (远端节点解析，杜绝 DNS 泄露)
 dns-mode = fake-ip
