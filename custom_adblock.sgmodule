@@ -76,8 +76,6 @@ AND,((protocol,udp),(dest-port,443),(domain-suffix,hubcloud.com.cn)),REJECT-NO-D
 AND,((protocol,udp),(dest-port,443),(domain-suffix,zztfly.com)),REJECT-NO-DROP
 AND,((protocol,udp),(dest-port,443),(domain-suffix,qtfm.cn)),REJECT-NO-DROP
 AND,((protocol,udp),(dest-port,443),(domain-suffix,sofire.baidu.com)),REJECT-NO-DROP
-AND,((protocol,udp),(dest-port,443),(domain-suffix,kuaishou.com)),REJECT-NO-DROP
-AND,((protocol,udp),(dest-port,443),(domain-suffix,gifshow.com)),REJECT-NO-DROP
 DOMAIN,log.snssdk.com,REJECT-NO-DROP
 DOMAIN,rtlog.snssdk.com,REJECT-NO-DROP
 DOMAIN,mcs.snssdk.com,REJECT-NO-DROP
@@ -378,28 +376,26 @@ DOMAIN,switch.cup.com.cn,REJECT
 DOMAIN,ads.cup.com.cn,REJECT
 
 [URL Rewrite]
-^https?:\/\/maicai\.api\.ddxq\.mobi\/advert\/ reject-dict
+^https?:\/\/maicai\.api\.ddxq\.mobi\/advert\/ reject
 ^https?:\/\/c\.tieba\.baidu\.com\/c\/s\/(ad|splashSchedule|splash) reject-dict
 ^https?:\/\/c\.tieba\.baidu\.com\/c\/f\/ad\/ reject-dict
 ^https?:\/\/tbapi\.baidu\.com\/c\/s\/(ad|splashSchedule|splash) reject-dict
 ^https?:\/\/tbapi\.baidu\.com\/c\/f\/ad\/ reject-dict
-^https:\/\/api\.douban\.com\/v\d\/app_ads\/splash reject-dict
-^https:\/\/frodo\.douban\.com\/api\/v\d\/app_ads\/splash reject-dict
-^https:\/\/frodo\.douban\.com\/api\/v\d\/erebor\/feed_ad reject-dict
-^https:\/\/frodo\.douban\.com\/api\/v\d\/home_banner reject-dict
-^https:\/\/frodo\.douban\.com\/api\/v\d\/search\/found_words reject-dict
-^https?:\/\/wxapp\.bestwehotel\.com\/gw3\/app-mini\/trip-hotel-banner\/activity\/getActivityInfo reject-dict
-^https?:\/\/booking\.bestwehotel\.com\/proxy\/trip-hotel-banner\/activity\/getActivityInfo reject-dict
-^https?:\/\/hwy-gapi\.bestwehotel\.com\/gw3\/app-mini\/trip-hotel-banner\/activity\/getActivityInfo reject-dict
-^https?:\/\/hwy-gapi\.bestwehotel\.com\/proxy\/trip-hotel-banner\/activity\/getActivityInfo reject-dict
-^https?:\/\/hwy-gapi\.bestwehotel\.com\/message\/adLabel\/v2\/getAdList reject-dict
-^https?:\/\/hwy-gapi\.bestwehotel\.com\/adSettlement\/app\/idfa\/v1\/collect reject-dict
-^https?:\/\/hwy-gapi\.bestwehotel\.com\/applog\/requestPage\/request reject-dict
-^https?:\/\/hwy-gapi\.bestwehotel\.com\/proxy\/trip-client-monitor\/log\/monitor reject-dict
-^https?:\/\/tg\.feidee\.com\/online_ad\/ reject-dict
-^https?:\/\/tg\.feidee\.com\/vis-ad-engine-ws\/api\/ reject-dict
-^https?:\/\/adproxy\.autohome\.com\.cn\/ reject-dict
-^https?:\/\/retargeting\.ctrip\.com\/ reject-200
+^https:\/\/api\.douban\.com\/v\d\/app_ads\/splash reject
+^https:\/\/frodo\.douban\.com\/api\/v\d\/app_ads\/splash reject
+^https:\/\/frodo\.douban\.com\/api\/v\d\/erebor\/feed_ad reject
+^https:\/\/frodo\.douban\.com\/api\/v\d\/home_banner reject
+^https:\/\/frodo\.douban\.com\/api\/v\d\/search\/found_words reject
+^https?:\/\/wxapp\.bestwehotel\.com\/gw3\/app-mini\/trip-hotel-banner\/activity\/getActivityInfo reject
+^https?:\/\/booking\.bestwehotel\.com\/proxy\/trip-hotel-banner\/activity\/getActivityInfo reject
+^https?:\/\/hwy-gapi\.bestwehotel\.com\/gw3\/app-mini\/trip-hotel-banner\/activity\/getActivityInfo reject
+^https?:\/\/hwy-gapi\.bestwehotel\.com\/proxy\/trip-hotel-banner\/activity\/getActivityInfo reject
+^https?:\/\/hwy-gapi\.bestwehotel\.com\/message\/adLabel\/v2\/getAdList reject
+^https?:\/\/hwy-gapi\.bestwehotel\.com\/adSettlement\/app\/idfa\/v1\/collect reject
+^https?:\/\/hwy-gapi\.bestwehotel\.com\/applog\/requestPage\/request reject
+^https?:\/\/hwy-gapi\.bestwehotel\.com\/proxy\/trip-client-monitor\/log\/monitor reject
+^https?:\/\/tg\.feidee\.com\/online_ad\/ reject
+^https?:\/\/tg\.feidee\.com\/vis-ad-engine-ws\/api\/ reject
 ^https?:\/\/api\.weibo\.cn\/\d\/statuses\/container_positive - reject-200
 ^https?:\/\/api\.weibo\.cn\/\d\/push\/info - reject-200
 ^https?:\/\/api\.weibo\.cn\/.*account\/recommend_interesttags - reject-dict
