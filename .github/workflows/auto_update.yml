@@ -40,9 +40,6 @@ jobs:
           if [ -f generate_custom_adblock.py ]; then
             python generate_custom_adblock.py
           fi
-          if [ -f generate_leak_protection.py ]; then
-            python generate_leak_protection.py
-          fi
 
 
       - name: Check for Changes
