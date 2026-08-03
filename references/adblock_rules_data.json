@@ -734,8 +734,9 @@
     "tg.feidee.com",
     "adproxy.autohome.com.cn",
     "retargeting.ctrip.com",
-    "c.tieba.baidu.com",
-    "tbapi.baidu.com",
+    "homefront.qunar.com",
+    "client.qunar.com",
+    "qde.qunar.com",
     "m.ctrip.com",
     "y.gtimg.cn",
     "tqt.weibo.cn",
@@ -897,6 +898,24 @@
       "pattern": "^https?:\\/\\/tg\\.feidee\\.com\\/vis-ad-engine-ws\\/api\\/",
       "priority": 0,
       "app": "随手记"
+    },
+    {
+      "text": "^https?:\\/\\/homefront\\.qunar\\.com\\/front\\/splash\\/ad reject-dict",
+      "pattern": "^https?:\\/\\/homefront\\.qunar\\.com\\/front\\/splash\\/ad",
+      "priority": 0,
+      "app": "去哪儿旅行"
+    },
+    {
+      "text": "^https?:\\/\\/client\\.qunar\\.com\\/pitcher-proxy\\?qrt=p_splashAd reject-dict",
+      "pattern": "^https?:\\/\\/client\\.qunar\\.com\\/pitcher-proxy\\?qrt=p_splashAd",
+      "priority": 0,
+      "app": "去哪儿旅行"
+    },
+    {
+      "text": "^https?:\\/\\/qde\\.qunar\\.com\\/preload reject-200",
+      "pattern": "^https?:\\/\\/qde\\.qunar\\.com\\/preload",
+      "priority": 0,
+      "app": "去哪儿旅行"
     }
   ]
 }

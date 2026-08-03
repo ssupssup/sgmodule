@@ -32,8 +32,6 @@ DOMAIN-SUFFIX,tieba.com,DIRECT
 DOMAIN-SUFFIX,tbapi.baidu.com,DIRECT
 DOMAIN-SUFFIX,jiguang.cn,DIRECT
 DOMAIN-SUFFIX,jpush.cn,DIRECT
-DOMAIN-SUFFIX,mobads.baidu.com,DIRECT
-DOMAIN-SUFFIX,mobads-logs.baidu.com,DIRECT
 DOMAIN-SUFFIX,umeng.com,DIRECT
 DOMAIN-SUFFIX,umengcloud.com,DIRECT
 DOMAIN,apikey.map.qq.com,DIRECT
@@ -55,7 +53,6 @@ DOMAIN-SUFFIX,tnc3-sz.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,tnc3-alipay.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,tnc11.zijieapi.com,DIRECT
 DOMAIN,is.snssdk.com,DIRECT
-DOMAIN,applog.snssdk.com,DIRECT
 DOMAIN-KEYWORD,dy.snssdk,DIRECT
 # === SDK Core REJECT Rules ===
 AND,((protocol,udp),(dest-port,443),(domain-suffix,baidu.com)),REJECT-NO-DROP
@@ -165,10 +162,89 @@ DOMAIN,sla-media.immomo.com,REJECT-NO-DROP
 DOMAIN,soul-ad.soulapp.cn,REJECT-NO-DROP
 DOMAIN,stats-ipv6.jpush.cn,REJECT-NO-DROP
 DOMAIN,tracking.miui.com,REJECT-NO-DROP
-DOMAIN-SUFFIX,analytics.pointdrive.linkedin.com,REJECT
-DOMAIN-SUFFIX,outlookads.live.com,REJECT
-DOMAIN-SUFFIX,ads.linkedin.com,REJECT
-DOMAIN-SUFFIX,a1.firefoxchina.cn,REJECT
+DOMAIN,1sapp.com,REJECT-NO-DROP
+DOMAIN,ac.dun.163.com,REJECT-NO-DROP
+DOMAIN,adashx.ut.dingtalk.com,REJECT-NO-DROP
+DOMAIN,ads.inmobi.com,REJECT-NO-DROP
+DOMAIN,ads.pubmatic.com,REJECT-NO-DROP
+DOMAIN,advlion.com,REJECT-NO-DROP
+DOMAIN,al.autohome.com.cn,REJECT-NO-DROP
+DOMAIN,als.baidu.com,REJECT-NO-DROP
+DOMAIN,analytics.oceanengine.com,REJECT-NO-DROP
+DOMAIN,analytics.twitter.com,REJECT-NO-DROP
+DOMAIN,bgg.baidu.com,REJECT-NO-DROP
+DOMAIN,c.amazon-adsystem.com,REJECT-NO-DROP
+DOMAIN,clientlogdep.music.163.com,REJECT-NO-DROP
+DOMAIN,clientlogsf.music.163.com,REJECT-NO-DROP
+DOMAIN,collection.decibelinsight.net,REJECT-NO-DROP
+DOMAIN,collector.github.com,REJECT-NO-DROP
+DOMAIN,combine.urbanairship.com,REJECT-NO-DROP
+DOMAIN,config.inmobi.com,REJECT-NO-DROP
+DOMAIN,cpatrk.net,REJECT-NO-DROP
+DOMAIN,crashlyticsreports-pa.googleapis.com,REJECT-NO-DROP
+DOMAIN,creatives.smadex.com,REJECT-NO-DROP
+DOMAIN,data-sdk-uuid-log.d.meituan.net,REJECT-NO-DROP
+DOMAIN,datadoghq.com,REJECT-NO-DROP
+DOMAIN,device-api.urbanairship.com,REJECT-NO-DROP
+DOMAIN,dig.lianjia.com,REJECT-NO-DROP
+DOMAIN,events.mapbox.com,REJECT-NO-DROP
+DOMAIN,g.cn.miaozhen.com,REJECT-NO-DROP
+DOMAIN,gdt.qq.com,REJECT-NO-DROP
+DOMAIN,google-analytics.com,REJECT-NO-DROP
+DOMAIN,googleads.g.doubleclick.net,REJECT-NO-DROP
+DOMAIN,got.iad3rs0zonea.pubnative.net,REJECT-NO-DROP
+DOMAIN,h.trace.qq.com,REJECT-NO-DROP
+DOMAIN,h2tcbox.baidu.com,REJECT-NO-DROP
+DOMAIN,hpplay.cn,REJECT-NO-DROP
+DOMAIN,httpdns.kg.qq.com,REJECT-NO-DROP
+DOMAIN,jddebug.com,REJECT-NO-DROP
+DOMAIN,logrcv.yunxish.com,REJECT-NO-DROP
+DOMAIN,mads.amazon-adsystem.com,REJECT-NO-DROP
+DOMAIN,mam.netease.com,REJECT-NO-DROP
+DOMAIN,mdtb-cf-3.ads.aps.amazon-adsystem.com,REJECT-NO-DROP
+DOMAIN,meitustat.com,REJECT-NO-DROP
+DOMAIN,metrics-picture.dreport.meituan.net,REJECT-NO-DROP
+DOMAIN,mfx.mobilefuse.com,REJECT-NO-DROP
+DOMAIN,mobads-logs.baidu.com,REJECT-NO-DROP
+DOMAIN,mobads.baidu.com,REJECT-NO-DROP
+DOMAIN,mobile-data.onetrust.io,REJECT-NO-DROP
+DOMAIN,monitor.music.qq.com,REJECT-NO-DROP
+DOMAIN,netapm.music.163.com,REJECT-NO-DROP
+DOMAIN,oth.bls.mdt.qq.com,REJECT-NO-DROP
+DOMAIN,oth.eve.mdt.qq.com,REJECT-NO-DROP
+DOMAIN,oth.str.mdt.qq.com,REJECT-NO-DROP
+DOMAIN,ow.pubmatic.com,REJECT-NO-DROP
+DOMAIN,pangolin-sdk-toutiao*.com,REJECT-NO-DROP
+DOMAIN,posthog.com,REJECT-NO-DROP
+DOMAIN,px.effirst.com,REJECT-NO-DROP
+DOMAIN,remote-data.urbanairship.com,REJECT-NO-DROP
+DOMAIN,report.meituan.com,REJECT-NO-DROP
+DOMAIN,sdk-dnt.ad.smaato.net,REJECT-NO-DROP
+DOMAIN,sdk.1rtb.net,REJECT-NO-DROP
+DOMAIN,sdk.beizi.biz,REJECT-NO-DROP
+DOMAIN,sdkquic.e.qq.com,REJECT-NO-DROP
+DOMAIN,sdkreport.e.qq.com,REJECT-NO-DROP
+DOMAIN,sdktmp.hubcloud.com.cn,REJECT-NO-DROP
+DOMAIN,seiya.tantanapp.com,REJECT-NO-DROP
+DOMAIN,sq.bls.mdt.qq.com,REJECT-NO-DROP
+DOMAIN,ssp.api.tappx.com,REJECT-NO-DROP
+DOMAIN,ssp.qq.com,REJECT-NO-DROP
+DOMAIN,st.pubmatic.com,REJECT-NO-DROP
+DOMAIN,status-ipv6.jpush.cn,REJECT-NO-DROP
+DOMAIN,tangram.e.qq.com,REJECT-NO-DROP
+DOMAIN,tanx.com,REJECT-NO-DROP
+DOMAIN,tcbox.baidu.com,REJECT-NO-DROP
+DOMAIN,tmfmazu.m.qq.com,REJECT-NO-DROP
+DOMAIN,tp2p.kg.qq.com,REJECT-NO-DROP
+DOMAIN,tracelog-debug.yunxish.com,REJECT-NO-DROP
+DOMAIN,ubixioe.com,REJECT-NO-DROP
+DOMAIN,ulogimap.baidu.com,REJECT-NO-DROP
+DOMAIN,usr-api.yunxish.com,REJECT-NO-DROP
+DOMAIN,vi.bls.mdt.qq.com,REJECT-NO-DROP
+DOMAIN,wv.inner-active.mobi,REJECT-NO-DROP
+DOMAIN,www.inmobi.com,REJECT-NO-DROP
+DOMAIN,xdrig.com,REJECT-NO-DROP
+DOMAIN,zhangyuyidong.cn,REJECT-NO-DROP
 # === Compiled App Rules ===
 DOMAIN,sdkapp.uve.weibo.com,DIRECT
 DOMAIN,adstrategy.biz.weibo.com,REJECT
@@ -183,31 +259,18 @@ DOMAIN,s.qd.qingtingfm.com,REJECT-200
 DOMAIN,adlaunch.qtfm.cn,REJECT-200
 DOMAIN,ad.qtfm.cn,REJECT-200
 DOMAIN,adlog.qingting.fm,REJECT-200
-DOMAIN,win.gdt.qq.com,REJECT-200
-DOMAIN,v.gdt.qq.com,REJECT-200
-DOMAIN,v2.gdt.qq.com,REJECT-200
-DOMAIN,t.gdt.qq.com,REJECT-200
-DOMAIN,gdt.qq.com,REJECT-200
 DOMAIN,pgdt.gtimg.cn,REJECT-200
 DOMAIN,pgdt.ugdtimg.com,REJECT-200
 DOMAIN,adsmind.tc.qq.com,REJECT-200
 DOMAIN,p.l.qq.com,REJECT-200
 DOMAIN,us.l.qq.com,REJECT-200
-DOMAIN,tangram.e.qq.com,REJECT-200
-DOMAIN,oth.str.mdt.qq.com,REJECT-200
-DOMAIN,mobads.baidu.com,REJECT-200
-DOMAIN,mobads-logs.baidu.com,REJECT-200
 DOMAIN,union.baidu.com,REJECT-200
 DOMAIN,ada.baidu.com,REJECT-200
-DOMAIN,als.baidu.com,REJECT-200
 DOMAIN,bdbus-turbonet.baidu.com,REJECT-200
-DOMAIN,bgg.baidu.com,REJECT-200
 DOMAIN,gsp0.baidu.com,REJECT-200
 DOMAIN,api-access.pangolin-sdk-toutiao-b.com,REJECT-200
 DOMAIN,pangle.io,REJECT-200
-DOMAIN,sdk.beizi.biz,REJECT-200
 DOMAIN,api-htp.beizi.biz,REJECT-200
-DOMAIN,sdktmp.hubcloud.com.cn,REJECT-200
 DOMAIN,v.adx.hubcloud.com.cn,REJECT-200
 DOMAIN,api.htp.hubcloud.com.cn,REJECT-200
 DOMAIN,dsp-tracer.adn-plus.com.cn,REJECT-200
@@ -227,30 +290,8 @@ DOMAIN,iadmatapk.nosdn.127.net,REJECT-200
 DOMAIN,retargeting.ctrip.com,REJECT-200
 DOMAIN,ads.twitter.com,REJECT-200
 DOMAIN,ads-api.x.com,REJECT-200
-DOMAIN,tanx.com,REJECT-200
 DOMAIN,adm.10jqka.com.cn,REJECT-200
 DOMAIN,fc-.cdn.bcebos.com,REJECT-200
-DOMAIN,jddebug.com,REJECT-200
-DOMAIN,ads.inmobi.com,REJECT-200
-DOMAIN,www.inmobi.com,REJECT-200
-DOMAIN,config.inmobi.com,REJECT-200
-DOMAIN,ow.pubmatic.com,REJECT-200
-DOMAIN,st.pubmatic.com,REJECT-200
-DOMAIN,sdk-dnt.ad.smaato.net,REJECT-200
-DOMAIN,wv.inner-active.mobi,REJECT-200
-DOMAIN,mfx.mobilefuse.com,REJECT-200
-DOMAIN,ssp.api.tappx.com,REJECT-200
-DOMAIN,creatives.smadex.com,REJECT-200
-DOMAIN,got.iad3rs0zonea.pubnative.net,REJECT-200
-DOMAIN,mads.amazon-adsystem.com,REJECT-200
-DOMAIN,c.amazon-adsystem.com,REJECT-200
-DOMAIN,mdtb-cf-3.ads.aps.amazon-adsystem.com,REJECT-200
-DOMAIN,collector.github.com,REJECT-200
-DOMAIN,ads.pubmatic.com,REJECT-200
-DOMAIN,googleads.g.doubleclick.net,REJECT-200
-DOMAIN,analytics.twitter.com,REJECT-200
-DOMAIN,px.effirst.com,REJECT-200
-DOMAIN,adashx.ut.dingtalk.com,REJECT-200
 DOMAIN,apm.zhihu.com,REJECT
 DOMAIN,appcloud2.in.zhihu.com,REJECT
 DOMAIN,crash2.zhihu.com,REJECT
@@ -274,7 +315,6 @@ DOMAIN-SUFFIX,ad.doubanio.com,REJECT
 DOMAIN,118.89.204.198,REJECT
 IP-CIDR,118.89.204.198/32,REJECT
 DOMAIN-SUFFIX,apoll.m.taobao.com,REJECT
-DOMAIN-SUFFIX,h-adashx.ut.taobao.com,REJECT
 DOMAIN-SUFFIX,w.m.taobao.com,REJECT
 DOMAIN-SUFFIX,re.m.taobao.com,REJECT
 DOMAIN-SUFFIX,agoodm.m.taobao.com,REJECT
@@ -317,19 +357,14 @@ DOMAIN,adcdn.tencentmusic.com,REJECT
 DOMAIN,adcdn6.tencentmusic.com,REJECT
 DOMAIN,adexpo.tencentmusic.com,REJECT
 DOMAIN,adclick.tencentmusic.com,REJECT
-DOMAIN,monitor.music.qq.com,REJECT
 DOMAIN,stat.y.qq.com,REJECT
 DOMAIN,tmead.y.qq.com,REJECT
-DOMAIN,oth.str.mdt.qq.com,REJECT
-DOMAIN,h.trace.qq.com,REJECT
 DOMAIN,p.l.qq.com,REJECT
 DOMAIN,us.l.qq.com,REJECT
 DOMAIN,tmeadbak.y.qq.com,REJECT
 DOMAIN-SUFFIX,imtmp.net,REJECT
 DOMAIN,tmeadcomm.y.qq.com,REJECT
-DOMAIN-SUFFIX,gdt.qq.com,REJECT
 DOMAIN-SUFFIX,e.qq.com,REJECT
-DOMAIN-SUFFIX,v.gdt.qq.com,REJECT
 DOMAIN,amsweb-cdn-gz-1258344696.file.myqcloud.com,REJECT
 DOMAIN,wallpaper-1258344696.file.myqcloud.com,REJECT
 IP-CIDR,120.222.240.171/32,REJECT
@@ -343,9 +378,6 @@ DOMAIN-SUFFIX,adui.tg.meitu.com,REJECT
 DOMAIN-SUFFIX,rabbit.tg.meitu.com,REJECT
 DOMAIN-SUFFIX,meitubeauty.meitudata.com,REJECT
 DOMAIN-SUFFIX,xiuxiu.mobile.meitudata.com,REJECT
-DOMAIN-SUFFIX,dc.meitustat.com,REJECT
-DOMAIN-SUFFIX,mdc.meitustat.com,REJECT
-DOMAIN-SUFFIX,rabbit.meitustat.com,REJECT
 DOMAIN-KEYWORD,adm3.autoimg.cn,REJECT
 DOMAIN-KEYWORD,collectionpv.che168.com,REJECT
 DOMAIN-KEYWORD,adproxy.autohome.com,REJECT
@@ -355,7 +387,6 @@ DOMAIN-SUFFIX,adm1.autoimg.cn,REJECT
 DOMAIN-SUFFIX,adm2.autoimg.cn,REJECT
 DOMAIN-SUFFIX,adm3.autoimg.cn,REJECT
 DOMAIN-SUFFIX,33.autohome.com.cn,REJECT
-DOMAIN-SUFFIX,al.autohome.com.cn,REJECT
 DOMAIN-SUFFIX,c.autohome.com.cn,REJECT
 DOMAIN-SUFFIX,cmx.autohome.com.cn,REJECT
 DOMAIN-SUFFIX,dspmnt.autohome.com.cn,REJECT
@@ -396,6 +427,9 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/hwy-gapi\.bestwehotel\.com\/proxy\/trip-client-monitor\/log\/monitor reject
 ^https?:\/\/tg\.feidee\.com\/online_ad\/ reject
 ^https?:\/\/tg\.feidee\.com\/vis-ad-engine-ws\/api\/ reject
+^https?:\/\/homefront\.qunar\.com\/front\/splash\/ad reject-dict
+^https?:\/\/client\.qunar\.com\/pitcher-proxy\?qrt=p_splashAd reject-dict
+^https?:\/\/qde\.qunar\.com\/preload reject-200
 ^https?:\/\/api\.weibo\.cn\/\d\/statuses\/container_positive - reject-200
 ^https?:\/\/api\.weibo\.cn\/\d\/push\/info - reject-200
 ^https?:\/\/api\.weibo\.cn\/.*account\/recommend_interesttags - reject-dict
@@ -476,14 +510,12 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/capis(-?\w*)?\.didapinche\.com\/publish\/api\/upgrade - reject-dict
 ^https?:\/\/capis(-\d)?\.didapinche\.com\/ad\/ - reject
 ^https?:\/\/capis-slb\.didapinche\.com\/ad\/ - reject
-^https?:\/\/client\.qunar\.com\/pitcher-proxy\?qrt=p_splashAd - reject
 ^https?:\/\/ct\.xiaojukeji\.com\/agent\/v3\/feeds - reject
 ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d\/user\/teenager\/status - reject-dict
 ^https?:\/\/g\.alicdn\.com\/living\/mesh-std-spec - reject
 ^https?:\/\/gateway\.shouqiev\.com(:8443)?\/fsda\/app\/bootImage\.json - reject
 ^https?:\/\/god\.gameyw\.netease\.com\/v\d\/ad\/serving\/app-start - reject
 ^https?:\/\/gw-passenger\.01zhuanche\.com\/gw-passenger\/zhuanche-passengerController\/notk\/passenger\/recommendADs - reject
-^https?:\/\/homefront\.qunar\.com\/front\/splash\/ad - reject
 ^https?:\/\/iface2\.iqiyi\.com\/fusion\/3\.0\/fusion_switch - reject-200
 ^https?:\/\/iface\.iqiyi\.com\/api\/getNewAdInfo - reject-200
 ^https?:\/\/intl\.iqiyi\.com\/ad_external\/ - reject-200
@@ -1152,7 +1184,6 @@ https://dynamicad.kfc.com.cn/api/app5/homepage/ai/popup - reject-200
 ^https?:\/\/103\.37\.155\.60\/fetch - reject
 ^https:\/\/oss\.umetrip\.com\/fs\/advert\/polite - reject
 ^http?:\/\/(discardrp|startup)\.umetrip\.com\/gateway\/api\/umetrip\/native - reject
-^https?:\/\/qde\.qunar\.com\/preload - reject-200
 ^https?:\/\/m\.ctrip\.com\/restapi\/soa2\/[0-9]{5}\/json\/getTimeZoneServerIpList\?__gw_os=IOS - reject-200
 ^https?:\/\/m\.ctrip\.com\/restapi\/soa2\/13916\/json\/tripAds - reject-200
 ^https?:\/\/us\.l\.qq\.com\/exapp - reject
