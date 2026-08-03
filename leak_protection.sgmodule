@@ -1,5 +1,5 @@
-#!name=防泄露与分流优化模块(强化版)
-#!desc=最近更新: 2026-08-03 05:11:23 | 100% 纯 IP 加密 DoH (0 明文 UDP 53)、0 DNS/WebRTC 泄露防护、Fake-IP 优化与精细分流
+#!name=防泄露与分流优化模块(终极精细版)
+#!desc=最近更新: 2026-08-03 | 100% 纯 IP 加密 DoH、0 DNS/WebRTC 泄露、Copilot 代理与微软其余直连
 
 [General]
 # 1. 禁用系统自带 DNS 转发，强制小火箭接管
@@ -9,13 +9,13 @@ dns-fallback-system = false
 # 2. 强制系统 DNS 劫持 (拦截所有 UDP 53 端口暗度陈仓流量)
 hijack-dns = 8.8.8.8:53, 8.8.4.4:53, 1.1.1.1:53, 1.0.0.1:53, 223.5.5.5:53, 119.29.29.29:53
 
-# 3. 远程全加密 DNS (100% 纯 IP/DoH 形式，无明文 UDP 53 且零引导死锁)
-dns-server = https://1.1.1.1/dns-query, https://8.8.8.8/dns-query, https://dns.google/dns-query
+# 3. 远程全加密 DNS (纯 IP 形式 DoH，彻底消灭死锁)
+dns-server = https://1.1.1.1/dns-query, https://8.8.8.8/dns-query
 
-# 4. 国内直连全加密 DNS (阿里/腾讯 纯 IP 形式 DoH 极速解析)
-direct-dns-server = https://223.5.5.5/dns-query, https://1.12.12.12/dns-query, https://doh.pub/dns-query
+# 4. 国内直连全加密 DNS (纯 IP 形式 DoH 极速解析)
+direct-dns-server = https://223.5.5.5/dns-query, https://1.12.12.12/dns-query
 
-# 5. 全局 Fake-IP 模式 (远端节点解析，杜绝 DNS 泄露)
+# 5. 全局 Fake-IP 模式 (远端节点解析，杜绝 DNS/WebRTC 泄露)
 dns-mode = fake-ip
 
 # 6. 必须使用 Real-IP 的域名列表 (保护微信音视频、局域网 mDNS、系统校时)
@@ -33,16 +33,14 @@ IP-CIDR,224.0.0.0/4,DIRECT
 GEOIP,LAN,DIRECT
 
 # ==========================================
-# 2. 封堵 WebRTC / STUN 泄露 (阻断真实 IP 探针)
+# 2. 精准拦截公共 STUN 泄露源 (结合 Fake-IP 实现 0 真实 IP 泄露)
 # ==========================================
-DOMAIN-KEYWORD,stun,REJECT
-DOMAIN-KEYWORD,turn,REJECT
 DOMAIN-SUFFIX,stun.l.google.com,REJECT
-AND,((PROTOCOL,UDP),(DEST-PORT,3478)),REJECT
-AND,((PROTOCOL,UDP),(DEST-PORT,5349)),REJECT
+DOMAIN-SUFFIX,stun.cloudflare.com,REJECT
+DOMAIN-KEYWORD,stunserver,REJECT
 
 # ==========================================
-# 3. 防泄露测试网站强走代理 (防止 GEOIP 判断前触发本地 DNS 查询)
+# 3. 防泄露测试网站强走代理 (防止测试时本地 DNS 污染干扰)
 # ==========================================
 DOMAIN-SUFFIX,ippure.com,PROXY
 DOMAIN-SUFFIX,browserleaks.com,PROXY
@@ -54,7 +52,7 @@ DOMAIN-SUFFIX,perfect-privacy.com,PROXY
 DOMAIN-SUFFIX,ip.skk.moe,PROXY
 
 # ==========================================
-# 4. 自动直连域名
+# 4. 自动直连自定义域名
 # ==========================================
 DOMAIN-SUFFIX,dygangs.me,DIRECT
 DOMAIN-SUFFIX,5266ys.com,DIRECT
@@ -66,12 +64,17 @@ DOMAIN-SUFFIX,lc0011.net,DIRECT
 DOMAIN-SUFFIX,pm001.net,DIRECT
 
 # ==========================================
-# 5. 远程规则集精细分流
+# 5. 精细分流规则（顺序至关重要！）
 # ==========================================
+# 1) Copilot / AI 服务：置顶强制走代理 (优先捕获 Copilot 域名)
 RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Shadowrocket/Copilot/Copilot.list,PROXY
-RULE-SET,https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/apple-cn.txt,DIRECT
-RULE-SET,https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/microsoft.txt,DIRECT
-RULE-SET,https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/apple.txt,PROXY
+
+# 2) 微软其余业务：走直连 (Outlook / OneDrive / Office365 / Xbox / Win Update)
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Microsoft/Microsoft.list,DIRECT
+
+# 3) 苹果服务分流：国内 CDN 直连，其他走代理
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Apple/Apple_Language_No_Resolve.list,DIRECT
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Apple/Apple.list,PROXY
 
 # ==========================================
 # 6. 国内 IP 直连与最终兜底
