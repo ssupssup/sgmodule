@@ -1,5 +1,19 @@
-#!name=防泄露与分流优化模块(v2 纯净强化版)
-#!desc=最近更新: 2026-08-03 10:51:10 | 小火箭专精防泄露与 STUN 封堵规则 | 注意：需在主配置(.conf)中开启 ipv6=false 及 fake-ip 获得 100% 防泄露效能
+#!name=防泄露与分流优化模块(v2 全加密强化版)
+#!desc=最近更新: 2026-08-03 11:03:18 | 100% 纯 IP 极速 DoH (0 明文 53)、STUN/WebRTC 物理阻断与精细分流
+
+
+# ==========================================================================
+# 💡 提示：主配置文件 (.conf) 的 [General] 必备全加密 DoH 粘贴模板 (复制到 .conf 生效)
+# ==========================================================================
+# [General]
+# ipv6 = false
+# dns-direct-system = false
+# dns-fallback-system = false
+# hijack-dns = 8.8.8.8:53, 8.8.4.4:53, 1.1.1.1:53, 1.0.0.1:53, 223.5.5.5:53, 223.6.6.6:53, 119.29.29.29:53, 114.114.114.114:53
+# dns-server = https://1.1.1.1/dns-query, https://1.0.0.1/dns-query, https://8.8.8.8/dns-query, https://8.8.4.4/dns-query, https://9.9.9.9/dns-query, https://149.112.112.112/dns-query, https://208.67.222.222/dns-query
+# direct-dns-server = https://223.5.5.5/dns-query, https://223.6.6.6/dns-query, https://1.12.12.12/dns-query, https://120.53.53.53/dns-query, https://180.76.76.76/dns-query
+# dns-mode = fake-ip
+# ==========================================================================
 
 
 [Rule]
@@ -50,7 +64,7 @@ DOMAIN-SUFFIX,lc0011.net,DIRECT
 DOMAIN-SUFFIX,pm001.net,DIRECT
 
 # ==========================================
-# 5. 远程规则集精细分流
+# 5. 远程规则集精细分流 (苹果中国与微软强走直连，其余分流)
 # ==========================================
 RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Shadowrocket/Copilot/Copilot.list,PROXY
 RULE-SET,https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/apple-cn.txt,DIRECT
