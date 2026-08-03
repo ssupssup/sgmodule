@@ -1,0 +1,81 @@
+# Shadowrocket 专属防泄露与精准分流主配置文件 (leak_protection_v2.conf)
+# 最近更新: 2026-08-03 11:25:36 | 100% 纯 IP 极速 DoH | 0 DNS/WebRTC 泄露防护 | 黑名单/白名单精准分流
+
+[General]
+ipv6 = false
+bypass-system = true
+skip-proxy = 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, fe80::/10, fc00::/7, localhost, *.local, *.lan, *.internal, e.crashlytics.com, captive.apple.com
+bypass-tun = 10.0.0.0/8,100.64.0.0/10,127.0.0.0/8,169.254.0.0/16,172.16.0.0/12,192.0.0.0/24,192.0.2.0/24,192.88.99.0/24,192.168.0.0/16,198.18.0.0/15,198.51.100.0/24,203.0.113.0/24,233.252.0.0/24,224.0.0.0/4,255.255.255.255/32,::1/128,::ffff:0:0/96,::ffff:0:0:0/96,64:ff9b::/96,64:ff9b:1::/48,100::/64,2001::/32,2001:20::/28,2001:db8::/32,2002::/16,3fff::/20,5f00::/16,fc00::/7,fe80::/10,ff00::/8
+dns-direct-system = false
+dns-fallback-system = false
+hijack-dns = 8.8.8.8:53, 8.8.4.4:53, 1.1.1.1:53, 1.0.0.1:53, 223.5.5.5:53, 223.6.6.6:53, 119.29.29.29:53, 114.114.114.114:53
+dns-server = https://1.1.1.1/dns-query, https://1.0.0.1/dns-query, https://8.8.8.8/dns-query, https://8.8.4.4/dns-query, https://9.9.9.9/dns-query, https://149.112.112.112/dns-query, https://208.67.222.222/dns-query
+direct-dns-server = https://223.5.5.5/dns-query, https://223.6.6.6/dns-query, https://1.12.12.12/dns-query, https://120.53.53.53/dns-query, https://180.76.76.76/dns-query
+dns-mode = fake-ip
+fake-ip-filter = *.dygangs.me, *.5266ys.com, *.66tutup.com, *.200610.cc.cd, *.200610.xyz, *.cn1.gi-de.com, *.lc0011.net, *.pm001.net, *.lan, *.local, *.home.arpa, *.workgroup, *.invalid, *.localhost, *.test, *.localdomain, captive.apple.com, time*.apple.com, time*.asia.apple.com, time*.windows.com, time*.nist.gov, *.ntp.org, msftconnecttest.com, msftncsi.com, *.mp.weixin.qq.com
+
+[Rule]
+# ==========================================
+# 1. 局域网与内网直连
+# ==========================================
+IP-CIDR,10.0.0.0/8,DIRECT
+IP-CIDR,172.16.0.0/12,DIRECT
+IP-CIDR,192.168.0.0/16,DIRECT
+IP-CIDR,127.0.0.0/8,DIRECT
+IP-CIDR,224.0.0.0/4,DIRECT
+GEOIP,LAN,DIRECT
+
+# ==========================================
+# 2. 封堵 WebRTC / STUN 泄露
+# ==========================================
+DOMAIN-KEYWORD,stun,REJECT
+DOMAIN-KEYWORD,turn,REJECT
+DOMAIN-SUFFIX,stun.l.google.com,REJECT
+UDP,DEST-PORT,3478,REJECT
+UDP,DEST-PORT,5349,REJECT
+
+# ==========================================
+# 3. 防泄露测试网站强走代理
+# ==========================================
+DOMAIN-SUFFIX,ippure.com,PROXY
+DOMAIN-SUFFIX,browserleaks.com,PROXY
+DOMAIN-SUFFIX,dnsleaktest.com,PROXY
+DOMAIN-SUFFIX,dnsleak.com,PROXY
+DOMAIN-SUFFIX,ipleak.net,PROXY
+DOMAIN-SUFFIX,ipleak.com,PROXY
+DOMAIN-SUFFIX,expressvpn.com,PROXY
+DOMAIN-SUFFIX,perfect-privacy.com,PROXY
+DOMAIN-SUFFIX,ip.skk.moe,PROXY
+DOMAIN-SUFFIX,whoer.net,PROXY
+DOMAIN-SUFFIX,bgp.he.net,PROXY
+DOMAIN-SUFFIX,ip138.com,PROXY
+
+# ==========================================
+# 4. 自动直连自定义域名
+# ==========================================
+DOMAIN-SUFFIX,dygangs.me,DIRECT
+DOMAIN-SUFFIX,5266ys.com,DIRECT
+DOMAIN-SUFFIX,66tutup.com,DIRECT
+DOMAIN-SUFFIX,200610.cc.cd,DIRECT
+DOMAIN-SUFFIX,200610.xyz,DIRECT
+DOMAIN-SUFFIX,cn1.gi-de.com,DIRECT
+DOMAIN-SUFFIX,lc0011.net,DIRECT
+DOMAIN-SUFFIX,pm001.net,DIRECT
+
+# ==========================================
+# 5. 远程规则集精细分流
+# ==========================================
+# Copilot / AI 服务：置顶优先捕获走代理
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Shadowrocket/Copilot/Copilot.list,PROXY
+# 微软其余业务：直连 (Outlook / OneDrive / Office365 / Xbox 等)
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Microsoft/Microsoft.list,DIRECT
+# 苹果中国服务直连
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Apple/Apple_Language_No_Resolve.list,DIRECT
+# 苹果其余服务走代理
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Apple/Apple.list,PROXY
+
+# ==========================================
+# 6. 国内 IP 直连与最终兜底
+# ==========================================
+GEOIP,CN,DIRECT
+FINAL,PROXY
