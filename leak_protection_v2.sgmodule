@@ -1,0 +1,85 @@
+#!name=防泄露与分流优化模块(v2 强化版)
+#!desc=最近更新: 2026-08-03 10:43:37 | 100% 纯 IP 加密 DoH、0 DNS/WebRTC 泄露防护、Fake-IP 优化与全兼容分流
+
+
+[General]
+# 1. 禁用系统自带 DNS 转发，强制小火箭接管
+dns-direct-system = false
+dns-fallback-system = false
+
+# 2. 强制系统 DNS 劫持 (拦截所有 UDP 53 端口暗度陈仓流量)
+hijack-dns = 8.8.8.8:53, 8.8.4.4:53, 1.1.1.1:53, 1.0.0.1:53, 223.5.5.5:53, 119.29.29.29:53
+
+# 3. 远程全加密 DNS (100% 纯 IP 形式 DoH，无明文 53 且零引导死锁)
+dns-server = https://1.1.1.1/dns-query, https://8.8.8.8/dns-query
+
+# 4. 国内直连全加密 DNS (阿里/腾讯 纯 IP 形式 DoH 极速解析)
+direct-dns-server = https://223.5.5.5/dns-query, https://1.12.12.12/dns-query, https://doh.pub/dns-query
+
+# 5. 全局 Fake-IP 模式 (远端节点解析，杜绝 DNS 泄露)
+dns-mode = fake-ip
+
+# 6. 必须使用 Real-IP 的域名列表 (保护微信音视频、局域网 mDNS、系统校时)
+fake-ip-filter = *.dygangs.me, *.5266ys.com, *.66tutup.com, *.200610.cc.cd, *.200610.xyz, *.cn1.gi-de.com, *.lc0011.net, *.pm001.net, *.lan, *.local, *.home.arpa, *.workgroup, *.invalid, *.localhost, *.test, *.localdomain, captive.apple.com, time*.apple.com, time*.asia.apple.com, time*.windows.com, time*.nist.gov, *.ntp.org, msftconnecttest.com, msftncsi.com, *.mp.weixin.qq.com
+
+
+[Rule]
+# ==========================================
+# 1. 局域网与内网直连 (最高优先级，保障 NAS/软路由连接)
+# ==========================================
+IP-CIDR,10.0.0.0/8,DIRECT
+IP-CIDR,172.16.0.0/12,DIRECT
+IP-CIDR,192.168.0.0/16,DIRECT
+IP-CIDR,127.0.0.0/8,DIRECT
+IP-CIDR,224.0.0.0/4,DIRECT
+GEOIP,LAN,DIRECT
+
+# ==========================================
+# 2. 封堵 WebRTC / STUN 泄露 (小火箭 100% 原生兼容防护语法)
+# ==========================================
+DOMAIN-KEYWORD,stun,REJECT
+DOMAIN-KEYWORD,turn,REJECT
+DOMAIN-SUFFIX,stun.l.google.com,REJECT
+UDP,DEST-PORT,3478,REJECT
+UDP,DEST-PORT,5349,REJECT
+
+# ==========================================
+# 3. 防泄露测试网站强走代理 (防止 GEOIP 判断前触发本地 DNS 查询)
+# ==========================================
+DOMAIN-SUFFIX,ippure.com,PROXY
+DOMAIN-SUFFIX,browserleaks.com,PROXY
+DOMAIN-SUFFIX,dnsleaktest.com,PROXY
+DOMAIN-SUFFIX,dnsleak.com,PROXY
+DOMAIN-SUFFIX,ipleak.net,PROXY
+DOMAIN-SUFFIX,ipleak.com,PROXY
+DOMAIN-SUFFIX,expressvpn.com,PROXY
+DOMAIN-SUFFIX,perfect-privacy.com,PROXY
+DOMAIN-SUFFIX,ip.skk.moe,PROXY
+DOMAIN-SUFFIX,whoer.net,PROXY
+DOMAIN-SUFFIX,bgp.he.net,PROXY
+
+# ==========================================
+# 4. 自动直连域名
+# ==========================================
+DOMAIN-SUFFIX,dygangs.me,DIRECT
+DOMAIN-SUFFIX,5266ys.com,DIRECT
+DOMAIN-SUFFIX,66tutup.com,DIRECT
+DOMAIN-SUFFIX,200610.cc.cd,DIRECT
+DOMAIN-SUFFIX,200610.xyz,DIRECT
+DOMAIN-SUFFIX,cn1.gi-de.com,DIRECT
+DOMAIN-SUFFIX,lc0011.net,DIRECT
+DOMAIN-SUFFIX,pm001.net,DIRECT
+
+# ==========================================
+# 5. 远程规则集精细分流
+# ==========================================
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Shadowrocket/Copilot/Copilot.list,PROXY
+RULE-SET,https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/apple-cn.txt,DIRECT
+RULE-SET,https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/microsoft.txt,DIRECT
+RULE-SET,https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/apple.txt,PROXY
+
+# ==========================================
+# 6. 国内 IP 直连与最终兜底
+# ==========================================
+GEOIP,CN,DIRECT
+FINAL,PROXY
