@@ -10,7 +10,12 @@ ssl._create_default_https_context = ssl._create_unverified_context
 # User's installed apps (excluding China Unicom)
 # Load config and rules data from separate JSON file
 import json
-with open(os.path.join(os.path.dirname(__file__), 'references', 'adblock_rules_data.json'), 'r', encoding='utf-8') as _f:
+_base_dir = os.path.dirname(__file__)
+_ref_dir = os.path.join(_base_dir, 'references')
+if not os.path.exists(_ref_dir):
+    _ref_dir = os.path.join(os.path.dirname(_base_dir), 'references')
+
+with open(os.path.join(_ref_dir, 'adblock_rules_data.json'), 'r', encoding='utf-8') as _f:
     _rules_data = json.load(_f)
 INSTALLED_APPS = _rules_data['INSTALLED_APPS']
 APP_KEYWORDS = _rules_data['APP_KEYWORDS']
@@ -29,7 +34,7 @@ CUSTOM_REWRITE_RULES = _rules_data['CUSTOM_REWRITE_RULES']
 
 # Universal Ad SDK domains to reject unconditionally via Rules
 # Load decoupled static rules data
-static_data_path = os.path.join(os.path.dirname(__file__), 'references', 'generator_static_data.json')
+static_data_path = os.path.join(_ref_dir, 'generator_static_data.json')
 with open(static_data_path, 'r', encoding='utf-8') as _sf:
     _s_data = json.load(_sf)
 
@@ -972,6 +977,8 @@ def generate():
     print(f"Total MITM Hostnames count: {len(final_mitm)}")
     
     script_dir = os.path.dirname(os.path.abspath(__file__))
+    if os.path.basename(script_dir) == 'scratch':
+        script_dir = os.path.dirname(script_dir)
     output_path = os.path.join(script_dir, "custom_adblock.sgmodule")
     
     import datetime

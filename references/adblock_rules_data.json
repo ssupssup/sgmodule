@@ -632,6 +632,8 @@
     "AND,((protocol,udp),(dest-port,443),(domain-suffix,zztfly.com)),REJECT-NO-DROP",
     "AND,((protocol,udp),(dest-port,443),(domain-suffix,qtfm.cn)),REJECT-NO-DROP",
     "AND,((protocol,udp),(dest-port,443),(domain-suffix,sofire.baidu.com)),REJECT-NO-DROP",
+    "AND,((protocol,udp),(dest-port,443),(domain-suffix,kuaishou.com)),REJECT-NO-DROP",
+    "AND,((protocol,udp),(dest-port,443),(domain-suffix,gifshow.com)),REJECT-NO-DROP",
     "DOMAIN,log.snssdk.com,REJECT-NO-DROP",
     "DOMAIN,rtlog.snssdk.com,REJECT-NO-DROP",
     "DOMAIN,mcs.snssdk.com,REJECT-NO-DROP",
@@ -763,7 +765,7 @@
   ],
   "CUSTOM_REWRITE_RULES": [
     {
-      "text": "^https?:\\/\\/maicai\\.api\\.ddxq\\.mobi\\/advert\\/ reject",
+      "text": "^https?:\\/\\/maicai\\.api\\.ddxq\\.mobi\\/advert\\/ reject-dict",
       "pattern": "^https?:\\/\\/maicai\\.api\\.ddxq\\.mobi\\/advert\\/",
       "priority": 0,
       "app": "叮咚买菜"
@@ -805,94 +807,106 @@
       "app": "百度联盟广告"
     },
     {
-      "text": "^https:\\/\\/api\\.douban\\.com\\/v\\d\\/app_ads\\/splash reject",
+      "text": "^https:\\/\\/api\\.douban\\.com\\/v\\d\\/app_ads\\/splash reject-dict",
       "pattern": "^https:\\/\\/api\\.douban\\.com\\/v\\d\\/app_ads\\/splash",
       "priority": 0,
       "app": "豆瓣"
     },
     {
-      "text": "^https:\\/\\/frodo\\.douban\\.com\\/api\\/v\\d\\/app_ads\\/splash reject",
+      "text": "^https:\\/\\/frodo\\.douban\\.com\\/api\\/v\\d\\/app_ads\\/splash reject-dict",
       "pattern": "^https:\\/\\/frodo\\.douban\\.com\\/api\\/v\\d\\/app_ads\\/splash",
       "priority": 0,
       "app": "豆瓣"
     },
     {
-      "text": "^https:\\/\\/frodo\\.douban\\.com\\/api\\/v\\d\\/erebor\\/feed_ad reject",
+      "text": "^https:\\/\\/frodo\\.douban\\.com\\/api\\/v\\d\\/erebor\\/feed_ad reject-dict",
       "pattern": "^https:\\/\\/frodo\\.douban\\.com\\/api\\/v\\d\\/erebor\\/feed_ad",
       "priority": 0,
       "app": "豆瓣"
     },
     {
-      "text": "^https:\\/\\/frodo\\.douban\\.com\\/api\\/v\\d\\/home_banner reject",
+      "text": "^https:\\/\\/frodo\\.douban\\.com\\/api\\/v\\d\\/home_banner reject-dict",
       "pattern": "^https:\\/\\/frodo\\.douban\\.com\\/api\\/v\\d\\/home_banner",
       "priority": 0,
       "app": "豆瓣"
     },
     {
-      "text": "^https:\\/\\/frodo\\.douban\\.com\\/api\\/v\\d\\/search\\/found_words reject",
+      "text": "^https:\\/\\/frodo\\.douban\\.com\\/api\\/v\\d\\/search\\/found_words reject-dict",
       "pattern": "^https:\\/\\/frodo\\.douban\\.com\\/api\\/v\\d\\/search\\/found_words",
       "priority": 0,
       "app": "豆瓣"
     },
     {
-      "text": "^https?:\\/\\/wxapp\\.bestwehotel\\.com\\/gw3\\/app-mini\\/trip-hotel-banner\\/activity\\/getActivityInfo reject",
+      "text": "^https?:\\/\\/wxapp\\.bestwehotel\\.com\\/gw3\\/app-mini\\/trip-hotel-banner\\/activity\\/getActivityInfo reject-dict",
       "pattern": "^https?:\\/\\/wxapp\\.bestwehotel\\.com\\/gw3\\/app-mini\\/trip-hotel-banner\\/activity\\/getActivityInfo",
       "priority": 0,
       "app": "锦江荟"
     },
     {
-      "text": "^https?:\\/\\/booking\\.bestwehotel\\.com\\/proxy\\/trip-hotel-banner\\/activity\\/getActivityInfo reject",
+      "text": "^https?:\\/\\/booking\\.bestwehotel\\.com\\/proxy\\/trip-hotel-banner\\/activity\\/getActivityInfo reject-dict",
       "pattern": "^https?:\\/\\/booking\\.bestwehotel\\.com\\/proxy\\/trip-hotel-banner\\/activity\\/getActivityInfo",
       "priority": 0,
       "app": "锦江荟"
     },
     {
-      "text": "^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/gw3\\/app-mini\\/trip-hotel-banner\\/activity\\/getActivityInfo reject",
+      "text": "^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/gw3\\/app-mini\\/trip-hotel-banner\\/activity\\/getActivityInfo reject-dict",
       "pattern": "^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/gw3\\/app-mini\\/trip-hotel-banner\\/activity\\/getActivityInfo",
       "priority": 0,
       "app": "锦江荟"
     },
     {
-      "text": "^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/proxy\\/trip-hotel-banner\\/activity\\/getActivityInfo reject",
+      "text": "^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/proxy\\/trip-hotel-banner\\/activity\\/getActivityInfo reject-dict",
       "pattern": "^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/proxy\\/trip-hotel-banner\\/activity\\/getActivityInfo",
       "priority": 0,
       "app": "锦江荟"
     },
     {
-      "text": "^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/message\\/adLabel\\/v2\\/getAdList reject",
+      "text": "^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/message\\/adLabel\\/v2\\/getAdList reject-dict",
       "pattern": "^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/message\\/adLabel\\/v2\\/getAdList",
       "priority": 0,
       "app": "锦江荟"
     },
     {
-      "text": "^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/adSettlement\\/app\\/idfa\\/v1\\/collect reject",
+      "text": "^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/adSettlement\\/app\\/idfa\\/v1\\/collect reject-dict",
       "pattern": "^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/adSettlement\\/app\\/idfa\\/v1\\/collect",
       "priority": 0,
       "app": "锦江荟"
     },
     {
-      "text": "^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/applog\\/requestPage\\/request reject",
+      "text": "^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/applog\\/requestPage\\/request reject-dict",
       "pattern": "^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/applog\\/requestPage\\/request",
       "priority": 0,
       "app": "锦江荟"
     },
     {
-      "text": "^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/proxy\\/trip-client-monitor\\/log\\/monitor reject",
+      "text": "^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/proxy\\/trip-client-monitor\\/log\\/monitor reject-dict",
       "pattern": "^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/proxy\\/trip-client-monitor\\/log\\/monitor",
       "priority": 0,
       "app": "锦江荟"
     },
     {
-      "text": "^https?:\\/\\/tg\\.feidee\\.com\\/online_ad\\/ reject",
+      "text": "^https?:\\/\\/tg\\.feidee\\.com\\/online_ad\\/ reject-dict",
       "pattern": "^https?:\\/\\/tg\\.feidee\\.com\\/online_ad\\/",
       "priority": 0,
       "app": "随手记"
     },
     {
-      "text": "^https?:\\/\\/tg\\.feidee\\.com\\/vis-ad-engine-ws\\/api\\/ reject",
+      "text": "^https?:\\/\\/tg\\.feidee\\.com\\/vis-ad-engine-ws\\/api\\/ reject-dict",
       "pattern": "^https?:\\/\\/tg\\.feidee\\.com\\/vis-ad-engine-ws\\/api\\/",
       "priority": 0,
       "app": "随手记"
+    },
+    {
+      "text": "^https?:\\/\\/adproxy\\.autohome\\.com\\.cn\\/ reject-dict",
+      "pattern": "^https?:\\/\\/adproxy\\.autohome\\.com\\.cn\\/",
+      "priority": 0,
+      "app": "汽车之家"
+    },
+    {
+      "text": "^https?:\\/\\/retargeting\\.ctrip\\.com\\/ reject-200",
+      "pattern": "^https?:\\/\\/retargeting\\.ctrip\\.com\\/",
+      "priority": 0,
+      "app": "携程旅行"
     }
   ]
 }
