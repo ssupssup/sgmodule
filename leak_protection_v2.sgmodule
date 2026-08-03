@@ -1,5 +1,5 @@
-#!name=防泄露与分流优化模块(v2.1 纯净兼容增强版)
-#!desc=最近更新: 2026-08-03 11:17:39 | 纯 IP 极速 DoH 兼容 | 0 DNS/WebRTC 泄露物理硬阻断 | Shadowrocket 原生规则集精准分流
+#!name=防泄露与分流优化模块(v2.2 极致防护版)
+#!desc=最近更新: 2026-08-03 12:08:59 | 100% 纯 IP 极速 DoH 兼容 | 0 DNS/WebRTC 泄露物理硬阻断 | 22大测试域名全量代理拦截
 
 
 # ==========================================================================
@@ -28,7 +28,7 @@ IP-CIDR,224.0.0.0/4,DIRECT
 GEOIP,LAN,DIRECT
 
 # ==========================================
-# 2. 封堵 WebRTC / STUN 泄露 (原封不动保留原版 100% 物理硬拦截)
+# 2. 封堵 WebRTC / STUN 泄露 (小火箭 100% 原生兼容防护语法)
 # ==========================================
 DOMAIN-KEYWORD,stun,REJECT
 DOMAIN-KEYWORD,turn,REJECT
@@ -51,6 +51,16 @@ DOMAIN-SUFFIX,ip.skk.moe,PROXY
 DOMAIN-SUFFIX,whoer.net,PROXY
 DOMAIN-SUFFIX,bgp.he.net,PROXY
 DOMAIN-SUFFIX,ip138.com,PROXY
+DOMAIN-SUFFIX,ip.cn,PROXY
+DOMAIN-SUFFIX,ipchikan.com,PROXY
+DOMAIN-SUFFIX,test-ipv6.com,PROXY
+DOMAIN-SUFFIX,site24x7.com,PROXY
+DOMAIN-SUFFIX,dnsleak.org,PROXY
+DOMAIN-SUFFIX,whatismydns.net,PROXY
+DOMAIN-SUFFIX,bash.ws,PROXY
+DOMAIN-SUFFIX,myip.la,PROXY
+DOMAIN-SUFFIX,cip.cc,PROXY
+DOMAIN-SUFFIX,ipinfo.io,PROXY
 
 # ==========================================
 # 4. 自动直连自定义域名
