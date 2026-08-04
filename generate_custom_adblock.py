@@ -43,9 +43,20 @@ ALWAYS_KEEP_KEYWORDS = _s_data["ALWAYS_KEEP_KEYWORDS"]
 HIGH_RISK_MITM_DOMAINS = [x for x in _s_data["HIGH_RISK_MITM_DOMAINS"] if not x.startswith("#")]
 
 def load_agh_blocked_domains():
-    agh_file = "/Users/shizupeng/Documents/antigravity/istoreos/scratch/adguardhome_custom_rules.txt"
-    if not os.path.exists(agh_file):
-        print(f"Warning: AGH custom rules file not found at {agh_file}")
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    possible_paths = [
+        os.path.join(base_dir, "../istoreos/scratch/adguardhome_custom_rules.txt"),
+        os.path.join(base_dir, "adguardhome_custom_rules.txt"),
+        "/Users/shizupeng/Documents/antigravity/istoreos/scratch/adguardhome_custom_rules.txt"
+    ]
+    agh_file = None
+    for p in possible_paths:
+        if os.path.exists(p):
+            agh_file = p
+            break
+            
+    if not agh_file:
+        print("Warning: AGH custom rules file not found, skipping local AGH injection.")
         return []
     
     domains = []

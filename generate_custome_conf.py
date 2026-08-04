@@ -13,8 +13,9 @@ import sys
 import datetime
 import urllib.request
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 TOP500_URL = "https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_top500_whitelist.conf"
-OUTPUT_CONF = "/Users/shizupeng/Documents/antigravity/sgmodule/custome_conf.conf"
+OUTPUT_CONF = os.path.join(BASE_DIR, "custome_conf.conf")
 
 def fetch_top500_rules():
     print(f"📥 正在从 {TOP500_URL} 抓取最新 Top500 白名单规则...")
