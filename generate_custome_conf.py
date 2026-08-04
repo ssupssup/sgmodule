@@ -36,6 +36,10 @@ def process_and_align_conf(lines):
     
     for l in lines:
         stripped = l.strip()
+        # 0. 物理清洗上游 Top500 中的误杀 Direct 行
+        if stripped in ["DOMAIN-SUFFIX,storage.googleapis.com,Direct", "DOMAIN-SUFFIX,tools.google.com,Direct", "DOMAIN-SUFFIX,blog.google,Direct"]:
+            continue
+
         # 1. 动态替换第 3 行时间戳为当前最新构建时间，并在最顶端注入元数据描述
         if stripped.startswith("# build time:"):
             aligned_lines.insert(0, "#!name=Top500 WhiteList Conf")
@@ -51,6 +55,17 @@ def process_and_align_conf(lines):
             aligned_lines.append("update-url = https://raw.githubusercontent.com/ssupssup/sgmodule/main/custome_conf.conf")
             aligned_lines.append("\n# === GitHub 云端真实抓取生成时间戳 (防小火箭 APP 头部擦除) ===")
             aligned_lines.append(f"# github_build_time = {now_str} (UTC+8)")
+            continue
+
+        # 3. 在 [Rule] 段落顶部第 30 行位置前置注入 Google 核心认证与服务强代理区
+        if stripped == "# 手工定义的 Direct 列表":
+            aligned_lines.append("# === 🟢 Google 核心认证与 API 高优先级强代理区 (解决 2FA 验证与 API 连通) ===")
+            aligned_lines.append("DOMAIN-SUFFIX,googleapis.com,Proxy")
+            aligned_lines.append("DOMAIN-SUFFIX,google.com,Proxy")
+            aligned_lines.append("DOMAIN-SUFFIX,google,Proxy")
+            aligned_lines.append("DOMAIN-SUFFIX,gstatic.com,Proxy")
+            aligned_lines.append("DOMAIN-SUFFIX,googleusercontent.com,Proxy\n")
+            aligned_lines.append(l)
             continue
             
         aligned_lines.append(l)

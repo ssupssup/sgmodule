@@ -666,7 +666,6 @@
     "DOMAIN,dig.bdurl.net,REJECT-NO-DROP",
     "DOMAIN,h-adashx.dingtalkapps.com,REJECT-NO-DROP",
     "DOMAIN,h-adashx.ut.taobao.com,REJECT-NO-DROP",
-    "DOMAIN,firebaselogging-pa.googleapis.com,REJECT-NO-DROP",
     "DOMAIN,app-analytics-services.com,REJECT-NO-DROP",
     "DOMAIN,log-hl.snssdk.com,REJECT-NO-DROP",
     "DOMAIN,app-measurement.com,REJECT-NO-DROP",
