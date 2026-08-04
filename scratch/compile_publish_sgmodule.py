@@ -18,8 +18,9 @@ def main():
     
     print("🚀 [1/3] 开始本地编译小火箭模块...")
     
-    # 1. 运行三个生成脚本 (共生成 4 个核心模块)
+    # 1. 运行四个生成脚本 (共生成 4 个核心模块 + 1 个主配置文件)
     scripts = [
+        "generate_custome_conf.py",
         "generate_custom_adblock.py",
         "generate_ai.py",
         "generate_talkatone.py"
@@ -67,9 +68,11 @@ def main():
 
     # 添加需要提交的小火箭相关文件与解耦配置文件
     files_to_add = [
+        "generate_custome_conf.py",
         "generate_custom_adblock.py",
         "generate_ai.py",
         "generate_talkatone.py",
+        "custome_conf.conf",
         "custom_adblock.sgmodule",
         "ai.sgmodule",
         "talkatone_proxy.sgmodule",
