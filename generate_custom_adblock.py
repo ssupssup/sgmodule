@@ -1013,19 +1013,14 @@ def generate():
         f.write(f"#!total={len(final_rules) + len(SDK_BLOCK_RULES) + len(final_rewrites) + len(final_scripts) + len(final_bypass)}\n\n")
         
         if final_rules or SDK_BLOCK_RULES or final_bypass:
-            EXCLUDED_DOMAINS = ["firebaselogging-pa.googleapis.com"]
             f.write("[Rule]\n")
             for line in final_bypass:
                 f.write(line + "\n")
             f.write("# === SDK Core REJECT Rules ===\n")
             for line in SDK_BLOCK_RULES:
-                if any(ex in line for ex in EXCLUDED_DOMAINS):
-                    continue
                 f.write(line + "\n")
             f.write("# === Compiled App Rules ===\n")
             for line in final_rules:
-                if any(ex in line for ex in EXCLUDED_DOMAINS):
-                    continue
                 f.write(line + "\n")
             f.write("\n")
             
