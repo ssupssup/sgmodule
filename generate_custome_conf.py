@@ -3,8 +3,9 @@
 
 """
 generate_custome_conf.py
-自动抓取 Johnshall Top500 最新白名单规则，100.00% 像素级保持 Top500 官方原版的全部 865 行行号与匹配顺序（不改动任何规则与结构），
-仅将第 11 行 dns-server 替换为国内纯 IP 式 DoH (223.5.5.5)，并增加 update-url 在线更新链接，生成最纯净的 Shadowrocket 主配置文件 custome_conf.conf。
+抓取 Johnshall Top500 最新白名单规则，100.00% 像素级保持 Top500 官方原版的全部 865 行行号与匹配顺序，
+将第 3 行时间戳动态更新为本地/云端每日构建的最新时间戳 (UTC+8)，将第 11 行 dns-server 替换为国内纯 IP 式 DoH (223.5.5.5)，
+并增加 update-url 在线更新链接，生成最纯净的 Shadowrocket 主配置文件 custome_conf.conf。
 """
 
 import os
@@ -30,10 +31,16 @@ def fetch_top500_rules():
 
 def process_and_align_conf(lines):
     aligned_lines = []
+    now_str = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).strftime("%Y-%m-%d %H:%M:%S")
     
     for l in lines:
         stripped = l.strip()
-        # 仅替换第 11 行左右的 dns-server 并融入 update-url，其他 864 行 100% 保持物理原样
+        # 1. 动态替换第 3 行时间戳为当前最新构建时间
+        if stripped.startswith("# build time:"):
+            aligned_lines.append(f"# build time: {now_str} (UTC+8)")
+            continue
+            
+        # 2. 精确替换第 11 行左右的 dns-server 并融入 update-url
         if stripped.startswith("dns-server ="):
             aligned_lines.append("# 🟢 100% 对齐 Top500 官方原版：阿里/腾讯纯 IP DoH (免 Bootstrap 延迟)")
             aligned_lines.append("dns-server = https://223.5.5.5/dns-query, https://223.6.6.6/dns-query, https://1.12.12.12/dns-query")
@@ -55,8 +62,8 @@ def main():
         f.write(conf_str)
         
     line_count = len(conf_str.splitlines())
-    print(f"🎉 成功生成 100% 像素级对齐纯净配置文件 {OUTPUT_CONF}！")
-    print(f"📈 统计数据: 物理总行数 {line_count} 行 | 100% 保持 Top500 官方原版从上到下的全部规则顺序与结构，仅升级纯 IP DoH！")
+    print(f"🎉 成功生成带有动态构建时间戳的纯净配置文件 {OUTPUT_CONF}！")
+    print(f"📈 统计数据: 物理总行数 {line_count} 行 | 100% 像素级对齐 Top500 原版结构，时间戳已动态更新！")
 
 if __name__ == "__main__":
     main()
