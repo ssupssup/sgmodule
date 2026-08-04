@@ -35,8 +35,10 @@ def process_and_align_conf(lines):
     
     for l in lines:
         stripped = l.strip()
-        # 1. 动态替换第 3 行时间戳为当前最新构建时间
+        # 1. 动态替换第 3 行时间戳为当前最新构建时间，并在最顶端注入元数据描述
         if stripped.startswith("# build time:"):
+            aligned_lines.insert(0, "#!name=Top500 WhiteList Conf")
+            aligned_lines.insert(1, f"#!desc=最近更新: {now_str} (UTC+8) | Pure IP DoH & Top500 100% pixel aligned.")
             aligned_lines.append(f"# build time: {now_str} (UTC+8)")
             continue
             
