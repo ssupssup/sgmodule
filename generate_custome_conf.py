@@ -3,8 +3,8 @@
 
 """
 generate_custome_conf.py
-自动抓取 Johnshall Top500 最新白名单规则，并结合纯 IP 式 DoH 加密 DNS、5G 退避防发热与手爆加白补丁，
-自动生成 Shadowrocket 主配置文件 custome_conf.conf。
+自动抓取 Johnshall Top500 最新白名单规则，结合纯 IP 式 DoH 加密 DNS、5G 退避防发热、
+以及原版 Line 843 (.cn) 与 Line 844 (GEOIP,CN) 物理防线，自动生成纯净 Shadowrocket 主配置文件 custome_conf.conf。
 """
 
 import os
@@ -18,7 +18,7 @@ OUTPUT_CONF = "/Users/shizupeng/Documents/antigravity/sgmodule/custome_conf.conf
 HEADER_TEMPLATE = """# =================================================================
 # 📄 Shadowrocket 智能双轨 DNS 终极定制配置文件 (custome_conf.conf)
 # 🕒 生成时间 (Timestamp): {timestamp} (UTC+8)
-# 🛡️ 核心特性: 基于 Top500 全量 780+ 规则 + 纯 IP DoH + 0 DNS 泄露 + 白名单代理 (FINAL, PROXY)
+# 🛡️ 核心特性: Top500 全量规则 + 纯 IP DoH + GEOIP CN 防线 + 0 本地 DNS 泄露
 # =================================================================
 
 [General]
@@ -57,15 +57,6 @@ localhost = 127.0.0.1
 (?<=&sys_region=)CN(?=&) US 307
 """
 
-# 手动追加的补丁域名（确保哔哩哔哩 CDN、豆瓣等 100% 直连）
-MANUAL_DIRECT_PATCHES = [
-    "DOMAIN-SUFFIX,douban.com,DIRECT",
-    "DOMAIN-SUFFIX,doubanio.com,DIRECT",
-    "DOMAIN-SUFFIX,hdslb.com,DIRECT",
-    "DOMAIN-SUFFIX,b23.tv,DIRECT",
-    "DOMAIN-SUFFIX,bilibili.com,DIRECT"
-]
-
 def fetch_top500_rules():
     print(f"📥 正在从 {TOP500_URL} 抓取最新 Top500 白名单规则...")
     req = urllib.request.Request(TOP500_URL, headers={'User-Agent': 'Mozilla/5.0'})
@@ -76,7 +67,7 @@ def fetch_top500_rules():
             print(f"✅ 成功抓取 Top500 原始文本，共 {len(lines)} 行。")
             return lines
     except Exception as e:
-        print(f"⚠️ 抓取 Top500 规则失败: {e}，尝试使用备用逻辑或抛出异常")
+        print(f"⚠️ 抓取 Top500 规则失败: {e}")
         raise e
 
 def parse_rules(lines):
@@ -91,13 +82,15 @@ def parse_rules(lines):
             
         if in_rule_section:
             if stripped and not stripped.startswith('#'):
-                # 规范化大小写，保留 Direct / Proxy
+                # 规范化大小写
                 if stripped.lower().endswith(',direct'):
-                    normalized = stripped[:-7] + ',DIRECT'
-                    rules.append(normalized)
+                    prefix = stripped[:-7]
+                    rules.append(f"{prefix.upper()},DIRECT")
                 elif stripped.lower().endswith(',proxy'):
-                    normalized = stripped[:-6] + ',PROXY'
-                    rules.append(normalized)
+                    prefix = stripped[:-6]
+                    rules.append(f"{prefix.upper()},PROXY")
+                elif stripped.upper().startswith("GEOIP,"):
+                    rules.append(stripped.upper())
                 else:
                     rules.append(stripped)
                     
@@ -108,37 +101,34 @@ def build_conf_content(rules):
     now_str = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).strftime("%Y-%m-%d %H:%M:%S")
     header = HEADER_TEMPLATE.format(timestamp=now_str)
     
-    # 分类打标签
+    # 分类与排重
     direct_rules = []
     proxy_rules = []
     
-    # 注入手动补丁去重
     seen = set()
-    for patch in MANUAL_DIRECT_PATCHES:
-        if patch not in seen:
-            seen.add(patch)
-            direct_rules.append(patch)
-            
     for r in rules:
-        if r in seen:
+        if r in seen or r == "FINAL,PROXY":
             continue
         seen.add(r)
-        if ',DIRECT' in r:
+        if ',DIRECT' in r and not r.startswith('GEOIP,'):
             direct_rules.append(r)
         elif ',PROXY' in r:
             proxy_rules.append(r)
             
-    # 过滤 proxy_rules 中的 FINAL,PROXY 以防重复
-    proxy_rules = [r for r in proxy_rules if not r.startswith('FINAL,')]
-
     rule_lines = []
     rule_lines.append("# === 1. Top500 直连规则集 (Direct Rules) ===")
     rule_lines.extend(direct_rules)
+    
     rule_lines.append("\n# === 2. Top500 代理规则集 (Proxy Rules) ===")
     rule_lines.extend(proxy_rules)
     
-    # 终极对齐：纯正白名单代理，末尾保持 FINAL, PROXY
-    rule_lines.append("\n# === 3. 白名单代理模式终极兜底 ===")
+    rule_lines.append("\n# === 3. .cn 国家顶级域名直连 (继承 Top500 原版 Line 843) ===")
+    rule_lines.append("DOMAIN-SUFFIX,CN,DIRECT")
+    
+    rule_lines.append("\n# === 4. GEOIP 中国 IP 物理防线 (继承 Top500 原版 Line 844，内置 GeoLite2 数据库) ===")
+    rule_lines.append("GEOIP,CN,DIRECT")
+    
+    rule_lines.append("\n# === 5. 未知海外域名终极兜底 (防 DNS 泄露) ===")
     rule_lines.append("FINAL,PROXY\n")
     
     final_content = header + "\n".join(rule_lines) + FOOTER_TEMPLATE
@@ -154,8 +144,8 @@ def main():
         f.write(conf_str)
         
     line_count = len(conf_str.splitlines())
-    print(f"🎉 成功生成 {OUTPUT_CONF}！")
-    print(f"📈 统计数据: 物理总行数 {line_count} 行 | Direct 规则 {d_cnt} 条 | Proxy 规则 {p_cnt} 条 | 规则匹配末尾: FINAL,PROXY")
+    print(f"🎉 成功生成纯净配置文件 {OUTPUT_CONF}！")
+    print(f"📈 统计数据: 物理总行数 {line_count} 行 | Direct 规则 {d_cnt} 条 | Proxy 规则 {p_cnt} 条 | 防线规则: .CN 直连 + GEOIP CN 直连 + FINAL PROXY")
 
 if __name__ == "__main__":
     main()
