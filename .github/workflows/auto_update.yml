@@ -38,24 +38,20 @@ jobs:
           if [ -f generate_talkatone.py ]; then
             python generate_talkatone.py
           fi
-          if [ -f generate_custom_adblock.py ]; then
+          if [ -f scratch/generate_custom_adblock.py ]; then
+            python scratch/generate_custom_adblock.py
+          elif [ -f generate_custom_adblock.py ]; then
             python generate_custom_adblock.py
           fi
           if [ -f generate_custome_conf.py ]; then
             python generate_custome_conf.py
           fi
 
-      - name: Check for Changes
-        id: git-check
-        run: |
-          git status
-          git diff --quiet *.sgmodule *.conf || echo "changes=true" >> $GITHUB_OUTPUT
-
-      - name: Commit and Push Changes
-        if: steps.git-check.outputs.changes == 'true'
+      - name: Check and Commit Changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add *.sgmodule *.conf
-          git commit -m "Auto-update Shadowrocket proxy/adblock rules [skip ci]"
+          # 使用 --allow-empty 确保即使上游源规则未变，云端抓取构建后也能 100% 刷新产生最新 Commit
+          git commit --allow-empty -m "Auto-update Shadowrocket proxy/adblock rules [skip ci]"
           git push
