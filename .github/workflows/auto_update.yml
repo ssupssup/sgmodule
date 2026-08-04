@@ -32,26 +32,15 @@ jobs:
 
       - name: Run Script to Generate Rules
         run: |
-          if [ -f generate_ai.py ]; then
-            python generate_ai.py
-          fi
-          if [ -f generate_talkatone.py ]; then
-            python generate_talkatone.py
-          fi
-          if [ -f scratch/generate_custom_adblock.py ]; then
-            python scratch/generate_custom_adblock.py
-          elif [ -f generate_custom_adblock.py ]; then
-            python generate_custom_adblock.py
-          fi
-          if [ -f generate_custome_conf.py ]; then
-            python generate_custome_conf.py
-          fi
+          python generate_ai.py
+          python generate_talkatone.py
+          python generate_custom_adblock.py
+          python generate_custome_conf.py
 
       - name: Check and Commit Changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add *.sgmodule *.conf
-          # 使用 --allow-empty 确保即使上游源规则未变，云端抓取构建后也能 100% 刷新产生最新 Commit
           git commit --allow-empty -m "Auto-update Shadowrocket proxy/adblock rules [skip ci]"
           git push
