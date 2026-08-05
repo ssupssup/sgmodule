@@ -26,7 +26,6 @@ PREPEND_PROXY,DOMAIN-SUFFIX,googleusercontent.com,Proxy
 
 # ---------------------------------------------------
 # [动作 3] 顶层最高优先级强直连区 (PREPEND_DIRECT)
-# 次序说明：紧跟在强代理区下方，优先于上游任何规则匹配直连
+# 仅指定单点域名 cn1.gi-de.com 直连，不影响 gi-de.com 主域名走代理
 # ---------------------------------------------------
-PREPEND_DIRECT,DOMAIN-SUFFIX,cn1.gi-de.com,Direct
-PREPEND_DIRECT,DOMAIN-SUFFIX,gi-de.com,Direct
+PREPEND_DIRECT,DOMAIN,cn1.gi-de.com,Direct
