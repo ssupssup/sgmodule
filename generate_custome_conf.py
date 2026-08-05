@@ -3,9 +3,10 @@
 
 """
 generate_custome_conf.py
-抓取 Johnshall Top500 最新白名单规则，100.00% 像素级保持 Top500 官方原版的全部 865 行行号与匹配顺序，
-将第 3 行时间戳动态更新为本地/云端每日构建的最新时间戳 (UTC+8)，将第 11 行 dns-server 替换为国内纯 IP 式 DoH (223.5.5.5)，
-并增加 update-url 在线更新链接，生成最纯净的 Shadowrocket 主配置文件 custome_conf.conf。
+从 Johnshall Top500 抓取最新白名单规则，结合 references/custom_conf_rules.txt 中的动作规则：
+1. 物理擦除 REMOVE 指定的上游误杀坏行；
+2. 在 [Rule] 顶端按绝对优先次序注入 PREPEND_PROXY (强代理) 与 PREPEND_DIRECT (强直连，如 cn1.gi-de.com)；
+3. 保留时间戳与 dns-server / update-url 配置，生成纯净高效的 Shadowrocket 主配置文件 custome_conf.conf。
 """
 
 import os
@@ -15,7 +16,37 @@ import urllib.request
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 TOP500_URL = "https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_top500_whitelist.conf"
+CUSTOM_RULES_FILE = os.path.join(BASE_DIR, "references", "custom_conf_rules.txt")
 OUTPUT_CONF = os.path.join(BASE_DIR, "custome_conf.conf")
+
+def load_custom_override_rules():
+    remove_set = set()
+    prepend_proxy_rules = []
+    prepend_direct_rules = []
+    
+    if not os.path.exists(CUSTOM_RULES_FILE):
+        print(f"⚠️ 自定义规则文件未找到: {CUSTOM_RULES_FILE}，将按默认规则处理。")
+        return remove_set, prepend_proxy_rules, prepend_direct_rules
+
+    print(f"📖 正在读取自定义规则文件: {CUSTOM_RULES_FILE}...")
+    with open(CUSTOM_RULES_FILE, 'r', encoding='utf-8') as f:
+        for line in f:
+            stripped = line.strip()
+            if not stripped or stripped.startswith("#"):
+                continue
+            
+            if stripped.startswith("REMOVE,"):
+                target_rule = stripped[7:].strip()
+                remove_set.add(target_rule)
+            elif stripped.startswith("PREPEND_PROXY,"):
+                target_rule = stripped[14:].strip()
+                prepend_proxy_rules.append(target_rule)
+            elif stripped.startswith("PREPEND_DIRECT,"):
+                target_rule = stripped[15:].strip()
+                prepend_direct_rules.append(target_rule)
+                
+    print(f"✅ 自定义规则解析完成: 物理擦除 {len(remove_set)} 条 | 强代理 {len(prepend_proxy_rules)} 条 | 强直连 {len(prepend_direct_rules)} 条")
+    return remove_set, prepend_proxy_rules, prepend_direct_rules
 
 def fetch_top500_rules():
     print(f"📥 正在从 {TOP500_URL} 抓取最新 Top500 白名单规则...")
@@ -30,14 +61,18 @@ def fetch_top500_rules():
         print(f"⚠️ 抓取 Top500 规则失败: {e}")
         raise e
 
-def process_and_align_conf(lines):
+def process_and_align_conf(lines, remove_set, prepend_proxy_rules, prepend_direct_rules):
     aligned_lines = []
     now_str = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).strftime("%Y-%m-%d %H:%M:%S")
     
+    injected_custom_rules = False
+    
     for l in lines:
         stripped = l.strip()
-        # 0. 物理清洗上游 Top500 中的误杀 Direct 行
-        if stripped in ["DOMAIN-SUFFIX,storage.googleapis.com,Direct", "DOMAIN-SUFFIX,tools.google.com,Direct", "DOMAIN-SUFFIX,blog.google,Direct"]:
+        
+        # 0. 动态擦除自定义规则文件中标记为 REMOVE 的上游坏行
+        if stripped in remove_set:
+            print(f"✂️ 成功物理擦除上游坏行: {stripped}")
             continue
 
         # 1. 动态替换第 3 行时间戳为当前最新构建时间，并在最顶端注入元数据描述
@@ -57,14 +92,22 @@ def process_and_align_conf(lines):
             aligned_lines.append(f"# github_build_time = {now_str} (UTC+8)")
             continue
 
-        # 3. 在 [Rule] 段落顶部第 30 行位置前置注入 Google 核心认证与服务强代理区
-        if stripped == "# 手工定义的 Direct 列表":
-            aligned_lines.append("# === 🟢 Google 核心认证与 API 高优先级强代理区 (解决 2FA 验证与 API 连通) ===")
-            aligned_lines.append("DOMAIN-SUFFIX,googleapis.com,Proxy")
-            aligned_lines.append("DOMAIN-SUFFIX,google.com,Proxy")
-            aligned_lines.append("DOMAIN-SUFFIX,google,Proxy")
-            aligned_lines.append("DOMAIN-SUFFIX,gstatic.com,Proxy")
-            aligned_lines.append("DOMAIN-SUFFIX,googleusercontent.com,Proxy\n")
+        # 3. 在 [Rule] 段落顶部位置前置按严密次序注入自定义强代理与强直连区
+        if stripped == "# 手工定义的 Direct 列表" and not injected_custom_rules:
+            injected_custom_rules = True
+            
+            if prepend_proxy_rules:
+                aligned_lines.append("# === 🟢 1. 顶层最高优先级强代理区 (核心认证与 2FA/API 优先) ===")
+                for r in prepend_proxy_rules:
+                    aligned_lines.append(r)
+                aligned_lines.append("")
+                
+            if prepend_direct_rules:
+                aligned_lines.append("# === 🟢 2. 顶层最高优先级强直连区 (如 cn1.gi-de.com 优先直连) ===")
+                for r in prepend_direct_rules:
+                    aligned_lines.append(r)
+                aligned_lines.append("")
+                
             aligned_lines.append(l)
             continue
             
@@ -74,16 +117,17 @@ def process_and_align_conf(lines):
     return final_content
 
 def main():
+    remove_set, prepend_proxy_rules, prepend_direct_rules = load_custom_override_rules()
     raw_lines = fetch_top500_rules()
-    conf_str = process_and_align_conf(raw_lines)
+    conf_str = process_and_align_conf(raw_lines, remove_set, prepend_proxy_rules, prepend_direct_rules)
     
     os.makedirs(os.path.dirname(OUTPUT_CONF), exist_ok=True)
     with open(OUTPUT_CONF, 'w', encoding='utf-8') as f:
         f.write(conf_str)
         
     line_count = len(conf_str.splitlines())
-    print(f"🎉 成功生成带有动态构建时间戳的纯净配置文件 {OUTPUT_CONF}！")
-    print(f"📈 统计数据: 物理总行数 {line_count} 行 | 100% 像素级对齐 Top500 原版结构，时间戳已动态更新！")
+    print(f"🎉 成功生成带有动态构建时间戳与自定义规则融合的纯净配置文件 {OUTPUT_CONF}！")
+    print(f"📈 统计数据: 物理总行数 {line_count} 行 | 100% 匹配次序与擦除策略已物理落地！")
 
 if __name__ == "__main__":
     main()

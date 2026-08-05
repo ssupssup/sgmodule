@@ -1,0 +1,32 @@
+# ===================================================
+# Shadowrocket custome_conf 主配置文件自定义融合与清洗规则
+# 匹配机制：自上而下顺次匹配，顶部规则优先级最高！
+# 支持前缀：
+#   REMOVE,         -> 上游 Top500 误杀坏行物理擦除
+#   PREPEND_PROXY,  -> 顶层最高优先级强代理区
+#   PREPEND_DIRECT, -> 顶层最高优先级强直连区
+# ===================================================
+
+# ---------------------------------------------------
+# [动作 1] 上游 Top500 误杀坏行物理擦除列表 (REMOVE)
+# ---------------------------------------------------
+REMOVE,DOMAIN-SUFFIX,storage.googleapis.com,Direct
+REMOVE,DOMAIN-SUFFIX,tools.google.com,Direct
+REMOVE,DOMAIN-SUFFIX,blog.google,Direct
+
+# ---------------------------------------------------
+# [动作 2] 顶层最高优先级强代理区 (PREPEND_PROXY)
+# 次序说明：插入在 [Rule] 第一顺位，防止被下方的直连规则误杀
+# ---------------------------------------------------
+PREPEND_PROXY,DOMAIN-SUFFIX,googleapis.com,Proxy
+PREPEND_PROXY,DOMAIN-SUFFIX,google.com,Proxy
+PREPEND_PROXY,DOMAIN-SUFFIX,google,Proxy
+PREPEND_PROXY,DOMAIN-SUFFIX,gstatic.com,Proxy
+PREPEND_PROXY,DOMAIN-SUFFIX,googleusercontent.com,Proxy
+
+# ---------------------------------------------------
+# [动作 3] 顶层最高优先级强直连区 (PREPEND_DIRECT)
+# 次序说明：紧跟在强代理区下方，优先于上游任何规则匹配直连
+# ---------------------------------------------------
+PREPEND_DIRECT,DOMAIN-SUFFIX,cn1.gi-de.com,Direct
+PREPEND_DIRECT,DOMAIN-SUFFIX,gi-de.com,Direct
