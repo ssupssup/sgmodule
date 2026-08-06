@@ -21,12 +21,13 @@ OUTPUT_CONF = os.path.join(BASE_DIR, "custome_conf.conf")
 
 def load_custom_override_rules():
     remove_set = set()
+    disable_set = set()
     prepend_proxy_rules = []
     prepend_direct_rules = []
     
     if not os.path.exists(CUSTOM_RULES_FILE):
         print(f"⚠️ 自定义规则文件未找到: {CUSTOM_RULES_FILE}，将按默认规则处理。")
-        return remove_set, prepend_proxy_rules, prepend_direct_rules
+        return remove_set, disable_set, prepend_proxy_rules, prepend_direct_rules
 
     print(f"📖 正在读取自定义规则文件: {CUSTOM_RULES_FILE}...")
     with open(CUSTOM_RULES_FILE, 'r', encoding='utf-8') as f:
@@ -38,6 +39,9 @@ def load_custom_override_rules():
             if stripped.startswith("REMOVE,"):
                 target_rule = stripped[7:].strip()
                 remove_set.add(target_rule)
+            elif stripped.startswith("DISABLE,"):
+                target_rule = stripped[8:].strip()
+                disable_set.add(target_rule)
             elif stripped.startswith("PREPEND_PROXY,"):
                 target_rule = stripped[14:].strip()
                 prepend_proxy_rules.append(target_rule)
@@ -45,8 +49,8 @@ def load_custom_override_rules():
                 target_rule = stripped[15:].strip()
                 prepend_direct_rules.append(target_rule)
                 
-    print(f"✅ 自定义规则解析完成: 物理擦除 {len(remove_set)} 条 | 强代理 {len(prepend_proxy_rules)} 条 | 强直连 {len(prepend_direct_rules)} 条")
-    return remove_set, prepend_proxy_rules, prepend_direct_rules
+    print(f"✅ 自定义规则解析完成: 物理擦除 {len(remove_set)} 条 | 原位注释 {len(disable_set)} 条 | 强代理 {len(prepend_proxy_rules)} 条 | 强直连 {len(prepend_direct_rules)} 条")
+    return remove_set, disable_set, prepend_proxy_rules, prepend_direct_rules
 
 def fetch_top500_rules():
     print(f"📥 正在从 {TOP500_URL} 抓取最新 Top500 白名单规则...")
@@ -61,7 +65,7 @@ def fetch_top500_rules():
         print(f"⚠️ 抓取 Top500 规则失败: {e}")
         raise e
 
-def process_and_align_conf(lines, remove_set, prepend_proxy_rules, prepend_direct_rules):
+def process_and_align_conf(lines, remove_set, disable_set, prepend_proxy_rules, prepend_direct_rules):
     aligned_lines = []
     now_str = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).strftime("%Y-%m-%d %H:%M:%S")
     
@@ -73,6 +77,12 @@ def process_and_align_conf(lines, remove_set, prepend_proxy_rules, prepend_direc
         # 0. 动态擦除自定义规则文件中标记为 REMOVE 的上游坏行
         if stripped in remove_set:
             print(f"✂️ 成功物理擦除上游坏行: {stripped}")
+            continue
+
+        # 0.1 动态将自定义规则文件中标记为 DISABLE 的坏行原位注释化禁用
+        if stripped in disable_set:
+            print(f"🚫 成功原位注释化禁用上游坏行: {stripped}")
+            aligned_lines.append(f"# 🚫 [已禁用-由顶层Direct覆盖] {l}")
             continue
 
         # 1. 动态替换第 3 行时间戳为当前最新构建时间，并在最顶端注入元数据描述
@@ -117,9 +127,9 @@ def process_and_align_conf(lines, remove_set, prepend_proxy_rules, prepend_direc
     return final_content
 
 def main():
-    remove_set, prepend_proxy_rules, prepend_direct_rules = load_custom_override_rules()
+    remove_set, disable_set, prepend_proxy_rules, prepend_direct_rules = load_custom_override_rules()
     raw_lines = fetch_top500_rules()
-    conf_str = process_and_align_conf(raw_lines, remove_set, prepend_proxy_rules, prepend_direct_rules)
+    conf_str = process_and_align_conf(raw_lines, remove_set, disable_set, prepend_proxy_rules, prepend_direct_rules)
     
     os.makedirs(os.path.dirname(OUTPUT_CONF), exist_ok=True)
     with open(OUTPUT_CONF, 'w', encoding='utf-8') as f:
@@ -127,7 +137,8 @@ def main():
         
     line_count = len(conf_str.splitlines())
     print(f"🎉 成功生成带有动态构建时间戳与自定义规则融合的纯净配置文件 {OUTPUT_CONF}！")
-    print(f"📈 统计数据: 物理总行数 {line_count} 行 | 100% 匹配次序与擦除策略已物理落地！")
+    print(f"📈 统计数据: 物理总行数 {line_count} 行 | 100% 匹配次序与擦除/注释策略已物理落地！")
 
 if __name__ == "__main__":
     main()
+
