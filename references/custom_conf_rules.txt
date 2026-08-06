@@ -29,3 +29,6 @@ PREPEND_PROXY,DOMAIN-SUFFIX,googleusercontent.com,Proxy
 # 仅指定单点域名 cn1.gi-de.com 直连，不影响 gi-de.com 主域名走代理
 # ---------------------------------------------------
 PREPEND_DIRECT,DOMAIN,cn1.gi-de.com,Direct
+# App Store 软件下载与静态资源 CDN 精准直连 (彻底解决批量更新放弃等待，0 影响 Apple Intelligence)
+PREPEND_DIRECT,DOMAIN-SUFFIX,aaplimg.com,Direct
+PREPEND_DIRECT,DOMAIN-SUFFIX,cdn-apple.com,Direct
