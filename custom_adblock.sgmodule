@@ -99,9 +99,6 @@ DOMAIN,client-monitor.tantanapp.com,REJECT-NO-DROP
 DOMAIN,f10.baidu.com,REJECT-NO-DROP
 DOMAIN,ad.snssdk.com,REJECT-NO-DROP
 DOMAIN,ads.snssdk.com,REJECT-NO-DROP
-DOMAIN,mask.icloud.com,REJECT-NO-DROP
-DOMAIN,mask-api.icloud.com,REJECT-NO-DROP
-DOMAIN,mask-h2.icloud.com,REJECT-NO-DROP
 DOMAIN,monitor.ipv6-tantanapp.com.master.vip.tantanapp.com,REJECT-NO-DROP
 DOMAIN,pkoplink.com,REJECT-NO-DROP
 DOMAIN,sjxydc.com,REJECT-NO-DROP
@@ -146,7 +143,6 @@ DOMAIN,rmonitor.qq.com,REJECT-NO-DROP
 DOMAIN,gd-stats.jpush.cn,REJECT-NO-DROP
 DOMAIN,ali-stats.jpush.cn,REJECT-NO-DROP
 DOMAIN,log-auth.zztfly.com,REJECT-NO-DROP
-DOMAIN,iadsdk.apple.com,REJECT-NO-DROP
 DOMAIN,df.tanx.com,REJECT-NO-DROP
 DOMAIN,6.0.0.192.in-addr.arpa,REJECT-NO-DROP
 DOMAIN,adashx.m.taobao.com,REJECT-NO-DROP
