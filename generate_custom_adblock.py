@@ -549,6 +549,8 @@ def fetch_and_extract_dynamic_rules(target_apps):
             parts = line_stripped.split(",")
             if len(parts) >= 2 and parts[-1].strip().lower() == "reject":
                 domain = parts[1].strip().lower()
+                if domain in {'mask.icloud.com', 'mask-api.icloud.com', 'mask-h2.icloud.com', 'iadsdk.apple.com'}:
+                    continue
                 
                 # Check pattern matches for targets
                 for app in target_apps:
@@ -1000,7 +1002,7 @@ def generate():
     BYPASS_RULES = [x for x in _s_data["BYPASS_RULES"] if not x.startswith("#") or "Bypass Rules" in x]
 
     # 动态排除 AGH 的打点/拦截域名及字节 TNC 相关，防止编译生成的 final_rules 等地方带入普通 REJECT 或重写
-    _filter_domains = set(_agh_domains) | {"pglstatp-toutiao.com"}
+    _filter_domains = set(_agh_domains) | {"pglstatp-toutiao.com", "mask.icloud.com", "mask-api.icloud.com", "mask-h2.icloud.com", "iadsdk.apple.com"}
     final_rules = [r for r in final_rules if not any(d in r.lower() for d in _filter_domains)]
     final_rewrites = [r for r in final_rewrites if not any(d in r.lower() for d in _filter_domains)]
     final_scripts = [s for s in final_scripts if not any(d in s.lower() for d in _filter_domains)]
