@@ -1002,12 +1002,22 @@ def generate():
     BYPASS_RULES = [x for x in _s_data["BYPASS_RULES"] if not x.startswith("#") or "Bypass Rules" in x]
 
     # 动态排除 AGH 的打点/拦截域名及字节 TNC 相关，防止编译生成的 final_rules 等地方带入普通 REJECT 或重写
-    _filter_domains = set(_agh_domains) | {"pglstatp-toutiao.com", "mask.icloud.com", "mask-api.icloud.com", "mask-h2.icloud.com", "iadsdk.apple.com"}
+    _filter_domains = set(_agh_domains) | {"pglstatp-toutiao.com", "mask.icloud.com", "mask-api.icloud.com", "mask-h2.icloud.com", "iadsdk.apple.com", "metrics.icloud.com"}
     final_rules = [r for r in final_rules if not any(d in r.lower() for d in _filter_domains)]
     final_rewrites = [r for r in final_rewrites if not any(d in r.lower() for d in _filter_domains)]
     final_scripts = [s for s in final_scripts if not any(d in s.lower() for d in _filter_domains)]
     final_mitm = [m for m in final_mitm if not any(d in m.lower() for d in _filter_domains)]
     final_bypass = [r for r in BYPASS_RULES if not any(d in r.lower() for d in _filter_domains)]
+
+    # 显式追加苹果 AI / Private Relay / iCloud 的 MITM 解密豁免 (- 开头代表关闭解密，保护 SSL Pinning)
+    apple_mitm_exclusions = [
+        "-*.apple-relay.apple.com",
+        "-*.apple-relay.cloudflare.com",
+        "-*.icloud.com",
+        "-*.apple.com",
+        "-*.cdn-apple.com"
+    ]
+    final_mitm.extend(apple_mitm_exclusions)
 
     with open(output_path, "w", encoding="utf-8") as f:
         f.write("#!name=custom apps adblock.sgmodule\n")

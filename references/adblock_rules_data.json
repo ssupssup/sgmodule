@@ -655,7 +655,6 @@
     "DOMAIN,monitor.ipv6-tantanapp.com.master.vip.tantanapp.com,REJECT-NO-DROP",
     "DOMAIN,pkoplink.com,REJECT-NO-DROP",
     "DOMAIN,sjxydc.com,REJECT-NO-DROP",
-    "DOMAIN,metrics.icloud.com,REJECT-NO-DROP",
     "DOMAIN,ad.zijieapi.com,REJECT-NO-DROP",
     "DOMAIN,ads.zijieapi.com,REJECT-NO-DROP",
     "DOMAIN,pangolin.zijieapi.com,REJECT-NO-DROP",
