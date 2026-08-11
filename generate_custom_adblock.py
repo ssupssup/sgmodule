@@ -144,8 +144,8 @@ def should_bypass_rule_content(pattern_or_line):
        "appcloud.zhihu.com" in line_clean:
         return True
         
-    # Aliyun Beacon analytics bypass (防阿里系 App 闪退)
-    if "beacon-api.aliyuncs.com" in line_clean:
+    # Aliyun Beacon analytics & alicdn image bypass (防阿里/支付宝 App 控件/地图空白误杀)
+    if "beacon-api.aliyuncs.com" in line_clean or "alicdn.com" in line_clean:
         return True
         
     # 3. High risk domains in rewrites/scripts (since they require MITM to trigger)

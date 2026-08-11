@@ -491,9 +491,6 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https:\/\/wechat-api\.i-xiaoma\.com\.cn\/app\/v1\/bus\/wechat\/content - reject-dict
 ^https:\/\/wx\.bthhotels\.com\/miniapp\/weixin\/v1\/home\/index_banner - reject-dict
 ^https:\/\/wxs-weixin\.sd\.zhumanggroup\.com\/api\/v2\/ad - reject-dict
-^https?:\/\/(gw|heic)\.alicdn\.com\/\w{2}s\/.+\.jpg_(9\d{2}|\d{4}) - reject
-^https?:\/\/(gw|heic)\.alicdn\.com\/imgextra\/.+\d{4}-\d{4}\.jpg_(9\d{2}|\d{4}) - reject
-^https?:\/\/(gw|heic)\.alicdn\.com\/imgextra\/\w{2}\/[\w!]+-\d-tps-\d{3,4}-\d{4}\.jpg_(1\d{3}|9\d{2})x(1\d{3}|9\d{2})q90\.jpg_\.(heic|webp)$ - reject
 ^https?:\/\/[a-zA-Z0-9_-]+\.weathercn\.com\/(.*bypage|appindexicon) - reject-200
 ^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.alibaba\.mos\.app\.homepage\.launch - reject-200
 ^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.damai\.mec\.popup\.get - reject-200
@@ -521,7 +518,6 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/capis-slb\.didapinche\.com\/ad\/ - reject
 ^https?:\/\/ct\.xiaojukeji\.com\/agent\/v3\/feeds - reject
 ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d\/user\/teenager\/status - reject-dict
-^https?:\/\/g\.alicdn\.com\/living\/mesh-std-spec - reject
 ^https?:\/\/gateway\.shouqiev\.com(:8443)?\/fsda\/app\/bootImage\.json - reject
 ^https?:\/\/god\.gameyw\.netease\.com\/v\d\/ad\/serving\/app-start - reject
 ^https?:\/\/gw-passenger\.01zhuanche\.com\/gw-passenger\/zhuanche-passengerController\/notk\/passenger\/recommendADs - reject
