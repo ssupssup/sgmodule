@@ -125,6 +125,8 @@
     "pan.baidu.com"
   ],
   "BYPASS_RULES": [
+    "# 彻底解决 Apple 定位守护进程 locationd 跨国超时发热的异常",
+    "DOMAIN,gs-loc-cn.apple.com,DIRECT",
     "# === Bypass Rules for WeChat, Alipay, Bank and Login App anomalies ===",
     "DOMAIN,amdc.alipay.com,DIRECT",
     "DOMAIN,re.m.taobao.com,DIRECT",

@@ -1,8 +1,9 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-08-11 05:03:34 | Deep ad block & UI purification customized for user's installed apps.
-#!total=1268
+#!desc=最近更新: 2026-08-11 10:11:00 | Deep ad block & UI purification customized for user's installed apps.
+#!total=1285
 
 [Rule]
+DOMAIN,gs-loc-cn.apple.com,DIRECT
 # === Bypass Rules for WeChat, Alipay, Bank and Login App anomalies ===
 DOMAIN,amdc.alipay.com,DIRECT
 DOMAIN,re.m.taobao.com,DIRECT
@@ -58,6 +59,19 @@ DOMAIN,is.snssdk.com,DIRECT
 DOMAIN,applog.snssdk.com,DIRECT
 DOMAIN-KEYWORD,dy.snssdk,DIRECT
 # === SDK Core REJECT Rules ===
+# === 2026-08-11 防发热：日志/统计 SDK 优雅阻断 (REJECT-200 清空队列) ===
+DOMAIN,errnewlog.umeng.com,REJECT-200
+DOMAIN,cnlogs.umeng.com,REJECT-200
+DOMAIN,dig.bdurl.net,REJECT-200
+DOMAIN,snowflake.qq.com,REJECT-200
+DOMAIN,rmonitor.qq.com,REJECT-200
+# === 2026-08-11 防发热：广告 SDK 黑洞吞噬 (REJECT-TINYSINK 60s Timeout 挂起) ===
+DOMAIN-SUFFIX,e.qq.com,REJECT-TINYSINK
+DOMAIN-KEYWORD,gdt.qq.com,REJECT-TINYSINK
+DOMAIN-KEYWORD,pangolin-sdk,REJECT-TINYSINK
+DOMAIN,toblog.ctobsnssdk.com,REJECT-TINYSINK
+DOMAIN,erebor.douban.com,REJECT-TINYSINK
+DOMAIN-KEYWORD,e.kuaishou.com,REJECT-TINYSINK
 AND,((protocol,udp),(dest-port,443),(domain-suffix,baidu.com)),REJECT-NO-DROP
 AND,((protocol,udp),(dest-port,443),(domain-suffix,baidupcs.com)),REJECT-NO-DROP
 AND,((protocol,udp),(dest-port,443),(domain-suffix,douban.com)),REJECT-NO-DROP
@@ -160,10 +174,13 @@ DOMAIN,sla-media.immomo.com,REJECT-NO-DROP
 DOMAIN,soul-ad.soulapp.cn,REJECT-NO-DROP
 DOMAIN,stats-ipv6.jpush.cn,REJECT-NO-DROP
 DOMAIN,tracking.miui.com,REJECT-NO-DROP
-DOMAIN-SUFFIX,ads.linkedin.com,REJECT
-DOMAIN-SUFFIX,outlookads.live.com,REJECT
-DOMAIN-SUFFIX,analytics.pointdrive.linkedin.com,REJECT
-DOMAIN-SUFFIX,a1.firefoxchina.cn,REJECT
+DOMAIN,log.snssdk.com,REJECT-NO-DROP
+DOMAIN,rtlog.snssdk.com,REJECT-NO-DROP
+DOMAIN,mcs.snssdk.com,REJECT-NO-DROP
+DOMAIN,dm.snssdk.com,REJECT-NO-DROP
+DOMAIN,toblog.ctobsnssdk.com,REJECT-NO-DROP
+DOMAIN,ad.snssdk.com,REJECT-NO-DROP
+DOMAIN,log-hl.snssdk.com,REJECT-NO-DROP
 # === Compiled App Rules ===
 DOMAIN,sdkapp.uve.weibo.com,DIRECT
 DOMAIN,adstrategy.biz.weibo.com,REJECT
