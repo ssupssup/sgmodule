@@ -95,8 +95,6 @@
     "# 2026-07-24 联动补齐：GitHub 开发者遥测与 PubMatic 广告全系列",
     "collector.github.com",
     "ads.pubmatic.com",
-    "# 2026-07-24 联动补齐：Google 广告网络分发 (解决 iOS 爆发重试发热)",
-    "googleads.g.doubleclick.net",
     "# 2026-07-25 联动补齐：移动端 1分钟高频爆发重试发热源 (Twitter遥测/Effirst追踪/钉钉遥测)",
     "analytics.twitter.com",
     "px.effirst.com",
