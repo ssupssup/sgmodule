@@ -49,8 +49,6 @@ DOMAIN,verify.snssdk.com,DIRECT
 DOMAIN,lf.snssdk.com,DIRECT
 DOMAIN-SUFFIX,alipay.com,DIRECT
 DOMAIN-SUFFIX,alipayobjects.com,DIRECT
-DOMAIN-SUFFIX,tantanapp.com,DIRECT
-DOMAIN-SUFFIX,immomo.com,DIRECT
 DOMAIN-SUFFIX,cainiao.com,DIRECT
 DOMAIN-SUFFIX,cainiao.com.cn,DIRECT
 DOMAIN-SUFFIX,guoguo-app.com,DIRECT
@@ -116,21 +114,7 @@ DOMAIN,rtlog.snssdk.com,REJECT-200
 DOMAIN,mcs.snssdk.com,REJECT-200
 DOMAIN,mllog.jd.com,REJECT-200
 DOMAIN,res.mmstat.com,REJECT-200
-# === 2026-08-11 防发热：凶猛广告 SDK / 大厂遥测网关黑洞吞噬 (REJECT-DROP 彻底卡死并发线程池与高频 DNS) ===
-DOMAIN,app-measurement.com,REJECT-DROP
-DOMAIN-SUFFIX,crashlytics.com,REJECT-DROP
-DOMAIN,dig.bdurl.net,REJECT-DROP
-DOMAIN,mdap.alipay.com,REJECT-DROP
-DOMAIN,adashx.ut.dingtalk.com,REJECT-DROP
-DOMAIN,h-adashx.ut.taobao.com,REJECT-DROP
-DOMAIN,rmonitor.qq.com,REJECT-DROP
-DOMAIN,px.effirst.com,REJECT-DROP
-DOMAIN,ios.bugly.qq.com,REJECT-DROP
-DOMAIN,app-analytics-services.com,REJECT-DROP
-DOMAIN,beacon.qq.com,REJECT-DROP
-DOMAIN,rqd.qq.com,REJECT-DROP
-DOMAIN,h-adashx.dingtalkapps.com,REJECT-DROP
-DOMAIN,stats.jpush.cn,REJECT-DROP
+# === 2026-08-11 防发热架构：纯界面广告黑洞 + 墨鱼 JSON 动态去广告 (0 遥测硬阻断，彻底消除发热) ===
 DOMAIN,googleads.g.doubleclick.net,REJECT-DROP
 DOMAIN-SUFFIX,doubleclick.net,REJECT-DROP
 DOMAIN-SUFFIX,googlesyndication.com,REJECT-DROP
