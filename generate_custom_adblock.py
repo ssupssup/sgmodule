@@ -872,6 +872,11 @@ def generate():
     final_rewrites = list(dict.fromkeys(optimized_rewrites))
     final_scripts = list(dict.fromkeys(final_scripts_texts))
     
+    # 追加探探 code:0 伪装成功响应脚本，平息 5秒/1秒 定时器暴击
+    tantan_script = "tantan_mock = type=http-request,pattern=^https?:\\/\\/(report|sc-report|app-log-lab)\\.tantanapp\\.com\\/,script-path=https://raw.githubusercontent.com/ssupssup/sgmodule/main/scripts/tantan_mock.js,requires-body=true"
+    if tantan_script not in final_scripts:
+        final_scripts.insert(0, tantan_script)
+    
     # 自动筛查并剔除与 Script 动态清洗冲突的同路径静态 REJECT 重写
     def patterns_conflict(rew_pat, scr_pat):
         def clean(p):

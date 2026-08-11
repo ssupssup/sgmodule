@@ -1210,6 +1210,7 @@ https://dynamicad.kfc.com.cn/api/app5/homepage/ai/popup - reject-200
 ^https?:\/\/(ad-h5-station-cdn)\.soulapp\.cn\/ - reject-dict
 
 [Script]
+tantan_mock = type=http-request,pattern=^https?:\/\/(report|sc-report|app-log-lab)\.tantanapp\.com\/,script-path=https://raw.githubusercontent.com/ssupssup/sgmodule/main/scripts/tantan_mock.js,requires-body=true
 微博轻享版_12d1de = type=http-response,pattern=^https?:\/\/api\.weibo\.cn\/\d\/statuses\/container_detail,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js,requires-body=1
 微博轻享版_728180 = type=http-response,pattern=^https?:\/\/api\.weibo\.cn\/\d\/groups\/allgroups\/v\d,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js,requires-body=1
 微博轻享版_83d015 = type=http-response,pattern=^https?:\/\/boot.*weibo\.com\/v\d\/ad\/preload,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/weibo_json.js,requires-body=1
