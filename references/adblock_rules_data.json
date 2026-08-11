@@ -771,9 +771,6 @@
     "DOMAIN,tracking.miui.com,REJECT-NO-DROP"
   ],
   "MANDATORY_MITM_DOMAINS": [
-    "report.tantanapp.com",
-    "sc-report.tantanapp.com",
-    "app-log-lab.tantanapp.com",
     "api.douban.com",
     "m.douban.com",
     "frodo.douban.com",
@@ -817,12 +814,6 @@
     "maicai.api.ddxq.mobi"
   ],
   "CUSTOM_REWRITE_RULES": [
-    {
-      "text": "^https?:\\/\\/(report|sc-report|app-log-lab)\\.tantanapp\\.com\\/ reject-dict",
-      "pattern": "^https?:\\/\\/(report|sc-report|app-log-lab)\\.tantanapp\\.com\\/",
-      "priority": 0,
-      "app": "探探"
-    },
     {
       "text": "^https?:\\/\\/maicai\\.api\\.ddxq\\.mobi\\/advert\\/ reject-dict",
       "pattern": "^https?:\\/\\/maicai\\.api\\.ddxq\\.mobi\\/advert\\/",
