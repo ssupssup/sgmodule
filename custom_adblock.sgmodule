@@ -113,6 +113,13 @@ DOMAIN,adjust.com,REJECT-200
 DOMAIN,appsflyersdk.com,REJECT-200
 DOMAIN,app-analytics-services.com,REJECT-200
 DOMAIN,app-measurement.com,REJECT-200
+DOMAIN,log-hl.snssdk.com,REJECT-200
+DOMAIN,log.snssdk.com,REJECT-200
+DOMAIN,rtlog.snssdk.com,REJECT-200
+DOMAIN,mcs.snssdk.com,REJECT-200
+DOMAIN,mllog.jd.com,REJECT-200
+DOMAIN,res.mmstat.com,REJECT-200
+DOMAIN,report.tantanapp.com,REJECT-200
 # === 2026-08-11 防发热：凶猛广告 SDK 黑洞吞噬 (REJECT-DROP 彻底卡死并发线程池与高频 DNS) ===
 DOMAIN,googleads.g.doubleclick.net,REJECT-DROP
 DOMAIN-SUFFIX,doubleclick.net,REJECT-DROP
