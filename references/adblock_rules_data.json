@@ -670,7 +670,6 @@
     "DOMAIN,rqd.qq.com,REJECT-DROP",
     "DOMAIN,h-adashx.dingtalkapps.com,REJECT-DROP",
     "DOMAIN,h-adashx.ut.taobao.com,REJECT-DROP",
-    "DOMAIN,logs.amap.com,REJECT-DROP",
     "DOMAIN,stats.jpush.cn,REJECT-DROP",
     "DOMAIN,googleads.g.doubleclick.net,REJECT-DROP",
     "DOMAIN-SUFFIX,doubleclick.net,REJECT-DROP",

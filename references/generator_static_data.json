@@ -177,6 +177,8 @@
     "DOMAIN,security.snssdk.com,DIRECT",
     "DOMAIN,verify.snssdk.com,DIRECT",
     "DOMAIN,lf.snssdk.com,DIRECT",
+    "DOMAIN-SUFFIX,cainiao.com,DIRECT",
+    "DOMAIN-SUFFIX,amap.com,DIRECT",
     "DOMAIN,vcs.zijieapi.com,DIRECT",
     "DOMAIN-SUFFIX,mssdk.bytedance.com,DIRECT",
     "DOMAIN-SUFFIX,mssdk.volces.com,DIRECT",

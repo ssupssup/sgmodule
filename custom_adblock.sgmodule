@@ -47,6 +47,8 @@ DOMAIN,api-access.snssdk.com,DIRECT
 DOMAIN,security.snssdk.com,DIRECT
 DOMAIN,verify.snssdk.com,DIRECT
 DOMAIN,lf.snssdk.com,DIRECT
+DOMAIN-SUFFIX,cainiao.com,DIRECT
+DOMAIN-SUFFIX,amap.com,DIRECT
 DOMAIN,vcs.zijieapi.com,DIRECT
 DOMAIN-SUFFIX,mssdk.bytedance.com,DIRECT
 DOMAIN-SUFFIX,mssdk.volces.com,DIRECT
@@ -118,7 +120,6 @@ DOMAIN,beacon.qq.com,REJECT-DROP
 DOMAIN,rqd.qq.com,REJECT-DROP
 DOMAIN,h-adashx.dingtalkapps.com,REJECT-DROP
 DOMAIN,h-adashx.ut.taobao.com,REJECT-DROP
-DOMAIN,logs.amap.com,REJECT-DROP
 DOMAIN,stats.jpush.cn,REJECT-DROP
 DOMAIN,googleads.g.doubleclick.net,REJECT-DROP
 DOMAIN-SUFFIX,doubleclick.net,REJECT-DROP
