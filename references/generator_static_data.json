@@ -188,5 +188,11 @@
     "DOMAIN,is.snssdk.com,DIRECT",
     "DOMAIN,applog.snssdk.com,DIRECT",
     "DOMAIN-KEYWORD,dy.snssdk,DIRECT"
+  ],
+  "MITM_HOSTNAMES": [
+    "googleads.g.doubleclick.net",
+    "*.doubleclick.net",
+    "*.googlesyndication.com",
+    "*.adservice.google.com"
   ]
 }
