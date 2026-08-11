@@ -177,6 +177,8 @@
     "DOMAIN,security.snssdk.com,DIRECT",
     "DOMAIN,verify.snssdk.com,DIRECT",
     "DOMAIN,lf.snssdk.com,DIRECT",
+    "DOMAIN-SUFFIX,alipay.com,DIRECT",
+    "DOMAIN-SUFFIX,alipayobjects.com,DIRECT",
     "DOMAIN-SUFFIX,cainiao.com,DIRECT",
     "DOMAIN-SUFFIX,cainiao.com.cn,DIRECT",
     "DOMAIN-SUFFIX,guoguo-app.com,DIRECT",
