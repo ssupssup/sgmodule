@@ -645,8 +645,6 @@
     "DOMAIN,mllog.jd.com,REJECT-200",
     "DOMAIN,res.mmstat.com,REJECT-200",
     "# === 2026-08-11 防发热：凶猛广告 SDK / 大厂遥测网关黑洞吞噬 (REJECT-DROP 彻底卡死并发线程池与高频 DNS) ===",
-    "DOMAIN,report.tantanapp.com,REJECT-DROP",
-    "DOMAIN,sc-report.tantanapp.com,REJECT-DROP",
     "DOMAIN,app-measurement.com,REJECT-DROP",
     "DOMAIN-SUFFIX,crashlytics.com,REJECT-DROP",
     "DOMAIN,dig.bdurl.net,REJECT-DROP",

@@ -179,6 +179,8 @@
     "DOMAIN,lf.snssdk.com,DIRECT",
     "DOMAIN-SUFFIX,alipay.com,DIRECT",
     "DOMAIN-SUFFIX,alipayobjects.com,DIRECT",
+    "DOMAIN-SUFFIX,tantanapp.com,DIRECT",
+    "DOMAIN-SUFFIX,immomo.com,DIRECT",
     "DOMAIN-SUFFIX,cainiao.com,DIRECT",
     "DOMAIN-SUFFIX,cainiao.com.cn,DIRECT",
     "DOMAIN-SUFFIX,guoguo-app.com,DIRECT",
