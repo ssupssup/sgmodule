@@ -19,6 +19,13 @@ TOP500_URL = "https://johnshall.github.io/Shadowrocket-ADBlock-Rules-Forever/sr_
 CUSTOM_RULES_FILE = os.path.join(BASE_DIR, "references", "custom_conf_rules.txt")
 OUTPUT_CONF = os.path.join(BASE_DIR, "custome_conf.conf")
 
+PROXY_PROTECT_KEYWORDS = [
+    "google", "googleapis", "gstatic", "googleusercontent",
+    "youtube", "googlevideo", "ytimg",
+    "openai", "chatgpt", "oaistatic", "oaiusercontent",
+    "claude", "anthropic", "gemini", "github", "twitter", "x.com", "facebook", "telegram"
+]
+
 def load_custom_override_rules():
     remove_set = set()
     disable_set = set()
@@ -65,11 +72,42 @@ def fetch_top500_rules():
         print(f"⚠️ 抓取 Top500 规则失败: {e}")
         raise e
 
+def fetch_and_clean_china_direct_rules():
+    import urllib.request
+    china_rules = []
+    urls = [
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/ChinaMax/ChinaMax.list",
+        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/China/China.list"
+    ]
+    for url in urls:
+        try:
+            req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+            with urllib.request.urlopen(req, timeout=10) as resp:
+                lines = resp.read().decode('utf-8').splitlines()
+                for l in lines:
+                    stripped = l.strip()
+                    if not stripped or stripped.startswith("#"):
+                        continue
+                    l_lower = stripped.lower()
+                    # 强防误杀过滤：任何包含代理/敏感关键字的域名直接丢弃
+                    if any(kw in l_lower for kw in PROXY_PROTECT_KEYWORDS):
+                        print(f"🛡️ 防误杀过滤：丢弃冲突域名 -> {stripped}")
+                        continue
+                    if stripped.startswith("DOMAIN") or stripped.startswith("USER-AGENT"):
+                        parts = [p.strip() for p in stripped.split(",")]
+                        if len(parts) >= 2:
+                            china_rules.append(f"{parts[0]},{parts[1]},Direct")
+        except Exception as e:
+            print(f"⚠️ 抓取中国域名规则集 {url} 失败: {e}")
+    print(f"✅ 成功清洗并合并得出 {len(china_rules)} 条安全的中国域名直连规则。")
+    return list(dict.fromkeys(china_rules))
+
 def process_and_align_conf(lines, remove_set, disable_set, prepend_proxy_rules, prepend_direct_rules):
     aligned_lines = []
     now_str = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).strftime("%Y-%m-%d %H:%M:%S")
     
     injected_custom_rules = False
+    china_direct_rules = fetch_and_clean_china_direct_rules()
     
     for l in lines:
         stripped = l.strip()
@@ -118,10 +156,12 @@ def process_and_align_conf(lines, remove_set, disable_set, prepend_proxy_rules, 
                     aligned_lines.append(r)
                 aligned_lines.append("")
                 
-        # 4. 在 GEOIP,CN,DIRECT 前注入 Loyalsoldier 全量中国域名规则集 (解决非 .cn 域名如 douban.fm / doubanio.com 误落代理)
+        # 4. 在 GEOIP,CN,DIRECT 前注入经 Python 在线清洗+防误杀过滤后的 BlackMatrix7 中国域名直连规则段
         if stripped == "GEOIP,CN,DIRECT":
-            aligned_lines.append("# === 🇨🇳 引入 Loyalsoldier 全量中国域名规则集 (覆盖非 .cn 域名如 douban.fm / doubanio.com 直连) ===")
-            aligned_lines.append("RULE-SET,https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/direct.txt,DIRECT")
+            aligned_lines.append("# === 🇨🇳 经 Python 脚本在线清洗+防误杀过滤后的 BlackMatrix7 中国域名直连区 ===")
+            for cr in china_direct_rules:
+                aligned_lines.append(cr)
+            aligned_lines.append("")
             aligned_lines.append(l)
             continue
 

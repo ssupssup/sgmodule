@@ -1,6 +1,6 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-08-12 10:10:39 | Deep ad block & UI purification customized for user's installed apps.
-#!total=1318
+#!desc=最近更新: 2026-08-12 15:37:08 | Deep ad block & UI purification customized for user's installed apps.
+#!total=1357
 
 [Rule]
 DOMAIN,gs-loc-cn.apple.com,DIRECT
@@ -219,10 +219,49 @@ DOMAIN,sla-media.immomo.com,REJECT-NO-DROP
 DOMAIN,soul-ad.soulapp.cn,REJECT-NO-DROP
 DOMAIN,stats-ipv6.jpush.cn,REJECT-200
 DOMAIN,tracking.miui.com,REJECT-200
-DOMAIN-SUFFIX,analytics.pointdrive.linkedin.com,REJECT-200
-DOMAIN-SUFFIX,outlookads.live.com,REJECT
-DOMAIN-SUFFIX,a1.firefoxchina.cn,REJECT
-DOMAIN-SUFFIX,ads.linkedin.com,REJECT
+DOMAIN,log.snssdk.com,REJECT-NO-DROP
+DOMAIN,rtlog.snssdk.com,REJECT-NO-DROP
+DOMAIN,mcs.snssdk.com,REJECT-NO-DROP
+DOMAIN,dm.snssdk.com,REJECT-NO-DROP
+DOMAIN,toblog.ctobsnssdk.com,REJECT-NO-DROP
+DOMAIN,log-api.pangolin-sdk-toutiao.com,REJECT-NO-DROP
+DOMAIN,beacon.qq.com,REJECT-NO-DROP
+DOMAIN,rqd.qq.com,REJECT-NO-DROP
+DOMAIN,ios.bugly.qq.com,REJECT-NO-DROP
+DOMAIN,mdap.alipay.com,REJECT-NO-DROP
+DOMAIN,wn.pos.baidu.com,REJECT-NO-DROP
+DOMAIN,afd.baidu.com,REJECT-NO-DROP
+DOMAIN,afdconf.baidu.com,REJECT-NO-DROP
+DOMAIN,stats.jpush.cn,REJECT-200
+DOMAIN,crashlytics.com,REJECT-NO-DROP
+DOMAIN,adjust.com,REJECT-NO-DROP
+DOMAIN,appsflyersdk.com,REJECT-NO-DROP
+DOMAIN,app-log-lab.tantanapp.com,REJECT-NO-DROP
+DOMAIN,io-sm-log.tantanapp.com,REJECT-NO-DROP
+DOMAIN,client-monitor.tantanapp.com,REJECT-NO-DROP
+DOMAIN,f10.baidu.com,REJECT-NO-DROP
+DOMAIN,ad.snssdk.com,REJECT-NO-DROP
+DOMAIN,ad.zijieapi.com,REJECT-NO-DROP
+DOMAIN,ads.zijieapi.com,REJECT-NO-DROP
+DOMAIN,pangolin.zijieapi.com,REJECT-NO-DROP
+DOMAIN,pangle.zijieapi.com,REJECT-NO-DROP
+DOMAIN,dig.bdurl.net,REJECT-200
+DOMAIN,h-adashx.dingtalkapps.com,REJECT-NO-DROP
+DOMAIN,h-adashx.ut.taobao.com,REJECT-NO-DROP
+DOMAIN,app-analytics-services.com,REJECT-200
+DOMAIN,log-hl.snssdk.com,REJECT-NO-DROP
+DOMAIN,apm-native.xiaohongshu.com,REJECT-NO-DROP
+DOMAIN,t2.xiaohongshu.com,REJECT-NO-DROP
+DOMAIN,spider-tracker.xiaohongshu.com,REJECT-200
+DOMAIN,lng.xiaohongshu.com,REJECT-NO-DROP
+DOMAIN,apm-fe.xiaohongshu.com,REJECT-NO-DROP
+DOMAIN,utoken.umeng.com,REJECT-NO-DROP
+DOMAIN,cnlogs.umengcloud.com,REJECT-NO-DROP
+DOMAIN,resolve.umeng.com,REJECT-NO-DROP
+DOMAIN,cnlogs.umeng.com,REJECT-NO-DROP
+DOMAIN,errnewlog.umeng.com,REJECT-NO-DROP
+DOMAIN,sdk.e.qq.com,REJECT-NO-DROP
+DOMAIN,mi.gdt.qq.com,REJECT-NO-DROP
 # === Compiled App Rules ===
 DOMAIN,sdkapp.uve.weibo.com,DIRECT
 DOMAIN,adstrategy.biz.weibo.com,REJECT
