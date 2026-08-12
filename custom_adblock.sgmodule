@@ -147,7 +147,6 @@ DOMAIN-SUFFIX,ads.linkedin.com,REJECT
 DOMAIN-SUFFIX,outlookads.live.com,REJECT
 DOMAIN-SUFFIX,a1.firefoxchina.cn,REJECT
 # === Compiled App Rules ===
-DOMAIN,sdkapp.uve.weibo.com,DIRECT
 DOMAIN,adstrategy.biz.weibo.com,REJECT
 DOMAIN-SUFFIX,api.touch-moblie.com,REJECT
 DOMAIN-SUFFIX,iyes.youku.com,REJECT

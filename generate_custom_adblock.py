@@ -1018,6 +1018,8 @@ def generate():
     transformed_rules = []
     for r in final_rules:
         if not any(d in r.lower() for d in _filter_domains):
+            if r.strip().endswith(",DIRECT") or r.strip().endswith(",direct"):
+                continue
             res = transform_rule_with_three_layers(r)
             if res:
                 transformed_rules.append(res)

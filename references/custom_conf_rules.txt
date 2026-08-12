@@ -34,6 +34,17 @@ PREPEND_DIRECT,DOMAIN-SUFFIX,aaplimg.com,Direct
 PREPEND_DIRECT,DOMAIN-SUFFIX,cdn-apple.com,Direct
 
 # ---------------------------------------------------
+# 关键直连救场区：修复苹果中国定位 + 补齐开源 China_Domain 遗漏快递域名
+# ---------------------------------------------------
+PREPEND_DIRECT,DOMAIN,gs-loc-cn.apple.com,Direct
+PREPEND_DIRECT,DOMAIN-SUFFIX,zto.com,Direct
+PREPEND_DIRECT,DOMAIN-SUFFIX,zto.cn,Direct
+PREPEND_DIRECT,DOMAIN-SUFFIX,yundaex.com,Direct
+PREPEND_DIRECT,DOMAIN-SUFFIX,deppon.com,Direct
+PREPEND_DIRECT,DOMAIN-SUFFIX,guoguo-app.com,Direct
+PREPEND_DIRECT,DOMAIN-SUFFIX,sf-service.com,Direct
+
+# ---------------------------------------------------
 # [动作 4] 上游冲突/冗余苹果子域名原位注释禁用 (DISABLE)
 # 作用：原行原位保留，仅前端加上 # 🚫 注释，0 偏移且彻底消除规则冲突
 # ---------------------------------------------------
@@ -49,14 +60,3 @@ DISABLE,DOMAIN-SUFFIX,icloud.cdn-apple.com,Direct
 DISABLE,DOMAIN-SUFFIX,store.storeimages.cdn-apple.com,Direct
 DISABLE,DOMAIN-SUFFIX,updates-http.cdn-apple.com.akadns.net,Direct
 
-# ---------------------------------------------------
-# [动作 4] 上游冲突/冗余苹果子域名原位注释禁用 (DISABLE)
-# 作用：原行原位保留，仅前端加上 # 🚫 注释，0 偏移且彻底消除规则冲突
-# ---------------------------------------------------
-DISABLE,DOMAIN-SUFFIX,appldnld.g.aaplimg.com,Proxy
-DISABLE,DOMAIN-SUFFIX,cds-cdn.v.aaplimg.com,Proxy
-DISABLE,DOMAIN-SUFFIX,pancake.cdn-apple.com.akadns.net,Proxy
-DISABLE,DOMAIN-SUFFIX,iosapps.itunes.g.aaplimg.com,Direct
-DISABLE,DOMAIN-SUFFIX,swcdn.g.aaplimg.com,Direct
-DISABLE,DOMAIN-SUFFIX,updates-http.cdn-apple.com,Direct
-DISABLE,DOMAIN-SUFFIX,updates.cdn-apple.com,Direct
