@@ -1004,9 +1004,7 @@ def generate():
     beijing_now = utc_now + datetime.timedelta(hours=8)
     beijing_time_str = beijing_now.strftime('%Y-%m-%d %H:%M:%S')
     
-    BYPASS_RULES = [x for x in _s_data["BYPASS_RULES"] if not x.startswith("#") or "Bypass Rules" in x]
-
-    # 彻底应用三重判定洗礼：擦除放行、显式指定覆盖、启发式特征分配
+    BYPASS_RULES = []
     _filter_domains = {"pglstatp-toutiao.com", "mask.icloud.com", "mask-api.icloud.com", "mask-h2.icloud.com", "metrics.icloud.com"}
     
     transformed_sdk = []

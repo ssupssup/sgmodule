@@ -1,85 +1,8 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-08-12 19:14:32 | Deep ad block & UI purification customized for user's installed apps.
-#!total=1357
+#!desc=最近更新: 2026-08-12 20:05:55 | Deep ad block & UI purification customized for user's installed apps.
+#!total=1280
 
 [Rule]
-DOMAIN,gs-loc-cn.apple.com,DIRECT
-# === Bypass Rules for WeChat, Alipay, Bank and Login App anomalies ===
-DOMAIN,amdc.alipay.com,DIRECT
-DOMAIN,re.m.taobao.com,DIRECT
-DOMAIN,enrichgw.10010.com,DIRECT
-DOMAIN-SUFFIX,wxs.qq.com,DIRECT
-DOMAIN,aedns.weixin.qq.com,DIRECT
-DOMAIN,apd-pcdnwxlogin.teg.tencent-cloud.net,DIRECT
-DOMAIN-SUFFIX,wechatpay.cn,DIRECT
-DOMAIN-SUFFIX,tenpay.com,DIRECT
-DOMAIN-SUFFIX,qpic.cn,DIRECT
-DOMAIN-SUFFIX,qlogo.cn,DIRECT
-DOMAIN,mazu.m.qq.com,DIRECT
-DOMAIN,msmp.abchina.com.cn,DIRECT
-DOMAIN,log.cmbchina.com,DIRECT
-DOMAIN,httpdns.music.163.com,DIRECT
-DOMAIN,smartad.10010.com,DIRECT
-DOMAIN,nsclick.baidu.com,DIRECT
-DOMAIN-SUFFIX,amazon.com,DIRECT
-DOMAIN-SUFFIX,amazon.cn,DIRECT
-DOMAIN-SUFFIX,media-amazon.com,DIRECT
-DOMAIN-SUFFIX,ssl-images-amazon.com,DIRECT
-DOMAIN-SUFFIX,amazon-adsystem.com,DIRECT
-DOMAIN-SUFFIX,baidu.com,DIRECT
-DOMAIN-SUFFIX,baidupcs.com,DIRECT
-DOMAIN-SUFFIX,bdstatic.com,DIRECT
-DOMAIN-SUFFIX,tieba.com,DIRECT
-DOMAIN-SUFFIX,tbapi.baidu.com,DIRECT
-DOMAIN-SUFFIX,jiguang.cn,DIRECT
-DOMAIN-SUFFIX,jpush.cn,DIRECT
-DOMAIN-SUFFIX,mobads.baidu.com,DIRECT
-DOMAIN-SUFFIX,mobads-logs.baidu.com,DIRECT
-DOMAIN-SUFFIX,umeng.com,DIRECT
-DOMAIN-SUFFIX,umengcloud.com,DIRECT
-DOMAIN,apikey.map.qq.com,DIRECT
-DOMAIN,cdn.ynuf.aliapp.org,DIRECT
-DOMAIN,p3-ad-sign.byteimg.com,DIRECT
-DOMAIN,aweme.snssdk.com,DIRECT
-DOMAIN,i.snssdk.com,DIRECT
-DOMAIN,api.snssdk.com,DIRECT
-DOMAIN,api-access.snssdk.com,DIRECT
-DOMAIN,security.snssdk.com,DIRECT
-DOMAIN,verify.snssdk.com,DIRECT
-DOMAIN,lf.snssdk.com,DIRECT
-DOMAIN-SUFFIX,alipay.com,DIRECT
-DOMAIN-SUFFIX,alipayobjects.com,DIRECT
-DOMAIN-SUFFIX,cainiao.com,DIRECT
-DOMAIN-SUFFIX,cainiao.com.cn,DIRECT
-DOMAIN-SUFFIX,guoguo-app.com,DIRECT
-DOMAIN-SUFFIX,amap.com,DIRECT
-DOMAIN-SUFFIX,zto.com,DIRECT
-DOMAIN-SUFFIX,zto.cn,DIRECT
-DOMAIN-SUFFIX,yto.net.cn,DIRECT
-DOMAIN-SUFFIX,yt.com.cn,DIRECT
-DOMAIN-SUFFIX,sto.cn,DIRECT
-DOMAIN-SUFFIX,sto-express.cn,DIRECT
-DOMAIN-SUFFIX,yundaex.com,DIRECT
-DOMAIN-SUFFIX,jtexpress.com.cn,DIRECT
-DOMAIN-SUFFIX,sf-express.com,DIRECT
-DOMAIN-SUFFIX,sf-service.com,DIRECT
-DOMAIN-SUFFIX,ems.com.cn,DIRECT
-DOMAIN-SUFFIX,chinapost.com.cn,DIRECT
-DOMAIN-SUFFIX,deppon.com,DIRECT
-DOMAIN-SUFFIX,jdl.com,DIRECT
-DOMAIN-SUFFIX,jdl.cn,DIRECT
-DOMAIN-SUFFIX,kuaidi100.com,DIRECT
-DOMAIN,vcs.zijieapi.com,DIRECT
-DOMAIN-SUFFIX,mssdk.bytedance.com,DIRECT
-DOMAIN-SUFFIX,mssdk.volces.com,DIRECT
-DOMAIN-SUFFIX,mssdk.zijieapi.com,DIRECT
-DOMAIN-SUFFIX,tnc.zijieapi.com,DIRECT
-DOMAIN-SUFFIX,tnc3-sz.zijieapi.com,DIRECT
-DOMAIN-SUFFIX,tnc3-alipay.zijieapi.com,DIRECT
-DOMAIN-SUFFIX,tnc11.zijieapi.com,DIRECT
-DOMAIN,is.snssdk.com,DIRECT
-DOMAIN,applog.snssdk.com,DIRECT
-DOMAIN-KEYWORD,dy.snssdk,DIRECT
 # === SDK Core REJECT Rules ===
 # === 2026-08-11 防发热：日志/崩溃/遥测 SDK 优雅阻断 (REJECT-200 清空队列) ===
 DOMAIN,errnewlog.umeng.com,REJECT-200
