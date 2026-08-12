@@ -23,12 +23,6 @@ PREPEND_PROXY,DOMAIN-SUFFIX,google.com,Proxy
 PREPEND_PROXY,DOMAIN-SUFFIX,google,Proxy
 PREPEND_PROXY,DOMAIN-SUFFIX,gstatic.com,Proxy
 PREPEND_PROXY,DOMAIN-SUFFIX,googleusercontent.com,Proxy
-# LINE 与 NAVER 被 China_Domain 误杀域名修正代理区 (保障 LINE 首页卡片秒开，不触发苹果定位副作用)
-PREPEND_PROXY,DOMAIN-SUFFIX,naver.com,Proxy
-PREPEND_PROXY,DOMAIN-SUFFIX,naver.jp,Proxy
-PREPEND_PROXY,DOMAIN-SUFFIX,line.me,Proxy
-PREPEND_PROXY,DOMAIN-SUFFIX,line-apps.com,Proxy
-PREPEND_PROXY,DOMAIN-SUFFIX,line-scdn.net,Proxy
 
 # ---------------------------------------------------
 # [动作 3] 顶层最高优先级强直连区 (PREPEND_DIRECT)
