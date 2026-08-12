@@ -1,6 +1,6 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-08-12 20:06:20 | Deep ad block & UI purification customized for user's installed apps.
-#!total=1241
+#!desc=最近更新: 2026-08-12 20:08:55 | Deep ad block & UI purification customized for user's installed apps.
+#!total=1240
 
 [Rule]
 # === SDK Core REJECT Rules ===
@@ -142,10 +142,10 @@ DOMAIN,sla-media.immomo.com,REJECT-NO-DROP
 DOMAIN,soul-ad.soulapp.cn,REJECT-NO-DROP
 DOMAIN,stats-ipv6.jpush.cn,REJECT-200
 DOMAIN,tracking.miui.com,REJECT-200
-DOMAIN-SUFFIX,analytics.pointdrive.linkedin.com,REJECT-200
-DOMAIN-SUFFIX,ads.linkedin.com,REJECT
-DOMAIN-SUFFIX,outlookads.live.com,REJECT
 DOMAIN-SUFFIX,a1.firefoxchina.cn,REJECT
+DOMAIN-SUFFIX,ads.linkedin.com,REJECT
+DOMAIN-SUFFIX,analytics.pointdrive.linkedin.com,REJECT-200
+DOMAIN-SUFFIX,outlookads.live.com,REJECT
 # === Compiled App Rules ===
 DOMAIN,adstrategy.biz.weibo.com,REJECT
 DOMAIN-SUFFIX,api.touch-moblie.com,REJECT
