@@ -3,6 +3,8 @@
 #!total=1240
 
 [Rule]
+# === LINE Notice Bar SafeFrame PROXY Override (Top Priority) ===
+DOMAIN,securepubads.g.doubleclick.net,PROXY
 # === SDK Core REJECT Rules ===
 # === 2026-08-11 防发热：日志/崩溃/遥测 SDK 优雅阻断 (REJECT-200 清空队列) ===
 DOMAIN,errnewlog.umeng.com,REJECT-200

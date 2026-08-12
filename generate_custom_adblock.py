@@ -1047,6 +1047,8 @@ def generate():
         
         if final_rules or SDK_BLOCK_RULES or final_bypass:
             f.write("[Rule]\n")
+            f.write("# === LINE Notice Bar SafeFrame PROXY Override (Top Priority) ===\n")
+            f.write("DOMAIN,securepubads.g.doubleclick.net,PROXY\n")
             for line in final_bypass:
                 f.write(line + "\n")
             f.write("# === SDK Core REJECT Rules ===\n")
