@@ -23,6 +23,8 @@ PREPEND_PROXY,DOMAIN-SUFFIX,google.com,Proxy
 PREPEND_PROXY,DOMAIN-SUFFIX,google,Proxy
 PREPEND_PROXY,DOMAIN-SUFFIX,gstatic.com,Proxy
 PREPEND_PROXY,DOMAIN-SUFFIX,googleusercontent.com,Proxy
+# LINE TODAY 新闻信息流与卡片数据源强代理区 (顶层第1毫秒秒判 Proxy 秒弹出来)
+PREPEND_PROXY,DOMAIN-SUFFIX,taboola.com,Proxy
 
 # ---------------------------------------------------
 # [动作 3] 顶层最高优先级强直连区 (PREPEND_DIRECT)

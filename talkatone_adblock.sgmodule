@@ -64,7 +64,6 @@ DOMAIN-SUFFIX,skadnetworks.fyber.com,REJECT
 DOMAIN-SUFFIX,smaato.net,REJECT
 DOMAIN-SUFFIX,ssp.api.tappx.com,REJECT
 DOMAIN-SUFFIX,supply.inmobicdn.net,REJECT
-DOMAIN-SUFFIX,taboola.com,REJECT
 DOMAIN-SUFFIX,tappx.com,REJECT
 DOMAIN-SUFFIX,tpc.googlesyndication-cn.com,REJECT
 DOMAIN-SUFFIX,tr-asia.adsmoloco.com,REJECT
