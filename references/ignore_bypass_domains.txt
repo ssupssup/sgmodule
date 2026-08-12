@@ -1,0 +1,3 @@
+# 探探死循环高频上报域名 (擦除拦截规则，走 CONF 直连)
+REPORT.TANTANAPP.COM
+SC-REPORT.TANTANAPP.COM

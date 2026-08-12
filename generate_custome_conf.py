@@ -118,9 +118,13 @@ def process_and_align_conf(lines, remove_set, disable_set, prepend_proxy_rules, 
                     aligned_lines.append(r)
                 aligned_lines.append("")
                 
+        # 4. 在 GEOIP,CN,DIRECT 前注入 Loyalsoldier 全量中国域名规则集 (解决非 .cn 域名如 douban.fm / doubanio.com 误落代理)
+        if stripped == "GEOIP,CN,DIRECT":
+            aligned_lines.append("# === 🇨🇳 引入 Loyalsoldier 全量中国域名规则集 (覆盖非 .cn 域名如 douban.fm / doubanio.com 直连) ===")
+            aligned_lines.append("RULE-SET,https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/direct.txt,DIRECT")
             aligned_lines.append(l)
             continue
-            
+
         aligned_lines.append(l)
         
     final_content = "\n".join(aligned_lines)

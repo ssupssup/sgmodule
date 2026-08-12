@@ -42,62 +42,75 @@ ALWAYS_INJECT_DOMAINS = [x for x in _s_data["ALWAYS_INJECT_DOMAINS"] if not x.st
 ALWAYS_KEEP_KEYWORDS = _s_data["ALWAYS_KEEP_KEYWORDS"]
 HIGH_RISK_MITM_DOMAINS = [x for x in _s_data["HIGH_RISK_MITM_DOMAINS"] if not x.startswith("#")]
 
-def load_agh_blocked_domains():
+def load_ignore_bypass_domains():
     base_dir = os.path.dirname(os.path.abspath(__file__))
     possible_paths = [
-        os.path.join(base_dir, "../istoreos/scratch/adguardhome_custom_rules.txt"),
-        os.path.join(base_dir, "adguardhome_custom_rules.txt"),
-        "/Users/shizupeng/Documents/antigravity/istoreos/scratch/adguardhome_custom_rules.txt"
+        os.path.join(base_dir, "references", "ignore_bypass_domains.txt"),
+        os.path.join(os.path.dirname(base_dir), "references", "ignore_bypass_domains.txt")
     ]
-    agh_file = None
+    domains = set()
     for p in possible_paths:
         if os.path.exists(p):
-            agh_file = p
+            with open(p, "r", encoding="utf-8") as f:
+                for line in f:
+                    line = line.strip()
+                    if line and not line.startswith("#"):
+                        domains.add(line.upper())
             break
-            
-    if not agh_file:
-        print("Warning: AGH custom rules file not found, skipping local AGH injection.")
-        return []
-    
-    domains = []
-    try:
-        with open(agh_file, "r", encoding="utf-8") as f:
-            lines = f.readlines()
-            
-        in_track_a = False
-        in_track_b = False
-        
-        for line in lines:
-            line_str = line.strip()
-            
-            if "轨道 A · Fake-IP" in line_str:
-                in_track_a = True
-                in_track_b = False
-                continue
-            elif "轨道 B · NXDOMAIN" in line_str:
-                in_track_a = False
-                in_track_b = True
-                continue
-            elif "第二部分：常规严格拦截" in line_str or ("\u0001F534 \u4e13\u5c5e\u533a\u57df" in line_str and "轨道 B" not in line_str):
-                in_track_a = False
-                in_track_b = False
-            
-            if in_track_a:
-                if line_str.startswith("@@||") and "$important" in line_str:
-                    domain = line_str.replace("@@||", "").split("^")[0].strip()
-                    if domain:
-                        domains.append(domain)
-            elif in_track_b:
-                if line_str.startswith("||") and "$dnsrewrite=NXDOMAIN" in line_str:
-                    domain = line_str.replace("||", "").split("^")[0].strip()
-                    if domain:
-                        domains.append(domain)
-    except Exception as e:
-        print(f"Error parsing AGH rules: {e}")
-        
-    return sorted(list(set(domains)))
+    return domains
 
-_agh_domains = load_agh_blocked_domains()
+def load_custom_reject_methods():
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    possible_paths = [
+        os.path.join(base_dir, "references", "custom_reject_methods.txt"),
+        os.path.join(os.path.dirname(base_dir), "references", "custom_reject_methods.txt")
+    ]
+    mapping = {}
+    for p in possible_paths:
+        if os.path.exists(p):
+            with open(p, "r", encoding="utf-8") as f:
+                for line in f:
+                    line = line.strip()
+                    if line and not line.startswith("#"):
+                        parts = line.split()
+                        if len(parts) >= 2:
+                            domain, method = parts[0].upper(), parts[1].upper()
+                            mapping[domain] = method
+            break
+    return mapping
+
+_ignore_domains = load_ignore_bypass_domains()
+_custom_reject_mapping = load_custom_reject_methods()
+
+def transform_rule_with_three_layers(rule_line):
+    if not rule_line or rule_line.startswith("#"):
+        return rule_line
+    
+    parts = [p.strip() for p in rule_line.split(',')]
+    if len(parts) < 3:
+        return rule_line
+
+    rule_type, domain, target_policy = parts[0], parts[1], parts[2]
+    domain_upper = domain.upper()
+
+    # 第一层：放行擦除审计 (如果域名在 ignore_bypass_domains 中，直接删除规则，走 CONF 直连)
+    for ig_domain in _ignore_domains:
+        if domain_upper == ig_domain or domain_upper.endswith("." + ig_domain):
+            return None
+
+    # 第二层：显式精细化策略覆盖 (如 dig.bdurl.net -> REJECT-200, googleads -> REJECT-DROP)
+    for c_domain, c_policy in _custom_reject_mapping.items():
+        if domain_upper == c_domain or domain_upper.endswith("." + c_domain):
+            return f"{rule_type},{domain},{c_policy}"
+
+    # 第三层：启发式日志/上报 API 自动分流为 REJECT-200 (防 SDK 收到 404 死循环重试发热)
+    domain_lower = domain.lower()
+    if target_policy in ["REJECT", "REJECT-NO-DROP"]:
+        if any(kw in domain_lower for kw in ["adlog", "analytics", "telemetry", "track", "stat"]):
+            return f"{rule_type},{domain},REJECT-200"
+
+    return rule_line
+
 
 
 def sanitize_hostname(host):
@@ -498,16 +511,7 @@ if os.path.exists(_sdkdomain_list_file):
 else:
     print(f"Warning: {_sdkdomain_list_file} not found! Dynamic alignment fallback.")
 
-# =================================================================
-# 🚀 双端联动：自动从本地 AdGuard Home 自定义规则 (Track A + Track B) 动态加载全部核心拦截域名并强制统一为 REJECT-NO-DROP
-# =================================================================
-_agh_count = 0
-for _dom in _agh_domains:
-    _rule = f"DOMAIN,{_dom},REJECT-NO-DROP"
-    if _rule not in SDK_BLOCK_RULES:
-        SDK_BLOCK_RULES.append(_rule)
-        _agh_count += 1
-print(f"Dynamically appended {_agh_count} domains from AdGuard Home (Track A + B) into SDK_BLOCK_RULES.")
+# 彻底解耦：不再动态注入 AdGuard Home 本地规则，保持小火箭去广告模块纯净化自编译
 
 
 
@@ -568,6 +572,7 @@ def fetch_and_extract_dynamic_rules(target_apps):
     return list(set(dynamic_rules))
 
 def generate():
+    global SDK_BLOCK_RULES
     import os
     supported_apps = set(APP_KEYWORDS.keys()) | set(OVERRIDE_APPS.keys())
     unsupported_installed_apps = [app for app in INSTALLED_APPS if app not in supported_apps]
@@ -1001,9 +1006,25 @@ def generate():
     
     BYPASS_RULES = [x for x in _s_data["BYPASS_RULES"] if not x.startswith("#") or "Bypass Rules" in x]
 
-    # 动态排除 AGH 的打点/拦截域名及字节 TNC 相关，防止编译生成的 final_rules 等地方带入普通 REJECT 或重写
-    _filter_domains = set(_agh_domains) | {"pglstatp-toutiao.com", "mask.icloud.com", "mask-api.icloud.com", "mask-h2.icloud.com", "metrics.icloud.com"}
-    final_rules = [r for r in final_rules if not any(d in r.lower() for d in _filter_domains)]
+    # 彻底应用三重判定洗礼：擦除放行、显式指定覆盖、启发式特征分配
+    _filter_domains = {"pglstatp-toutiao.com", "mask.icloud.com", "mask-api.icloud.com", "mask-h2.icloud.com", "metrics.icloud.com"}
+    
+    transformed_sdk = []
+    for r in SDK_BLOCK_RULES:
+        if not any(d in r.lower() for d in _filter_domains):
+            res = transform_rule_with_three_layers(r)
+            if res:
+                transformed_sdk.append(res)
+    SDK_BLOCK_RULES = transformed_sdk
+
+    transformed_rules = []
+    for r in final_rules:
+        if not any(d in r.lower() for d in _filter_domains):
+            res = transform_rule_with_three_layers(r)
+            if res:
+                transformed_rules.append(res)
+    final_rules = transformed_rules
+
     final_rewrites = [r for r in final_rewrites if not any(d in r.lower() for d in _filter_domains)]
     final_scripts = [s for s in final_scripts if not any(d in s.lower() for d in _filter_domains)]
     final_mitm = [m for m in final_mitm if not any(d in m.lower() for d in _filter_domains)]
