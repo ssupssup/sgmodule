@@ -72,42 +72,73 @@ def fetch_top500_rules():
         print(f"⚠️ 抓取 Top500 规则失败: {e}")
         raise e
 
-def fetch_and_clean_china_direct_rules():
-    import urllib.request
+def fetch_and_clean_china_direct_rules(existing_top500_rules):
+    import urllib.request, re
     china_rules = []
-    urls = [
-        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/ChinaMax/ChinaMax.list",
-        "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/China/China.list"
-    ]
-    for url in urls:
-        try:
-            req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
-            with urllib.request.urlopen(req, timeout=10) as resp:
-                lines = resp.read().decode('utf-8').splitlines()
-                for l in lines:
-                    stripped = l.strip()
-                    if not stripped or stripped.startswith("#"):
+    url = "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/direct.txt"
+    
+    # 1. 提取 Top500 中已有的全量域名 (包含 Proxy 和 Direct)，遵循 Top500 绝对优先法则
+    top500_domains = set()
+    for line in existing_top500_rules:
+        stripped = line.strip()
+        if not stripped or stripped.startswith("#"):
+            continue
+        parts = [p.strip() for p in stripped.split(',')]
+        if len(parts) >= 2 and parts[0] in ["DOMAIN", "DOMAIN-SUFFIX", "DOMAIN-KEYWORD"]:
+            dom = parts[1].lower().split('#')[0].strip()
+            if dom:
+                top500_domains.add(dom)
+
+    print(f"📊 Top500 提取出已知权威域名基线: {len(top500_domains)} 个")
+
+    try:
+        req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            lines = resp.read().decode('utf-8').splitlines()
+            for l in lines:
+                stripped = l.strip()
+                if not stripped or stripped.startswith("#"):
+                    continue
+                # 正则匹配 YAML 中的 - '+.domain' 或 - 'domain'
+                m = re.search(r"-\s*[\x27\"]?\+?\.?([a-zA-Z0-9\.\-\_]+)[\x27\"]?", stripped)
+                if m:
+                    domain = m.group(1).strip()
+                    if not domain or domain.startswith("#"):
                         continue
-                    l_lower = stripped.lower()
-                    # 强防误杀过滤：任何包含代理/敏感关键字的域名直接丢弃
-                    if any(kw in l_lower for kw in PROXY_PROTECT_KEYWORDS):
-                        print(f"🛡️ 防误杀过滤：丢弃冲突域名 -> {stripped}")
+                    
+                    domain_lower = domain.lower()
+                    
+                    # 2. 防误杀黑名单物理过滤：丢弃任何包含代理/敏感关键字的域名
+                    if any(kw in domain_lower for kw in PROXY_PROTECT_KEYWORDS):
                         continue
-                    if stripped.startswith("DOMAIN") or stripped.startswith("USER-AGENT"):
-                        parts = [p.strip() for p in stripped.split(",")]
-                        if len(parts) >= 2:
-                            china_rules.append(f"{parts[0]},{parts[1]},Direct")
-        except Exception as e:
-            print(f"⚠️ 抓取中国域名规则集 {url} 失败: {e}")
-    print(f"✅ 成功清洗并合并得出 {len(china_rules)} 条安全的中国域名直连规则。")
+                    
+                    # 3. Top500 绝对优先法则：只要 Top500 里已经有了 (无论是 Proxy 还是 Direct)，一律采用 Top500，直接丢弃
+                    if domain_lower in top500_domains:
+                        continue
+                    
+                    # 检查是否为 Top500 中已涵盖域名的子域名 (例如 Top500 有 baidu.com, 忽略 tieba.baidu.com)
+                    is_subdomain_covered = False
+                    for top_dom in top500_domains:
+                        if domain_lower.endswith("." + top_dom):
+                            is_subdomain_covered = True
+                            break
+                    if is_subdomain_covered:
+                        continue
+
+                    china_rules.append(f"DOMAIN-SUFFIX,{domain},Direct")
+    except Exception as e:
+        print(f"⚠️ 抓取 Loyalsoldier direct.txt 失败: {e}")
+        
+    print(f"✅ 成功清洗 Loyalsoldier 并以 Top500 优先去重，得出 {len(china_rules)} 条新增纯净中国域名直连规则。")
     return list(dict.fromkeys(china_rules))
 
 def process_and_align_conf(lines, remove_set, disable_set, prepend_proxy_rules, prepend_direct_rules):
     aligned_lines = []
+    seen_conf_domains = set()
     now_str = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).strftime("%Y-%m-%d %H:%M:%S")
     
     injected_custom_rules = False
-    china_direct_rules = fetch_and_clean_china_direct_rules()
+    china_direct_rules = fetch_and_clean_china_direct_rules(lines)
     
     for l in lines:
         stripped = l.strip()
@@ -156,14 +187,24 @@ def process_and_align_conf(lines, remove_set, disable_set, prepend_proxy_rules, 
                     aligned_lines.append(r)
                 aligned_lines.append("")
                 
-        # 4. 在 GEOIP,CN,DIRECT 前注入经 Python 在线清洗+防误杀过滤后的 BlackMatrix7 中国域名直连规则段
+        # 4. 在 GEOIP,CN,DIRECT 前注入经 Python 在线清洗+Top500去重后的 Loyalsoldier 中国域名直连规则段
         if stripped == "GEOIP,CN,DIRECT":
-            aligned_lines.append("# === 🇨🇳 经 Python 脚本在线清洗+防误杀过滤后的 BlackMatrix7 中国域名直连区 ===")
+            aligned_lines.append("# === 🇨🇳 经 Python 脚本在线清洗+Top500去重后的 Loyalsoldier 中国域名直连区 ===")
             for cr in china_direct_rules:
                 aligned_lines.append(cr)
             aligned_lines.append("")
             aligned_lines.append(l)
             continue
+
+        # 5. 全局 Top500 原版物理防重滤镜：彻底消除上游 Top500 文件自带的冲突重复行 (如 Line 531 Proxy 与 Line 568 Direct 冲突)
+        if stripped and not stripped.startswith("#"):
+            parts = [p.strip() for p in stripped.split(',')]
+            if len(parts) >= 2 and parts[0] in ["DOMAIN", "DOMAIN-SUFFIX", "DOMAIN-KEYWORD"]:
+                dom_key = (parts[0], parts[1].lower().split('#')[0].strip())
+                if dom_key in seen_conf_domains:
+                    print(f"✂️ 成功清理 Top500 原版自带冲突行: {stripped}")
+                    continue
+                seen_conf_domains.add(dom_key)
 
         aligned_lines.append(l)
         
