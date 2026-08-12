@@ -20,11 +20,34 @@ CUSTOM_RULES_FILE = os.path.join(BASE_DIR, "references", "custom_conf_rules.txt"
 OUTPUT_CONF = os.path.join(BASE_DIR, "custome_conf.conf")
 
 PROXY_PROTECT_KEYWORDS = [
-    "google", "googleapis", "gstatic", "googleusercontent",
-    "youtube", "googlevideo", "ytimg",
-    "openai", "chatgpt", "oaistatic", "oaiusercontent",
-    "claude", "anthropic", "gemini", "github", "twitter", "x.com", "facebook", "telegram"
+    # 搜索引擎与基础设施 API
+    "google", "googleapis", "gstatic", "googleusercontent", "ggpht",
+    # AI 平台
+    "openai", "chatgpt", "oaistatic", "oaiusercontent", "claude", "anthropic", "gemini", "grok", "perplexity",
+    # 视频与流媒体
+    "youtube", "googlevideo", "ytimg", "netflix", "hbo", "disney", "spotify", "hulu", "twitch",
+    # 社交与通讯
+    "twitter", "x.com", "facebook", "instagram", "telegram", "discord", "line", "whatsapp", "pixiv",
+    # 开发者与代码
+    "github", "githubusercontent", "gist", "medium", "wikipedia"
 ]
+
+# 常见二级域名后缀 SLD 清单 (防止将 edu.cn 或 com.cn 错误合并)
+SLD_SUFFIXES = {".com.cn", ".net.cn", ".org.cn", ".gov.cn", ".edu.cn", ".co.uk", ".com.tw", ".com.hk", ".co.jp"}
+
+def extract_root_domain(domain):
+    """主根域名强力折叠算法：将 ap-southeast-1.myhuaweicloud.com 归并为 myhuaweicloud.com"""
+    for sfx in SLD_SUFFIXES:
+        if domain.endswith(sfx):
+            prefix = domain[:-len(sfx)]
+            parts = prefix.split(".")
+            if parts:
+                return parts[-1] + sfx
+            return domain
+    parts = domain.split(".")
+    if len(parts) >= 2:
+        return parts[-2] + "." + parts[-1]
+    return domain
 
 def load_custom_override_rules():
     remove_set = set()
@@ -73,9 +96,9 @@ def fetch_top500_rules():
         raise e
 
 def fetch_and_clean_china_direct_rules(existing_top500_rules):
-    import urllib.request, re
+    import urllib.request
     china_rules = []
-    url = "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/direct.txt"
+    url = "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/China/China_Domain.list"
     
     # 1. 提取 Top500 中已有的全量域名 (包含 Proxy 和 Direct)，遵循 Top500 绝对优先法则
     top500_domains = set()
@@ -95,42 +118,48 @@ def fetch_and_clean_china_direct_rules(existing_top500_rules):
         req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
         with urllib.request.urlopen(req, timeout=15) as resp:
             lines = resp.read().decode('utf-8').splitlines()
+            
+            raw_domains = []
             for l in lines:
                 stripped = l.strip()
                 if not stripped or stripped.startswith("#"):
                     continue
-                # 正则匹配 YAML 中的 - '+.domain' 或 - 'domain'
-                m = re.search(r"-\s*[\x27\"]?\+?\.?([a-zA-Z0-9\.\-\_]+)[\x27\"]?", stripped)
-                if m:
-                    domain = m.group(1).strip()
-                    if not domain or domain.startswith("#"):
-                        continue
-                    
-                    domain_lower = domain.lower()
-                    
-                    # 2. 防误杀黑名单物理过滤：丢弃任何包含代理/敏感关键字的域名
-                    if any(kw in domain_lower for kw in PROXY_PROTECT_KEYWORDS):
-                        continue
-                    
-                    # 3. Top500 绝对优先法则：只要 Top500 里已经有了 (无论是 Proxy 还是 Direct)，一律采用 Top500，直接丢弃
-                    if domain_lower in top500_domains:
-                        continue
-                    
-                    # 检查是否为 Top500 中已涵盖域名的子域名 (例如 Top500 有 baidu.com, 忽略 tieba.baidu.com)
-                    is_subdomain_covered = False
-                    for top_dom in top500_domains:
-                        if domain_lower.endswith("." + top_dom):
-                            is_subdomain_covered = True
-                            break
-                    if is_subdomain_covered:
-                        continue
+                if stripped.startswith("."):
+                    stripped = stripped[1:]
+                domain_lower = stripped.lower()
+                
+                # 2. 防误杀黑名单物理过滤：丢弃任何包含代理/敏感关键字的域名
+                if any(kw in domain_lower for kw in PROXY_PROTECT_KEYWORDS):
+                    continue
+                
+                raw_domains.append(domain_lower)
 
-                    china_rules.append(f"DOMAIN-SUFFIX,{domain},Direct")
+            # 3. 实施主根域名强力归并折叠 (如 ap-southeast-1.myhuaweicloud.com -> myhuaweicloud.com)
+            folded_roots = set()
+            for d in raw_domains:
+                root = extract_root_domain(d)
+                folded_roots.add(root)
+
+            # 4. Top500 绝对优先法则：只要 Top500 里已经有了 (无论是 Proxy 还是 Direct)，一律采用 Top500，直接丢弃
+            for domain in sorted(list(folded_roots)):
+                if domain in top500_domains:
+                    continue
+                
+                is_subdomain_covered = False
+                for top_dom in top500_domains:
+                    if domain.endswith("." + top_dom):
+                        is_subdomain_covered = True
+                        break
+                if is_subdomain_covered:
+                    continue
+
+                china_rules.append(f"DOMAIN-SUFFIX,{domain},Direct")
     except Exception as e:
-        print(f"⚠️ 抓取 Loyalsoldier direct.txt 失败: {e}")
+        print(f"⚠️ 抓取 BlackMatrix7 China_Domain.list 失败: {e}")
         
-    print(f"✅ 成功清洗 Loyalsoldier 并以 Top500 优先去重，得出 {len(china_rules)} 条新增纯净中国域名直连规则。")
-    return list(dict.fromkeys(china_rules))
+    china_rules = list(dict.fromkeys(china_rules))
+    print(f"✅ 成功清洗 China_Domain 并完成主根强力归并与 Top500 优先去重，得出 {len(china_rules)} 条精炼纯净的中国域名直连规则。")
+    return china_rules
 
 def process_and_align_conf(lines, remove_set, disable_set, prepend_proxy_rules, prepend_direct_rules):
     aligned_lines = []
@@ -200,7 +229,7 @@ def process_and_align_conf(lines, remove_set, disable_set, prepend_proxy_rules, 
         if stripped and not stripped.startswith("#"):
             parts = [p.strip() for p in stripped.split(',')]
             if len(parts) >= 2 and parts[0] in ["DOMAIN", "DOMAIN-SUFFIX", "DOMAIN-KEYWORD"]:
-                dom_key = (parts[0], parts[1].lower().split('#')[0].strip())
+                dom_key = parts[1].lower().split('#')[0].strip()
                 if dom_key in seen_conf_domains:
                     print(f"✂️ 成功清理 Top500 原版自带冲突行: {stripped}")
                     continue
