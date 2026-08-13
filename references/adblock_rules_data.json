@@ -750,7 +750,12 @@
     "DOMAIN,sla-media.immomo.com,REJECT-NO-DROP",
     "DOMAIN,soul-ad.soulapp.cn,REJECT-NO-DROP",
     "DOMAIN,stats-ipv6.jpush.cn,REJECT-NO-DROP",
-    "DOMAIN,tracking.miui.com,REJECT-NO-DROP"
+    "DOMAIN,tracking.miui.com,REJECT-NO-DROP",
+    "DOMAIN,log0-misc-lf.amemv.com,REJECT-200",
+    "DOMAIN,mon0-misc-lf.amemv.com,REJECT-200",
+    "DOMAIN,logbk.amemv.com,REJECT-200",
+    "DOMAIN,ads5-normal-hj.zijieapi.com,REJECT-DICT",
+    "DOMAIN,stat.youpin.mi.com,REJECT-200"
   ],
   "MANDATORY_MITM_DOMAINS": [
     "api.douban.com",
