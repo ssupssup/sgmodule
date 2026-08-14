@@ -999,10 +999,8 @@ def generate():
         script_dir = os.path.dirname(script_dir)
     output_path = os.path.join(script_dir, "custom_adblock.sgmodule")
     
-    import datetime
-    utc_now = datetime.datetime.utcnow()
-    beijing_now = utc_now + datetime.timedelta(hours=8)
-    beijing_time_str = beijing_now.strftime('%Y-%m-%d %H:%M:%S')
+    from datetime import datetime, timezone, timedelta
+    beijing_time_str = datetime.now(timezone(timedelta(hours=8))).strftime('%Y-%m-%d %H:%M:%S')
     
     BYPASS_RULES = []
     _filter_domains = {"pglstatp-toutiao.com", "mask.icloud.com", "mask-api.icloud.com", "mask-h2.icloud.com", "metrics.icloud.com"}

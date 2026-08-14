@@ -174,10 +174,8 @@ def main():
     script_dir = os.path.dirname(os.path.abspath(__file__))
     output_path = os.path.join(script_dir, "ai.sgmodule")
     
-    import datetime
-    utc_now = datetime.datetime.utcnow()
-    beijing_now = utc_now + datetime.timedelta(hours=8)
-    beijing_time_str = beijing_now.strftime('%Y-%m-%d %H:%M:%S')
+    from datetime import datetime, timezone, timedelta
+    beijing_time_str = datetime.now(timezone(timedelta(hours=8))).strftime('%Y-%m-%d %H:%M:%S')
 
     with open(output_path, "w", encoding="utf-8") as f:
         f.write("#!name=AI.sgmodule (Apple Intelligence/ChatGPT/Claude/Grok/Gemini/NotebookLM/Poe/Manus/Copilot)\n")

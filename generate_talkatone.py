@@ -160,10 +160,8 @@ def generate_proxy_module(script_dir):
     for rule in community_direct_rules:
         final_rules.append(rule)
 
-    import datetime
-    utc_now = datetime.datetime.utcnow()
-    beijing_now = utc_now + datetime.timedelta(hours=8)
-    beijing_time_str = beijing_now.strftime('%Y-%m-%d %H:%M:%S')
+    from datetime import datetime, timezone, timedelta
+    beijing_time_str = datetime.now(timezone(timedelta(hours=8))).strftime('%Y-%m-%d %H:%M:%S')
 
     output_path = os.path.join(script_dir, "talkatone_proxy.sgmodule")
     with open(output_path, "w", encoding="utf-8") as f:
@@ -268,10 +266,8 @@ def generate_adblock_module(script_dir):
                 added_count += 1
         print(f" - Parsed {len(parsed)} rules from {alliance}, added {added_count} clean rules.")
 
-    import datetime
-    utc_now = datetime.datetime.utcnow()
-    beijing_now = utc_now + datetime.timedelta(hours=8)
-    beijing_time_str = beijing_now.strftime('%Y-%m-%d %H:%M:%S')
+    from datetime import datetime, timezone, timedelta
+    beijing_time_str = datetime.now(timezone(timedelta(hours=8))).strftime('%Y-%m-%d %H:%M:%S')
 
     output_path = os.path.join(script_dir, "talkatone_adblock.sgmodule")
     with open(output_path, "w", encoding="utf-8") as f:
