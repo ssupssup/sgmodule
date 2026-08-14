@@ -25,6 +25,11 @@ PREPEND_PROXY,DOMAIN-SUFFIX,gstatic.com,Proxy
 PREPEND_PROXY,DOMAIN-SUFFIX,googleusercontent.com,Proxy
 # LINE TODAY 新闻信息流与卡片数据源强代理区 (顶层第1毫秒秒判 Proxy 秒弹出来)
 PREPEND_PROXY,DOMAIN-SUFFIX,taboola.com,Proxy
+# Apple AI 鉴权单点网关强代理区 (保障 Apple AI 0 锁区，且绝不影响常规 iCloud 服务)
+PREPEND_PROXY,DOMAIN,gateway.icloud.com,Proxy
+PREPEND_PROXY,DOMAIN,mask-api.icloud.com,Proxy
+PREPEND_PROXY,DOMAIN,mask.icloud.com,Proxy
+PREPEND_PROXY,DOMAIN,mask-h2.icloud.com,Proxy
 
 # ---------------------------------------------------
 # [动作 3] 顶层最高优先级强直连区 (PREPEND_DIRECT)
@@ -34,6 +39,20 @@ PREPEND_DIRECT,DOMAIN-SUFFIX,cn1.gi-de.com,Direct
 # App Store 软件下载与静态资源 CDN 精准直连 (彻底解决批量更新放弃等待，0 影响 Apple Intelligence)
 PREPEND_DIRECT,DOMAIN-SUFFIX,aaplimg.com,Direct
 PREPEND_DIRECT,DOMAIN-SUFFIX,cdn-apple.com,Direct
+# iCloud 照片/云盘大文件与查找 iPhone 精准直连 (物理防误杀，1000M 满速)
+PREPEND_DIRECT,DOMAIN-KEYWORD,content.icloud.com,Direct
+PREPEND_DIRECT,DOMAIN-KEYWORD,fmip.icloud.com,Direct
+PREPEND_DIRECT,DOMAIN-SUFFIX,icloud-content.com,Direct
+# 高频国内自建与 API 服务静态直连 (免去 GEOIP 查表与 DNS 延迟)
+PREPEND_DIRECT,DOMAIN-SUFFIX,200610.xyz,Direct
+PREPEND_DIRECT,DOMAIN-SUFFIX,yingt.fun,Direct
+PREPEND_DIRECT,DOMAIN-SUFFIX,qishui.com,Direct
+PREPEND_DIRECT,DOMAIN-SUFFIX,ndcpp.com,Direct
+PREPEND_DIRECT,DOMAIN-SUFFIX,z1cdn.com,Direct
+# 机场订阅与转换域名直连 (防节点失效时无法更新)
+PREPEND_DIRECT,DOMAIN-SUFFIX,mitce.net,Direct
+PREPEND_DIRECT,DOMAIN-SUFFIX,crossxx.com,Direct
+PREPEND_DIRECT,DOMAIN-SUFFIX,v2cross.com,Direct
 
 # ---------------------------------------------------
 # 关键直连救场区：修复苹果中国定位 + 补齐开源 China_Domain 遗漏快递域名
