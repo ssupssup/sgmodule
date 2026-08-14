@@ -177,6 +177,11 @@ def process_and_align_conf(lines, remove_set, disable_set, prepend_proxy_rules, 
             print(f"✂️ 成功物理擦除上游坏行: {stripped}")
             continue
 
+        # 0.05 全局语法防御：彻底擦除小火箭配置文件 (.conf) 中不支持的 RULE-SET 语法坏行
+        if stripped.startswith("RULE-SET,"):
+            print(f"✂️ 成功自动擦除小火箭不支持的 RULE-SET 语法坏行: {stripped}")
+            continue
+
         # 0.1 动态将自定义规则文件中标记为 DISABLE 的坏行原位注释化禁用
         if stripped in disable_set:
             print(f"🚫 成功原位注释化禁用上游坏行: {stripped}")

@@ -13,11 +13,13 @@
 REMOVE,DOMAIN-SUFFIX,storage.googleapis.com,Direct
 REMOVE,DOMAIN-SUFFIX,tools.google.com,Direct
 REMOVE,DOMAIN-SUFFIX,blog.google,Direct
+REMOVE,RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/AppleNews/AppleNews.list,PROXY
 
 # ---------------------------------------------------
 # [动作 2] 顶层最高优先级强代理区 (PREPEND_PROXY)
 # 次序说明：插入在 [Rule] 第一顺位，防止被下方的直连规则误杀
 # ---------------------------------------------------
+PREPEND_PROXY,DOMAIN,news-client-search.apple.com,Proxy
 PREPEND_PROXY,DOMAIN-SUFFIX,googleapis.com,Proxy
 PREPEND_PROXY,DOMAIN-SUFFIX,google.com,Proxy
 PREPEND_PROXY,DOMAIN-SUFFIX,google,Proxy
