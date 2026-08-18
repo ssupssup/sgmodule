@@ -11,6 +11,8 @@ DOMAIN-SUFFIX,apple-relay.fastly-edge.com,PROXY
 DOMAIN,gspe1-ssl.ls.apple.com,PROXY
 DOMAIN,cp4.cloudflare.com,PROXY
 DOMAIN-SUFFIX,mask.icloud.com,REJECT
+DOMAIN,mask-api.icloud.com,DIRECT
+DOMAIN,gateway.icloud.com,DIRECT
 # > Yahoo (Keyword)
 DOMAIN-KEYWORD,yahoo.com,PROXY
 # > Claude (Anthropic) 依赖的第三方服务/分析统计
