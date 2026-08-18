@@ -31,10 +31,13 @@ DOMAIN-SUFFIX,push.apple.com,DIRECT
 DOMAIN-SUFFIX,icloud-content.com,DIRECT
 DOMAIN-SUFFIX,cdn-apple.com,DIRECT
 
-# ------------------ 5. 苹果全域基础放行 (兜底直连) ------------------
+# ------------------ 4. 苹果全域基础放行 (兜底直连) ------------------
 DOMAIN-SUFFIX,icloud.com,DIRECT
 DOMAIN-SUFFIX,apple.com,DIRECT
 DOMAIN-SUFFIX,apple-dns.net,DIRECT
+# Apple 整个 A 类网段（兜底直连）
+IP-CIDR,17.0.0.0/8,DIRECT,no-resolve
+
 # > Yahoo (Keyword)
 DOMAIN-KEYWORD,yahoo.com,PROXY
 # > Claude (Anthropic) 依赖的第三方服务/分析统计
