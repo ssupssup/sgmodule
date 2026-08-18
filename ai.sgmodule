@@ -1,43 +1,23 @@
 #!name=AI.sgmodule (Apple Intelligence/ChatGPT/Claude/Grok/Gemini/NotebookLM/Poe/Manus/Copilot)
-#!desc=最近更新: 2026-08-18 04:45:47 | 自用 AI 工具代理分流模块。针对平台: Apple Intelligence, ChatGPT, Claude, Grok, Gemini, NotebookLM, Poe, Manus, Copilot.
+#!desc=最近更新: 2026-08-19 04:41:54 | 自用 AI 工具代理分流模块。针对平台: Apple Intelligence, ChatGPT, Claude, Grok, Gemini, NotebookLM, Poe, Manus, Copilot.
 #!total=80
 
 [Rule]
-# ------------------ 1. Apple Intelligence & 私有计算 (走代理) ------------------
+# === User Custom AI & Apple Intelligence Rules ===
+# > Apple Intelligence / Apple AI
+# 核心Siri与听写服务
 DOMAIN,guzzoni.apple.com,PROXY
-DOMAIN-SUFFIX,smoot.apple.com,PROXY
-DOMAIN-SUFFIX,apple-relay.apple.com,PROXY
-DOMAIN-SUFFIX,apple-relay.cloudflare.com,PROXY
-DOMAIN-SUFFIX,apple-relay.fastly-edge.com,PROXY
+DOMAIN,smoot.apple.com,PROXY
+# Apple Relay & Private Relay 相关
+# 新增：匹配任何包含 "apple-relay" 的域名 (如 mask.apple-relay.apple.com 等)
+DOMAIN-KEYWORD,apple-relay,PROXY
+DOMAIN,apple-relay.apple.com,PROXY
+DOMAIN,apple-relay.cloudflare.com,PROXY
+DOMAIN,apple-relay.fastly-edge.com,PROXY
+# 位置服务 (注意：代理此域名可能会改变系统判定的地理位置)
 DOMAIN,gspe1-ssl.ls.apple.com,PROXY
+# 连接性检查
 DOMAIN,cp4.cloudflare.com,PROXY
-
-# ------------------ 2. 限制 Private Relay ------------------
-# 阻止 Private Relay 数据通道，避免其接管部分网络/DNS路径
-DOMAIN-SUFFIX,mask.icloud.com,REJECT
-DOMAIN-SUFFIX,mask-h2.icloud.com,REJECT
-DOMAIN,mask-api.icloud.com,REJECT
-
-# ------------------ 3. 苹果核心同步与大流量 CDN (走直连) ------------------
-
-DOMAIN,gateway.icloud.com,DIRECT
-DOMAIN-SUFFIX,contacts.icloud.com,DIRECT
-DOMAIN-SUFFIX,caldav.icloud.com,DIRECT
-DOMAIN-SUFFIX,reminders.icloud.com,DIRECT
-DOMAIN-SUFFIX,keyvalueservice.icloud.com,DIRECT
-DOMAIN-SUFFIX,ckdatabase.icloud.com,DIRECT
-DOMAIN-SUFFIX,fmip.icloud.com,DIRECT
-DOMAIN-SUFFIX,push.apple.com,DIRECT
-DOMAIN-SUFFIX,icloud-content.com,DIRECT
-DOMAIN-SUFFIX,cdn-apple.com,DIRECT
-
-# ------------------ 4. 苹果全域基础放行 (兜底直连) ------------------
-DOMAIN-SUFFIX,icloud.com,DIRECT
-DOMAIN-SUFFIX,apple.com,DIRECT
-DOMAIN-SUFFIX,apple-dns.net,DIRECT
-# Apple 整个 A 类网段（兜底直连）
-IP-CIDR,17.0.0.0/8,DIRECT,no-resolve
-
 # > Yahoo (Keyword)
 DOMAIN-KEYWORD,yahoo.com,PROXY
 # > Claude (Anthropic) 依赖的第三方服务/分析统计
