@@ -3,6 +3,7 @@
 #!total=80
 
 [Rule]
+# ------------------ 1. Apple Intelligence & 私有计算 (走代理) ------------------
 DOMAIN,guzzoni.apple.com,PROXY
 DOMAIN-SUFFIX,smoot.apple.com,PROXY
 DOMAIN-SUFFIX,apple-relay.apple.com,PROXY
@@ -10,9 +11,34 @@ DOMAIN-SUFFIX,apple-relay.cloudflare.com,PROXY
 DOMAIN-SUFFIX,apple-relay.fastly-edge.com,PROXY
 DOMAIN,gspe1-ssl.ls.apple.com,PROXY
 DOMAIN,cp4.cloudflare.com,PROXY
+
+# ------------------ 2. 关闭 Private Relay 并防止 DNS 劫持 ------------------
 DOMAIN-SUFFIX,mask.icloud.com,REJECT
+DOMAIN-SUFFIX,mask-h2.icloud.com,REJECT
 DOMAIN,mask-api.icloud.com,DIRECT
 DOMAIN,gateway.icloud.com,DIRECT
+
+# ------------------ 3. ChatGPT 协同服务 (走代理) ------------------
+DOMAIN-SUFFIX,openai.com,PROXY
+DOMAIN-SUFFIX,chatgpt.com,PROXY
+DOMAIN-SUFFIX,oaistatic.com,PROXY
+DOMAIN-SUFFIX,oaiusercontent.com,PROXY
+
+# ------------------ 4. 苹果核心同步与大流量 CDN (走直连) ------------------
+DOMAIN-SUFFIX,contacts.icloud.com,DIRECT
+DOMAIN-SUFFIX,caldav.icloud.com,DIRECT
+DOMAIN-SUFFIX,reminders.icloud.com,DIRECT
+DOMAIN-SUFFIX,keyvalueservice.icloud.com,DIRECT
+DOMAIN-SUFFIX,ckdatabase.icloud.com,DIRECT
+DOMAIN-SUFFIX,fmip.icloud.com,DIRECT
+DOMAIN-SUFFIX,push.apple.com,DIRECT
+DOMAIN-SUFFIX,icloud-content.com,DIRECT
+DOMAIN-SUFFIX,cdn-apple.com,DIRECT
+
+# ------------------ 5. 苹果全域基础放行 (兜底直连) ------------------
+DOMAIN-SUFFIX,icloud.com,DIRECT
+DOMAIN-SUFFIX,apple.com,DIRECT
+DOMAIN-SUFFIX,apple-dns.net,DIRECT
 # > Yahoo (Keyword)
 DOMAIN-KEYWORD,yahoo.com,PROXY
 # > Claude (Anthropic) 依赖的第三方服务/分析统计
