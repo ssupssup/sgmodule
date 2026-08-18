@@ -3,21 +3,14 @@
 #!total=80
 
 [Rule]
-# === User Custom AI & Apple Intelligence Rules ===
-# > Apple Intelligence / Apple AI
-# 核心Siri与听写服务
 DOMAIN,guzzoni.apple.com,PROXY
-DOMAIN,smoot.apple.com,PROXY
-# Apple Relay & Private Relay 相关
-# 新增：匹配任何包含 "apple-relay" 的域名 (如 mask.apple-relay.apple.com 等)
-DOMAIN-KEYWORD,apple-relay,PROXY
-DOMAIN,apple-relay.apple.com,PROXY
-DOMAIN,apple-relay.cloudflare.com,PROXY
-DOMAIN,apple-relay.fastly-edge.com,PROXY
-# 位置服务 (注意：代理此域名可能会改变系统判定的地理位置)
+DOMAIN-SUFFIX,smoot.apple.com,PROXY
+DOMAIN-SUFFIX,apple-relay.apple.com,PROXY
+DOMAIN-SUFFIX,apple-relay.cloudflare.com,PROXY
+DOMAIN-SUFFIX,apple-relay.fastly-edge.com,PROXY
 DOMAIN,gspe1-ssl.ls.apple.com,PROXY
-# 连接性检查
 DOMAIN,cp4.cloudflare.com,PROXY
+DOMAIN-SUFFIX,mask.icloud.com,REJECT
 # > Yahoo (Keyword)
 DOMAIN-KEYWORD,yahoo.com,PROXY
 # > Claude (Anthropic) 依赖的第三方服务/分析统计
