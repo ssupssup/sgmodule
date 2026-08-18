@@ -18,12 +18,6 @@ DOMAIN-SUFFIX,mask-h2.icloud.com,REJECT
 DOMAIN,mask-api.icloud.com,DIRECT
 DOMAIN,gateway.icloud.com,DIRECT
 
-# ------------------ 3. ChatGPT 协同服务 (走代理) ------------------
-DOMAIN-SUFFIX,openai.com,PROXY
-DOMAIN-SUFFIX,chatgpt.com,PROXY
-DOMAIN-SUFFIX,oaistatic.com,PROXY
-DOMAIN-SUFFIX,oaiusercontent.com,PROXY
-
 # ------------------ 4. 苹果核心同步与大流量 CDN (走直连) ------------------
 DOMAIN-SUFFIX,contacts.icloud.com,DIRECT
 DOMAIN-SUFFIX,caldav.icloud.com,DIRECT
