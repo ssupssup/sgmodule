@@ -12,13 +12,15 @@ DOMAIN-SUFFIX,apple-relay.fastly-edge.com,PROXY
 DOMAIN,gspe1-ssl.ls.apple.com,PROXY
 DOMAIN,cp4.cloudflare.com,PROXY
 
-# ------------------ 2. 关闭 Private Relay 并防止 DNS 劫持 ------------------
+# ------------------ 2. 限制 Private Relay ------------------
+# 阻止 Private Relay 数据通道，避免其接管部分网络/DNS路径
 DOMAIN-SUFFIX,mask.icloud.com,REJECT
 DOMAIN-SUFFIX,mask-h2.icloud.com,REJECT
-DOMAIN,mask-api.icloud.com,DIRECT
-DOMAIN,gateway.icloud.com,DIRECT
+DOMAIN,mask-api.icloud.com,REJECT
 
-# ------------------ 4. 苹果核心同步与大流量 CDN (走直连) ------------------
+# ------------------ 3. 苹果核心同步与大流量 CDN (走直连) ------------------
+
+DOMAIN,gateway.icloud.com,DIRECT
 DOMAIN-SUFFIX,contacts.icloud.com,DIRECT
 DOMAIN-SUFFIX,caldav.icloud.com,DIRECT
 DOMAIN-SUFFIX,reminders.icloud.com,DIRECT
