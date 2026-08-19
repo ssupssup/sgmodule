@@ -1,6 +1,6 @@
 #!name=AI.sgmodule (Apple Intelligence/ChatGPT/Claude/Grok/Gemini/NotebookLM/Poe/Manus/Copilot)
-#!desc=最近更新: 2026-08-19 19:35:40 | 自用 AI 工具代理分流模块。针对平台: Apple Intelligence, ChatGPT, Claude, Grok, Gemini, NotebookLM, Poe, Manus, Copilot.
-#!total=82
+#!desc=最近更新: 2026-08-19 19:39:52 | 自用 AI 工具代理分流模块。针对平台: Apple Intelligence, ChatGPT, Claude, Grok, Gemini, NotebookLM, Poe, Manus, Copilot.
+#!total=81
 
 [Rule]
 # ------------------ 1. Apple Intelligence (走代理) ------------------
@@ -16,8 +16,6 @@ DOMAIN,cp4.cloudflare.com,PROXY
 DOMAIN-SUFFIX,mask.icloud.com,REJECT
 DOMAIN-SUFFIX,mask-h2.icloud.com,REJECT
 DOMAIN,mask-api.icloud.com,REJECT
-# > Yahoo (Keyword)
-DOMAIN-KEYWORD,yahoo.com,PROXY
 # > Claude (Anthropic) 依赖的第三方服务/分析统计
 DOMAIN,cdn.usefathom.com,PROXY
 DOMAIN,segment.io,PROXY

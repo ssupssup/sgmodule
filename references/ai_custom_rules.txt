@@ -13,8 +13,6 @@ DOMAIN-SUFFIX,mask.icloud.com,REJECT
 DOMAIN-SUFFIX,mask-h2.icloud.com,REJECT
 DOMAIN,mask-api.icloud.com,REJECT
 
-# > Yahoo (Keyword)
-DOMAIN-KEYWORD,yahoo.com,PROXY
 
 # > Claude (Anthropic) 依赖的第三方服务/分析统计
 DOMAIN,cdn.usefathom.com,PROXY

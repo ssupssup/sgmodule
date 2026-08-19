@@ -50,6 +50,9 @@ PREPEND_PROXY,DOMAIN,lookup-api.apple.com,PROXY
 # Apple 定位与搜索服务（已被 AI 模块规则包含）
 # PREPEND_PROXY,DOMAIN,gspe1-ssl.ls.apple.com,PROXY
 
+# ------------------ Yahoo ------------------
+PREPEND_PROXY,DOMAIN-KEYWORD,yahoo.com,PROXY
+
 # ---------------------------------------------------
 # [动作 3] 顶层最高优先级强直连区 (PREPEND_DIRECT)
 # 次序说明：高频单点核心 API 与大流量 CDN 秒判直连 (享用最快哈希匹配)
