@@ -54,10 +54,11 @@ def load_custom_override_rules():
     disable_set = set()
     prepend_proxy_rules = []
     prepend_direct_rules = []
+    append_direct_rules = []
     
     if not os.path.exists(CUSTOM_RULES_FILE):
         print(f"⚠️ 自定义规则文件未找到: {CUSTOM_RULES_FILE}，将按默认规则处理。")
-        return remove_set, disable_set, prepend_proxy_rules, prepend_direct_rules
+        return remove_set, disable_set, prepend_proxy_rules, prepend_direct_rules, append_direct_rules
 
     print(f"📖 正在读取自定义规则文件: {CUSTOM_RULES_FILE}...")
     with open(CUSTOM_RULES_FILE, 'r', encoding='utf-8') as f:
@@ -78,9 +79,12 @@ def load_custom_override_rules():
             elif stripped.startswith("PREPEND_DIRECT,"):
                 target_rule = stripped[15:].strip()
                 prepend_direct_rules.append(target_rule)
+            elif stripped.startswith("APPEND_DIRECT,"):
+                target_rule = stripped[14:].strip()
+                append_direct_rules.append(target_rule)
                 
-    print(f"✅ 自定义规则解析完成: 物理擦除 {len(remove_set)} 条 | 原位注释 {len(disable_set)} 条 | 强代理 {len(prepend_proxy_rules)} 条 | 强直连 {len(prepend_direct_rules)} 条")
-    return remove_set, disable_set, prepend_proxy_rules, prepend_direct_rules
+    print(f"✅ 自定义规则解析完成: 物理擦除 {len(remove_set)} 条 | 原位注释 {len(disable_set)} 条 | 强代理 {len(prepend_proxy_rules)} 条 | 强直连 {len(prepend_direct_rules)} 条 | 末端直连 {len(append_direct_rules)} 条")
+    return remove_set, disable_set, prepend_proxy_rules, prepend_direct_rules, append_direct_rules
 
 def fetch_top500_rules():
     print(f"📥 正在从 {TOP500_URL} 抓取最新 Top500 白名单规则...")
@@ -98,19 +102,15 @@ def fetch_top500_rules():
 def fetch_and_clean_china_direct_rules(existing_top500_rules):
     import urllib.request
     china_rules = []
-    url = "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/China/China_Domain.list"
+    url = "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/direct.txt"
     
-    # 1. 提取 Top500 中已有的全量域名 (包含 Proxy 和 Direct)，遵循 Top500 绝对优先法则
     top500_domains = set()
-    for line in existing_top500_rules:
-        stripped = line.strip()
-        if not stripped or stripped.startswith("#"):
-            continue
-        parts = [p.strip() for p in stripped.split(',')]
-        if len(parts) >= 2 and parts[0] in ["DOMAIN", "DOMAIN-SUFFIX", "DOMAIN-KEYWORD"]:
-            dom = parts[1].lower().split('#')[0].strip()
-            if dom:
-                top500_domains.add(dom)
+    for r in existing_top500_rules:
+        r_str = r.strip()
+        if r_str and not r_str.startswith("#"):
+            parts = [p.strip() for p in r_str.split(',')]
+            if len(parts) >= 2 and parts[0] in ["DOMAIN", "DOMAIN-SUFFIX", "DOMAIN-KEYWORD"]:
+                top500_domains.add(parts[1].lower().split('#')[0].strip())
 
     print(f"📊 Top500 提取出已知权威域名基线: {len(top500_domains)} 个")
 
@@ -119,49 +119,40 @@ def fetch_and_clean_china_direct_rules(existing_top500_rules):
         with urllib.request.urlopen(req, timeout=15) as resp:
             lines = resp.read().decode('utf-8').splitlines()
             
-            raw_domains = []
-            for l in lines:
-                stripped = l.strip()
-                if not stripped or stripped.startswith("#"):
+            for line in lines:
+                line_str = line.strip()
+                if not line_str or line_str.startswith("#") or line_str.startswith("payload:"):
                     continue
-                if stripped.startswith("."):
-                    stripped = stripped[1:]
-                domain_lower = stripped.lower()
-                
-                # 2. 防误杀黑名单物理过滤：丢弃任何包含代理/敏感关键字的域名
-                if any(kw in domain_lower for kw in PROXY_PROTECT_KEYWORDS):
+                raw_dom = line_str.lstrip("- ").strip()
+                if not raw_dom:
                     continue
                 
-                raw_domains.append(domain_lower)
+                # 2. 防误杀黑名单物理过滤
+                if any(kw in raw_dom.lower() for kw in PROXY_PROTECT_KEYWORDS):
+                    continue
 
-            # 3. 实施主根域名强力归并折叠 (如 ap-southeast-1.myhuaweicloud.com -> myhuaweicloud.com)
-            folded_roots = set()
-            for d in raw_domains:
-                root = extract_root_domain(d)
-                folded_roots.add(root)
+                root_dom = extract_root_domain(raw_dom)
 
-            # 4. Top500 绝对优先法则：只要 Top500 里已经有了 (无论是 Proxy 还是 Direct)，一律采用 Top500，直接丢弃
-            for domain in sorted(list(folded_roots)):
-                if domain in top500_domains:
+                if root_dom in top500_domains:
                     continue
-                
+
                 is_subdomain_covered = False
                 for top_dom in top500_domains:
-                    if domain.endswith("." + top_dom):
+                    if root_dom.endswith("." + top_dom):
                         is_subdomain_covered = True
                         break
                 if is_subdomain_covered:
                     continue
 
-                china_rules.append(f"DOMAIN-SUFFIX,{domain},DIRECT")
+                china_rules.append(f"DOMAIN-SUFFIX,{root_dom},DIRECT")
     except Exception as e:
-        print(f"⚠️ 抓取 BlackMatrix7 China_Domain.list 失败: {e}")
+        print(f"⚠️ 抓取 Loyalsoldier direct.txt 失败: {e}")
         
     china_rules = list(dict.fromkeys(china_rules))
     print(f"✅ 成功清洗 China_Domain 并完成主根强力归并与 Top500 优先去重，得出 {len(china_rules)} 条精炼纯净的中国域名直连规则。")
     return china_rules
 
-def process_and_align_conf(lines, remove_set, disable_set, prepend_proxy_rules, prepend_direct_rules):
+def process_and_align_conf(lines, remove_set, disable_set, prepend_proxy_rules, prepend_direct_rules, append_direct_rules):
     aligned_lines = []
     seen_conf_domains = set()
     now_str = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8))).strftime("%Y-%m-%d %H:%M:%S")
@@ -221,8 +212,13 @@ def process_and_align_conf(lines, remove_set, disable_set, prepend_proxy_rules, 
                     aligned_lines.append(r)
                 aligned_lines.append("")
                 
-        # 4. 在 GEOIP,CN,DIRECT 前注入经 Python 在线清洗+Top500去重后的 Loyalsoldier 中国域名直连规则段
+        # 4. 在 GEOIP,CN,DIRECT 前注入末端直连区与中国域名直连规则段
         if stripped == "GEOIP,CN,DIRECT":
+            if append_direct_rules:
+                aligned_lines.append("# === 🍎 苹果全域大泛域名末端直连兜底区 (APPEND_DIRECT) ===")
+                for r in append_direct_rules:
+                    aligned_lines.append(r)
+                aligned_lines.append("")
             aligned_lines.append("# === 🇨🇳 经 Python 脚本在线清洗+Top500去重后的 Loyalsoldier 中国域名直连区 ===")
             for cr in china_direct_rules:
                 aligned_lines.append(cr)
@@ -246,9 +242,9 @@ def process_and_align_conf(lines, remove_set, disable_set, prepend_proxy_rules, 
     return final_content
 
 def main():
-    remove_set, disable_set, prepend_proxy_rules, prepend_direct_rules = load_custom_override_rules()
+    remove_set, disable_set, prepend_proxy_rules, prepend_direct_rules, append_direct_rules = load_custom_override_rules()
     raw_lines = fetch_top500_rules()
-    conf_str = process_and_align_conf(raw_lines, remove_set, disable_set, prepend_proxy_rules, prepend_direct_rules)
+    conf_str = process_and_align_conf(raw_lines, remove_set, disable_set, prepend_proxy_rules, prepend_direct_rules, append_direct_rules)
     
     os.makedirs(os.path.dirname(OUTPUT_CONF), exist_ok=True)
     with open(OUTPUT_CONF, 'w', encoding='utf-8') as f:

@@ -5,6 +5,7 @@
 #   REMOVE,         -> 上游 Top500 误杀坏行物理擦除
 #   PREPEND_PROXY,  -> 顶层最高优先级强代理区
 #   PREPEND_DIRECT, -> 顶层最高优先级强直连区
+#   APPEND_DIRECT,  -> 规则链末端全域大泛域名直连兜底区 (位于 GEOIP/FINAL 上方)
 # ===================================================
 
 # ---------------------------------------------------
@@ -43,20 +44,31 @@ PREPEND_PROXY,DOMAIN,news-client.apple.com,PROXY
 PREPEND_PROXY,DOMAIN,news-edge.apple.com,PROXY
 PREPEND_PROXY,DOMAIN,news-events.apple.com,PROXY
 
+# ------------------ Spotlight 与系统智能查询（外区搜索与百科检索） ------------------
+PREPEND_PROXY,DOMAIN,api-glb-sea.smoot.apple.com,PROXY
+PREPEND_PROXY,DOMAIN,lookup-api.apple.com,PROXY
+# Apple 定位与搜索服务（已被 AI 模块规则包含）
+# PREPEND_PROXY,DOMAIN,gspe1-ssl.ls.apple.com,PROXY
+
 # ---------------------------------------------------
 # [动作 3] 顶层最高优先级强直连区 (PREPEND_DIRECT)
-# 仅指定单点域名 cn1.gi-de.com 直连，不影响 gi-de.com 主域名走代理
+# 次序说明：高频单点核心 API 与大流量 CDN 秒判直连 (享用最快哈希匹配)
 # ---------------------------------------------------
 PREPEND_DIRECT,DOMAIN,gateway.icloud.com,DIRECT
-PREPEND_DIRECT,DOMAIN-SUFFIX,cn1.gi-de.com,DIRECT
-# App Store 软件下载与静态资源 CDN 精准直连 (彻底解决批量更新放弃等待，0 影响 Apple Intelligence)
-PREPEND_DIRECT,DOMAIN-SUFFIX,aaplimg.com,DIRECT
-PREPEND_DIRECT,DOMAIN-SUFFIX,cdn-apple.com,DIRECT
-# iCloud 照片/云盘大文件与查找 iPhone 精准直连 (物理防误杀，1000M 满速)
-PREPEND_DIRECT,DOMAIN-KEYWORD,content.icloud.com,DIRECT
-PREPEND_DIRECT,DOMAIN-KEYWORD,fmip.icloud.com,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,contacts.icloud.com,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,caldav.icloud.com,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,reminders.icloud.com,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,keyvalueservice.icloud.com,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,ckdatabase.icloud.com,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,fmip.icloud.com,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,push.apple.com,DIRECT
 PREPEND_DIRECT,DOMAIN-SUFFIX,icloud-content.com,DIRECT
-# 高频国内自建与 API 服务静态直连 (免去 GEOIP 查表与 DNS 延迟)
+PREPEND_DIRECT,DOMAIN-SUFFIX,cdn-apple.com,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,aaplimg.com,DIRECT
+PREPEND_DIRECT,DOMAIN-KEYWORD,content.icloud.com,DIRECT
+
+# ------------------ 其余第三方/国内域名强直连 ------------------
+PREPEND_DIRECT,DOMAIN-SUFFIX,cn1.gi-de.com,DIRECT
 PREPEND_DIRECT,DOMAIN-SUFFIX,200610.xyz,DIRECT
 PREPEND_DIRECT,DOMAIN-SUFFIX,yingt.fun,DIRECT
 PREPEND_DIRECT,DOMAIN-SUFFIX,qishui.com,DIRECT
@@ -92,3 +104,13 @@ DISABLE,DOMAIN-SUFFIX,updates.cdn-apple.com,DIRECT
 DISABLE,DOMAIN-SUFFIX,appleid.cdn-apple.com,DIRECT
 DISABLE,DOMAIN-SUFFIX,store.storeimages.cdn-apple.com,DIRECT
 DISABLE,DOMAIN-SUFFIX,updates-http.cdn-apple.com.akadns.net,DIRECT
+
+# ---------------------------------------------------
+# [动作 5] 苹果全域大泛域名末端直连兜底区 (APPEND_DIRECT)
+# 放置位置：物理生成于 4000+ 行规则链条最底端、GEOIP/FINAL 正上方
+# 保障机制：0 误杀顶层 Apple TV/News/AI 强代理，为其余所有漏网常规苹果流量全域直连兜底
+# ---------------------------------------------------
+APPEND_DIRECT,DOMAIN-SUFFIX,icloud.com,DIRECT
+APPEND_DIRECT,DOMAIN-SUFFIX,apple.com,DIRECT
+APPEND_DIRECT,DOMAIN-SUFFIX,apple-dns.net,DIRECT
+APPEND_DIRECT,IP-CIDR,17.0.0.0/8,DIRECT,no-resolve
