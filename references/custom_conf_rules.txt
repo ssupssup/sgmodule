@@ -10,76 +10,85 @@
 # ---------------------------------------------------
 # [动作 1] 上游 Top500 误杀坏行物理擦除列表 (REMOVE)
 # ---------------------------------------------------
-REMOVE,DOMAIN-SUFFIX,storage.googleapis.com,Direct
-REMOVE,DOMAIN-SUFFIX,tools.google.com,Direct
-REMOVE,DOMAIN-SUFFIX,blog.google,Direct
+REMOVE,DOMAIN-SUFFIX,storage.googleapis.com,DIRECT
+REMOVE,DOMAIN-SUFFIX,tools.google.com,DIRECT
+REMOVE,DOMAIN-SUFFIX,blog.google,DIRECT
 REMOVE,RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/AppleNews/AppleNews.list,PROXY
 
 # ---------------------------------------------------
 # [动作 2] 顶层最高优先级强代理区 (PREPEND_PROXY)
 # 次序说明：插入在 [Rule] 第一顺位，防止被下方的直连规则误杀
 # ---------------------------------------------------
-PREPEND_PROXY,DOMAIN,news-client-search.apple.com,Proxy
-PREPEND_PROXY,DOMAIN-SUFFIX,googleapis.com,Proxy
-PREPEND_PROXY,DOMAIN-SUFFIX,google.com,Proxy
-PREPEND_PROXY,DOMAIN-SUFFIX,google,Proxy
-PREPEND_PROXY,DOMAIN-SUFFIX,gstatic.com,Proxy
-PREPEND_PROXY,DOMAIN-SUFFIX,googleusercontent.com,Proxy
-# LINE TODAY 新闻信息流与卡片数据源强代理区 (顶层第1毫秒秒判 Proxy 秒弹出来)
-PREPEND_PROXY,DOMAIN-SUFFIX,taboola.com,Proxy
-# Apple AI 鉴权单点网关强代理区 (保障 Apple AI 0 锁区，且绝不影响常规 iCloud 服务)
-PREPEND_PROXY,DOMAIN,gateway.icloud.com,Proxy
-PREPEND_PROXY,DOMAIN,mask-api.icloud.com,Proxy
-PREPEND_PROXY,DOMAIN,mask.icloud.com,Proxy
-PREPEND_PROXY,DOMAIN,mask-h2.icloud.com,Proxy
+PREPEND_PROXY,DOMAIN,news-client-search.apple.com,PROXY
+PREPEND_PROXY,DOMAIN-SUFFIX,googleapis.com,PROXY
+PREPEND_PROXY,DOMAIN-SUFFIX,google.com,PROXY
+PREPEND_PROXY,DOMAIN-SUFFIX,google,PROXY
+PREPEND_PROXY,DOMAIN-SUFFIX,gstatic.com,PROXY
+PREPEND_PROXY,DOMAIN-SUFFIX,googleusercontent.com,PROXY
+# LINE TODAY 新闻信息流与卡片数据源强代理区 (顶层第1毫秒秒判 PROXY 秒弹出来)
+PREPEND_PROXY,DOMAIN-SUFFIX,taboola.com,PROXY
+
+# ------------------ Apple TV ------------------
+PREPEND_PROXY,DOMAIN-SUFFIX,tv.apple.com,PROXY
+PREPEND_PROXY,DOMAIN,tv.applemusic.com,PROXY
+PREPEND_PROXY,DOMAIN,uts-api.itunes.apple.com,PROXY
+
+# ------------------ Books ------------------
+PREPEND_PROXY,DOMAIN,books.itunes.apple.com,PROXY
+
+# ------------------ Apple News ------------------
+PREPEND_PROXY,DOMAIN-SUFFIX,apple.news,PROXY
+PREPEND_PROXY,DOMAIN,news-assets.apple.com,PROXY
+PREPEND_PROXY,DOMAIN,news-client.apple.com,PROXY
+PREPEND_PROXY,DOMAIN,news-edge.apple.com,PROXY
+PREPEND_PROXY,DOMAIN,news-events.apple.com,PROXY
 
 # ---------------------------------------------------
 # [动作 3] 顶层最高优先级强直连区 (PREPEND_DIRECT)
 # 仅指定单点域名 cn1.gi-de.com 直连，不影响 gi-de.com 主域名走代理
 # ---------------------------------------------------
-PREPEND_DIRECT,DOMAIN-SUFFIX,cn1.gi-de.com,Direct
+PREPEND_DIRECT,DOMAIN,gateway.icloud.com,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,cn1.gi-de.com,DIRECT
 # App Store 软件下载与静态资源 CDN 精准直连 (彻底解决批量更新放弃等待，0 影响 Apple Intelligence)
-PREPEND_DIRECT,DOMAIN-SUFFIX,aaplimg.com,Direct
-PREPEND_DIRECT,DOMAIN-SUFFIX,cdn-apple.com,Direct
+PREPEND_DIRECT,DOMAIN-SUFFIX,aaplimg.com,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,cdn-apple.com,DIRECT
 # iCloud 照片/云盘大文件与查找 iPhone 精准直连 (物理防误杀，1000M 满速)
-PREPEND_DIRECT,DOMAIN-KEYWORD,content.icloud.com,Direct
-PREPEND_DIRECT,DOMAIN-KEYWORD,fmip.icloud.com,Direct
-PREPEND_DIRECT,DOMAIN-SUFFIX,icloud-content.com,Direct
+PREPEND_DIRECT,DOMAIN-KEYWORD,content.icloud.com,DIRECT
+PREPEND_DIRECT,DOMAIN-KEYWORD,fmip.icloud.com,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,icloud-content.com,DIRECT
 # 高频国内自建与 API 服务静态直连 (免去 GEOIP 查表与 DNS 延迟)
-PREPEND_DIRECT,DOMAIN-SUFFIX,200610.xyz,Direct
-PREPEND_DIRECT,DOMAIN-SUFFIX,yingt.fun,Direct
-PREPEND_DIRECT,DOMAIN-SUFFIX,qishui.com,Direct
-PREPEND_DIRECT,DOMAIN-SUFFIX,ndcpp.com,Direct
-PREPEND_DIRECT,DOMAIN-SUFFIX,z1cdn.com,Direct
+PREPEND_DIRECT,DOMAIN-SUFFIX,200610.xyz,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,yingt.fun,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,qishui.com,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,ndcpp.com,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,z1cdn.com,DIRECT
 # 机场订阅与转换域名直连 (防节点失效时无法更新)
-PREPEND_DIRECT,DOMAIN-SUFFIX,mitce.net,Direct
-PREPEND_DIRECT,DOMAIN-SUFFIX,crossxx.com,Direct
-PREPEND_DIRECT,DOMAIN-SUFFIX,v2cross.com,Direct
+PREPEND_DIRECT,DOMAIN-SUFFIX,mitce.net,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,crossxx.com,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,v2cross.com,DIRECT
 
 # ---------------------------------------------------
 # 关键直连救场区：修复苹果中国定位 + 补齐开源 China_Domain 遗漏快递域名
 # ---------------------------------------------------
-PREPEND_DIRECT,DOMAIN,gs-loc-cn.apple.com,Direct
-PREPEND_DIRECT,DOMAIN-SUFFIX,zto.com,Direct
-PREPEND_DIRECT,DOMAIN-SUFFIX,zto.cn,Direct
-PREPEND_DIRECT,DOMAIN-SUFFIX,yundaex.com,Direct
-PREPEND_DIRECT,DOMAIN-SUFFIX,deppon.com,Direct
-PREPEND_DIRECT,DOMAIN-SUFFIX,guoguo-app.com,Direct
-PREPEND_DIRECT,DOMAIN-SUFFIX,sf-service.com,Direct
+PREPEND_DIRECT,DOMAIN,gs-loc-cn.apple.com,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,zto.com,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,zto.cn,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,yundaex.com,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,deppon.com,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,guoguo-app.com,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,sf-service.com,DIRECT
 
 # ---------------------------------------------------
 # [动作 4] 上游冲突/冗余苹果子域名原位注释禁用 (DISABLE)
 # 作用：原行原位保留，仅前端加上 # 🚫 注释，0 偏移且彻底消除规则冲突
 # ---------------------------------------------------
-DISABLE,DOMAIN-SUFFIX,appldnld.g.aaplimg.com,Proxy
-DISABLE,DOMAIN-SUFFIX,cds-cdn.v.aaplimg.com,Proxy
-DISABLE,DOMAIN-SUFFIX,pancake.cdn-apple.com.akadns.net,Proxy
-DISABLE,DOMAIN-SUFFIX,iosapps.itunes.g.aaplimg.com,Direct
-DISABLE,DOMAIN-SUFFIX,swcdn.g.aaplimg.com,Direct
-DISABLE,DOMAIN-SUFFIX,updates-http.cdn-apple.com,Direct
-DISABLE,DOMAIN-SUFFIX,updates.cdn-apple.com,Direct
-DISABLE,DOMAIN-SUFFIX,appleid.cdn-apple.com,Direct
-DISABLE,DOMAIN-SUFFIX,icloud.cdn-apple.com,Direct
-DISABLE,DOMAIN-SUFFIX,store.storeimages.cdn-apple.com,Direct
-DISABLE,DOMAIN-SUFFIX,updates-http.cdn-apple.com.akadns.net,Direct
-
+DISABLE,DOMAIN-SUFFIX,appldnld.g.aaplimg.com,PROXY
+DISABLE,DOMAIN-SUFFIX,cds-cdn.v.aaplimg.com,PROXY
+DISABLE,DOMAIN-SUFFIX,pancake.cdn-apple.com.akadns.net,PROXY
+DISABLE,DOMAIN-SUFFIX,iosapps.itunes.g.aaplimg.com,DIRECT
+DISABLE,DOMAIN-SUFFIX,swcdn.g.aaplimg.com,DIRECT
+DISABLE,DOMAIN-SUFFIX,updates-http.cdn-apple.com,DIRECT
+DISABLE,DOMAIN-SUFFIX,updates.cdn-apple.com,DIRECT
+DISABLE,DOMAIN-SUFFIX,appleid.cdn-apple.com,DIRECT
+DISABLE,DOMAIN-SUFFIX,store.storeimages.cdn-apple.com,DIRECT
+DISABLE,DOMAIN-SUFFIX,updates-http.cdn-apple.com.akadns.net,DIRECT

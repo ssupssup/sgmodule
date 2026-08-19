@@ -153,7 +153,7 @@ def fetch_and_clean_china_direct_rules(existing_top500_rules):
                 if is_subdomain_covered:
                     continue
 
-                china_rules.append(f"DOMAIN-SUFFIX,{domain},Direct")
+                china_rules.append(f"DOMAIN-SUFFIX,{domain},DIRECT")
     except Exception as e:
         print(f"⚠️ 抓取 BlackMatrix7 China_Domain.list 失败: {e}")
         

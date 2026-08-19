@@ -18,47 +18,10 @@ POLLUTION_DOMAINS = config["pollution_domains"]
 ALLOWED_SUBDOMAINS = config["allowed_subdomains"]
 
 # User's manually verified custom rules (Highest priority)
-CUSTOM_RULES = """# === User Custom AI & Apple Intelligence Rules ===
-# > Apple Intelligence / Apple AI
-# 核心Siri与听写服务
-DOMAIN,guzzoni.apple.com,PROXY
-DOMAIN,smoot.apple.com,PROXY
+CUSTOM_RULES_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "references", "ai_custom_rules.txt")
+with open(CUSTOM_RULES_PATH, "r", encoding="utf-8") as f:
+    CUSTOM_RULES = f.read()
 
-# Apple Relay & Private Relay 相关
-# 新增：匹配任何包含 "apple-relay" 的域名 (如 mask.apple-relay.apple.com 等)
-DOMAIN-KEYWORD,apple-relay,PROXY
-DOMAIN,apple-relay.apple.com,PROXY
-DOMAIN,apple-relay.cloudflare.com,PROXY
-DOMAIN,apple-relay.fastly-edge.com,PROXY
-
-# 位置服务 (注意：代理此域名可能会改变系统判定的地理位置)
-DOMAIN,gspe1-ssl.ls.apple.com,PROXY
-# 连接性检查
-DOMAIN,cp4.cloudflare.com,PROXY
-
-# > Yahoo (Keyword)
-DOMAIN-KEYWORD,yahoo.com,PROXY
-
-# > Claude (Anthropic) 依赖的第三方服务/分析统计
-DOMAIN,cdn.usefathom.com,PROXY
-DOMAIN,segment.io,PROXY
-DOMAIN,segment.com,PROXY
-DOMAIN,statsig.com,PROXY
-DOMAIN,statsigapi.net,PROXY
-DOMAIN,o532071.ingest.sentry.io,PROXY
-
-# > Grok (xAI)
-DOMAIN-SUFFIX,grok.com,PROXY
-DOMAIN-SUFFIX,x.ai,PROXY
-
-# > Poe
-DOMAIN-SUFFIX,poe.com,PROXY
-
-# > Manus
-DOMAIN-SUFFIX,manus.im,PROXY
-DOMAIN-SUFFIX,manus.app,PROXY
-DOMAIN-SUFFIX,manus-api.im,PROXY
-"""
 
 def download_url(url):
     print(f"Downloading: {url}")

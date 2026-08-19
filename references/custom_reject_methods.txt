@@ -5,11 +5,11 @@
 dig.bdurl.net REJECT-200
 mobads-logs.baidu.com REJECT-200
 
-# 谷歌广告 SDK (升级为 REJECT-200 覆写旧的 REJECT-DROP，消灭转圈等待)
-googleads.g.doubleclick.net REJECT-200
+# 谷歌广告 SDK (升级为 REJECT-DROP 静默丢包，消除高频 DNS 请求)
+googleads.g.doubleclick.net REJECT-DROP
 
-# 通用统计、遥测与小米有品日志 (REJECT-200 清空 SDK 上报队列，消除连环重试)
-app-analytics-services.com REJECT-200
+# 通用统计、遥测与小米有品日志 (REJECT-DROP 阻断高频请求)
+app-analytics-services.com REJECT-DROP
 stat.youpin.mi.com REJECT-200
 
 # 抖音/字节跳动 补漏日志与监控截胡 (拦截 DB 抓包中被 DIRECT 放行的日志上报)
