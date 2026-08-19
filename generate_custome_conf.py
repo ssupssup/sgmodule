@@ -221,17 +221,17 @@ def process_and_align_conf(lines, remove_set, disable_set, prepend_proxy_rules, 
                     aligned_lines.append(r)
                 aligned_lines.append("")
                 
-        # 4. 在 GEOIP,CN,DIRECT 前注入末端直连区与中国域名直连规则段
+        # 4. 在 GEOIP,CN,DIRECT 前注入中国域名直连规则段与苹果全域末端直连兜底区
         if stripped == "GEOIP,CN,DIRECT":
+            aligned_lines.append("# === 🇨🇳 经 Python 脚本在线清洗+Top500去重后的 Loyalsoldier 中国域名直连区 ===")
+            for cr in china_direct_rules:
+                aligned_lines.append(cr)
+            aligned_lines.append("")
             if append_direct_rules:
                 aligned_lines.append("# === 🍎 苹果全域大泛域名末端直连兜底区 (APPEND_DIRECT) ===")
                 for r in append_direct_rules:
                     aligned_lines.append(r)
                 aligned_lines.append("")
-            aligned_lines.append("# === 🇨🇳 经 Python 脚本在线清洗+Top500去重后的 Loyalsoldier 中国域名直连区 ===")
-            for cr in china_direct_rules:
-                aligned_lines.append(cr)
-            aligned_lines.append("")
             aligned_lines.append(l)
             continue
 
