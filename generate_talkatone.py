@@ -50,13 +50,35 @@ def load_custom_reject_methods():
 
 _custom_reject_mapping = load_custom_reject_methods()
 
-def get_reject_action(domain):
-    domain_lower = domain.lower()
+def get_smart_reject_action(domain):
+    domain_lower = domain.lower().strip('.')
+    
+    # 1. 显式字典精准优先匹配 (来自 custom_reject_methods.txt)
     if domain_lower in _custom_reject_mapping:
         return _custom_reject_mapping[domain_lower]
     for d, m in _custom_reject_mapping.items():
-        if domain_lower.endswith("." + d):
+        if domain_lower == d or domain_lower.endswith("." + d):
             return m
+            
+    # 2. 智能特征分类匹配：
+    # A类：高频广告 SDK 联盟、数据追踪与遥测分析 ➔ 统一步提升为 REJECT-DROP
+    drop_keywords = [
+        "googleads", "doubleclick", "analytics", "telemetry", "tracking", "tracker", 
+        "adsystem", "inmobi", "pubmatic", "smadex", "criteo", "appier", "appiersig",
+        "jampp", "bidswitch", "adrta", "serveteck", "iteleserve", "tk0x1",
+        "rubiconproject", "openx", "casalemedia", "taboola", "outbrain"
+    ]
+    if any(kw in domain_lower for kw in drop_keywords):
+        return "REJECT-DROP"
+        
+    # B类：SDK 日志、打点上报与验证码探针 ➔ 统一匹配为 REJECT-200 诱骗清空队列
+    reject200_keywords = [
+        "mobads-logs", "log-report", "stat-report", "geetest", "captcha", "report-api"
+    ]
+    if any(kw in domain_lower for kw in reject200_keywords):
+        return "REJECT-200"
+
+    # 3. 普通常规 Banner 广告域名 ➔ 维持标准 REJECT
     return "REJECT"
 
 def download_url(url):
@@ -244,7 +266,7 @@ def generate_adblock_module(script_dir):
                     norm = f"{rule_type},{value}"
                     if norm not in seen:
                         seen.add(norm)
-                        action = get_reject_action(value)
+                        action = get_smart_reject_action(value)
                         adblock_rules.append(f"{rule_type},{value},{action}")
                         added_count += 1
         print(f" - Parsed and added {added_count} adblock rules from community source.")
@@ -282,7 +304,7 @@ def generate_adblock_module(script_dir):
                     norm = f"{rule_type},{value}"
                     if norm not in seen:
                         seen.add(norm)
-                        action = get_reject_action(value)
+                        action = get_smart_reject_action(value)
                         adblock_rules.append(f"{rule_type},{value},{action}")
                         added_count += 1
         print(f" - Parsed and added {added_count} custom static adblock rules.")
@@ -306,7 +328,7 @@ def generate_adblock_module(script_dir):
             norm = f"{rule_type},{value}"
             if norm not in seen:
                 seen.add(norm)
-                action = get_reject_action(value)
+                action = get_smart_reject_action(value)
                 adblock_rules.append(f"{rule_type},{value},{action}")
                 added_count += 1
         print(f" - Parsed {len(parsed)} rules from {alliance}, added {added_count} clean rules.")
