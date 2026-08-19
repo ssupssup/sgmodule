@@ -17,6 +17,48 @@ COMMUNITY_RULES_URL = config["community_rules_url"]
 AD_SOURCES = config["ad_sources"]
 WHITELIST_DOMAINS = config["whitelist_domains"]
 
+def load_custom_reject_methods():
+    mapping = {}
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    candidates = [
+        os.path.join(base_dir, "references", "custom_reject_methods.txt"),
+        os.path.join(os.path.dirname(base_dir), "references", "custom_reject_methods.txt")
+    ]
+    dict_path = None
+    for p in candidates:
+        if os.path.exists(p):
+            dict_path = p
+            break
+            
+    if not dict_path:
+        print("⚠️ 未找到 custom_reject_methods.txt，将全量降级使用默认 REJECT")
+        return mapping
+
+    print(f"📖 正在读取自定义拒绝方式字典: {dict_path}")
+    with open(dict_path, "r", encoding="utf-8") as f:
+        for line in f:
+            stripped = line.strip()
+            if not stripped or stripped.startswith("#"):
+                continue
+            parts = stripped.split()
+            if len(parts) >= 2:
+                domain = parts[0].lower()
+                method = parts[1].upper()
+                mapping[domain] = method
+    print(f"✅ 成功加载 {len(mapping)} 条域名拒绝方式映射机制")
+    return mapping
+
+_custom_reject_mapping = load_custom_reject_methods()
+
+def get_reject_action(domain):
+    domain_lower = domain.lower()
+    if domain_lower in _custom_reject_mapping:
+        return _custom_reject_mapping[domain_lower]
+    for d, m in _custom_reject_mapping.items():
+        if domain_lower.endswith("." + d):
+            return m
+    return "REJECT"
+
 def download_url(url):
     print(f"Downloading: {url}")
     try:
@@ -202,7 +244,8 @@ def generate_adblock_module(script_dir):
                     norm = f"{rule_type},{value}"
                     if norm not in seen:
                         seen.add(norm)
-                        adblock_rules.append(f"{rule_type},{value},REJECT")
+                        action = get_reject_action(value)
+                        adblock_rules.append(f"{rule_type},{value},{action}")
                         added_count += 1
         print(f" - Parsed and added {added_count} adblock rules from community source.")
 
@@ -239,7 +282,8 @@ def generate_adblock_module(script_dir):
                     norm = f"{rule_type},{value}"
                     if norm not in seen:
                         seen.add(norm)
-                        adblock_rules.append(f"{rule_type},{value},REJECT")
+                        action = get_reject_action(value)
+                        adblock_rules.append(f"{rule_type},{value},{action}")
                         added_count += 1
         print(f" - Parsed and added {added_count} custom static adblock rules.")
     else:
@@ -262,7 +306,8 @@ def generate_adblock_module(script_dir):
             norm = f"{rule_type},{value}"
             if norm not in seen:
                 seen.add(norm)
-                adblock_rules.append(f"{rule_type},{value},REJECT")
+                action = get_reject_action(value)
+                adblock_rules.append(f"{rule_type},{value},{action}")
                 added_count += 1
         print(f" - Parsed {len(parsed)} rules from {alliance}, added {added_count} clean rules.")
 
