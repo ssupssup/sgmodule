@@ -102,15 +102,18 @@ def fetch_top500_rules():
 def fetch_and_clean_china_direct_rules(existing_top500_rules):
     import urllib.request
     china_rules = []
-    url = "https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/direct.txt"
+    url = "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/China/China_Domain.list"
     
     top500_domains = set()
-    for r in existing_top500_rules:
-        r_str = r.strip()
-        if r_str and not r_str.startswith("#"):
-            parts = [p.strip() for p in r_str.split(',')]
-            if len(parts) >= 2 and parts[0] in ["DOMAIN", "DOMAIN-SUFFIX", "DOMAIN-KEYWORD"]:
-                top500_domains.add(parts[1].lower().split('#')[0].strip())
+    for line in existing_top500_rules:
+        stripped = line.strip()
+        if not stripped or stripped.startswith("#"):
+            continue
+        parts = [p.strip() for p in stripped.split(',')]
+        if len(parts) >= 2 and parts[0] in ["DOMAIN", "DOMAIN-SUFFIX", "DOMAIN-KEYWORD"]:
+            dom = parts[1].lower().split('#')[0].strip()
+            if dom:
+                top500_domains.add(dom)
 
     print(f"📊 Top500 提取出已知权威域名基线: {len(top500_domains)} 个")
 
@@ -119,34 +122,40 @@ def fetch_and_clean_china_direct_rules(existing_top500_rules):
         with urllib.request.urlopen(req, timeout=15) as resp:
             lines = resp.read().decode('utf-8').splitlines()
             
-            for line in lines:
-                line_str = line.strip()
-                if not line_str or line_str.startswith("#") or line_str.startswith("payload:"):
+            raw_domains = []
+            for l in lines:
+                stripped = l.strip()
+                if not stripped or stripped.startswith("#"):
                     continue
-                raw_dom = line_str.lstrip("- ").strip()
-                if not raw_dom:
+                if stripped.startswith("."):
+                    stripped = stripped[1:]
+                domain_lower = stripped.lower()
+                
+                if any(kw in domain_lower for kw in PROXY_PROTECT_KEYWORDS):
                     continue
                 
-                # 2. 防误杀黑名单物理过滤
-                if any(kw in raw_dom.lower() for kw in PROXY_PROTECT_KEYWORDS):
+                raw_domains.append(domain_lower)
+
+            folded_roots = set()
+            for d in raw_domains:
+                root = extract_root_domain(d)
+                folded_roots.add(root)
+
+            for domain in sorted(list(folded_roots)):
+                if domain in top500_domains:
                     continue
-
-                root_dom = extract_root_domain(raw_dom)
-
-                if root_dom in top500_domains:
-                    continue
-
+                
                 is_subdomain_covered = False
                 for top_dom in top500_domains:
-                    if root_dom.endswith("." + top_dom):
+                    if domain.endswith("." + top_dom):
                         is_subdomain_covered = True
                         break
                 if is_subdomain_covered:
                     continue
 
-                china_rules.append(f"DOMAIN-SUFFIX,{root_dom},DIRECT")
+                china_rules.append(f"DOMAIN-SUFFIX,{domain},DIRECT")
     except Exception as e:
-        print(f"⚠️ 抓取 Loyalsoldier direct.txt 失败: {e}")
+        print(f"⚠️ 抓取 BlackMatrix7 China_Domain.list 失败: {e}")
         
     china_rules = list(dict.fromkeys(china_rules))
     print(f"✅ 成功清洗 China_Domain 并完成主根强力归并与 Top500 优先去重，得出 {len(china_rules)} 条精炼纯净的中国域名直连规则。")
