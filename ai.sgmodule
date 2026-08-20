@@ -1,5 +1,5 @@
 #!name=AI.sgmodule (Apple Intelligence/ChatGPT/Claude/Grok/Gemini/NotebookLM/Poe/Manus/Copilot)
-#!desc=最近更新: 2026-08-20 04:47:05 | 自用 AI 工具代理分流模块。针对平台: Apple Intelligence, ChatGPT, Claude, Grok, Gemini, NotebookLM, Poe, Manus, Copilot.
+#!desc=最近更新: 2026-08-20 09:40:33 | 自用 AI 工具代理分流模块。针对平台: Apple Intelligence, ChatGPT, Claude, Grok, Gemini, NotebookLM, Poe, Manus, Copilot.
 #!total=81
 
 [Rule]
@@ -33,7 +33,7 @@ DOMAIN-SUFFIX,manus.im,PROXY
 DOMAIN-SUFFIX,manus.app,PROXY
 DOMAIN-SUFFIX,manus-api.im,PROXY
 
-# === Compiled AI & Subdomain Rules ===
+# ------------------ OpenAI (Compiled) ------------------
 DOMAIN,browser-intake-datadoghq.com,PROXY
 DOMAIN,chat.openai.com.cdn.cloudflare.net,PROXY
 DOMAIN,openai-api.arkoselabs.com,PROXY
@@ -68,8 +68,12 @@ DOMAIN-SUFFIX,turn.livekit.cloud,PROXY
 DOMAIN-KEYWORD,openai,PROXY
 IP-CIDR,24.199.123.28/32,PROXY
 IP-CIDR,64.23.132.171/32,PROXY
+
+# ------------------ Claude (Compiled) ------------------
 DOMAIN-SUFFIX,anthropic.com,PROXY
 DOMAIN-SUFFIX,claude.ai,PROXY
+
+# ------------------ Gemini (Compiled) ------------------
 DOMAIN,ai.google.dev,PROXY
 DOMAIN-SUFFIX,deepmind.com,PROXY
 DOMAIN-SUFFIX,deepmind.google,PROXY
@@ -79,6 +83,8 @@ DOMAIN-SUFFIX,proactivebackend-pa.googleapis.com,PROXY
 DOMAIN-KEYWORD,colab,PROXY
 DOMAIN-KEYWORD,developerprofiles,PROXY
 DOMAIN-KEYWORD,generativelanguage,PROXY
+
+# ------------------ Copilot (Compiled) ------------------
 DOMAIN,api.msn.com,PROXY
 DOMAIN,api.statsig.com,PROXY
 DOMAIN,assets.msn.com,PROXY

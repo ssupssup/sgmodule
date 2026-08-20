@@ -88,9 +88,9 @@ def parse_clash_yaml(yaml_content):
     return rules
 
 def main():
-    compiled_rules = []
+    compiled_by_service = {}
     
-    # Process BM7 sources
+    # Process BM7 sources into per-service dict
     for service, url in AI_SOURCES.items():
         content = download_url(url)
         if not content:
@@ -99,26 +99,17 @@ def main():
             
         print(f"Parsing Clash rules for {service}...")
         parsed = parse_clash_yaml(content)
-        compiled_rules.extend(parsed)
+        compiled_by_service[service] = parsed
         print(f" - Found {len(parsed)} clean rules for {service}")
         
-    # Append custom rules (highest priority)
-    custom_lines = []
-    for line in CUSTOM_RULES.splitlines():
-        line_stripped = line.strip()
-        if line_stripped and not line_stripped.startswith("#"):
-            custom_lines.append(line_stripped)
-            
-    # Deduplicate rules, ensuring custom rules are at the top and preserved
     final_rules = []
     seen = set()
     
-    # 1. Add user custom rules first
+    # 1. Add user custom rules first (Highest Priority)
     for line in CUSTOM_RULES.splitlines():
         line_stripped = line.strip()
         if line_stripped:
             if not line_stripped.startswith("#"):
-                # Normalize rule for uniqueness checking
                 norm = line_stripped.replace(" ", "").lower()
                 if norm not in seen:
                     seen.add(norm)
@@ -126,13 +117,19 @@ def main():
             else:
                 final_rules.append(line_stripped)
                 
-    # 2. Add compiled rules
-    final_rules.append("\n# === Compiled AI & Subdomain Rules ===")
-    for rule in compiled_rules:
-        norm = rule.replace(" ", "").lower()
-        if norm not in seen:
-            seen.add(norm)
-            final_rules.append(rule)
+    # 2. Add compiled rules grouped by service
+    for service, rules in compiled_by_service.items():
+        # Filter rules for this service that haven't been seen yet
+        service_rules = []
+        for rule in rules:
+            norm = rule.replace(" ", "").lower()
+            if norm not in seen:
+                seen.add(norm)
+                service_rules.append(rule)
+                
+        if service_rules:
+            final_rules.append(f"\n# ------------------ {service} (Compiled) ------------------")
+            final_rules.extend(service_rules)
             
     script_dir = os.path.dirname(os.path.abspath(__file__))
     output_path = os.path.join(script_dir, "ai.sgmodule")
