@@ -1,8 +1,8 @@
 # 精细化广告拒绝方式策略字典 (域名 策略)
 # 支持策略: REJECT / REJECT-200 / REJECT-DROP / REJECT-NO-DROP / REJECT-DICT / REJECT-ARRAY / REJECT-IMG / REJECT-VIDEO
 
-# 百度 SDK 探针 API (返回 200 避免死循环发热重试)
-dig.bdurl.net REJECT-200
+# 百度 SDK 探针 API (升级为 REJECT-DROP 静默丢包，压制高频请求)
+dig.bdurl.net REJECT-DROP
 mobads-logs.baidu.com REJECT-200
 
 # 谷歌广告 SDK (升级为 REJECT-DROP 静默丢包，消除高频 DNS 请求)

@@ -1,5 +1,5 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-08-19 19:05:30 | Deep ad block & UI purification customized for user's installed apps.
+#!desc=最近更新: 2026-08-20 09:28:14 | Deep ad block & UI purification customized for user's installed apps.
 #!total=1290
 
 [Rule]
@@ -13,7 +13,7 @@ DOMAIN,cnlogs.umeng.com,REJECT-200
 DOMAIN,utoken.umeng.com,REJECT-200
 DOMAIN,cnlogs.umengcloud.com,REJECT-200
 DOMAIN,resolve.umeng.com,REJECT-200
-DOMAIN,dig.bdurl.net,REJECT-200
+DOMAIN,dig.bdurl.net,REJECT-DROP
 DOMAIN,snowflake.qq.com,REJECT-200
 DOMAIN,rmonitor.qq.com,REJECT-200
 DOMAIN,beacon.qq.com,REJECT-200
@@ -177,7 +177,7 @@ DOMAIN,ad.zijieapi.com,REJECT-NO-DROP
 DOMAIN,ads.zijieapi.com,REJECT-NO-DROP
 DOMAIN,pangolin.zijieapi.com,REJECT-NO-DROP
 DOMAIN,pangle.zijieapi.com,REJECT-NO-DROP
-DOMAIN,dig.bdurl.net,REJECT-200
+DOMAIN,dig.bdurl.net,REJECT-DROP
 DOMAIN,h-adashx.dingtalkapps.com,REJECT-NO-DROP
 DOMAIN,h-adashx.ut.taobao.com,REJECT-NO-DROP
 DOMAIN,app-analytics-services.com,REJECT-DROP
