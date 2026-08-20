@@ -235,7 +235,7 @@ def process_and_align_conf(lines, remove_set, disable_set, prepend_proxy_rules, 
             aligned_lines.append(l)
             continue
 
-        # 5. 全局 Top500 原版物理防重滤镜：彻底消除上游 Top500 文件自带的冲突重复行 (如 Line 531 Proxy 与 Line 568 Direct 冲突)
+        # 5. 全局 Top500 原版物理防重滤镜与策略动作全大写标准化
         if stripped and not stripped.startswith("#"):
             parts = [p.strip() for p in stripped.split(',')]
             if len(parts) >= 2 and parts[0] in ["DOMAIN", "DOMAIN-SUFFIX", "DOMAIN-KEYWORD"]:
@@ -245,7 +245,18 @@ def process_and_align_conf(lines, remove_set, disable_set, prepend_proxy_rules, 
                     continue
                 seen_conf_domains.add(dom_key)
 
-        aligned_lines.append(l)
+        # 6. 上游规则策略动作全大写清洗 (将 ,Direct / ,Proxy 统一清洗为 ,DIRECT / ,PROXY)
+        cleaned_line = l
+        if cleaned_line.endswith(",Direct"):
+            cleaned_line = cleaned_line[:-7] + ",DIRECT"
+        elif cleaned_line.endswith(",Proxy"):
+            cleaned_line = cleaned_line[:-6] + ",PROXY"
+        elif ",Direct#" in cleaned_line:
+            cleaned_line = cleaned_line.replace(",Direct#", ",DIRECT#")
+        elif ",Proxy#" in cleaned_line:
+            cleaned_line = cleaned_line.replace(",Proxy#", ",PROXY#")
+
+        aligned_lines.append(cleaned_line)
         
     final_content = "\n".join(aligned_lines)
     return final_content
