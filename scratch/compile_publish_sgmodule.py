@@ -81,6 +81,9 @@ def main():
         "references/talkatone_sgmodule_config.json",
         "references/adblock_rules_data.json",
         "references/generator_static_data.json",
+        "references/custom_reject_methods.txt",
+        "references/custom_conf_rules.txt",
+        "references/ai_custom_rules.txt",
         ".github/workflows/auto_update.yml"
     ]
 
