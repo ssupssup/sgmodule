@@ -32,3 +32,11 @@ gd-stats.jpush.cn REJECT-DROP
 errnewlog.umeng.com REJECT-DROP
 cnlogs.umeng.com REJECT-DROP
 cnlogs.umengcloud.com REJECT-DROP
+
+# 京东、钉钉、腾讯、高德、淘宝高频死循环日志/遥测 (升级为 REJECT-DROP 压制发热)
+mars.jd.com REJECT-DROP
+adashx.ut.dingtalk.com REJECT-DROP
+snowflake.qq.com REJECT-DROP
+dualstack-logs.amap.com REJECT-DROP
+logs.amap.com REJECT-DROP
+h-adashx.ut.taobao.com REJECT-DROP
