@@ -147,7 +147,7 @@ DOMAIN,stats-ipv6.jpush.cn,REJECT-DROP
 DOMAIN,tracking.miui.com,REJECT-200
 DOMAIN,log0-misc-lf.amemv.com,REJECT-200
 DOMAIN,mon0-misc-lf.amemv.com,REJECT-200
-DOMAIN,logbk.amemv.com,REJECT-200
+DOMAIN,logbk.amemv.com,REJECT-DROP
 DOMAIN,ads5-normal-hj.zijieapi.com,REJECT-DICT
 DOMAIN,stat.youpin.mi.com,REJECT-DROP
 DOMAIN-SUFFIX,ads.linkedin.com,REJECT
@@ -232,7 +232,7 @@ DOMAIN,mdtb-cf-3.ads.aps.amazon-adsystem.com,REJECT-200
 DOMAIN,collector.github.com,REJECT-200
 DOMAIN,ads.pubmatic.com,REJECT-200
 DOMAIN,analytics.twitter.com,REJECT-200
-DOMAIN,px.effirst.com,REJECT-200
+DOMAIN,px.effirst.com,REJECT-DROP
 DOMAIN,adashx.ut.dingtalk.com,REJECT-200
 DOMAIN,apm.zhihu.com,REJECT
 DOMAIN,appcloud2.in.zhihu.com,REJECT

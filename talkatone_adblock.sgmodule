@@ -3,6 +3,10 @@
 #!total=79
 
 [Rule]
+DOMAIN-SUFFIX,eqt-gc.rendering.sharethrough.com,REJECT
+DOMAIN-SUFFIX,sdkc.vervegroupinc.net,REJECT
+DOMAIN-SUFFIX,api.nextgen.verve.net,REJECT
+DOMAIN-SUFFIX,smartadserver.com,REJECT
 DOMAIN-SUFFIX,tk0x1.com,REJECT-DROP
 DOMAIN-SUFFIX,bidswitch.net,REJECT-DROP
 DOMAIN-SUFFIX,iteleserve.com,REJECT-DROP
