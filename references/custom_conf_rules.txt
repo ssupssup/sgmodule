@@ -29,27 +29,6 @@ PREPEND_PROXY,DOMAIN-SUFFIX,googleusercontent.com,PROXY
 # LINE TODAY 新闻信息流与卡片数据源强代理区 (顶层第1毫秒秒判 PROXY 秒弹出来)
 PREPEND_PROXY,DOMAIN-SUFFIX,taboola.com,PROXY
 
-# ------------------ Apple TV ------------------
-PREPEND_PROXY,DOMAIN-SUFFIX,tv.apple.com,PROXY
-PREPEND_PROXY,DOMAIN,tv.applemusic.com,PROXY
-PREPEND_PROXY,DOMAIN,uts-api.itunes.apple.com,PROXY
-
-# ------------------ Books ------------------
-PREPEND_PROXY,DOMAIN,books.itunes.apple.com,PROXY
-
-# ------------------ Apple News ------------------
-PREPEND_PROXY,DOMAIN-SUFFIX,apple.news,PROXY
-PREPEND_PROXY,DOMAIN,news-assets.apple.com,PROXY
-PREPEND_PROXY,DOMAIN,news-client.apple.com,PROXY
-PREPEND_PROXY,DOMAIN,news-edge.apple.com,PROXY
-PREPEND_PROXY,DOMAIN,news-events.apple.com,PROXY
-
-# ------------------ Spotlight 与系统智能查询（外区搜索与百科检索） ------------------
-PREPEND_PROXY,DOMAIN,api-glb-sea.smoot.apple.com,PROXY
-PREPEND_PROXY,DOMAIN,lookup-api.apple.com,PROXY
-# Apple 定位与搜索服务（已被 AI 模块规则包含）
-# PREPEND_PROXY,DOMAIN,gspe1-ssl.ls.apple.com,PROXY
-
 # ------------------ Yahoo ------------------
 PREPEND_PROXY,DOMAIN-KEYWORD,yahoo.com,PROXY
 
