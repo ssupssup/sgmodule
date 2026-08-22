@@ -6,6 +6,10 @@ DOMAIN-SUFFIX,apple-relay.cloudflare.com,PROXY
 DOMAIN-SUFFIX,apple-relay.fastly-edge.com,PROXY
 DOMAIN,gspe1-ssl.ls.apple.com,PROXY
 DOMAIN,cp4.cloudflare.com,PROXY
+DOMAIN-SUFFIX,encrypted-tbn0.gstatic.com,PROXY
+DOMAIN-SUFFIX,encrypted-tbn1.gstatic.com,PROXY
+DOMAIN-SUFFIX,encrypted-tbn2.gstatic.com,PROXY
+DOMAIN-SUFFIX,encrypted-tbn3.gstatic.com,PROXY
 
 # ------------------ 2. 限制 Private Relay ------------------
 # 阻止 Private Relay 数据通道，避免其接管部分网络/DNS路径
