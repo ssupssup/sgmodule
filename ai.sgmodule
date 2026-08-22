@@ -1,5 +1,5 @@
 #!name=AI.sgmodule (Apple Intelligence/ChatGPT/Claude/Grok/Gemini/NotebookLM/Poe/Manus/Copilot)
-#!desc=最近更新: 2026-08-22 20:31:05 | 自用 AI 工具代理分流模块。针对平台: Apple Intelligence, ChatGPT, Claude, Grok, Gemini, NotebookLM, Poe, Manus, Copilot.
+#!desc=最近更新: 2026-08-22 21:46:03 | 自用 AI 工具代理分流模块。针对平台: Apple Intelligence, ChatGPT, Claude, Grok, Gemini, NotebookLM, Poe, Manus, Copilot.
 #!total=85
 
 [Rule]
@@ -15,11 +15,11 @@ DOMAIN-SUFFIX,encrypted-tbn0.gstatic.com,PROXY
 DOMAIN-SUFFIX,encrypted-tbn1.gstatic.com,PROXY
 DOMAIN-SUFFIX,encrypted-tbn2.gstatic.com,PROXY
 DOMAIN-SUFFIX,encrypted-tbn3.gstatic.com,PROXY
+DOMAIN,mask-api.icloud.com,PROXY
 # ------------------ 2. 限制 Private Relay ------------------
 # 阻止 Private Relay 数据通道，避免其接管部分网络/DNS路径
 DOMAIN-SUFFIX,mask.icloud.com,REJECT
 DOMAIN-SUFFIX,mask-h2.icloud.com,REJECT
-DOMAIN,mask-api.icloud.com,REJECT
 # > Claude (Anthropic) 依赖的第三方服务/分析统计
 DOMAIN,cdn.usefathom.com,PROXY
 DOMAIN,segment.io,PROXY
