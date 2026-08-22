@@ -1,6 +1,6 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-08-22 21:46:01 | Deep ad block & UI purification customized for user's installed apps.
-#!total=1290
+#!desc=最近更新: 2026-08-22 21:46:20 | Deep ad block & UI purification customized for user's installed apps.
+#!total=1245
 
 [Rule]
 # === LINE Notice Bar SafeFrame & Pubads PROXY Override (Top Priority) ===
@@ -150,55 +150,10 @@ DOMAIN,mon0-misc-lf.amemv.com,REJECT-200
 DOMAIN,logbk.amemv.com,REJECT-DROP
 DOMAIN,ads5-normal-hj.zijieapi.com,REJECT-DICT
 DOMAIN,stat.youpin.mi.com,REJECT-DROP
-DOMAIN,log.snssdk.com,REJECT-NO-DROP
-DOMAIN,rtlog.snssdk.com,REJECT-NO-DROP
-DOMAIN,mcs.snssdk.com,REJECT-NO-DROP
-DOMAIN,dm.snssdk.com,REJECT-NO-DROP
-DOMAIN,toblog.ctobsnssdk.com,REJECT-NO-DROP
-DOMAIN,log-api.pangolin-sdk-toutiao.com,REJECT-NO-DROP
-DOMAIN,beacon.qq.com,REJECT-NO-DROP
-DOMAIN,rqd.qq.com,REJECT-NO-DROP
-DOMAIN,ios.bugly.qq.com,REJECT-NO-DROP
-DOMAIN,mdap.alipay.com,REJECT-NO-DROP
-DOMAIN,wn.pos.baidu.com,REJECT-NO-DROP
-DOMAIN,afd.baidu.com,REJECT-NO-DROP
-DOMAIN,afdconf.baidu.com,REJECT-NO-DROP
-DOMAIN,stats.jpush.cn,REJECT-200
-DOMAIN,crashlytics.com,REJECT-NO-DROP
-DOMAIN,adjust.com,REJECT-NO-DROP
-DOMAIN,appsflyersdk.com,REJECT-NO-DROP
-DOMAIN,app-log-lab.tantanapp.com,REJECT-NO-DROP
-DOMAIN,io-sm-log.tantanapp.com,REJECT-NO-DROP
-DOMAIN,client-monitor.tantanapp.com,REJECT-NO-DROP
-DOMAIN,f10.baidu.com,REJECT-NO-DROP
-DOMAIN,ad.snssdk.com,REJECT-NO-DROP
-DOMAIN,monitor.ipv6-tantanapp.com.master.vip.tantanapp.com,REJECT-NO-DROP
-DOMAIN,ad.zijieapi.com,REJECT-NO-DROP
-DOMAIN,ads.zijieapi.com,REJECT-NO-DROP
-DOMAIN,pangolin.zijieapi.com,REJECT-NO-DROP
-DOMAIN,pangle.zijieapi.com,REJECT-NO-DROP
-DOMAIN,dig.bdurl.net,REJECT-DROP
-DOMAIN,h-adashx.dingtalkapps.com,REJECT-NO-DROP
-DOMAIN,h-adashx.ut.taobao.com,REJECT-DROP
-DOMAIN,app-analytics-services.com,REJECT-DROP
-DOMAIN,log-hl.snssdk.com,REJECT-NO-DROP
-DOMAIN,apm-native.xiaohongshu.com,REJECT-NO-DROP
-DOMAIN,t2.xiaohongshu.com,REJECT-NO-DROP
-DOMAIN,spider-tracker.xiaohongshu.com,REJECT-200
-DOMAIN,lng.xiaohongshu.com,REJECT-NO-DROP
-DOMAIN,apm-fe.xiaohongshu.com,REJECT-NO-DROP
-DOMAIN,utoken.umeng.com,REJECT-NO-DROP
-DOMAIN,cnlogs.umengcloud.com,REJECT-DROP
-DOMAIN,resolve.umeng.com,REJECT-NO-DROP
-DOMAIN,cnlogs.umeng.com,REJECT-DROP
-DOMAIN,errnewlog.umeng.com,REJECT-DROP
-DOMAIN,sdk.e.qq.com,REJECT-NO-DROP
-DOMAIN,mi.gdt.qq.com,REJECT-NO-DROP
-DOMAIN,logs.amap.com,REJECT-DROP
-DOMAIN,dualstack-logs.amap.com,REJECT-DROP
-DOMAIN,al.autohome.com.cn,REJECT-NO-DROP
-DOMAIN,dcs.ipinyou.com,REJECT-NO-DROP
-DOMAIN,applogapi.autohome.com.cn,REJECT-NO-DROP
+DOMAIN-SUFFIX,outlookads.live.com,REJECT
+DOMAIN-SUFFIX,a1.firefoxchina.cn,REJECT
+DOMAIN-SUFFIX,ads.linkedin.com,REJECT
+DOMAIN-SUFFIX,analytics.pointdrive.linkedin.com,REJECT-200
 # === Compiled App Rules ===
 DOMAIN,adstrategy.biz.weibo.com,REJECT
 DOMAIN-SUFFIX,api.touch-moblie.com,REJECT
