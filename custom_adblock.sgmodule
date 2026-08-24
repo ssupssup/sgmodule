@@ -1,6 +1,6 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-08-24 04:41:04 | Deep ad block & UI purification customized for user's installed apps.
-#!total=1245
+#!desc=最近更新: 2026-08-24 11:21:44 | Deep ad block & UI purification customized for user's installed apps.
+#!total=1258
 
 [Rule]
 # === LINE Notice Bar SafeFrame & Pubads PROXY Override (Top Priority) ===
@@ -13,7 +13,7 @@ DOMAIN,cnlogs.umeng.com,REJECT-DROP
 DOMAIN,utoken.umeng.com,REJECT-200
 DOMAIN,cnlogs.umengcloud.com,REJECT-DROP
 DOMAIN,resolve.umeng.com,REJECT-200
-DOMAIN,dig.bdurl.net,REJECT-DROP
+DOMAIN,dig.bdurl.net,REJECT-200
 DOMAIN,snowflake.qq.com,REJECT-DROP
 DOMAIN,rmonitor.qq.com,REJECT-200
 DOMAIN,beacon.qq.com,REJECT-200
@@ -150,10 +150,23 @@ DOMAIN,mon0-misc-lf.amemv.com,REJECT-200
 DOMAIN,logbk.amemv.com,REJECT-DROP
 DOMAIN,ads5-normal-hj.zijieapi.com,REJECT-DICT
 DOMAIN,stat.youpin.mi.com,REJECT-DROP
-DOMAIN-SUFFIX,outlookads.live.com,REJECT
-DOMAIN-SUFFIX,analytics.pointdrive.linkedin.com,REJECT-200
-DOMAIN-SUFFIX,ads.linkedin.com,REJECT
-DOMAIN-SUFFIX,a1.firefoxchina.cn,REJECT
+DOMAIN,mon11-misc-lf.amemv.com,REJECT-200
+DOMAIN,p3-ad-sign.byteimg.com,REJECT-200
+DOMAIN,maplocatesdksnapshot.d.meituan.net,REJECT-200
+DOMAIN,dreport.meituan.net,REJECT-200
+DOMAIN,al-log.d.meituan.net,REJECT-200
+DOMAIN,app-monitor-cn.hellogroup.com,REJECT-200
+DOMAIN,sd-gl.xinqiucc.com,REJECT-DROP
+DOMAIN,cf-gl.qiezibenpao.com,REJECT-DROP
+DOMAIN,sdktt.data.tianwenca.com,REJECT-DROP
+DOMAIN,ad.snssdk.com,REJECT-NO-DROP
+DOMAIN,log.snssdk.com,REJECT-NO-DROP
+DOMAIN,rtlog.snssdk.com,REJECT-NO-DROP
+DOMAIN,mcs.snssdk.com,REJECT-NO-DROP
+DOMAIN,dm.snssdk.com,REJECT-NO-DROP
+DOMAIN,toblog.ctobsnssdk.com,REJECT-NO-DROP
+DOMAIN,log-hl.snssdk.com,REJECT-NO-DROP
+DOMAIN,dcs.ipinyou.com,REJECT-NO-DROP
 # === Compiled App Rules ===
 DOMAIN,adstrategy.biz.weibo.com,REJECT
 DOMAIN-SUFFIX,api.touch-moblie.com,REJECT

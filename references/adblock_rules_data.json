@@ -617,7 +617,7 @@
     "DOMAIN,utoken.umeng.com,REJECT-200",
     "DOMAIN,cnlogs.umengcloud.com,REJECT-200",
     "DOMAIN,resolve.umeng.com,REJECT-200",
-    "DOMAIN,dig.bdurl.net,REJECT-DROP",
+    "DOMAIN,dig.bdurl.net,REJECT-200",
     "DOMAIN,snowflake.qq.com,REJECT-200",
     "DOMAIN,rmonitor.qq.com,REJECT-200",
     "DOMAIN,beacon.qq.com,REJECT-200",
@@ -755,7 +755,16 @@
     "DOMAIN,mon0-misc-lf.amemv.com,REJECT-200",
     "DOMAIN,logbk.amemv.com,REJECT-200",
     "DOMAIN,ads5-normal-hj.zijieapi.com,REJECT-DICT",
-    "DOMAIN,stat.youpin.mi.com,REJECT-200"
+    "DOMAIN,stat.youpin.mi.com,REJECT-200",
+    "DOMAIN,mon11-misc-lf.amemv.com,REJECT-200",
+    "DOMAIN,p3-ad-sign.byteimg.com,REJECT-200",
+    "DOMAIN,maplocatesdksnapshot.d.meituan.net,REJECT-200",
+    "DOMAIN,dreport.meituan.net,REJECT-200",
+    "DOMAIN,al-log.d.meituan.net,REJECT-200",
+    "DOMAIN,app-monitor-cn.hellogroup.com,REJECT-200",
+    "DOMAIN,sd-gl.xinqiucc.com,REJECT-DROP",
+    "DOMAIN,cf-gl.qiezibenpao.com,REJECT-DROP",
+    "DOMAIN,sdktt.data.tianwenca.com,REJECT-DROP"
   ],
   "MANDATORY_MITM_DOMAINS": [
     "api.douban.com",
