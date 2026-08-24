@@ -1,8 +1,8 @@
 # 精细化广告拒绝方式策略字典 (域名 策略)
 # 支持策略: REJECT / REJECT-200 / REJECT-DROP / REJECT-NO-DROP / REJECT-DICT / REJECT-ARRAY / REJECT-IMG / REJECT-VIDEO
 
-# 百度 SDK 探针 API (调整为 REJECT-200 诱导客户端清空队列，压制高频重试风暴)
-dig.bdurl.net REJECT-200
+# 百度 SDK 探针 API (升级为 REJECT-DROP 静默丢包，压制高频请求)
+dig.bdurl.net REJECT-DROP
 mobads-logs.baidu.com REJECT-200
 
 # 谷歌广告 SDK (升级为 REJECT-DROP 静默丢包，消除高频 DNS 请求)
@@ -18,7 +18,6 @@ mon0-misc-lf.amemv.com REJECT-200
 logbk.amemv.com REJECT-DROP
 mon11-misc-lf.amemv.com REJECT-200
 rtlog3-applog-hl.amemv.com REJECT-200
-p3-ad-sign.byteimg.com REJECT-200
 px.effirst.com REJECT-DROP
 
 # 字节穿山甲广告 SDK (空字典 REJECT-DICT 防发热)
@@ -41,14 +40,3 @@ snowflake.qq.com REJECT-DROP
 dualstack-logs.amap.com REJECT-DROP
 logs.amap.com REJECT-DROP
 h-adashx.ut.taobao.com REJECT-DROP
-
-# 美团 Logan 日志与定位探针
-maplocatesdksnapshot.d.meituan.net REJECT-200
-dreport.meituan.net REJECT-200
-al-log.d.meituan.net REJECT-200
-
-# 陌陌监控与第三方播放器 P2P 探针 SDK
-app-monitor-cn.hellogroup.com REJECT-200
-sd-gl.xinqiucc.com REJECT-DROP
-cf-gl.qiezibenpao.com REJECT-DROP
-sdktt.data.tianwenca.com REJECT-DROP
