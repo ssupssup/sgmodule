@@ -1,6 +1,6 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-08-25 04:50:02 | Deep ad block & UI purification customized for user's installed apps.
-#!total=1251
+#!desc=最近更新: 2026-08-25 22:19:54 | Deep ad block & UI purification customized for user's installed apps.
+#!total=1267
 
 [Rule]
 # === LINE Notice Bar SafeFrame & Pubads PROXY Override (Top Priority) ===
@@ -156,10 +156,26 @@ DOMAIN,catdot.dianping.com,REJECT-200
 DOMAIN,vc-brain-lf.ndcpp.com,REJECT-200
 DOMAIN,orzonera.yingt.fun,REJECT-DROP
 DOMAIN,mon11-misc-lf.amemv.com,REJECT-200
+DOMAIN,apd-pcdnwxstat.teg.tencent-cloud.net,REJECT-DROP
+DOMAIN,apd-pcdnwxlogin.teg.tencent-cloud.net,REJECT-DROP
+DOMAIN,adip-api.immomo.com,REJECT-200
+DOMAIN,app-log.immomo.com,REJECT-200
+DOMAIN,live-log.immomo.com,REJECT-200
+DOMAIN,api-log.immomo.com,REJECT-200
+DOMAIN,paas-push-api-log.immomo.com,REJECT-200
+DOMAIN,app-monitor-cn.hellogroup.com,REJECT-DROP
+DOMAIN,metrics-picture.d.meituan.net,REJECT-200
+DOMAIN,al-log.d.meituan.net,REJECT-200
+DOMAIN,data-sdk-uuid-log.d.meituan.net,REJECT-200
+DOMAIN,logan-rtl.dreport.meituan.net,REJECT-200
+DOMAIN,anti-sdk-report.m.jd.com,REJECT-200
+DOMAIN,h-adashx.ut.dingtalk.com,REJECT-DROP
+DOMAIN,logman.dmall.com,REJECT-DROP
+DOMAIN,sc-sa-data.dmall.com,REJECT-DROP
 DOMAIN-SUFFIX,a1.firefoxchina.cn,REJECT
-DOMAIN-SUFFIX,outlookads.live.com,REJECT
 DOMAIN-SUFFIX,analytics.pointdrive.linkedin.com,REJECT-200
 DOMAIN-SUFFIX,ads.linkedin.com,REJECT
+DOMAIN-SUFFIX,outlookads.live.com,REJECT
 # === Compiled App Rules ===
 DOMAIN,adstrategy.biz.weibo.com,REJECT
 DOMAIN-SUFFIX,api.touch-moblie.com,REJECT
