@@ -173,7 +173,8 @@ def process_and_align_conf(lines, remove_set, disable_set, prepend_proxy_rules, 
         stripped = l.strip()
         
         # 0. 动态擦除自定义规则文件中标记为 REMOVE 的上游坏行
-        if stripped in remove_set:
+        stripped_upper = stripped.upper()
+        if any(stripped_upper == r.upper() for r in remove_set):
             print(f"✂️ 成功物理擦除上游坏行: {stripped}")
             continue
 
@@ -183,9 +184,9 @@ def process_and_align_conf(lines, remove_set, disable_set, prepend_proxy_rules, 
             continue
 
         # 0.1 动态将自定义规则文件中标记为 DISABLE 的坏行原位注释化禁用
-        if stripped in disable_set:
+        if any(stripped_upper == d.upper() for d in disable_set):
             print(f"🚫 成功原位注释化禁用上游坏行: {stripped}")
-            aligned_lines.append(f"# 🚫 [已禁用-由顶层Direct覆盖] {l}")
+            aligned_lines.append(f"# 🚫 [已禁用-由去广告模块精准拦截] {l}")
             continue
 
         # 1. 动态替换第 3 行时间戳为当前最新构建时间，并在最顶端注入元数据描述
