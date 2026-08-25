@@ -40,3 +40,34 @@ snowflake.qq.com REJECT-DROP
 dualstack-logs.amap.com REJECT-DROP
 logs.amap.com REJECT-DROP
 h-adashx.ut.taobao.com REJECT-DROP
+
+# Apple 官方广告与搜索归因 SDK (REJECT-DROP 彻底阻断)
+iadsdk.apple.com REJECT-DROP
+
+# 腾讯云 / 微信 PCDN 偷跑上传探针与统计 (REJECT-DROP 封死上传降低功耗)
+apd-pcdnwxstat.teg.tencent-cloud.net REJECT-DROP
+apd-pcdnwxlogin.teg.tencent-cloud.net REJECT-DROP
+
+# 陌陌 (MomoChat / HelloGroup) 广告调度与后台日志
+adip-api.immomo.com REJECT-200
+app-log.immomo.com REJECT-200
+live-log.immomo.com REJECT-200
+api-log.immomo.com REJECT-200
+paas-push-api-log.immomo.com REJECT-200
+app-monitor-cn.hellogroup.com REJECT-DROP
+
+# 美团 / 大众点评 前端监控与 Logan 日志 (REJECT-200 假响应防重试)
+metrics-picture.d.meituan.net REJECT-200
+al-log.d.meituan.net REJECT-200
+data-sdk-uuid-log.d.meituan.net REJECT-200
+logan-rtl.dreport.meituan.net REJECT-200
+
+# 京东 反作弊与设备指纹日志
+anti-sdk-report.m.jd.com REJECT-200
+
+# 钉钉 漏网无线打点
+h-adashx.ut.dingtalk.com REJECT-DROP
+
+# 多点 Dmall 日志与神策埋点
+logman.dmall.com REJECT-DROP
+sc-sa-data.dmall.com REJECT-DROP

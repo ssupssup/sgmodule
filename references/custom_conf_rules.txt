@@ -86,6 +86,7 @@ DISABLE,DOMAIN-SUFFIX,updates.cdn-apple.com,DIRECT
 DISABLE,DOMAIN-SUFFIX,appleid.cdn-apple.com,DIRECT
 DISABLE,DOMAIN-SUFFIX,store.storeimages.cdn-apple.com,DIRECT
 DISABLE,DOMAIN-SUFFIX,updates-http.cdn-apple.com.akadns.net,DIRECT
+DISABLE,DOMAIN-SUFFIX,iadsdk.apple.com,DIRECT
 
 # ---------------------------------------------------
 # [动作 5] 苹果全域大泛域名末端直连兜底区 (APPEND_DIRECT)

@@ -129,7 +129,7 @@ DOMAIN,rmonitor.qq.com,REJECT-NO-DROP
 DOMAIN,gd-stats.jpush.cn,REJECT-DROP
 DOMAIN,ali-stats.jpush.cn,REJECT-DROP
 DOMAIN,log-auth.zztfly.com,REJECT-NO-DROP
-DOMAIN,iadsdk.apple.com,REJECT-NO-DROP
+DOMAIN,iadsdk.apple.com,REJECT-DROP
 DOMAIN,df.tanx.com,REJECT-NO-DROP
 DOMAIN,6.0.0.192.in-addr.arpa,REJECT-NO-DROP
 DOMAIN,adashx.m.taobao.com,REJECT-NO-DROP
