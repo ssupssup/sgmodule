@@ -14,12 +14,12 @@ stat.youpin.mi.com REJECT-DROP
 
 # 抖音/字节跳动 补漏日志与监控截胡 (拦截 DB 抓包中被 DIRECT 放行的日志上报)
 log0-misc-lf.amemv.com REJECT-200
-mon0-misc-lf.amemv.com REJECT-200
+mon0-misc-lf.amemv.com REJECT-DROP
 logbk.amemv.com REJECT-DROP
 mon11-misc-lf.amemv.com REJECT-200
 rtlog3-applog-hl.amemv.com REJECT-200
 px.effirst.com REJECT-DROP
-vc-brain-http.ndcpp.com REJECT-200
+vc-brain-http.ndcpp.com REJECT-DROP
 
 # 字节穿山甲广告 SDK (空字典 REJECT-DICT 防发热)
 ads5-normal-hj.zijieapi.com REJECT-DICT
@@ -52,8 +52,8 @@ apd-pcdnwxlogin.teg.tencent-cloud.net REJECT-DROP
 # 陌陌 / 探探 / 萤石云 广告调度、后台日志与监控打点 (REJECT-200 假响应防重试)
 adip-api.immomo.com REJECT-200
 app-log.immomo.com REJECT-200
-live-log.immomo.com REJECT-200
-api-log.immomo.com REJECT-200
+live-log.immomo.com REJECT-DROP
+api-log.immomo.com REJECT-DROP
 paas-push-api-log.immomo.com REJECT-200
 app-monitor-cn.hellogroup.com REJECT-DROP
 fep.hellogroup.com REJECT-200

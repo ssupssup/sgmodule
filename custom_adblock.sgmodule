@@ -146,13 +146,13 @@ DOMAIN,soul-ad.soulapp.cn,REJECT-NO-DROP
 DOMAIN,stats-ipv6.jpush.cn,REJECT-DROP
 DOMAIN,tracking.miui.com,REJECT-200
 DOMAIN,log0-misc-lf.amemv.com,REJECT-200
-DOMAIN,mon0-misc-lf.amemv.com,REJECT-200
+DOMAIN,mon0-misc-lf.amemv.com,REJECT-DROP
 DOMAIN,logbk.amemv.com,REJECT-DROP
 DOMAIN,ads5-normal-hj.zijieapi.com,REJECT-DICT
 DOMAIN,stat.youpin.mi.com,REJECT-DROP
-DOMAIN,maplocatesdksnapshot.d.meituan.net,REJECT-200
+DOMAIN,maplocatesdksnapshot.d.meituan.net,REJECT-DROP
 DOMAIN,dreport.meituan.net,REJECT-200
-DOMAIN,catdot.dianping.com,REJECT-200
+DOMAIN,catdot.dianping.com,REJECT-DROP
 DOMAIN,vc-brain-lf.ndcpp.com,REJECT-200
 DOMAIN,orzonera.yingt.fun,REJECT-DROP
 DOMAIN,mon11-misc-lf.amemv.com,REJECT-200
@@ -160,8 +160,8 @@ DOMAIN,apd-pcdnwxstat.teg.tencent-cloud.net,REJECT-DROP
 DOMAIN,apd-pcdnwxlogin.teg.tencent-cloud.net,REJECT-DROP
 DOMAIN,adip-api.immomo.com,REJECT-200
 DOMAIN,app-log.immomo.com,REJECT-200
-DOMAIN,live-log.immomo.com,REJECT-200
-DOMAIN,api-log.immomo.com,REJECT-200
+DOMAIN,live-log.immomo.com,REJECT-DROP
+DOMAIN,api-log.immomo.com,REJECT-DROP
 DOMAIN,paas-push-api-log.immomo.com,REJECT-200
 DOMAIN,app-monitor-cn.hellogroup.com,REJECT-DROP
 DOMAIN,metrics-picture.d.meituan.net,REJECT-200
@@ -172,7 +172,7 @@ DOMAIN,anti-sdk-report.m.jd.com,REJECT-200
 DOMAIN,h-adashx.ut.dingtalk.com,REJECT-DROP
 DOMAIN,logman.dmall.com,REJECT-DROP
 DOMAIN,sc-sa-data.dmall.com,REJECT-DROP
-DOMAIN,vc-brain-http.ndcpp.com,REJECT-200
+DOMAIN,vc-brain-http.ndcpp.com,REJECT-DROP
 DOMAIN,ca.iadsdk.apple.com,REJECT-DROP
 DOMAIN,fep.hellogroup.com,REJECT-200
 DOMAIN,app-monitor-cn.doki.ren,REJECT-DROP
