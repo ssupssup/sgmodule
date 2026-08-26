@@ -785,7 +785,17 @@
     "DOMAIN-SUFFIX,dahhxxttxs.com,REJECT-DROP",
     "DOMAIN-SUFFIX,jspcdn.cn,REJECT-DROP",
     "DOMAIN-SUFFIX,ydycdn.com,REJECT-DROP",
-    "DOMAIN,zlink.ugsdk.cn,REJECT-DROP"
+    "DOMAIN,zlink.ugsdk.cn,REJECT-DROP",
+    "DOMAIN,sdkfp.jd.com,REJECT-200",
+    "DOMAIN,anti-sdk-ccs-pre.m.jd.com,REJECT-200",
+    "DOMAIN,perf.m.jd.com,REJECT-200",
+    "DOMAIN,device-security-url.jd.com,REJECT-200",
+    "DOMAIN,h5speed.m.jd.com,REJECT-200",
+    "DOMAIN,uranus.jd.com,REJECT-200",
+    "DOMAIN,cactus.jd.com,REJECT-200",
+    "DOMAIN,report.tantanapp.com,REJECT-200",
+    "DOMAIN,sc-report.tantanapp.com,REJECT-200",
+    "DOMAIN,log.ys7.com,REJECT-200"
   ],
   "MANDATORY_MITM_DOMAINS": [
     "api.douban.com",

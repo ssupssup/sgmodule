@@ -34,8 +34,7 @@ errnewlog.umeng.com REJECT-DROP
 cnlogs.umeng.com REJECT-DROP
 cnlogs.umengcloud.com REJECT-DROP
 
-# 京东、钉钉、腾讯、高德、淘宝高频死循环日志/遥测 (升级为 REJECT-DROP 压制发热)
-mars.jd.com REJECT-DROP
+# 钉钉、腾讯、高德、淘宝高频死循环日志/遥测 (升级为 REJECT-DROP 压制发热)
 adashx.ut.dingtalk.com REJECT-DROP
 snowflake.qq.com REJECT-DROP
 dualstack-logs.amap.com REJECT-DROP
@@ -50,7 +49,7 @@ ca.iadsdk.apple.com REJECT-DROP
 apd-pcdnwxstat.teg.tencent-cloud.net REJECT-DROP
 apd-pcdnwxlogin.teg.tencent-cloud.net REJECT-DROP
 
-# 陌陌 (MomoChat / HelloGroup) 广告调度与后台日志
+# 陌陌 / 探探 / 萤石云 广告调度、后台日志与监控打点 (REJECT-200 假响应防重试)
 adip-api.immomo.com REJECT-200
 app-log.immomo.com REJECT-200
 live-log.immomo.com REJECT-200
@@ -59,6 +58,9 @@ paas-push-api-log.immomo.com REJECT-200
 app-monitor-cn.hellogroup.com REJECT-DROP
 fep.hellogroup.com REJECT-200
 app-monitor-cn.doki.ren REJECT-DROP
+report.tantanapp.com REJECT-200
+sc-report.tantanapp.com REJECT-200
+log.ys7.com REJECT-200
 
 # 美团 / 大众点评 前端监控与 Logan 日志 (REJECT-200 假响应防重试)
 metrics-picture.d.meituan.net REJECT-200
@@ -66,8 +68,16 @@ al-log.d.meituan.net REJECT-200
 data-sdk-uuid-log.d.meituan.net REJECT-200
 logan-rtl.dreport.meituan.net REJECT-200
 
-# 京东 反作弊与设备指纹日志
+# 京东 埋点、反作弊、设备指纹与 APM 性能监控 (REJECT-200 假响应清空本地发送队列)
+mars.jd.com REJECT-200
 anti-sdk-report.m.jd.com REJECT-200
+sdkfp.jd.com REJECT-200
+anti-sdk-ccs-pre.m.jd.com REJECT-200
+perf.m.jd.com REJECT-200
+device-security-url.jd.com REJECT-200
+h5speed.m.jd.com REJECT-200
+uranus.jd.com REJECT-200
+cactus.jd.com REJECT-200
 
 # 钉钉 漏网无线打点
 h-adashx.ut.dingtalk.com REJECT-DROP

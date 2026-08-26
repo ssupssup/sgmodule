@@ -137,7 +137,7 @@ DOMAIN,h-adashx4bc.ut.taobao.com,REJECT-NO-DROP
 DOMAIN,analytics.umetrip.com,REJECT-200
 DOMAIN,badjs.weixinbridge.com,REJECT-NO-DROP
 DOMAIN,browser.events.data.microsoft.com,REJECT-NO-DROP
-DOMAIN,mars.jd.com,REJECT-DROP
+DOMAIN,mars.jd.com,REJECT-200
 DOMAIN,mllog.jd.com,REJECT-200
 DOMAIN,mobile.events.data.microsoft.com,REJECT-NO-DROP
 DOMAIN,res.mmstat.com,REJECT-200
