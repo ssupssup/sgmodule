@@ -1,6 +1,6 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-08-26 04:48:00 | Deep ad block & UI purification customized for user's installed apps.
-#!total=1267
+#!desc=最近更新: 2026-08-26 09:47:57 | Deep ad block & UI purification customized for user's installed apps.
+#!total=1275
 
 [Rule]
 # === LINE Notice Bar SafeFrame & Pubads PROXY Override (Top Priority) ===
@@ -172,10 +172,18 @@ DOMAIN,anti-sdk-report.m.jd.com,REJECT-200
 DOMAIN,h-adashx.ut.dingtalk.com,REJECT-DROP
 DOMAIN,logman.dmall.com,REJECT-DROP
 DOMAIN,sc-sa-data.dmall.com,REJECT-DROP
-DOMAIN-SUFFIX,outlookads.live.com,REJECT
+DOMAIN,vc-brain-http.ndcpp.com,REJECT-200
+DOMAIN,ca.iadsdk.apple.com,REJECT-DROP
+DOMAIN,fep.hellogroup.com,REJECT-200
+DOMAIN,app-monitor-cn.doki.ren,REJECT-DROP
+DOMAIN-SUFFIX,dahhxxttxs.com,REJECT-DROP
+DOMAIN-SUFFIX,jspcdn.cn,REJECT-DROP
+DOMAIN-SUFFIX,ydycdn.com,REJECT-DROP
+DOMAIN,zlink.ugsdk.cn,REJECT-DROP
 DOMAIN-SUFFIX,ads.linkedin.com,REJECT
-DOMAIN-SUFFIX,a1.firefoxchina.cn,REJECT
+DOMAIN-SUFFIX,outlookads.live.com,REJECT
 DOMAIN-SUFFIX,analytics.pointdrive.linkedin.com,REJECT-200
+DOMAIN-SUFFIX,a1.firefoxchina.cn,REJECT
 # === Compiled App Rules ===
 DOMAIN,adstrategy.biz.weibo.com,REJECT
 DOMAIN-SUFFIX,api.touch-moblie.com,REJECT
