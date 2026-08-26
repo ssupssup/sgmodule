@@ -13,7 +13,7 @@ DOMAIN,cnlogs.umeng.com,REJECT-DROP
 DOMAIN,utoken.umeng.com,REJECT-200
 DOMAIN,cnlogs.umengcloud.com,REJECT-DROP
 DOMAIN,resolve.umeng.com,REJECT-200
-DOMAIN,dig.bdurl.net,REJECT-DROP
+DOMAIN,dig.bdurl.net,REJECT-200
 DOMAIN,snowflake.qq.com,REJECT-DROP
 DOMAIN,rmonitor.qq.com,REJECT-200
 DOMAIN,beacon.qq.com,REJECT-200

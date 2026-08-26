@@ -777,7 +777,15 @@
     "DOMAIN,anti-sdk-report.m.jd.com,REJECT-200",
     "DOMAIN,h-adashx.ut.dingtalk.com,REJECT-DROP",
     "DOMAIN,logman.dmall.com,REJECT-DROP",
-    "DOMAIN,sc-sa-data.dmall.com,REJECT-DROP"
+    "DOMAIN,sc-sa-data.dmall.com,REJECT-DROP",
+    "DOMAIN,vc-brain-http.ndcpp.com,REJECT-200",
+    "DOMAIN,ca.iadsdk.apple.com,REJECT-DROP",
+    "DOMAIN,fep.hellogroup.com,REJECT-200",
+    "DOMAIN,app-monitor-cn.doki.ren,REJECT-DROP",
+    "DOMAIN-SUFFIX,dahhxxttxs.com,REJECT-DROP",
+    "DOMAIN-SUFFIX,jspcdn.cn,REJECT-DROP",
+    "DOMAIN-SUFFIX,ydycdn.com,REJECT-DROP",
+    "DOMAIN,zlink.ugsdk.cn,REJECT-DROP"
   ],
   "MANDATORY_MITM_DOMAINS": [
     "api.douban.com",

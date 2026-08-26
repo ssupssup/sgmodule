@@ -1,8 +1,8 @@
 # 精细化广告拒绝方式策略字典 (域名 策略)
 # 支持策略: REJECT / REJECT-200 / REJECT-DROP / REJECT-NO-DROP / REJECT-DICT / REJECT-ARRAY / REJECT-IMG / REJECT-VIDEO
 
-# 百度 SDK 探针 API (升级为 REJECT-DROP 静默丢包，压制高频请求)
-dig.bdurl.net REJECT-DROP
+# 百度 SDK 探针 API (升级为 REJECT-200 假响应，消除 101 次 TCP 重传并压制高频打点)
+dig.bdurl.net REJECT-200
 mobads-logs.baidu.com REJECT-200
 
 # 谷歌广告 SDK (升级为 REJECT-DROP 静默丢包，消除高频 DNS 请求)
@@ -19,6 +19,7 @@ logbk.amemv.com REJECT-DROP
 mon11-misc-lf.amemv.com REJECT-200
 rtlog3-applog-hl.amemv.com REJECT-200
 px.effirst.com REJECT-DROP
+vc-brain-http.ndcpp.com REJECT-200
 
 # 字节穿山甲广告 SDK (空字典 REJECT-DICT 防发热)
 ads5-normal-hj.zijieapi.com REJECT-DICT
@@ -41,8 +42,9 @@ dualstack-logs.amap.com REJECT-DROP
 logs.amap.com REJECT-DROP
 h-adashx.ut.taobao.com REJECT-DROP
 
-# Apple 官方广告与搜索归因 SDK (REJECT-DROP 彻底阻断)
+# Apple 官方广告与搜索归因 SDK (REJECT-DROP 彻底阻断，全域名精确防误伤)
 iadsdk.apple.com REJECT-DROP
+ca.iadsdk.apple.com REJECT-DROP
 
 # 腾讯云 / 微信 PCDN 偷跑上传探针与统计 (REJECT-DROP 封死上传降低功耗)
 apd-pcdnwxstat.teg.tencent-cloud.net REJECT-DROP
@@ -55,6 +57,8 @@ live-log.immomo.com REJECT-200
 api-log.immomo.com REJECT-200
 paas-push-api-log.immomo.com REJECT-200
 app-monitor-cn.hellogroup.com REJECT-DROP
+fep.hellogroup.com REJECT-200
+app-monitor-cn.doki.ren REJECT-DROP
 
 # 美团 / 大众点评 前端监控与 Logan 日志 (REJECT-200 假响应防重试)
 metrics-picture.d.meituan.net REJECT-200
@@ -71,3 +75,11 @@ h-adashx.ut.dingtalk.com REJECT-DROP
 # 多点 Dmall 日志与神策埋点
 logman.dmall.com REJECT-DROP
 sc-sa-data.dmall.com REJECT-DROP
+
+# 抖音 / 短视频边缘 PCDN 流量调度与边缘 Hash 节点 (REJECT-DROP 防发热与偷跑)
+dahhxxttxs.com REJECT-DROP
+jspcdn.cn REJECT-DROP
+ydycdn.com REJECT-DROP
+
+# 广告与用户增长 SDK 唤醒短链 (REJECT-DROP 阻断唤醒追踪)
+zlink.ugsdk.cn REJECT-DROP
