@@ -14,9 +14,10 @@ stat.youpin.mi.com REJECT-DROP
 
 # 抖音/字节跳动 补漏日志与监控截胡 (拦截 DB 抓包中被 DIRECT 放行的日志上报)
 log0-misc-lf.amemv.com REJECT-200
-mon0-misc-lf.amemv.com REJECT-DROP
-logbk.amemv.com REJECT-DROP
+mon0-misc-lf.amemv.com REJECT-200
+logbk.amemv.com REJECT-200
 mon11-misc-lf.amemv.com REJECT-200
+tnc0-aliec2.zijieapi.com REJECT-DROP
 rtlog3-applog-hl.amemv.com REJECT-200
 px.effirst.com REJECT-DROP
 vc-brain-http.ndcpp.com REJECT-DROP
@@ -67,6 +68,7 @@ metrics-picture.d.meituan.net REJECT-200
 al-log.d.meituan.net REJECT-200
 data-sdk-uuid-log.d.meituan.net REJECT-200
 logan-rtl.dreport.meituan.net REJECT-200
+o1.d.meituan.net REJECT-200
 
 # 京东 埋点、反作弊、设备指纹与 APM 性能监控 (REJECT-200 假响应清空本地发送队列)
 mars.jd.com REJECT-200
@@ -76,7 +78,7 @@ anti-sdk-ccs-pre.m.jd.com REJECT-200
 perf.m.jd.com REJECT-200
 device-security-url.jd.com REJECT-200
 h5speed.m.jd.com REJECT-200
-uranus.jd.com REJECT-200
+uranus.jd.com REJECT-DROP
 cactus.jd.com REJECT-200
 
 # 钉钉 漏网无线打点
@@ -86,10 +88,15 @@ h-adashx.ut.dingtalk.com REJECT-DROP
 logman.dmall.com REJECT-DROP
 sc-sa-data.dmall.com REJECT-DROP
 
-# 抖音 / 短视频边缘 PCDN 流量调度与边缘 Hash 节点 (REJECT-DROP 防发热与偷跑)
-dahhxxttxs.com REJECT-DROP
-jspcdn.cn REJECT-DROP
+# 抖音 / 短视频边缘 PCDN 流量调度与边缘 Hash 节点 (REJECT-200 强迫回退防悬空)
+dahhxxttxs.com REJECT-200
+jspcdn.cn REJECT-200
 ydycdn.com REJECT-DROP
+pkoplink.com REJECT-200
+ctydoh.cn REJECT-200
 
 # 广告与用户增长 SDK 唤醒短链 (REJECT-DROP 阻断唤醒追踪)
 zlink.ugsdk.cn REJECT-DROP
+
+# 微博高频设备指纹打点 (REJECT-200 假响应清空本地队列)
+tqt.weibo.cn REJECT-200

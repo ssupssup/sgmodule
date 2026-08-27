@@ -108,7 +108,7 @@ DOMAIN,mcs.snssdk.com,REJECT-TINYSINK
 DOMAIN,dm.snssdk.com,REJECT-TINYSINK
 DOMAIN,toblog.ctobsnssdk.com,REJECT-TINYSINK
 DOMAIN,monitor.ipv6-tantanapp.com.master.vip.tantanapp.com,REJECT-200
-DOMAIN-SUFFIX,pkoplink.com,REJECT-NO-DROP
+DOMAIN-SUFFIX,pkoplink.com,REJECT-200
 DOMAIN,sjxydc.com,REJECT-NO-DROP
 DOMAIN,log-hl.snssdk.com,REJECT-TINYSINK
 DOMAIN,fp-it.fengkongcloud.com,REJECT-NO-DROP
@@ -146,8 +146,8 @@ DOMAIN,soul-ad.soulapp.cn,REJECT-NO-DROP
 DOMAIN,stats-ipv6.jpush.cn,REJECT-DROP
 DOMAIN,tracking.miui.com,REJECT-200
 DOMAIN,log0-misc-lf.amemv.com,REJECT-200
-DOMAIN,mon0-misc-lf.amemv.com,REJECT-DROP
-DOMAIN,logbk.amemv.com,REJECT-DROP
+DOMAIN,mon0-misc-lf.amemv.com,REJECT-200
+DOMAIN,logbk.amemv.com,REJECT-200
 DOMAIN,ads5-normal-hj.zijieapi.com,REJECT-DICT
 DOMAIN,stat.youpin.mi.com,REJECT-DROP
 DOMAIN,maplocatesdksnapshot.d.meituan.net,REJECT-200
@@ -176,8 +176,8 @@ DOMAIN,vc-brain-http.ndcpp.com,REJECT-DROP
 DOMAIN,ca.iadsdk.apple.com,REJECT-DROP
 DOMAIN,fep.hellogroup.com,REJECT-200
 DOMAIN,app-monitor-cn.doki.ren,REJECT-DROP
-DOMAIN-SUFFIX,dahhxxttxs.com,REJECT-DROP
-DOMAIN-SUFFIX,jspcdn.cn,REJECT-DROP
+DOMAIN-SUFFIX,dahhxxttxs.com,REJECT-200
+DOMAIN-SUFFIX,jspcdn.cn,REJECT-200
 DOMAIN-SUFFIX,ydycdn.com,REJECT-DROP
 DOMAIN,zlink.ugsdk.cn,REJECT-DROP
 DOMAIN,sdkfp.jd.com,REJECT-200
@@ -185,7 +185,7 @@ DOMAIN,anti-sdk-ccs-pre.m.jd.com,REJECT-200
 DOMAIN,perf.m.jd.com,REJECT-200
 DOMAIN,device-security-url.jd.com,REJECT-200
 DOMAIN,h5speed.m.jd.com,REJECT-200
-DOMAIN,uranus.jd.com,REJECT-200
+DOMAIN,uranus.jd.com,REJECT-DROP
 DOMAIN,cactus.jd.com,REJECT-200
 DOMAIN,log.ys7.com,REJECT-200
 DOMAIN,app-measurement.com,REJECT-DROP
