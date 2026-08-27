@@ -1,6 +1,6 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-08-27 07:37:32 | Deep ad block & UI purification customized for user's installed apps.
-#!total=1283
+#!desc=最近更新: 2026-08-27 09:18:54 | Deep ad block & UI purification customized for user's installed apps.
+#!total=1290
 
 [Rule]
 # === LINE Notice Bar SafeFrame & Pubads PROXY Override (Top Priority) ===
@@ -188,8 +188,15 @@ DOMAIN,h5speed.m.jd.com,REJECT-200
 DOMAIN,uranus.jd.com,REJECT-200
 DOMAIN,cactus.jd.com,REJECT-200
 DOMAIN,log.ys7.com,REJECT-200
-DOMAIN-SUFFIX,outlookads.live.com,REJECT
+DOMAIN,app-measurement.com,REJECT-DROP
+DOMAIN-SUFFIX,ctydoh.cn,REJECT-DROP
+DOMAIN,orange-dc.alibaba.com,REJECT-200
+DOMAIN,loggw-ex.alipay.com,REJECT-200
+DOMAIN,mon.toutiaocloud.com,REJECT-200
+DOMAIN,abtest.tantanapp.com,REJECT-200
+DOMAIN,abtest3-misc-lf.zijieapi.com,REJECT-200
 DOMAIN-SUFFIX,a1.firefoxchina.cn,REJECT
+DOMAIN-SUFFIX,outlookads.live.com,REJECT
 DOMAIN-SUFFIX,ads.linkedin.com,REJECT
 DOMAIN-SUFFIX,analytics.pointdrive.linkedin.com,REJECT-200
 # === Compiled App Rules ===
