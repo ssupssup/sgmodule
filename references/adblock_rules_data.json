@@ -805,7 +805,12 @@
     "DOMAIN,loggw-ex.alipay.com,REJECT-200",
     "DOMAIN,mon.toutiaocloud.com,REJECT-200",
     "DOMAIN,abtest.tantanapp.com,REJECT-200",
-    "DOMAIN,abtest3-misc-lf.zijieapi.com,REJECT-200"
+    "DOMAIN,abtest3-misc-lf.zijieapi.com,REJECT-200",
+    "# === 2026-08-28 补充的高频漏网遥测与日志探针阻断 ===",
+    "DOMAIN,tnc0-alisc1.zijieapi.com,REJECT-DROP",
+    "DOMAIN,gm.mmstat.com,REJECT-200",
+    "DOMAIN-SUFFIX,log.aliyuncs.com,REJECT-200",
+    "DOMAIN,status-ipv6.jpush.cn,REJECT-DROP"
   ],
   "MANDATORY_MITM_DOMAINS": [
     "api.douban.com",
