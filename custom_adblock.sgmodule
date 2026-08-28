@@ -1,6 +1,6 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-08-27 19:04:31 | Deep ad block & UI purification customized for user's installed apps.
-#!total=1293
+#!desc=最近更新: 2026-08-28 09:50:07 | Deep ad block & UI purification customized for user's installed apps.
+#!total=1298
 
 [Rule]
 # === LINE Notice Bar SafeFrame & Pubads PROXY Override (Top Priority) ===
@@ -198,10 +198,15 @@ DOMAIN,loggw-ex.alipay.com,REJECT-200
 DOMAIN,mon.toutiaocloud.com,REJECT-200
 DOMAIN,abtest.tantanapp.com,REJECT-200
 DOMAIN,abtest3-misc-lf.zijieapi.com,REJECT-200
-DOMAIN-SUFFIX,outlookads.live.com,REJECT
+# === 2026-08-28 补充的高频漏网遥测与日志探针阻断 ===
+DOMAIN,tnc0-alisc1.zijieapi.com,REJECT-DROP
+DOMAIN,gm.mmstat.com,REJECT-200
+DOMAIN-SUFFIX,log.aliyuncs.com,REJECT-200
+DOMAIN,status-ipv6.jpush.cn,REJECT-DROP
 DOMAIN-SUFFIX,a1.firefoxchina.cn,REJECT
-DOMAIN-SUFFIX,ads.linkedin.com,REJECT
+DOMAIN-SUFFIX,outlookads.live.com,REJECT
 DOMAIN-SUFFIX,analytics.pointdrive.linkedin.com,REJECT-200
+DOMAIN-SUFFIX,ads.linkedin.com,REJECT
 # === Compiled App Rules ===
 DOMAIN,adstrategy.biz.weibo.com,REJECT
 DOMAIN-SUFFIX,api.touch-moblie.com,REJECT
