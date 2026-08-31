@@ -1,6 +1,6 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-08-31 20:47:38 | Deep ad block & UI purification customized for user's installed apps.
-#!total=1293
+#!desc=最近更新: 2026-08-31 21:08:56 | Deep ad block & UI purification customized for user's installed apps.
+#!total=1312
 
 [Rule]
 # === LINE Notice Bar SafeFrame & Pubads PROXY Override (Top Priority) ===
@@ -200,10 +200,28 @@ DOMAIN,tnc0-alisc1.zijieapi.com,REJECT-DROP
 DOMAIN,gm.mmstat.com,REJECT-200
 DOMAIN-SUFFIX,log.aliyuncs.com,REJECT-200
 DOMAIN,status-ipv6.jpush.cn,REJECT-DROP
+DOMAIN,klink.volceapplog.com,REJECT-DROP
+DOMAIN,toblog.volceapplog.com,REJECT-DROP
+DOMAIN,apmplus.volces.com,REJECT-200
+DOMAIN,log-report.rtc.volcvideo.com,REJECT-200
+DOMAIN,lf-leads-fe-scm.bytecdn.com,REJECT-200
+DOMAIN,paybiz2kfk.dreport.meituan.net,REJECT-200
+DOMAIN,prism-report-knb.dreport.meituan.net,REJECT-200
+DOMAIN,analytics.meituan.net,REJECT-200
+DOMAIN,xlog.jd.com,REJECT-200
+DOMAIN,udataresys-log.nie.netease.com,REJECT-200
+DOMAIN,clientlogsf.music.163.com,REJECT-200
+DOMAIN,clientlogdep.music.163.com,REJECT-200
+DOMAIN,fp-upload.dun.163.com,REJECT-200
+DOMAIN,shreport.weixin.qq.com,REJECT-DROP
+DOMAIN,adsmind.gdtimg.com,REJECT-DROP
+DOMAIN,log.umsns.com,REJECT-DROP
+DOMAIN,stats.umsns.com,REJECT-DROP
+DOMAIN,rtbasia.datahubtrack.com,REJECT-DROP
 DOMAIN-SUFFIX,a1.firefoxchina.cn,REJECT
-DOMAIN-SUFFIX,analytics.pointdrive.linkedin.com,REJECT-200
 DOMAIN-SUFFIX,ads.linkedin.com,REJECT
 DOMAIN-SUFFIX,outlookads.live.com,REJECT
+DOMAIN-SUFFIX,analytics.pointdrive.linkedin.com,REJECT-200
 # === Compiled App Rules ===
 DOMAIN,adstrategy.biz.weibo.com,REJECT
 DOMAIN-SUFFIX,api.touch-moblie.com,REJECT
