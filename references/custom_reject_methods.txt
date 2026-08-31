@@ -14,13 +14,18 @@ stat.youpin.mi.com REJECT-DROP
 
 # 抖音/字节跳动 补漏日志与监控截胡 (拦截 DB 抓包中被 DIRECT 放行的日志上报)
 log0-misc-lf.amemv.com REJECT-200
-mon0-misc-lf.amemv.com REJECT-200
+mon0-misc-lf.amemv.com REJECT-DICT
 logbk.amemv.com REJECT-200
 mon11-misc-lf.amemv.com REJECT-200
 tnc0-aliec2.zijieapi.com REJECT-DROP
 rtlog3-applog-hl.amemv.com REJECT-200
 px.effirst.com REJECT-DROP
 vc-brain-http.ndcpp.com REJECT-DROP
+klink.volceapplog.com REJECT-DROP
+toblog.volceapplog.com REJECT-DROP
+apmplus.volces.com REJECT-200
+log-report.rtc.volcvideo.com REJECT-200
+lf-leads-fe-scm.bytecdn.com REJECT-200
 
 # 字节穿山甲广告 SDK (空字典 REJECT-DICT 防发热)
 ads5-normal-hj.zijieapi.com REJECT-DICT
@@ -34,6 +39,8 @@ gd-stats.jpush.cn REJECT-DROP
 errnewlog.umeng.com REJECT-DROP
 cnlogs.umeng.com REJECT-DROP
 cnlogs.umengcloud.com REJECT-DROP
+log.umsns.com REJECT-DROP
+stats.umsns.com REJECT-DROP
 
 # 钉钉、腾讯、高德、淘宝高频死循环日志/遥测 (升级为 REJECT-DROP 压制发热)
 adashx.ut.dingtalk.com REJECT-DROP
@@ -49,6 +56,8 @@ ca.iadsdk.apple.com REJECT-DROP
 # 腾讯云 / 微信 PCDN 偷跑上传探针与统计 (REJECT-DROP 封死上传降低功耗)
 apd-pcdnwxstat.teg.tencent-cloud.net REJECT-DROP
 apd-pcdnwxlogin.teg.tencent-cloud.net REJECT-DROP
+shreport.weixin.qq.com REJECT-DROP
+adsmind.gdtimg.com REJECT-DROP
 
 # 陌陌 / 探探 / 萤石云 广告调度、后台日志与监控打点 (REJECT-200 假响应防重试)
 adip-api.immomo.com REJECT-200
@@ -69,6 +78,9 @@ al-log.d.meituan.net REJECT-200
 data-sdk-uuid-log.d.meituan.net REJECT-200
 logan-rtl.dreport.meituan.net REJECT-200
 o1.d.meituan.net REJECT-200
+paybiz2kfk.dreport.meituan.net REJECT-200
+prism-report-knb.dreport.meituan.net REJECT-200
+analytics.meituan.net REJECT-200
 
 # 京东 埋点、反作弊、设备指纹与 APM 性能监控 (REJECT-200 假响应清空本地发送队列)
 mars.jd.com REJECT-200
@@ -80,6 +92,7 @@ device-security-url.jd.com REJECT-200
 h5speed.m.jd.com REJECT-200
 uranus.jd.com REJECT-DROP
 cactus.jd.com REJECT-200
+xlog.jd.com REJECT-200
 
 # 钉钉 漏网无线打点
 h-adashx.ut.dingtalk.com REJECT-DROP
@@ -100,3 +113,12 @@ zlink.ugsdk.cn REJECT-DROP
 
 # 微博高频设备指纹打点 (REJECT-200 假响应清空本地队列)
 tqt.weibo.cn REJECT-200
+
+# 网易游戏/音乐日志与遥测 (REJECT-200)
+udataresys-log.nie.netease.com REJECT-200
+clientlogsf.music.163.com REJECT-200
+clientlogdep.music.163.com REJECT-200
+fp-upload.dun.163.com REJECT-200
+
+# 其他通用追踪与打点
+rtbasia.datahubtrack.com REJECT-DROP

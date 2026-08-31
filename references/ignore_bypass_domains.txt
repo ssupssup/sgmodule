@@ -1,3 +1,1 @@
-# 探探死循环高频上报域名 (擦除拦截规则，走 CONF 直连)
-REPORT.TANTANAPP.COM
-SC-REPORT.TANTANAPP.COM
+# 白名单擦除规则为空。探探死循环已通过 REJECT-200 与 REJECT-DROP 解决，无需再放行。

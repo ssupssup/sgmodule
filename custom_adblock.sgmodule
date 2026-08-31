@@ -145,7 +145,7 @@ DOMAIN,soul-ad.soulapp.cn,REJECT-NO-DROP
 DOMAIN,stats-ipv6.jpush.cn,REJECT-DROP
 DOMAIN,tracking.miui.com,REJECT-200
 DOMAIN,log0-misc-lf.amemv.com,REJECT-200
-DOMAIN,mon0-misc-lf.amemv.com,REJECT-200
+DOMAIN,mon0-misc-lf.amemv.com,REJECT-DICT
 DOMAIN,logbk.amemv.com,REJECT-200
 DOMAIN,ads5-normal-hj.zijieapi.com,REJECT-DICT
 DOMAIN,stat.youpin.mi.com,REJECT-DROP
@@ -183,6 +183,8 @@ DOMAIN,device-security-url.jd.com,REJECT-200
 DOMAIN,h5speed.m.jd.com,REJECT-200
 DOMAIN,uranus.jd.com,REJECT-DROP
 DOMAIN,cactus.jd.com,REJECT-200
+DOMAIN,report.tantanapp.com,REJECT-200
+DOMAIN,sc-report.tantanapp.com,REJECT-200
 DOMAIN,log.ys7.com,REJECT-200
 DOMAIN,app-measurement.com,REJECT-DROP
 DOMAIN,tqt.weibo.cn,REJECT-200
@@ -529,7 +531,6 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/erebor\.douban\.com\/count\/\?ad= - reject
 (?i)\b\.ott\.cibntv\.net\/[\w\/-]+?\.mp4\?sid= - reject
 (?i)\b\/(outadservice|ting\/preload)\/ - reject
-(?i)\b\/ad\/ - reject
 (?i)\b\/api\/v\d\/adRealTime - reject
 (?i)\b\/brand\/search\/v1\.json - reject
 (?i)\b\/promotion\/(display_cache|display_ad|feed_display|search_ad) - reject

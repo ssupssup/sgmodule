@@ -161,6 +161,10 @@ def should_bypass_rule_content(pattern_or_line):
     if "beacon-api.aliyuncs.com" in line_clean or "alicdn.com" in line_clean or "zto.com" in line_clean or "hdgateway" in line_clean:
         return True
         
+    # 彻底拦截过宽的全局广告正则误杀 (防资和信等App图片路径包含 /ad/ 时被误拦截)
+    if "b/ad/ - reject" in line_clean or "?i)b/ad/" in line_clean:
+        return True
+        
     # 3. High risk domains in rewrites/scripts (since they require MITM to trigger)
     for domain in HIGH_RISK_MITM_DOMAINS:
         if domain in line_clean:
