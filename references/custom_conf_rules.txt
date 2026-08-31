@@ -73,6 +73,59 @@ PREPEND_DIRECT,DOMAIN-SUFFIX,guoguo-app.com,DIRECT
 PREPEND_DIRECT,DOMAIN-SUFFIX,sf-service.com,DIRECT
 
 # ---------------------------------------------------
+# [动作 3.5] 同步自 MosDNS 核心白名单 (双端 100% 对齐)
+# ---------------------------------------------------
+PREPEND_DIRECT,DOMAIN-SUFFIX,api.apple-cloudkit.com,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,mzstatic.com,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,apple.com.cn,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,calendars.icloud.com,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,apple.cn,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,applemusic.com.cn,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,icloud.com.cn,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,apple-livephotoskit.com,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,apple-mapkit.com,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,itunes-apple.com.cn,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,courier-sandbox-push-apple.com.akadns.net,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,p108-contacts.icloud.com,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,p108-caldav.icloud.com,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,p108-fmip.icloud.com,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,p108-fmipmobile.icloud.com,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,gsa.idms-apple.com.akadns.net,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,configuration-cn-lb.apple.com.akadns.net,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,gateway.fe2.apple-dns.net,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,fmip.fe2.apple-dns.net,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,fmip.fe.apple-dns.cn,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,gsp64-ssl.ls-apple.com.akadns.net,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,gspe19-cn-ssl.ls.apple.com.w.alikunlun.com,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,is1-ssl.mzstatic.com.w.alikunlun.com,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,ioshost.qtlcdn.com,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,istoreos.com,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,ccgp.gov.cn,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,dldir1v6.qq.com,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,test-ipv6.com,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,ghproxy.net,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,sinaimg.cn,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,ocsp.digicert.com,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,k128-inapp.gslb.ksyuncdn.com,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,pti.store.microsoft.com,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,sublimetext.com,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,wdrtr.xyz,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,200610.cc.cd,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,2t58.com,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,ggff.net,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,66tutup.com,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,dygod.vip,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,courier-push-apple.com.akadns.net,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,edge-itunes-apple.com.akadns.net,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,kt-prod.ess.apple.com,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,bag.itunes.apple.com,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,itunes-apple.com.akadns.net,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,configuration.apple.com.akadns.net,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,init-p01md-lb.push-apple.com.akadns.net,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,init-p01st-lb.push-apple.com.akadns.net,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,init-s01st-lb.push-apple.com.akadns.net,DIRECT
+
+# ---------------------------------------------------
 # [动作 4] 上游冲突/冗余苹果子域名原位注释禁用 (DISABLE)
 # 作用：原行原位保留，仅前端加上 # 🚫 注释，0 偏移且彻底消除规则冲突
 # ---------------------------------------------------
@@ -87,6 +140,12 @@ DISABLE,DOMAIN-SUFFIX,appleid.cdn-apple.com,DIRECT
 DISABLE,DOMAIN-SUFFIX,store.storeimages.cdn-apple.com,DIRECT
 DISABLE,DOMAIN-SUFFIX,updates-http.cdn-apple.com.akadns.net,DIRECT
 DISABLE,DOMAIN-SUFFIX,iadsdk.apple.com,DIRECT
+DISABLE,DOMAIN-SUFFIX,bag.itunes.apple.com,PROXY
+DISABLE,DOMAIN-SUFFIX,itunes-apple.com.akadns.net,PROXY
+DISABLE,DOMAIN-SUFFIX,configuration.apple.com.akadns.net,PROXY
+DISABLE,DOMAIN-SUFFIX,init-p01md-lb.push-apple.com.akadns.net,PROXY
+DISABLE,DOMAIN-SUFFIX,init-p01st-lb.push-apple.com.akadns.net,PROXY
+DISABLE,DOMAIN-SUFFIX,init-s01st-lb.push-apple.com.akadns.net,PROXY
 
 # ---------------------------------------------------
 # [动作 5] 苹果全域大泛域名末端直连兜底区 (APPEND_DIRECT)
