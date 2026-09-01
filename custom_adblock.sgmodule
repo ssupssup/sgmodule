@@ -145,7 +145,6 @@ DOMAIN,soul-ad.soulapp.cn,REJECT-NO-DROP
 DOMAIN,stats-ipv6.jpush.cn,REJECT-DROP
 DOMAIN,tracking.miui.com,REJECT-200
 DOMAIN,log0-misc-lf.amemv.com,REJECT-200
-DOMAIN,mon0-misc-lf.amemv.com,REJECT-DROP
 DOMAIN,logbk.amemv.com,REJECT-200
 DOMAIN,ads5-normal-hj.zijieapi.com,REJECT-DICT
 DOMAIN,stat.youpin.mi.com,REJECT-DROP
@@ -159,9 +158,6 @@ DOMAIN,apd-pcdnwxstat.teg.tencent-cloud.net,REJECT-DROP
 DOMAIN,apd-pcdnwxlogin.teg.tencent-cloud.net,REJECT-DROP
 DOMAIN,adip-api.immomo.com,REJECT-200
 DOMAIN,app-log.immomo.com,REJECT-200
-DOMAIN,live-log.immomo.com,REJECT-DROP
-DOMAIN,api-log.immomo.com,REJECT-DROP
-DOMAIN,paas-push-api-log.immomo.com,REJECT-200
 DOMAIN,app-monitor-cn.hellogroup.com,REJECT-DROP
 DOMAIN,metrics-picture.d.meituan.net,REJECT-200
 DOMAIN,al-log.d.meituan.net,REJECT-200
