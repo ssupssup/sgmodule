@@ -167,7 +167,6 @@ DOMAIN,metrics-picture.d.meituan.net,REJECT-200
 DOMAIN,al-log.d.meituan.net,REJECT-200
 DOMAIN,data-sdk-uuid-log.d.meituan.net,REJECT-200
 DOMAIN,logan-rtl.dreport.meituan.net,REJECT-200
-DOMAIN,anti-sdk-report.m.jd.com,REJECT-200
 DOMAIN,h-adashx.ut.dingtalk.com,REJECT-DROP
 DOMAIN,logman.dmall.com,REJECT-DROP
 DOMAIN,sc-sa-data.dmall.com,REJECT-DROP
@@ -176,10 +175,7 @@ DOMAIN,ca.iadsdk.apple.com,REJECT-DROP
 DOMAIN,fep.hellogroup.com,REJECT-200
 DOMAIN,app-monitor-cn.doki.ren,REJECT-DROP
 DOMAIN,zlink.ugsdk.cn,REJECT-DROP
-DOMAIN,sdkfp.jd.com,REJECT-200
-DOMAIN,anti-sdk-ccs-pre.m.jd.com,REJECT-200
 DOMAIN,perf.m.jd.com,REJECT-200
-DOMAIN,device-security-url.jd.com,REJECT-200
 DOMAIN,h5speed.m.jd.com,REJECT-200
 DOMAIN,uranus.jd.com,REJECT-DROP
 DOMAIN,cactus.jd.com,REJECT-200
