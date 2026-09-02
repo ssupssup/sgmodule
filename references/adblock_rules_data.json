@@ -810,9 +810,6 @@
     "DOMAIN,rtbasia.datahubtrack.com,REJECT-DROP"
   ],
   "MANDATORY_MITM_DOMAINS": [
-    "api.douban.com",
-    "m.douban.com",
-    "frodo.douban.com",
     "booking.bestwehotel.com",
     "wxapp.bestwehotel.com",
     "web-opin.bestwehotel.com",
@@ -898,36 +895,6 @@
       "pattern": "^https?:\\/\\/mobads\\.baidu\\.com\\/[a-zA-Z0-9_\\/]+\\.php",
       "priority": 0,
       "app": "百度联盟广告"
-    },
-    {
-      "text": "^https:\\/\\/api\\.douban\\.com\\/v\\d\\/app_ads\\/splash reject-dict",
-      "pattern": "^https:\\/\\/api\\.douban\\.com\\/v\\d\\/app_ads\\/splash",
-      "priority": 0,
-      "app": "豆瓣"
-    },
-    {
-      "text": "^https:\\/\\/frodo\\.douban\\.com\\/api\\/v\\d\\/app_ads\\/splash reject-dict",
-      "pattern": "^https:\\/\\/frodo\\.douban\\.com\\/api\\/v\\d\\/app_ads\\/splash",
-      "priority": 0,
-      "app": "豆瓣"
-    },
-    {
-      "text": "^https:\\/\\/frodo\\.douban\\.com\\/api\\/v\\d\\/erebor\\/feed_ad reject",
-      "pattern": "^https:\\/\\/frodo\\.douban\\.com\\/api\\/v\\d\\/erebor\\/feed_ad",
-      "priority": 0,
-      "app": "豆瓣"
-    },
-    {
-      "text": "^https:\\/\\/frodo\\.douban\\.com\\/api\\/v\\d\\/home_banner reject",
-      "pattern": "^https:\\/\\/frodo\\.douban\\.com\\/api\\/v\\d\\/home_banner",
-      "priority": 0,
-      "app": "豆瓣"
-    },
-    {
-      "text": "^https:\\/\\/frodo\\.douban\\.com\\/api\\/v\\d\\/search\\/found_words reject",
-      "pattern": "^https:\\/\\/frodo\\.douban\\.com\\/api\\/v\\d\\/search\\/found_words",
-      "priority": 0,
-      "app": "豆瓣"
     },
     {
       "text": "^https?:\\/\\/wxapp\\.bestwehotel\\.com\\/gw3\\/app-mini\\/trip-hotel-banner\\/activity\\/getActivityInfo reject-dict",
