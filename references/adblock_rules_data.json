@@ -572,10 +572,6 @@
       "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/AdBlock/Applet.conf"
     ],
     "网易邮箱大师": "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/AdBlock/NeteaseMailAds.conf",
-    "豆瓣": [
-      "https://raw.githubusercontent.com/ddgksf2013/Rewrite/master/Html/Douban.conf",
-      "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partD/Douban.snippet"
-    ],
     "哔哩哔哩": "https://raw.githubusercontent.com/Maasea/sgmodule/master/Bilibili.Helper.sgmodule",
     "通用开屏广告": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rewrite/Shadowrocket/Advertising/Advertising.sgmodule",
     "百度网盘": "https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/rewrite/split/partB/BaiduNetdisk.snippet",
@@ -758,7 +754,6 @@
     "DOMAIN,dreport.meituan.net,REJECT-DROP",
     "DOMAIN,catdot.dianping.com,REJECT-DROP",
     "DOMAIN,vc-brain-lf.ndcpp.com,REJECT-200",
-    "DOMAIN,orzonera.yingt.fun,REJECT-DROP",
     "DOMAIN,mon11-misc-lf.amemv.com,REJECT-200",
     "DOMAIN,apd-pcdnwxstat.teg.tencent-cloud.net,REJECT-DROP",
     "DOMAIN,apd-pcdnwxlogin.teg.tencent-cloud.net,REJECT-DROP",
@@ -772,7 +767,6 @@
     "DOMAIN,h-adashx.ut.dingtalk.com,REJECT-DROP",
     "DOMAIN,logman.dmall.com,REJECT-DROP",
     "DOMAIN,sc-sa-data.dmall.com,REJECT-DROP",
-    "DOMAIN,vc-brain-http.ndcpp.com,REJECT-200",
     "DOMAIN,ca.iadsdk.apple.com,REJECT-DROP",
     "DOMAIN,fep.hellogroup.com,REJECT-200",
     "DOMAIN,app-monitor-cn.doki.ren,REJECT-DROP",

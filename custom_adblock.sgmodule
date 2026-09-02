@@ -152,7 +152,6 @@ DOMAIN,maplocatesdksnapshot.d.meituan.net,REJECT-DROP
 DOMAIN,dreport.meituan.net,REJECT-DROP
 DOMAIN,catdot.dianping.com,REJECT-DROP
 DOMAIN,vc-brain-lf.ndcpp.com,REJECT-200
-DOMAIN,orzonera.yingt.fun,REJECT-DROP
 DOMAIN,mon11-misc-lf.amemv.com,REJECT-200
 DOMAIN,apd-pcdnwxstat.teg.tencent-cloud.net,REJECT-DROP
 DOMAIN,apd-pcdnwxlogin.teg.tencent-cloud.net,REJECT-DROP
@@ -166,7 +165,6 @@ DOMAIN,logan-rtl.dreport.meituan.net,REJECT-200
 DOMAIN,h-adashx.ut.dingtalk.com,REJECT-DROP
 DOMAIN,logman.dmall.com,REJECT-DROP
 DOMAIN,sc-sa-data.dmall.com,REJECT-DROP
-DOMAIN,vc-brain-http.ndcpp.com,REJECT-DROP
 DOMAIN,ca.iadsdk.apple.com,REJECT-DROP
 DOMAIN,fep.hellogroup.com,REJECT-200
 DOMAIN,app-monitor-cn.doki.ren,REJECT-DROP
@@ -312,8 +310,6 @@ URL-REGEX,^https?:\/\/api\.zhihu\.com\/moments\/recent,REJECT-DICT
 URL-REGEX,^https?:\/\/api\.zhihu\.com\/root\/window,REJECT-DICT
 URL-REGEX,^https?:\/\/api\.zhihu\.com\/settings\/new\/notification,REJECT
 DOMAIN-WILDCARD,*pcdn*.biliapi.net,REJECT
-DOMAIN-SUFFIX,erebor.douban.com,REJECT
-DOMAIN-SUFFIX,ad.doubanio.com,REJECT
 DOMAIN,118.89.204.198,REJECT
 IP-CIDR,118.89.204.198/32,REJECT
 DOMAIN-SUFFIX,apoll.m.taobao.com,REJECT
@@ -534,11 +530,6 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/www\.didapinche\.com\/app\/adstat\/ - reject
 ^https?:\/\/www\.xiaohongshu\.com\/api\/sns\/v\d\/ads\/ - reject-dict
 ^https?:\/\/www\.xiaohongshu\.com\/api\/sns\/v\d\/system_service\/splash_config - reject
-^https?:\/\/api\.douban\.com\/v\d\/app_ads\/ - reject-dict
-^https?:\/\/api\.douban\.com\/b.*\/common_ads\?.* - reject-dict
-^https?:\/\/img\d\.doubanio\.com\/view\/dale-online\/dale_ad\/ - reject
-^https?:\/\/frodo\.douban\.com\/api\/v2\/movie\/banner - reject
-^https?:\/\/erebor\.douban\.com\/count\/\?ad= - reject
 (?i)\b\.ott\.cibntv\.net\/[\w\/-]+?\.mp4\?sid= - reject
 (?i)\b\/(outadservice|ting\/preload)\/ - reject
 (?i)\b\/api\/v\d\/adRealTime - reject
@@ -711,6 +702,7 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/api\.coolapk\.com\/v6\/search\?.*type=hotSearch - reject-dict
 ^https?:\/\/api\.dangdang\.com\/mapi\d\/mobile\/init - reject
 ^https?:\/\/api\.dnurse\.com\/api\/boot\/get-latest-items - reject-200
+^https?:\/\/api\.douban\.com\/b.*\/common_ads\?.* - reject-dict
 ^https?:\/\/api\.futunn\.com\/v\d\/ad\/ - reject
 ^https?:\/\/api\.gameplus\.qq\.com\/community\.OnloadSrv\/GetPreloadScreenInfo - reject-200
 ^https?:\/\/api\.gamer\.com\.tw\/mobile_app\/anime\/v\d\/anime_get_question\.php - reject-dict
@@ -1229,7 +1221,6 @@ https://dynamicad.kfc.com.cn/api/app5/homepage/ai/popup - reject-200
 闲鱼_0f6197 = type=http-response,pattern=^http:\/\/[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+){1,4}(:\d+)?\/amdc\/mobileDispatch,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/amdc.js,requires-body=1
 微信_49e4e9 = type=http-response,pattern=^https?:\/\/wx\.mygolbs\.com\/WxBusServer\/ApiData\.do,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/zhangshanggongjiao.js,requires-body=1
 微信_e20812 = type=http-response,pattern=^(https?://)?([a-zA-Z0-9]+(-[a-zA-Z0-9]+)*\.)+[a-zA-Z]{2,}(:\d+)?/wp-json/[a-zA-Z0-9_-]+/(mp\/)?v\d/posts,script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/applet.js,requires-body=1
-豆瓣_66d3e4 = type=http-response,pattern=^https?:\/\/m\.douban\.com\/(home_guide|movie|tv|book|group|music),script-path=https://raw.githubusercontent.com/ddgksf2013/Scripts/refs/heads/master/douban.js,requires-body=1
 爱奇艺_开屏去广告 = type=http-response,script-path=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/script/startup/startup.js,pattern=^https?:\/\/(t7z|kjp)\.cupid\.iqiyi\.com\/mixer\?,requires-body=1
 bilibili.helper.v2 = type=http-response,pattern=^https:\/\/app\.bilibili\.com\/x\/v2\/(splash|search\?|feed\/index),requires-body=1,max-size=-1,binary-body-mode=0,script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Bilibili/bilibili.helper.v2.js
 bilibili.helper.dmView = type=http-response,pattern=^https:\/\/grpc\.biliapi\.net\/bilibili\.community\.service\.dm\.v1\.DM\/DmView,requires-body=1,max-size=-1,binary-body-mode=1,script-path=https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Bilibili/bilibili.helper.js

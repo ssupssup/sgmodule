@@ -19,7 +19,6 @@ mon11-misc-lf.amemv.com REJECT-200
 tnc0-aliec2.zijieapi.com REJECT-DROP
 rtlog3-applog-hl.amemv.com REJECT-200
 px.effirst.com REJECT-DROP
-vc-brain-http.ndcpp.com REJECT-DROP
 klink.volceapplog.com REJECT-DROP
 toblog.volceapplog.com REJECT-DROP
 apmplus.volces.com REJECT-200
@@ -121,4 +120,3 @@ fp-upload.dun.163.com REJECT-200
 
 # 其他通用追踪与打点
 rtbasia.datahubtrack.com REJECT-DROP
-orzonera.yingt.fun REJECT-DROP
