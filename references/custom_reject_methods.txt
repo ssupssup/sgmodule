@@ -49,8 +49,8 @@ logs.amap.com REJECT-DROP
 h-adashx.ut.taobao.com REJECT-DROP
 
 # Apple 官方广告与搜索归因 SDK (REJECT-DROP 彻底阻断，全域名精确防误伤)
-iadsdk.apple.com REJECT-DROP
-ca.iadsdk.apple.com REJECT-DROP
+iadsdk.apple.com REJECT-200
+ca.iadsdk.apple.com REJECT-200
 
 # 腾讯云 / 微信 PCDN 偷跑上传探针与统计 (REJECT-DROP 封死上传降低功耗)
 apd-pcdnwxstat.teg.tencent-cloud.net REJECT-DROP

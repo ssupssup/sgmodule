@@ -126,7 +126,7 @@ DOMAIN,rmonitor.qq.com,REJECT-NO-DROP
 DOMAIN,gd-stats.jpush.cn,REJECT-DROP
 DOMAIN,ali-stats.jpush.cn,REJECT-DROP
 DOMAIN,log-auth.zztfly.com,REJECT-NO-DROP
-DOMAIN,iadsdk.apple.com,REJECT-DROP
+DOMAIN,iadsdk.apple.com,REJECT-200
 DOMAIN,df.tanx.com,REJECT-NO-DROP
 DOMAIN,6.0.0.192.in-addr.arpa,REJECT-NO-DROP
 DOMAIN,adashx.m.taobao.com,REJECT-NO-DROP
@@ -163,7 +163,7 @@ DOMAIN,logan-rtl.dreport.meituan.net,REJECT-200
 DOMAIN,h-adashx.ut.dingtalk.com,REJECT-DROP
 DOMAIN,logman.dmall.com,REJECT-DROP
 DOMAIN,sc-sa-data.dmall.com,REJECT-DROP
-DOMAIN,ca.iadsdk.apple.com,REJECT-DROP
+DOMAIN,ca.iadsdk.apple.com,REJECT-200
 DOMAIN,fep.hellogroup.com,REJECT-200
 DOMAIN,app-monitor-cn.doki.ren,REJECT-DROP
 DOMAIN,zlink.ugsdk.cn,REJECT-DROP
