@@ -800,7 +800,7 @@
     "DOMAIN,stats.umsns.com,REJECT-DROP",
     "DOMAIN,rtbasia.datahubtrack.com,REJECT-DROP",
     "DOMAIN,cf.iadsdk.apple.com,REJECT-200",
-    "DOMAIN-SUFFIX,dahhxxttxs.com,REJECT-DROP"
+    "DOMAIN-SUFFIX,dahhxxttxs.com,REJECT-200"
   ],
   "MANDATORY_MITM_DOMAINS": [
     "booking.bestwehotel.com",
