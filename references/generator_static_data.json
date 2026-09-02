@@ -120,7 +120,9 @@
     "# Finance/Crypto",
     "binance.com", "bitget.com", "bybit.com", "wise.com",
     "# Baidu Netdisk (SSL Pinning prevents logins if decrypted)",
-    "pan.baidu.com"
+    "pan.baidu.com",
+    "# Douban (SSL Pinning prevents app loading if decrypted)",
+    "douban.com"
   ],
   "BYPASS_RULES": [
     "# 彻底解决 Apple 定位守护进程 locationd 跨国超时发热的异常",
