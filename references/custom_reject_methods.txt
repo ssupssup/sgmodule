@@ -99,12 +99,12 @@ h-adashx.ut.dingtalk.com REJECT-DROP
 logman.dmall.com REJECT-DROP
 sc-sa-data.dmall.com REJECT-DROP
 
-# 抖音 / 短视频边缘 PCDN 流量调度与边缘 Hash 节点 (REJECT-200 强迫回退防悬空)
-dahhxxttxs.com REJECT-200
-jspcdn.cn REJECT-200
+# 抖音 / 短视频边缘 PCDN 流量调度与边缘 Hash 节点 (REJECT 强迫回退防悬空与死循环)
+dahhxxttxs.com REJECT
+jspcdn.cn REJECT
 ydycdn.com REJECT-DROP
-pkoplink.com REJECT-200
-ctydoh.cn REJECT-200
+pkoplink.com REJECT
+ctydoh.cn REJECT
 
 # 广告与用户增长 SDK 唤醒短链 (REJECT-DROP 阻断唤醒追踪)
 zlink.ugsdk.cn REJECT-DROP
