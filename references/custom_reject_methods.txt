@@ -10,7 +10,6 @@ googleads.g.doubleclick.net REJECT-DROP
 
 # 通用统计、遥测与小米有品日志 (REJECT-DROP 阻断高频请求)
 app-analytics-services.com REJECT-DROP
-stat.youpin.mi.com REJECT-DROP
 
 # 抖音/字节跳动 补漏日志与监控截胡 (拦截 DB 抓包中被 DIRECT 放行的日志上报)
 log0-misc-lf.amemv.com REJECT-200
@@ -21,7 +20,6 @@ rtlog3-applog-hl.amemv.com REJECT-200
 px.effirst.com REJECT-DROP
 klink.volceapplog.com REJECT-DROP
 toblog.volceapplog.com REJECT-DROP
-apmplus.volces.com REJECT-200
 log-report.rtc.volcvideo.com REJECT-200
 lf-leads-fe-scm.bytecdn.com REJECT-200
 
@@ -100,11 +98,6 @@ logman.dmall.com REJECT-DROP
 sc-sa-data.dmall.com REJECT-DROP
 
 # 抖音 / 短视频边缘 PCDN 流量调度与边缘 Hash 节点 (REJECT 强迫回退防悬空与死循环)
-dahhxxttxs.com REJECT
-jspcdn.cn REJECT
-ydycdn.com REJECT-DROP
-pkoplink.com REJECT
-ctydoh.cn REJECT
 
 # 广告与用户增长 SDK 唤醒短链 (REJECT-DROP 阻断唤醒追踪)
 zlink.ugsdk.cn REJECT-DROP

@@ -1,1 +1,10 @@
-# 白名单擦除规则为空。探探死循环已通过 REJECT-200 与 REJECT-DROP 解决，无需再放行。
+# 白名单擦除规则。探探死循环已通过 REJECT-200 与 REJECT-DROP 解决，无需再放行。
+# 2026-09-03 高频死锁 PCDN 与遥测，堵不如疏，全量放行
+dahhxxttxs.com
+jspcdn.cn
+ydycdn.com
+pkoplink.com
+ctydoh.cn
+stat.youpin.mi.com
+apmplus.volces.com
+log.aliyuncs.com

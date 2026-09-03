@@ -745,7 +745,6 @@
     "DOMAIN,log0-misc-lf.amemv.com,REJECT-200",
     "DOMAIN,logbk.amemv.com,REJECT-200",
     "DOMAIN,ads5-normal-hj.zijieapi.com,REJECT-DICT",
-    "DOMAIN,stat.youpin.mi.com,REJECT-200",
     "DOMAIN,dreport.meituan.net,REJECT-DROP",
     "DOMAIN,catdot.dianping.com,REJECT-DROP",
     "DOMAIN,vc-brain-lf.ndcpp.com,REJECT-200",
@@ -779,11 +778,9 @@
     "# === 2026-08-28 补充的高频漏网遥测与日志探针阻断 ===",
     "DOMAIN,tnc0-alisc1.zijieapi.com,REJECT-DROP",
     "DOMAIN,gm.mmstat.com,REJECT-200",
-    "DOMAIN-SUFFIX,log.aliyuncs.com,REJECT-200",
     "DOMAIN,status-ipv6.jpush.cn,REJECT-DROP",
     "DOMAIN,klink.volceapplog.com,REJECT-DROP",
     "DOMAIN,toblog.volceapplog.com,REJECT-DROP",
-    "DOMAIN,apmplus.volces.com,REJECT-DROP",
     "DOMAIN,log-report.rtc.volcvideo.com,REJECT-DROP",
     "DOMAIN,lf-leads-fe-scm.bytecdn.com,REJECT-DROP",
     "DOMAIN,paybiz2kfk.dreport.meituan.net,REJECT-DROP",
@@ -799,8 +796,7 @@
     "DOMAIN,log.umsns.com,REJECT-DROP",
     "DOMAIN,stats.umsns.com,REJECT-DROP",
     "DOMAIN,rtbasia.datahubtrack.com,REJECT-DROP",
-    "DOMAIN,cf.iadsdk.apple.com,REJECT-200",
-    "DOMAIN-SUFFIX,dahhxxttxs.com,REJECT-200"
+    "DOMAIN,cf.iadsdk.apple.com,REJECT-200"
   ],
   "MANDATORY_MITM_DOMAINS": [
     "booking.bestwehotel.com",

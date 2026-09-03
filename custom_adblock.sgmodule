@@ -143,7 +143,6 @@ DOMAIN,tracking.miui.com,REJECT-200
 DOMAIN,log0-misc-lf.amemv.com,REJECT-200
 DOMAIN,logbk.amemv.com,REJECT-200
 DOMAIN,ads5-normal-hj.zijieapi.com,REJECT-DICT
-DOMAIN,stat.youpin.mi.com,REJECT-DROP
 DOMAIN,dreport.meituan.net,REJECT-DROP
 DOMAIN,catdot.dianping.com,REJECT-DROP
 DOMAIN,vc-brain-lf.ndcpp.com,REJECT-200
@@ -177,11 +176,9 @@ DOMAIN,abtest3-misc-lf.zijieapi.com,REJECT-200
 # === 2026-08-28 补充的高频漏网遥测与日志探针阻断 ===
 DOMAIN,tnc0-alisc1.zijieapi.com,REJECT-DROP
 DOMAIN,gm.mmstat.com,REJECT-200
-DOMAIN-SUFFIX,log.aliyuncs.com,REJECT-200
 DOMAIN,status-ipv6.jpush.cn,REJECT-DROP
 DOMAIN,klink.volceapplog.com,REJECT-DROP
 DOMAIN,toblog.volceapplog.com,REJECT-DROP
-DOMAIN,apmplus.volces.com,REJECT-200
 DOMAIN,log-report.rtc.volcvideo.com,REJECT-200
 DOMAIN,lf-leads-fe-scm.bytecdn.com,REJECT-200
 DOMAIN,paybiz2kfk.dreport.meituan.net,REJECT-200
