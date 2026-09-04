@@ -36,6 +36,7 @@ PREPEND_PROXY,DOMAIN-KEYWORD,yahoo.com,PROXY
 # [动作 3] 顶层最高优先级强直连区 (PREPEND_DIRECT)
 # 次序说明：高频单点核心 API 与大流量 CDN 秒判直连 (享用最快哈希匹配)
 # ---------------------------------------------------
+PREPEND_DIRECT,DEST-PORT,123,DIRECT
 PREPEND_DIRECT,DOMAIN,gateway.icloud.com,DIRECT
 PREPEND_DIRECT,DOMAIN-SUFFIX,zihexin.net,DIRECT
 PREPEND_DIRECT,DOMAIN-SUFFIX,contacts.icloud.com,DIRECT

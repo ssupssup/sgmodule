@@ -143,8 +143,8 @@ DOMAIN,tracking.miui.com,REJECT-200
 DOMAIN,log0-misc-lf.amemv.com,REJECT-200
 DOMAIN,logbk.amemv.com,REJECT-200
 DOMAIN,ads5-normal-hj.zijieapi.com,REJECT-DICT
-DOMAIN,dreport.meituan.net,REJECT-DROP
-DOMAIN,catdot.dianping.com,REJECT-DROP
+DOMAIN,dreport.meituan.net,REJECT-200
+DOMAIN,catdot.dianping.com,REJECT-200
 DOMAIN,vc-brain-lf.ndcpp.com,REJECT-200
 DOMAIN,mon11-misc-lf.amemv.com,REJECT-200
 DOMAIN,apd-pcdnwxstat.teg.tencent-cloud.net,REJECT-DROP

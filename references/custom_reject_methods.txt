@@ -76,7 +76,8 @@ paybiz2kfk.dreport.meituan.net REJECT-200
 prism-report-knb.dreport.meituan.net REJECT-200
 analytics.meituan.net REJECT-200
 maplocatesdksnapshot.d.meituan.net REJECT-DROP
-dreport.meituan.net REJECT-DROP
+dreport.meituan.net REJECT-200
+catdot.dianping.com REJECT-200
 
 # 京东 埋点、反作弊、设备指纹与 APM 性能监控 (REJECT-200 假响应清空本地发送队列)
 mars.jd.com REJECT-200
