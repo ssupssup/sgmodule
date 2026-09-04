@@ -1,6 +1,6 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-09-04 20:08:23 | Deep ad block & UI purification customized for user's installed apps.
-#!total=1284
+#!desc=最近更新: 2026-09-04 20:08:53 | Deep ad block & UI purification customized for user's installed apps.
+#!total=1275
 
 [Rule]
 # === LINE Notice Bar SafeFrame & Pubads PROXY Override (Top Priority) ===
@@ -194,19 +194,10 @@ DOMAIN,log.umsns.com,REJECT-200
 DOMAIN,stats.umsns.com,REJECT-200
 DOMAIN,rtbasia.datahubtrack.com,REJECT-200
 DOMAIN,cf.iadsdk.apple.com,REJECT-200
-DOMAIN,ad.snssdk.com,REJECT-NO-DROP
-DOMAIN,log.snssdk.com,REJECT-NO-DROP
-DOMAIN,rtlog.snssdk.com,REJECT-NO-DROP
-DOMAIN,mcs.snssdk.com,REJECT-NO-DROP
-DOMAIN,dm.snssdk.com,REJECT-NO-DROP
-DOMAIN,toblog.ctobsnssdk.com,REJECT-NO-DROP
-DOMAIN,log-hl.snssdk.com,REJECT-NO-DROP
-DOMAIN,dcs.ipinyou.com,REJECT-NO-DROP
-DOMAIN,crashlytics.com,REJECT-NO-DROP
-DOMAIN,app-measurement.com,REJECT-NO-DROP
-DOMAIN,adjust.com,REJECT-NO-DROP
-DOMAIN,appsflyersdk.com,REJECT-NO-DROP
-DOMAIN,app-analytics-services.com,REJECT-200
+DOMAIN-SUFFIX,outlookads.live.com,REJECT
+DOMAIN-SUFFIX,analytics.pointdrive.linkedin.com,REJECT-200
+DOMAIN-SUFFIX,a1.firefoxchina.cn,REJECT
+DOMAIN-SUFFIX,ads.linkedin.com,REJECT
 # === Compiled App Rules ===
 DOMAIN,adstrategy.biz.weibo.com,REJECT
 DOMAIN-SUFFIX,api.touch-moblie.com,REJECT
