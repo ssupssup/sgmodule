@@ -4,65 +4,70 @@
 # 百度 SDK 探针 API (升级为 REJECT-200 假响应，消除 101 次 TCP 重传并压制高频打点)
 dig.bdurl.net REJECT-200
 mobads-logs.baidu.com REJECT-200
+sofire.baidu.com REJECT-200
+afd.baidu.com REJECT-200
+afdconf.baidu.com REJECT-200
 
-# 谷歌广告 SDK (升级为 REJECT-DROP 静默丢包，消除高频 DNS 请求)
-googleads.g.doubleclick.net REJECT-DROP
+# 谷歌广告 SDK (升级为 REJECT-200 假响应，消除高频重试)
+googleads.g.doubleclick.net REJECT-200
 
-# 通用统计、遥测与小米有品日志 (REJECT-DROP 阻断高频请求)
-app-analytics-services.com REJECT-DROP
+# 通用统计、遥测与小米有品日志 (REJECT-200 阻断高频请求)
+app-analytics-services.com REJECT-200
 
 # 抖音/字节跳动 补漏日志与监控截胡 (拦截 DB 抓包中被 DIRECT 放行的日志上报)
 log0-misc-lf.amemv.com REJECT-200
 logbk.amemv.com REJECT-200
 mon11-misc-lf.amemv.com REJECT-200
-tnc0-aliec2.zijieapi.com REJECT-DROP
+tnc0-aliec2.zijieapi.com REJECT-200
+tnc0-alisc1.zijieapi.com REJECT-200
 rtlog3-applog-hl.amemv.com REJECT-200
-px.effirst.com REJECT-DROP
-klink.volceapplog.com REJECT-DROP
-toblog.volceapplog.com REJECT-DROP
+px.effirst.com REJECT-200
+klink.volceapplog.com REJECT-200
+toblog.volceapplog.com REJECT-200
 log-report.rtc.volcvideo.com REJECT-200
 lf-leads-fe-scm.bytecdn.com REJECT-200
 
 # 字节穿山甲广告 SDK (空字典 REJECT-DICT 防发热)
 ads5-normal-hj.zijieapi.com REJECT-DICT
 
-# 极光推送 SDK 高频统计防发热 (压制死循环)
-stats-ipv6.jpush.cn REJECT-DROP
-ali-stats.jpush.cn REJECT-DROP
-gd-stats.jpush.cn REJECT-DROP
+# 极光推送 SDK 高频统计防发热 (升级为 REJECT-200 压制死循环)
+stats-ipv6.jpush.cn REJECT-200
+ali-stats.jpush.cn REJECT-200
+gd-stats.jpush.cn REJECT-200
 
-# 友盟统计与错误日志高频防发热 (压制死循环)
-errnewlog.umeng.com REJECT-DROP
-cnlogs.umeng.com REJECT-DROP
-cnlogs.umengcloud.com REJECT-DROP
-log.umsns.com REJECT-DROP
-stats.umsns.com REJECT-DROP
+# 友盟统计与错误日志高频防发热 (升级为 REJECT-200 压制死循环)
+errnewlog.umeng.com REJECT-200
+cnlogs.umeng.com REJECT-200
+cnlogs.umengcloud.com REJECT-200
+log.umsns.com REJECT-200
+stats.umsns.com REJECT-200
 
-# 钉钉、腾讯、高德、淘宝高频死循环日志/遥测 (升级为 REJECT-DROP 压制发热)
-adashx.ut.dingtalk.com REJECT-DROP
-snowflake.qq.com REJECT-DROP
-tdid.m.qq.com REJECT-DROP
-dualstack-logs.amap.com REJECT-DROP
-logs.amap.com REJECT-DROP
-h-adashx.ut.taobao.com REJECT-DROP
+# 钉钉、腾讯、高德、淘宝高频死循环日志/遥测 (升级为 REJECT-200 压制发热)
+adashx.ut.dingtalk.com REJECT-200
+h-adashx.ut.dingtalk.com REJECT-200
+snowflake.qq.com REJECT-200
+tdid.m.qq.com REJECT-200
+dualstack-logs.amap.com REJECT-200
+logs.amap.com REJECT-200
+h-adashx.ut.taobao.com REJECT-200
 
-# Apple 官方广告与搜索归因 SDK (REJECT-DROP 彻底阻断，全域名精确防误伤)
+# Apple 官方广告与搜索归因 SDK (REJECT-200 全域名精确防误伤)
 iadsdk.apple.com REJECT-200
 ca.iadsdk.apple.com REJECT-200
 
-# 腾讯云 / 微信 PCDN 偷跑上传探针与统计 (REJECT-DROP 封死上传降低功耗)
-apd-pcdnwxstat.teg.tencent-cloud.net REJECT-DROP
-apd-pcdnwxlogin.teg.tencent-cloud.net REJECT-DROP
-shreport.weixin.qq.com REJECT-DROP
-adsmind.gdtimg.com REJECT-DROP
+# 腾讯云 / 微信 PCDN 偷跑上传探针与统计 (REJECT-200 封死上传降低功耗)
+apd-pcdnwxstat.teg.tencent-cloud.net REJECT-200
+apd-pcdnwxlogin.teg.tencent-cloud.net REJECT-200
+shreport.weixin.qq.com REJECT-200
+adsmind.gdtimg.com REJECT-200
 
 # 陌陌 / 探探 / 萤石云 广告调度、后台日志与监控打点 (REJECT-200 假响应防重试)
 adip-api.immomo.com REJECT-200
 app-log.immomo.com REJECT-200
-app-monitor-cn.hellogroup.com REJECT-DROP
+app-monitor-cn.hellogroup.com REJECT-200
 fep.hellogroup.com REJECT-200
-app-monitor-cn.doki.ren REJECT-DROP
-report.tantanapp.com REJECT-DROP
+app-monitor-cn.doki.ren REJECT-200
+report.tantanapp.com REJECT-200
 sc-report.tantanapp.com REJECT-200
 log.ys7.com REJECT-200
 
@@ -71,11 +76,11 @@ metrics-picture.d.meituan.net REJECT-200
 al-log.d.meituan.net REJECT-200
 data-sdk-uuid-log.d.meituan.net REJECT-200
 logan-rtl.dreport.meituan.net REJECT-200
-o1.d.meituan.net REJECT-DROP
+o1.d.meituan.net REJECT-200
 paybiz2kfk.dreport.meituan.net REJECT-200
 prism-report-knb.dreport.meituan.net REJECT-200
 analytics.meituan.net REJECT-200
-maplocatesdksnapshot.d.meituan.net REJECT-DROP
+maplocatesdksnapshot.d.meituan.net REJECT-200
 dreport.meituan.net REJECT-200
 catdot.dianping.com REJECT-200
 
@@ -87,21 +92,20 @@ anti-sdk-ccs-pre.m.jd.com REJECT-200
 perf.m.jd.com REJECT-200
 device-security-url.jd.com REJECT-200
 h5speed.m.jd.com REJECT-200
-uranus.jd.com REJECT-DROP
+uranus.jd.com REJECT-200
 cactus.jd.com REJECT-200
 xlog.jd.com REJECT-200
 
-# 钉钉 漏网无线打点
-h-adashx.ut.dingtalk.com REJECT-DROP
+# 多点 Dmall 日志与神策埋点 (REJECT-200)
+logman.dmall.com REJECT-200
+sc-sa-data.dmall.com REJECT-200
 
-# 多点 Dmall 日志与神策埋点
-logman.dmall.com REJECT-DROP
-sc-sa-data.dmall.com REJECT-DROP
+# 移动广告归因与 Mentha 聚合打点 (REJECT-200 消除 1s 连发 26 次死循环)
+advlion.com REJECT-200
+bj-td-menta-01-callback.advlion.com REJECT-200
 
-# 抖音 / 短视频边缘 PCDN 流量调度与边缘 Hash 节点 (REJECT 强迫回退防悬空与死循环)
-
-# 广告与用户增长 SDK 唤醒短链 (REJECT-DROP 阻断唤醒追踪)
-zlink.ugsdk.cn REJECT-DROP
+# 广告与用户增长 SDK 唤醒短链 (REJECT-200 阻断唤醒追踪)
+zlink.ugsdk.cn REJECT-200
 
 # 微博高频设备指纹打点 (REJECT-200 假响应清空本地队列)
 tqt.weibo.cn REJECT-200
@@ -113,4 +117,4 @@ clientlogdep.music.163.com REJECT-200
 fp-upload.dun.163.com REJECT-200
 
 # 其他通用追踪与打点
-rtbasia.datahubtrack.com REJECT-DROP
+rtbasia.datahubtrack.com REJECT-200
