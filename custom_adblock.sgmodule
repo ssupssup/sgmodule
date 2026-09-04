@@ -1,5 +1,5 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-09-04 20:08:53 | Deep ad block & UI purification customized for user's installed apps.
+#!desc=最近更新: 2026-09-05 06:22:32 | Deep ad block & UI purification customized for user's installed apps.
 #!total=1275
 
 [Rule]
@@ -194,10 +194,10 @@ DOMAIN,log.umsns.com,REJECT-200
 DOMAIN,stats.umsns.com,REJECT-200
 DOMAIN,rtbasia.datahubtrack.com,REJECT-200
 DOMAIN,cf.iadsdk.apple.com,REJECT-200
-DOMAIN-SUFFIX,outlookads.live.com,REJECT
-DOMAIN-SUFFIX,analytics.pointdrive.linkedin.com,REJECT-200
 DOMAIN-SUFFIX,a1.firefoxchina.cn,REJECT
 DOMAIN-SUFFIX,ads.linkedin.com,REJECT
+DOMAIN-SUFFIX,analytics.pointdrive.linkedin.com,REJECT-200
+DOMAIN-SUFFIX,outlookads.live.com,REJECT
 # === Compiled App Rules ===
 DOMAIN,adstrategy.biz.weibo.com,REJECT
 DOMAIN-SUFFIX,api.touch-moblie.com,REJECT
