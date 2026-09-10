@@ -767,7 +767,6 @@
     "DOMAIN,uranus.jd.com,REJECT-200",
     "DOMAIN,sc-report.tantanapp.com,REJECT-200",
     "DOMAIN,log.ys7.com,REJECT-200",
-    "DOMAIN,app-measurement.com,REJECT-200",
     "DOMAIN,tqt.weibo.cn,REJECT-200",
     "DOMAIN,tnc0-aliec2.zijieapi.com,REJECT-200",
     "DOMAIN,orange-dc.alibaba.com,REJECT-200",
@@ -795,7 +794,11 @@
     "DOMAIN,log.umsns.com,REJECT-DROP",
     "DOMAIN,stats.umsns.com,REJECT-DROP",
     "DOMAIN,rtbasia.datahubtrack.com,REJECT-DROP",
-    "DOMAIN,cf.iadsdk.apple.com,REJECT-200"
+    "DOMAIN,cf.iadsdk.apple.com,REJECT-200",
+    "DOMAIN,sensors.umetrip.com.cn,REJECT-200",
+    "DOMAIN,stat.youpin.mi.com,REJECT-200",
+    "DOMAIN-SUFFIX,advlion.com,REJECT-200",
+    "DOMAIN,report.tantanapp.com,REJECT-200"
   ],
   "MANDATORY_MITM_DOMAINS": [
     "booking.bestwehotel.com",

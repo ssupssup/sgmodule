@@ -8,7 +8,7 @@ DOMAIN,securepubads.g.doubleclick.net,PROXY
 DOMAIN,pubads.g.doubleclick.net,PROXY
 # === SDK Core REJECT Rules ===
 # === 2026-08-11 防发热：日志/崩溃/遥测 SDK 优雅阻断 (REJECT-200 清空队列) ===
-DOMAIN,errnewlog.umeng.com,REJECT-200
+DOMAIN,errnewlog.umeng.com,REJECT-DICT
 DOMAIN,cnlogs.umeng.com,REJECT-200
 DOMAIN,utoken.umeng.com,REJECT-200
 DOMAIN,cnlogs.umengcloud.com,REJECT-200
@@ -27,7 +27,7 @@ DOMAIN,spider-tracker.xiaohongshu.com,REJECT-200
 DOMAIN,lng.xiaohongshu.com,REJECT-200
 DOMAIN,apm-fe.xiaohongshu.com,REJECT-200
 DOMAIN,logs.amap.com,REJECT-200
-DOMAIN,stats.jpush.cn,REJECT-200
+DOMAIN,stats.jpush.cn,REJECT-DICT
 DOMAIN,apm-native.xiaohongshu.com,REJECT-200
 DOMAIN,t2.xiaohongshu.com,REJECT-200
 DOMAIN,spider-tracker.xiaohongshu.com,REJECT-200
@@ -65,7 +65,7 @@ DOMAIN-SUFFIX,adn-plus.com.cn,REJECT-DROP
 DOMAIN-SUFFIX,ad-scope.com.cn,REJECT-DROP
 DOMAIN-SUFFIX,e.qq.com,REJECT-200
 DOMAIN-KEYWORD,gdt.qq.com,REJECT-200
-DOMAIN-KEYWORD,pangolin-sdk,REJECT-200
+DOMAIN-KEYWORD,pangolin-sdk,REJECT-DICT
 DOMAIN,toblog.ctobsnssdk.com,REJECT-200
 DOMAIN-KEYWORD,e.kuaishou.com,REJECT-200
 DOMAIN,ad.zijieapi.com,REJECT-200
@@ -122,8 +122,8 @@ DOMAIN,upc.zztfly.com,REJECT-NO-DROP
 DOMAIN,ma-adx.ctrip.com,REJECT-NO-DROP
 DOMAIN,tdid.m.qq.com,REJECT-200
 DOMAIN,rmonitor.qq.com,REJECT-NO-DROP
-DOMAIN,gd-stats.jpush.cn,REJECT-200
-DOMAIN,ali-stats.jpush.cn,REJECT-200
+DOMAIN,gd-stats.jpush.cn,REJECT-DICT
+DOMAIN,ali-stats.jpush.cn,REJECT-DICT
 DOMAIN,log-auth.zztfly.com,REJECT-NO-DROP
 DOMAIN,iadsdk.apple.com,REJECT-200
 DOMAIN,df.tanx.com,REJECT-NO-DROP
@@ -138,7 +138,7 @@ DOMAIN,mobile.events.data.microsoft.com,REJECT-NO-DROP
 DOMAIN,res.mmstat.com,REJECT-200
 DOMAIN,sla-media.immomo.com,REJECT-NO-DROP
 DOMAIN,soul-ad.soulapp.cn,REJECT-NO-DROP
-DOMAIN,stats-ipv6.jpush.cn,REJECT-200
+DOMAIN,stats-ipv6.jpush.cn,REJECT-DICT
 DOMAIN,tracking.miui.com,REJECT-200
 DOMAIN,log0-misc-lf.amemv.com,REJECT-200
 DOMAIN,logbk.amemv.com,REJECT-200
@@ -165,7 +165,6 @@ DOMAIN,perf.m.jd.com,REJECT-200
 DOMAIN,uranus.jd.com,REJECT-200
 DOMAIN,sc-report.tantanapp.com,REJECT-200
 DOMAIN,log.ys7.com,REJECT-200
-DOMAIN,app-measurement.com,REJECT-200
 DOMAIN,tqt.weibo.cn,REJECT-200
 DOMAIN,tnc0-aliec2.zijieapi.com,REJECT-200
 DOMAIN,orange-dc.alibaba.com,REJECT-200

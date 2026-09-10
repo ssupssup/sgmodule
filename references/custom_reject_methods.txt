@@ -30,13 +30,14 @@ lf-leads-fe-scm.bytecdn.com REJECT-200
 # 字节穿山甲广告 SDK (空字典 REJECT-DICT 防发热)
 ads5-normal-hj.zijieapi.com REJECT-DICT
 
-# 极光推送 SDK 高频统计防发热 (升级为 REJECT-200 压制死循环)
-stats-ipv6.jpush.cn REJECT-200
-ali-stats.jpush.cn REJECT-200
-gd-stats.jpush.cn REJECT-200
+# 极光推送 SDK 高频统计防发热 (升级为 REJECT-DICT 压制死循环)
+stats.jpush.cn REJECT-DICT
+stats-ipv6.jpush.cn REJECT-DICT
+ali-stats.jpush.cn REJECT-DICT
+gd-stats.jpush.cn REJECT-DICT
 
-# 友盟统计与错误日志高频防发热 (升级为 REJECT-200 压制死循环)
-errnewlog.umeng.com REJECT-200
+# 友盟统计与错误日志高频防发热 (升级为 REJECT-DICT 压制死循环)
+errnewlog.umeng.com REJECT-DICT
 cnlogs.umeng.com REJECT-200
 cnlogs.umengcloud.com REJECT-200
 log.umsns.com REJECT-200
@@ -118,3 +119,4 @@ fp-upload.dun.163.com REJECT-200
 
 # 其他通用追踪与打点
 rtbasia.datahubtrack.com REJECT-200
+pangolin-sdk REJECT-DICT

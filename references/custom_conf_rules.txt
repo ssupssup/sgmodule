@@ -31,6 +31,9 @@ PREPEND_PROXY,DOMAIN-SUFFIX,taboola.com,PROXY
 
 # ------------------ Yahoo ------------------
 PREPEND_PROXY,DOMAIN-KEYWORD,yahoo.com,PROXY
+PREPEND_PROXY,DOMAIN-SUFFIX,gotinder.com,PROXY
+PREPEND_PROXY,DOMAIN-SUFFIX,tinder.com,PROXY
+PREPEND_PROXY,DOMAIN-SUFFIX,arkoselabs.com,PROXY
 
 # ---------------------------------------------------
 # [动作 3] 顶层最高优先级强直连区 (PREPEND_DIRECT)
