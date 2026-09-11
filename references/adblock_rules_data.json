@@ -776,7 +776,7 @@
     "# === 2026-08-28 补充的高频漏网遥测与日志探针阻断 ===",
     "DOMAIN,tnc0-alisc1.zijieapi.com,REJECT-DROP",
     "DOMAIN,gm.mmstat.com,REJECT-200",
-    "DOMAIN,status-ipv6.jpush.cn,REJECT-DROP",
+    "DOMAIN,status-ipv6.jpush.cn,REJECT-DICT",
     "DOMAIN,klink.volceapplog.com,REJECT-DROP",
     "DOMAIN,toblog.volceapplog.com,REJECT-DROP",
     "DOMAIN,log-report.rtc.volcvideo.com,REJECT-DROP",

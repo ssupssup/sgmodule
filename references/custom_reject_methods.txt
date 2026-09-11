@@ -13,6 +13,8 @@ googleads.g.doubleclick.net REJECT-200
 
 # 通用统计、遥测与小米有品日志 (REJECT-200 阻断高频请求)
 app-analytics-services.com REJECT-200
+sdkconfig.ad.xiaomi.com REJECT-200
+h.trace.qq.com REJECT-200
 
 # 抖音/字节跳动 补漏日志与监控截胡 (拦截 DB 抓包中被 DIRECT 放行的日志上报)
 log0-misc-lf.amemv.com REJECT-200

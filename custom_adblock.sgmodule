@@ -174,7 +174,7 @@ DOMAIN,abtest3-misc-lf.zijieapi.com,REJECT-200
 # === 2026-08-28 补充的高频漏网遥测与日志探针阻断 ===
 DOMAIN,tnc0-alisc1.zijieapi.com,REJECT-200
 DOMAIN,gm.mmstat.com,REJECT-200
-DOMAIN,status-ipv6.jpush.cn,REJECT-DROP
+DOMAIN,status-ipv6.jpush.cn,REJECT-DICT
 DOMAIN,klink.volceapplog.com,REJECT-200
 DOMAIN,toblog.volceapplog.com,REJECT-200
 DOMAIN,log-report.rtc.volcvideo.com,REJECT-200
@@ -348,7 +348,7 @@ DOMAIN,monitor.music.qq.com,REJECT
 DOMAIN,stat.y.qq.com,REJECT-200
 DOMAIN,tmead.y.qq.com,REJECT
 DOMAIN,oth.str.mdt.qq.com,REJECT
-DOMAIN,h.trace.qq.com,REJECT
+DOMAIN,h.trace.qq.com,REJECT-200
 DOMAIN,p.l.qq.com,REJECT
 DOMAIN,us.l.qq.com,REJECT
 DOMAIN,tmeadbak.y.qq.com,REJECT
@@ -360,7 +360,7 @@ DOMAIN-SUFFIX,v.gdt.qq.com,REJECT
 DOMAIN,amsweb-cdn-gz-1258344696.file.myqcloud.com,REJECT
 DOMAIN,wallpaper-1258344696.file.myqcloud.com,REJECT
 IP-CIDR,120.222.240.171/32,REJECT
-DOMAIN,sdkconfig.ad.xiaomi.com,REJECT
+DOMAIN,sdkconfig.ad.xiaomi.com,REJECT-200
 DOMAIN-SUFFIX,corp.meitu.com,REJECT
 DOMAIN-SUFFIX,gg.meitu.com,REJECT
 DOMAIN-SUFFIX,message.meitu.com,REJECT
