@@ -98,16 +98,23 @@ def transform_rule_with_three_layers(rule_line):
         if domain_upper == ig_domain or domain_upper.endswith("." + ig_domain):
             return None
 
-    # 第二层：显式精细化策略覆盖 (如 dig.bdurl.net -> REJECT-200, googleads -> REJECT-DROP)
+    # 第二层：显式精细化策略覆盖
     for c_domain, c_policy in _custom_reject_mapping.items():
         if domain_upper == c_domain or domain_upper.endswith("." + c_domain):
-            return f"{rule_type},{domain},{c_policy}"
+            safe_policy = c_policy
+            if safe_policy in ["REJECT-200", "REJECT-DICT", "REJECT-ARRAY"]:
+                safe_policy = "REJECT-DROP"
+            return f"{rule_type},{domain},{safe_policy}"
 
-    # 第三层：启发式日志/上报 API 自动分流为 REJECT-200 (防 SDK 收到 404 死循环重试发热)
+    # 第三层：启发式日志/上报 API 自动分流为 REJECT-DROP (防 [Rule] 段非标 Policy 退化为 TCP RST 连发发热)
     domain_lower = domain.lower()
     if target_policy in ["REJECT", "REJECT-NO-DROP"]:
         if any(kw in domain_lower for kw in ["adlog", "analytics", "telemetry", "track", "stat"]):
-            return f"{rule_type},{domain},REJECT-200"
+            return f"{rule_type},{domain},REJECT-DROP"
+
+    # 防非标 Policy 泄漏到 [Rule] 段
+    if target_policy in ["REJECT-200", "REJECT-DICT", "REJECT-ARRAY"]:
+        return f"{rule_type},{domain},REJECT-DROP"
 
     return rule_line
 
