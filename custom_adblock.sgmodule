@@ -1,6 +1,6 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-09-14 06:26:27 | Deep ad block & UI purification customized for user's installed apps.
-#!total=1277
+#!desc=最近更新: 2026-09-14 19:43:43 | Deep ad block & UI purification customized for user's installed apps.
+#!total=1278
 
 [Rule]
 # === LINE Notice Bar SafeFrame & Pubads PROXY Override (Top Priority) ===
@@ -172,34 +172,35 @@ DOMAIN,mon.toutiaocloud.com,REJECT-DROP
 DOMAIN,abtest.tantanapp.com,REJECT-DROP
 DOMAIN,abtest3-misc-lf.zijieapi.com,REJECT-DROP
 # === 2026-08-28 补充的高频漏网遥测与日志探针阻断 ===
-DOMAIN,tnc0-alisc1.zijieapi.com,REJECT-200
-DOMAIN,gm.mmstat.com,REJECT-200
-DOMAIN,status-ipv6.jpush.cn,REJECT-DICT
-DOMAIN,klink.volceapplog.com,REJECT-200
-DOMAIN,toblog.volceapplog.com,REJECT-200
-DOMAIN,log-report.rtc.volcvideo.com,REJECT-200
-DOMAIN,lf-leads-fe-scm.bytecdn.com,REJECT-200
-DOMAIN,paybiz2kfk.dreport.meituan.net,REJECT-200
-DOMAIN,prism-report-knb.dreport.meituan.net,REJECT-200
-DOMAIN,analytics.meituan.net,REJECT-200
-DOMAIN,xlog.jd.com,REJECT-200
-DOMAIN,udataresys-log.nie.netease.com,REJECT-200
-DOMAIN,clientlogsf.music.163.com,REJECT-200
-DOMAIN,clientlogdep.music.163.com,REJECT-200
-DOMAIN,fp-upload.dun.163.com,REJECT-200
-DOMAIN,shreport.weixin.qq.com,REJECT-200
-DOMAIN,adsmind.gdtimg.com,REJECT-200
-DOMAIN,log.umsns.com,REJECT-200
-DOMAIN,stats.umsns.com,REJECT-200
-DOMAIN,rtbasia.datahubtrack.com,REJECT-200
-DOMAIN,cf.iadsdk.apple.com,REJECT-200
-DOMAIN,sensors.umetrip.com.cn,REJECT-200
-DOMAIN-SUFFIX,advlion.com,REJECT-200
-DOMAIN,report.tantanapp.com,REJECT-200
-DOMAIN-SUFFIX,ads.linkedin.com,REJECT
+DOMAIN,tnc0-alisc1.zijieapi.com,REJECT-DROP
+DOMAIN,gm.mmstat.com,REJECT-DROP
+DOMAIN,status-ipv6.jpush.cn,REJECT-DROP
+DOMAIN,klink.volceapplog.com,REJECT-DROP
+DOMAIN,toblog.volceapplog.com,REJECT-DROP
+DOMAIN,log-report.rtc.volcvideo.com,REJECT-DROP
+DOMAIN,lf-leads-fe-scm.bytecdn.com,REJECT-DROP
+DOMAIN,paybiz2kfk.dreport.meituan.net,REJECT-DROP
+DOMAIN,prism-report-knb.dreport.meituan.net,REJECT-DROP
+DOMAIN,analytics.meituan.net,REJECT-DROP
+DOMAIN,xlog.jd.com,REJECT-DROP
+DOMAIN,udataresys-log.nie.netease.com,REJECT-DROP
+DOMAIN,clientlogsf.music.163.com,REJECT-DROP
+DOMAIN,clientlogdep.music.163.com,REJECT-DROP
+DOMAIN,fp-upload.dun.163.com,REJECT-DROP
+DOMAIN,shreport.weixin.qq.com,REJECT-DROP
+DOMAIN,adsmind.gdtimg.com,REJECT-DROP
+DOMAIN,log.umsns.com,REJECT-DROP
+DOMAIN,stats.umsns.com,REJECT-DROP
+DOMAIN,rtbasia.datahubtrack.com,REJECT-DROP
+DOMAIN,cf.iadsdk.apple.com,REJECT-DROP
+DOMAIN,sensors.umetrip.com.cn,REJECT-DROP
+DOMAIN-SUFFIX,advlion.com,REJECT-DROP
+DOMAIN,report.tantanapp.com,REJECT-DROP
+DOMAIN,orzonera.yingt.fun,REJECT-DROP
 DOMAIN-SUFFIX,outlookads.live.com,REJECT
+DOMAIN-SUFFIX,analytics.pointdrive.linkedin.com,REJECT-DROP
+DOMAIN-SUFFIX,ads.linkedin.com,REJECT
 DOMAIN-SUFFIX,a1.firefoxchina.cn,REJECT
-DOMAIN-SUFFIX,analytics.pointdrive.linkedin.com,REJECT-200
 # === Compiled App Rules ===
 DOMAIN,adstrategy.biz.weibo.com,REJECT
 DOMAIN-SUFFIX,api.touch-moblie.com,REJECT
