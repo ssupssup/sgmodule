@@ -11,4 +11,11 @@ log.aliyuncs.com
 iadsdk.apple.com
 ca.iadsdk.apple.com
 cf.iadsdk.apple.com
+log0-misc-lf.amemv.com
+logbk.amemv.com
+orzonera.yingt.fun
+catdot.dianping.com
+data-sdk-uuid-log.d.meituan.net
+dreport.meituan.net
+maplocatesdksnapshot.d.meituan.net
 
