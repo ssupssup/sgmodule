@@ -1,5 +1,6 @@
 {
   "INSTALLED_APPS": [
+    "Apple",
     "BookPlayer",
     "微信",
     "FTPManager",
@@ -848,9 +849,30 @@
     "amemv.com",
     "meituan.net",
     "ndcpp.com",
-    "yingt.fun"
+    "yingt.fun",
+    "iadsdk.apple.com",
+    "ca.iadsdk.apple.com",
+    "cf.iadsdk.apple.com"
   ],
   "CUSTOM_REWRITE_RULES": [
+    {
+      "text": "^https?:\\/\\/iadsdk\\.apple\\.com reject-200",
+      "pattern": "^https?:\\/\\/iadsdk\\.apple\\.com",
+      "priority": 0,
+      "app": "Apple"
+    },
+    {
+      "text": "^https?:\\/\\/ca\\.iadsdk\\.apple\\.com reject-200",
+      "pattern": "^https?:\\/\\/ca\\.iadsdk\\.apple\\.com",
+      "priority": 0,
+      "app": "Apple"
+    },
+    {
+      "text": "^https?:\\/\\/cf\\.iadsdk\\.apple\\.com reject-200",
+      "pattern": "^https?:\\/\\/cf\\.iadsdk\\.apple\\.com",
+      "priority": 0,
+      "app": "Apple"
+    },
     {
       "text": "^https?:\\/\\/stats\\.jpush\\.cn reject-dict",
       "pattern": "^https?:\\/\\/stats\\.jpush\\.cn",

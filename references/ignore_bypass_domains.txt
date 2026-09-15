@@ -8,3 +8,7 @@ ctydoh.cn
 stat.youpin.mi.com
 apmplus.volces.com
 log.aliyuncs.com
+iadsdk.apple.com
+ca.iadsdk.apple.com
+cf.iadsdk.apple.com
+
