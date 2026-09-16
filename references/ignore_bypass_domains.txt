@@ -18,4 +18,9 @@ catdot.dianping.com
 data-sdk-uuid-log.d.meituan.net
 dreport.meituan.net
 maplocatesdksnapshot.d.meituan.net
+errnewlog.umeng.com
+stats.jpush.cn
+stats-ipv6.jpush.cn
+ali-stats.jpush.cn
+gd-stats.jpush.cn
 
