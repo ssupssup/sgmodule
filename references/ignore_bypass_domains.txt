@@ -23,4 +23,7 @@ stats.jpush.cn
 stats-ipv6.jpush.cn
 ali-stats.jpush.cn
 gd-stats.jpush.cn
+tqt.weibo.cn
+sdk.e.qq.com
+metrics-picture.d.meituan.net
 

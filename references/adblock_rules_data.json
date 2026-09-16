@@ -800,7 +800,11 @@
     "DOMAIN,stat.youpin.mi.com,REJECT-200",
     "DOMAIN-SUFFIX,advlion.com,REJECT-200",
     "DOMAIN,report.tantanapp.com,REJECT-200",
-    "DOMAIN,orzonera.yingt.fun,REJECT-DROP"
+    "DOMAIN,orzonera.yingt.fun,REJECT-200",
+    "DOMAIN,dwtracking.jk.cn,REJECT-200",
+    "DOMAIN,cm.immomo.com,REJECT-200",
+    "DOMAIN,sdk.e.qq.com,REJECT-200",
+    "DOMAIN,metrics-picture.d.meituan.net,REJECT-200"
   ],
   "MANDATORY_MITM_DOMAINS": [
     "stats.jpush.cn",
@@ -859,9 +863,49 @@
     "catdot.dianping.com",
     "data-sdk-uuid-log.d.meituan.net",
     "dreport.meituan.net",
-    "maplocatesdksnapshot.d.meituan.net"
+    "maplocatesdksnapshot.d.meituan.net",
+    "sdk.e.qq.com",
+    "dwtracking.jk.cn",
+    "cm.immomo.com",
+    "metrics-picture.d.meituan.net"
   ],
   "CUSTOM_REWRITE_RULES": [
+    {
+      "text": "^https?:\\/\\/orzonera\\.yingt\\.fun reject-200",
+      "pattern": "^https?:\\/\\/orzonera\\.yingt\\.fun",
+      "priority": 0,
+      "app": "通用广告SDK"
+    },
+    {
+      "text": "^https?:\\/\\/tqt\\.weibo\\.cn reject-200",
+      "pattern": "^https?:\\/\\/tqt\\.weibo\\.cn",
+      "priority": 0,
+      "app": "新浪微博"
+    },
+    {
+      "text": "^https?:\\/\\/sdk\\.e\\.qq\\.com reject-200",
+      "pattern": "^https?:\\/\\/sdk\\.e\\.qq\\.com",
+      "priority": 0,
+      "app": "腾讯广点通"
+    },
+    {
+      "text": "^https?:\\/\\/dwtracking\\.jk\\.cn reject-200",
+      "pattern": "^https?:\\/\\/dwtracking\\.jk\\.cn",
+      "priority": 0,
+      "app": "平安健康"
+    },
+    {
+      "text": "^https?:\\/\\/cm\\.immomo\\.com reject-200",
+      "pattern": "^https?:\\/\\/cm\\.immomo\\.com",
+      "priority": 0,
+      "app": "陌陌"
+    },
+    {
+      "text": "^https?:\\/\\/metrics-picture\\.d\\.meituan\\.net reject-200",
+      "pattern": "^https?:\\/\\/metrics-picture\\.d\\.meituan\\.net",
+      "priority": 0,
+      "app": "美团"
+    },
     {
       "text": "^https?:\\/\\/iadsdk\\.apple\\.com reject-200",
       "pattern": "^https?:\\/\\/iadsdk\\.apple\\.com",
