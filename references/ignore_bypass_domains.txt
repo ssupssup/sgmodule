@@ -32,4 +32,6 @@ log-hl.snssdk.com
 tnc0-alisc1.zijieapi.com
 al-log.d.meituan.net
 lf-leads-fe-scm.bytecdn.com
+config.jpush.cn
+mssdk3-normal-lf.zijieapi.com
 
