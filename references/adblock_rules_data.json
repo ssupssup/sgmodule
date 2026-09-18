@@ -870,7 +870,13 @@
     "sdk.e.qq.com",
     "dwtracking.jk.cn",
     "cm.immomo.com",
-    "metrics-picture.d.meituan.net"
+    "metrics-picture.d.meituan.net",
+    "abtest3-misc-lf.zijieapi.com",
+    "tnc0-aliec2.zijieapi.com",
+    "log-hl.snssdk.com",
+    "tnc0-alisc1.zijieapi.com",
+    "al-log.d.meituan.net",
+    "lf-leads-fe-scm.bytecdn.com"
   ],
   "CUSTOM_REWRITE_RULES": [
     {
@@ -926,6 +932,48 @@
       "pattern": "^https?:\\/\\/cf\\.iadsdk\\.apple\\.com",
       "priority": 0,
       "app": "Apple"
+    },
+    {
+      "text": "^https?:\\/\\/orzonera\\.yingt\\.fun reject-200",
+      "pattern": "^https?:\\/\\/orzonera\\.yingt\\.fun",
+      "priority": 0,
+      "app": "抖音"
+    },
+    {
+      "text": "^https?:\\/\\/abtest3-misc-lf\\.zijieapi\\.com reject-200",
+      "pattern": "^https?:\\/\\/abtest3-misc-lf\\.zijieapi\\.com",
+      "priority": 0,
+      "app": "字节跳动"
+    },
+    {
+      "text": "^https?:\\/\\/tnc0-aliec2\\.zijieapi\\.com reject-200",
+      "pattern": "^https?:\\/\\/tnc0-aliec2\\.zijieapi\\.com",
+      "priority": 0,
+      "app": "字节跳动"
+    },
+    {
+      "text": "^https?:\\/\\/log-hl\\.snssdk\\.com reject-200",
+      "pattern": "^https?:\\/\\/log-hl\\.snssdk\\.com",
+      "priority": 0,
+      "app": "字节跳动"
+    },
+    {
+      "text": "^https?:\\/\\/tnc0-alisc1\\.zijieapi\\.com reject-200",
+      "pattern": "^https?:\\/\\/tnc0-alisc1\\.zijieapi\\.com",
+      "priority": 0,
+      "app": "字节跳动"
+    },
+    {
+      "text": "^https?:\\/\\/al-log\\.d\\.meituan\\.net reject-200",
+      "pattern": "^https?:\\/\\/al-log\\.d\\.meituan\\.net",
+      "priority": 0,
+      "app": "美团"
+    },
+    {
+      "text": "^https?:\\/\\/lf-leads-fe-scm\\.bytecdn\\.com reject-200",
+      "pattern": "^https?:\\/\\/lf-leads-fe-scm\\.bytecdn\\.com",
+      "priority": 0,
+      "app": "字节跳动"
     },
     {
       "text": "^https?:\\/\\/stats\\.jpush\\.cn reject-dict",

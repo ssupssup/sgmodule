@@ -26,4 +26,10 @@ gd-stats.jpush.cn
 tqt.weibo.cn
 sdk.e.qq.com
 metrics-picture.d.meituan.net
+abtest3-misc-lf.zijieapi.com
+tnc0-aliec2.zijieapi.com
+log-hl.snssdk.com
+tnc0-alisc1.zijieapi.com
+al-log.d.meituan.net
+lf-leads-fe-scm.bytecdn.com
 
