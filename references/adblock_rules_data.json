@@ -1,5 +1,8 @@
 {
   "INSTALLED_APPS": [
+    "通用广告SDK",
+    "小米",
+    "字节火山引擎",
     "Apple",
     "BookPlayer",
     "微信",
@@ -808,10 +811,14 @@
     "DOMAIN,metrics-picture.d.meituan.net,REJECT-200"
   ],
   "MANDATORY_MITM_DOMAINS": [
+    "stat.youpin.mi.com",
+    "apmplus.volces.com",
     "stats.jpush.cn",
     "stats-ipv6.jpush.cn",
     "ali-stats.jpush.cn",
     "gd-stats.jpush.cn",
+    "config.jpush.cn",
+    "mssdk3-normal-lf.zijieapi.com",
     "errnewlog.umeng.com",
     "booking.bestwehotel.com",
     "wxapp.bestwehotel.com",
@@ -998,6 +1005,30 @@
       "pattern": "^https?:\\/\\/gd-stats\\.jpush\\.cn",
       "priority": 0,
       "app": "通用广告SDK"
+    },
+    {
+      "text": "^https?:\\/\\/config\\.jpush\\.cn reject-dict",
+      "pattern": "^https?:\\/\\/config\\.jpush\\.cn",
+      "priority": 0,
+      "app": "通用广告SDK"
+    },
+    {
+      "text": "^https?:\\/\\/mssdk3-normal-lf\\.zijieapi\\.com reject-200",
+      "pattern": "^https?:\\/\\/mssdk3-normal-lf\\.zijieapi\\.com",
+      "priority": 0,
+      "app": "字节跳动"
+    },
+    {
+      "text": "^https?:\\/\\/stat\\.youpin\\.mi\\.com reject-200",
+      "pattern": "^https?:\\/\\/stat\\.youpin\\.mi\\.com",
+      "priority": 0,
+      "app": "小米"
+    },
+    {
+      "text": "^https?:\\/\\/apmplus\\.volces\\.com reject-200",
+      "pattern": "^https?:\\/\\/apmplus\\.volces\\.com",
+      "priority": 0,
+      "app": "字节火山引擎"
     },
     {
       "text": "^https?:\\/\\/errnewlog\\.umeng\\.com reject-dict",
