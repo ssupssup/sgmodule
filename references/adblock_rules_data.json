@@ -883,7 +883,20 @@
     "log-hl.snssdk.com",
     "tnc0-alisc1.zijieapi.com",
     "al-log.d.meituan.net",
-    "lf-leads-fe-scm.bytecdn.com"
+    "lf-leads-fe-scm.bytecdn.com",
+    "pangolin-sdk-toutiao.com",
+    "pangolin-sdk-toutiao-b.com",
+    "log-api.pangolin-sdk-toutiao.com",
+    "api-access.pangolin-sdk-toutiao-b.com",
+    "win.gdt.qq.com",
+    "gdt.qq.com",
+    "toblog.ctobsnssdk.com",
+    "mobads-logs.baidu.com",
+    "mobads.baidu.com",
+    "tdid.m.qq.com",
+    "adashx.ut.dingtalk.com",
+    "h-adashx.ut.dingtalk.com",
+    "adservice.sigmob.cn"
   ],
   "CUSTOM_REWRITE_RULES": [
     {

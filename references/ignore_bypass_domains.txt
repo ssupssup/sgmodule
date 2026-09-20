@@ -34,4 +34,17 @@ al-log.d.meituan.net
 lf-leads-fe-scm.bytecdn.com
 config.jpush.cn
 mssdk3-normal-lf.zijieapi.com
+pangolin-sdk-toutiao.com
+pangolin-sdk-toutiao-b.com
+log-api.pangolin-sdk-toutiao.com
+api-access.pangolin-sdk-toutiao-b.com
+win.gdt.qq.com
+gdt.qq.com
+toblog.ctobsnssdk.com
+mobads-logs.baidu.com
+mobads.baidu.com
+tdid.m.qq.com
+adashx.ut.dingtalk.com
+h-adashx.ut.dingtalk.com
+adservice.sigmob.cn
 
