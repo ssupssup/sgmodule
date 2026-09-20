@@ -47,4 +47,16 @@ tdid.m.qq.com
 adashx.ut.dingtalk.com
 h-adashx.ut.dingtalk.com
 adservice.sigmob.cn
+tracking.miui.com
+tracking.intl.miui.com
+status-ipv6.jpush.cn
+sdkconfig.ad.xiaomi.com
+sdkconfig.ad.intl.xiaomi.com
+mdap.alipay.com
+shreport.weixin.qq.com
+ads5-normal-hl.zijieapi.com
+ad.zhuanzhuan.com
+smartop-sdkapi.jiguang.cn
+apd-pcdnwxlogin.teg.tencent-cloud.net
+
 
