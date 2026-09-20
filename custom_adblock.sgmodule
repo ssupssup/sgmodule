@@ -1,6 +1,6 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-09-20 19:18:08 | Deep ad block & UI purification customized for user's installed apps.
-#!total=1228
+#!desc=最近更新: 2026-09-20 19:19:01 | Deep ad block & UI purification customized for user's installed apps.
+#!total=1222
 
 [Rule]
 # === LINE Notice Bar SafeFrame & Pubads PROXY Override (Top Priority) ===
@@ -17,7 +17,6 @@ DOMAIN,rmonitor.qq.com,REJECT-DROP
 DOMAIN,beacon.qq.com,REJECT-DROP
 DOMAIN,rqd.qq.com,REJECT-DROP
 DOMAIN,ios.bugly.qq.com,REJECT-DROP
-DOMAIN,mdap.alipay.com,REJECT-DROP
 DOMAIN,h-adashx.dingtalkapps.com,REJECT-DROP
 DOMAIN,h-adashx.ut.taobao.com,REJECT-DROP
 DOMAIN,apm-native.xiaohongshu.com,REJECT-DROP
@@ -122,12 +121,10 @@ DOMAIN,mobile.events.data.microsoft.com,REJECT-NO-DROP
 DOMAIN,res.mmstat.com,REJECT-DROP
 DOMAIN,sla-media.immomo.com,REJECT-NO-DROP
 DOMAIN,soul-ad.soulapp.cn,REJECT-NO-DROP
-DOMAIN,tracking.miui.com,REJECT-DROP
 DOMAIN,log5-misc-lf.amemv.com,REJECT-DROP
 DOMAIN,ads5-normal-hj.zijieapi.com,REJECT-DROP
 DOMAIN,mon11-misc-lf.amemv.com,REJECT-DROP
 DOMAIN,apd-pcdnwxstat.teg.tencent-cloud.net,REJECT-DROP
-DOMAIN,apd-pcdnwxlogin.teg.tencent-cloud.net,REJECT-DROP
 DOMAIN,adip-api.immomo.com,REJECT-DROP
 DOMAIN,app-log.immomo.com,REJECT-DROP
 DOMAIN,app-monitor-cn.hellogroup.com,REJECT-DROP
@@ -144,7 +141,6 @@ DOMAIN,mon.toutiaocloud.com,REJECT-DROP
 DOMAIN,abtest.tantanapp.com,REJECT-DROP
 # === 2026-08-28 补充的高频漏网遥测与日志探针阻断 ===
 DOMAIN,gm.mmstat.com,REJECT-DROP
-DOMAIN,status-ipv6.jpush.cn,REJECT-DROP
 DOMAIN,klink.volceapplog.com,REJECT-DROP
 DOMAIN,toblog.volceapplog.com,REJECT-DROP
 DOMAIN,log-report.rtc.volcvideo.com,REJECT-DROP
@@ -154,7 +150,6 @@ DOMAIN,udataresys-log.nie.netease.com,REJECT-DROP
 DOMAIN,clientlogsf.music.163.com,REJECT-DROP
 DOMAIN,clientlogdep.music.163.com,REJECT-DROP
 DOMAIN,fp-upload.dun.163.com,REJECT-DROP
-DOMAIN,shreport.weixin.qq.com,REJECT-DROP
 DOMAIN,adsmind.gdtimg.com,REJECT-DROP
 DOMAIN,log.umsns.com,REJECT-DROP
 DOMAIN,stats.umsns.com,REJECT-DROP
@@ -164,10 +159,10 @@ DOMAIN-SUFFIX,advlion.com,REJECT-DROP
 DOMAIN,report.tantanapp.com,REJECT-DROP
 DOMAIN,dwtracking.jk.cn,REJECT-DROP
 DOMAIN,cm.immomo.com,REJECT-DROP
+DOMAIN-SUFFIX,analytics.pointdrive.linkedin.com,REJECT-DROP
+DOMAIN-SUFFIX,a1.firefoxchina.cn,REJECT
 DOMAIN-SUFFIX,ads.linkedin.com,REJECT
 DOMAIN-SUFFIX,outlookads.live.com,REJECT
-DOMAIN-SUFFIX,a1.firefoxchina.cn,REJECT
-DOMAIN-SUFFIX,analytics.pointdrive.linkedin.com,REJECT-DROP
 # === Compiled App Rules ===
 DOMAIN,adstrategy.biz.weibo.com,REJECT
 DOMAIN-SUFFIX,api.touch-moblie.com,REJECT
@@ -316,7 +311,6 @@ DOMAIN-SUFFIX,e.qq.com,REJECT
 DOMAIN,amsweb-cdn-gz-1258344696.file.myqcloud.com,REJECT
 DOMAIN,wallpaper-1258344696.file.myqcloud.com,REJECT
 IP-CIDR,120.222.240.171/32,REJECT
-DOMAIN,sdkconfig.ad.xiaomi.com,REJECT-DROP
 DOMAIN-SUFFIX,corp.meitu.com,REJECT
 DOMAIN-SUFFIX,gg.meitu.com,REJECT
 DOMAIN-SUFFIX,message.meitu.com,REJECT
