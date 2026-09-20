@@ -1217,5 +1217,93 @@
       "priority": 0,
       "app": "美团"
     }
+  ],
+  "MANDATORY_MITM_DOMAINS": [
+    "adservice.sigmob.cn",
+    "tracking.miui.com",
+    "tracking.intl.miui.com",
+    "status-ipv6.jpush.cn",
+    "sdkconfig.ad.xiaomi.com",
+    "sdkconfig.ad.intl.xiaomi.com",
+    "mdap.alipay.com",
+    "shreport.weixin.qq.com",
+    "ads5-normal-hl.zijieapi.com",
+    "ad.zhuanzhuan.com",
+    "smartop-sdkapi.jiguang.cn",
+    "apd-pcdnwxlogin.teg.tencent-cloud.net"
+  ],
+  "CUSTOM_REWRITE_RULES": [
+    {
+      "text": "^https?:\\/\\/103\\.37\\.155\\.60\\/fetch reject-200",
+      "pattern": "^https?:\\/\\/103\\.37\\.155\\.60\\/fetch",
+      "priority": 0,
+      "app": "美团"
+    },
+    {
+      "text": "^https?:\\/\\/status-ipv6\\.jpush\\.cn reject-dict",
+      "pattern": "^https?:\\/\\/status-ipv6\\.jpush\\.cn",
+      "priority": 0,
+      "app": "极光"
+    },
+    {
+      "text": "^https?:\\/\\/smartop-sdkapi\\.jiguang\\.cn reject-200",
+      "pattern": "^https?:\\/\\/smartop-sdkapi\\.jiguang\\.cn",
+      "priority": 0,
+      "app": "极光"
+    },
+    {
+      "text": "^https?:\\/\\/sdkconfig\\.ad\\.xiaomi\\.com reject-dict",
+      "pattern": "^https?:\\/\\/sdkconfig\\.ad\\.xiaomi\\.com",
+      "priority": 0,
+      "app": "小米"
+    },
+    {
+      "text": "^https?:\\/\\/sdkconfig\\.ad\\.intl\\.xiaomi\\.com reject-dict",
+      "pattern": "^https?:\\/\\/sdkconfig\\.ad\\.intl\\.xiaomi\\.com",
+      "priority": 0,
+      "app": "小米"
+    },
+    {
+      "text": "^https?:\\/\\/tracking\\.miui\\.com reject-200",
+      "pattern": "^https?:\\/\\/tracking\\.miui\\.com",
+      "priority": 0,
+      "app": "小米"
+    },
+    {
+      "text": "^https?:\\/\\/tracking\\.intl\\.miui\\.com reject-200",
+      "pattern": "^https?:\\/\\/tracking\\.intl\\.miui\\.com",
+      "priority": 0,
+      "app": "小米"
+    },
+    {
+      "text": "^https?:\\/\\/mdap\\.alipay\\.com reject-200",
+      "pattern": "^https?:\\/\\/mdap\\.alipay\\.com",
+      "priority": 0,
+      "app": "支付宝"
+    },
+    {
+      "text": "^https?:\\/\\/shreport\\.weixin\\.qq\\.com reject-200",
+      "pattern": "^https?:\\/\\/shreport\\.weixin\\.qq\\.com",
+      "priority": 0,
+      "app": "微信"
+    },
+    {
+      "text": "^https?:\\/\\/apd-pcdnwxlogin\\.teg\\.tencent-cloud\\.net reject-200",
+      "pattern": "^https?:\\/\\/apd-pcdnwxlogin\\.teg\\.tencent-cloud\\.net",
+      "priority": 0,
+      "app": "微信"
+    },
+    {
+      "text": "^https?:\\/\\/ads5-normal-hl\\.zijieapi\\.com reject-200",
+      "pattern": "^https?:\\/\\/ads5-normal-hl\\.zijieapi\\.com",
+      "priority": 0,
+      "app": "字节火山引擎"
+    },
+    {
+      "text": "^https?:\\/\\/ad\\.zhuanzhuan\\.com reject-200",
+      "pattern": "^https?:\\/\\/ad\\.zhuanzhuan\\.com",
+      "priority": 0,
+      "app": "通用广告SDK"
+    }
   ]
 }
