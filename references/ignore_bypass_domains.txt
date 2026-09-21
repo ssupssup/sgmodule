@@ -58,5 +58,13 @@ ads5-normal-hl.zijieapi.com
 ad.zhuanzhuan.com
 smartop-sdkapi.jiguang.cn
 apd-pcdnwxlogin.teg.tencent-cloud.net
-
-
+cm.immomo.com
+fep.hellogroup.com
+app-monitor-cn.hellogroup.com
+app-log.immomo.com
+logs.amap.com
+dualstack-logs.amap.com
+log-report.rtc.volcvideo.com
+klink.volceapplog.com
+o1.d.meituan.net
+mon0-misc-lf.amemv.com

@@ -811,414 +811,6 @@
     "DOMAIN,metrics-picture.d.meituan.net,REJECT-200"
   ],
   "MANDATORY_MITM_DOMAINS": [
-    "stat.youpin.mi.com",
-    "apmplus.volces.com",
-    "stats.jpush.cn",
-    "stats-ipv6.jpush.cn",
-    "ali-stats.jpush.cn",
-    "gd-stats.jpush.cn",
-    "config.jpush.cn",
-    "mssdk3-normal-lf.zijieapi.com",
-    "errnewlog.umeng.com",
-    "booking.bestwehotel.com",
-    "wxapp.bestwehotel.com",
-    "web-opin.bestwehotel.com",
-    "hwy-gapi.bestwehotel.com",
-    "tg.feidee.com",
-    "adproxy.autohome.com.cn",
-    "retargeting.ctrip.com",
-    "homefront.qunar.com",
-    "client.qunar.com",
-    "qde.qunar.com",
-    "m.ctrip.com",
-    "y.gtimg.cn",
-    "tqt.weibo.cn",
-    "boot.weibo.com",
-    "preload-click.uve.weibo.com",
-    "preload-impression.uve.weibo.com",
-    "weathercn.com",
-    "ads-img-al.xhscdn.com",
-    "zhstatic.zhihu.com",
-    "zhuanlan.zhihu.com",
-    "didapinche.com",
-    "ct.xiaojukeji.com",
-    "ndstatic.cdn.bcebos.com",
-    "staticsns.cdn.bcebos.com",
-    "issuecdn.baidupcs.com",
-    "fc-video.cdn.bcebos.com",
-    "rp.hpplay.cn",
-    "oss.umetrip.com",
-    "mea.meitudata.com",
-    "mobileapi-v6.elong.com",
-    "gateway.shouqiev.com",
-    "gw-passenger.01zhuanche.com",
-    "pinggai.caixin.com",
-    "eastmoney.com",
-    "zdmimg.com",
-    "babytree.com",
-    "jianying.com",
-    "maicai.api.ddxq.mobi",
-    "amemv.com",
-    "meituan.net",
-    "ndcpp.com",
-    "yingt.fun",
-    "iadsdk.apple.com",
-    "ca.iadsdk.apple.com",
-    "cf.iadsdk.apple.com",
-    "log0-misc-lf.amemv.com",
-    "log5-misc-lf.amemv.com",
-    "logbk.amemv.com",
-    "orzonera.yingt.fun",
-    "catdot.dianping.com",
-    "data-sdk-uuid-log.d.meituan.net",
-    "dreport.meituan.net",
-    "logan-rtl.dreport.meituan.net",
-    "maplocatesdksnapshot.d.meituan.net",
-    "sdk.e.qq.com",
-    "dwtracking.jk.cn",
-    "cm.immomo.com",
-    "metrics-picture.d.meituan.net",
-    "abtest3-misc-lf.zijieapi.com",
-    "tnc0-aliec2.zijieapi.com",
-    "log-hl.snssdk.com",
-    "tnc0-alisc1.zijieapi.com",
-    "al-log.d.meituan.net",
-    "lf-leads-fe-scm.bytecdn.com",
-    "pangolin-sdk-toutiao.com",
-    "pangolin-sdk-toutiao-b.com",
-    "log-api.pangolin-sdk-toutiao.com",
-    "api-access.pangolin-sdk-toutiao-b.com",
-    "win.gdt.qq.com",
-    "gdt.qq.com",
-    "toblog.ctobsnssdk.com",
-    "mobads-logs.baidu.com",
-    "mobads.baidu.com",
-    "tdid.m.qq.com",
-    "adashx.ut.dingtalk.com",
-    "h-adashx.ut.dingtalk.com",
-    "adservice.sigmob.cn"
-  ],
-  "CUSTOM_REWRITE_RULES": [
-    {
-      "text": "^https?:\\/\\/orzonera\\.yingt\\.fun reject-200",
-      "pattern": "^https?:\\/\\/orzonera\\.yingt\\.fun",
-      "priority": 0,
-      "app": "通用广告SDK"
-    },
-    {
-      "text": "^https?:\\/\\/tqt\\.weibo\\.cn reject-200",
-      "pattern": "^https?:\\/\\/tqt\\.weibo\\.cn",
-      "priority": 0,
-      "app": "新浪微博"
-    },
-    {
-      "text": "^https?:\\/\\/sdk\\.e\\.qq\\.com reject-200",
-      "pattern": "^https?:\\/\\/sdk\\.e\\.qq\\.com",
-      "priority": 0,
-      "app": "腾讯广点通"
-    },
-    {
-      "text": "^https?:\\/\\/dwtracking\\.jk\\.cn reject-200",
-      "pattern": "^https?:\\/\\/dwtracking\\.jk\\.cn",
-      "priority": 0,
-      "app": "平安健康"
-    },
-    {
-      "text": "^https?:\\/\\/cm\\.immomo\\.com reject-200",
-      "pattern": "^https?:\\/\\/cm\\.immomo\\.com",
-      "priority": 0,
-      "app": "陌陌"
-    },
-    {
-      "text": "^https?:\\/\\/metrics-picture\\.d\\.meituan\\.net reject-200",
-      "pattern": "^https?:\\/\\/metrics-picture\\.d\\.meituan\\.net",
-      "priority": 0,
-      "app": "美团"
-    },
-    {
-      "text": "^https?:\\/\\/iadsdk\\.apple\\.com reject-200",
-      "pattern": "^https?:\\/\\/iadsdk\\.apple\\.com",
-      "priority": 0,
-      "app": "Apple"
-    },
-    {
-      "text": "^https?:\\/\\/ca\\.iadsdk\\.apple\\.com reject-200",
-      "pattern": "^https?:\\/\\/ca\\.iadsdk\\.apple\\.com",
-      "priority": 0,
-      "app": "Apple"
-    },
-    {
-      "text": "^https?:\\/\\/cf\\.iadsdk\\.apple\\.com reject-200",
-      "pattern": "^https?:\\/\\/cf\\.iadsdk\\.apple\\.com",
-      "priority": 0,
-      "app": "Apple"
-    },
-    {
-      "text": "^https?:\\/\\/orzonera\\.yingt\\.fun reject-200",
-      "pattern": "^https?:\\/\\/orzonera\\.yingt\\.fun",
-      "priority": 0,
-      "app": "抖音"
-    },
-    {
-      "text": "^https?:\\/\\/abtest3-misc-lf\\.zijieapi\\.com reject-200",
-      "pattern": "^https?:\\/\\/abtest3-misc-lf\\.zijieapi\\.com",
-      "priority": 0,
-      "app": "字节跳动"
-    },
-    {
-      "text": "^https?:\\/\\/tnc0-aliec2\\.zijieapi\\.com reject-200",
-      "pattern": "^https?:\\/\\/tnc0-aliec2\\.zijieapi\\.com",
-      "priority": 0,
-      "app": "字节跳动"
-    },
-    {
-      "text": "^https?:\\/\\/log-hl\\.snssdk\\.com reject-200",
-      "pattern": "^https?:\\/\\/log-hl\\.snssdk\\.com",
-      "priority": 0,
-      "app": "字节跳动"
-    },
-    {
-      "text": "^https?:\\/\\/tnc0-alisc1\\.zijieapi\\.com reject-200",
-      "pattern": "^https?:\\/\\/tnc0-alisc1\\.zijieapi\\.com",
-      "priority": 0,
-      "app": "字节跳动"
-    },
-    {
-      "text": "^https?:\\/\\/al-log\\.d\\.meituan\\.net reject-200",
-      "pattern": "^https?:\\/\\/al-log\\.d\\.meituan\\.net",
-      "priority": 0,
-      "app": "美团"
-    },
-    {
-      "text": "^https?:\\/\\/lf-leads-fe-scm\\.bytecdn\\.com reject-200",
-      "pattern": "^https?:\\/\\/lf-leads-fe-scm\\.bytecdn\\.com",
-      "priority": 0,
-      "app": "字节跳动"
-    },
-    {
-      "text": "^https?:\\/\\/stats\\.jpush\\.cn reject-dict",
-      "pattern": "^https?:\\/\\/stats\\.jpush\\.cn",
-      "priority": 0,
-      "app": "通用广告SDK"
-    },
-    {
-      "text": "^https?:\\/\\/stats-ipv6\\.jpush\\.cn reject-dict",
-      "pattern": "^https?:\\/\\/stats-ipv6\\.jpush\\.cn",
-      "priority": 0,
-      "app": "通用广告SDK"
-    },
-    {
-      "text": "^https?:\\/\\/ali-stats\\.jpush\\.cn reject-dict",
-      "pattern": "^https?:\\/\\/ali-stats\\.jpush\\.cn",
-      "priority": 0,
-      "app": "通用广告SDK"
-    },
-    {
-      "text": "^https?:\\/\\/gd-stats\\.jpush\\.cn reject-dict",
-      "pattern": "^https?:\\/\\/gd-stats\\.jpush\\.cn",
-      "priority": 0,
-      "app": "通用广告SDK"
-    },
-    {
-      "text": "^https?:\\/\\/config\\.jpush\\.cn reject-dict",
-      "pattern": "^https?:\\/\\/config\\.jpush\\.cn",
-      "priority": 0,
-      "app": "通用广告SDK"
-    },
-    {
-      "text": "^https?:\\/\\/mssdk3-normal-lf\\.zijieapi\\.com reject-200",
-      "pattern": "^https?:\\/\\/mssdk3-normal-lf\\.zijieapi\\.com",
-      "priority": 0,
-      "app": "字节跳动"
-    },
-    {
-      "text": "^https?:\\/\\/stat\\.youpin\\.mi\\.com reject-200",
-      "pattern": "^https?:\\/\\/stat\\.youpin\\.mi\\.com",
-      "priority": 0,
-      "app": "小米"
-    },
-    {
-      "text": "^https?:\\/\\/apmplus\\.volces\\.com reject-200",
-      "pattern": "^https?:\\/\\/apmplus\\.volces\\.com",
-      "priority": 0,
-      "app": "字节火山引擎"
-    },
-    {
-      "text": "^https?:\\/\\/errnewlog\\.umeng\\.com reject-dict",
-      "pattern": "^https?:\\/\\/errnewlog\\.umeng\\.com",
-      "priority": 0,
-      "app": "通用广告SDK"
-    },
-    {
-      "text": "^https?:\\/\\/maicai\\.api\\.ddxq\\.mobi\\/advert\\/ reject-dict",
-      "pattern": "^https?:\\/\\/maicai\\.api\\.ddxq\\.mobi\\/advert\\/",
-      "priority": 0,
-      "app": "叮咚买菜"
-    },
-    {
-      "text": "^https?:\\/\\/c\\.tieba\\.baidu\\.com\\/c\\/s\\/(ad|splashSchedule|splash) reject-dict",
-      "pattern": "^https?:\\/\\/c\\.tieba\\.baidu\\.com\\/c\\/s\\/(ad|splashSchedule|splash)",
-      "priority": 0,
-      "app": "百度贴吧"
-    },
-    {
-      "text": "^https?:\\/\\/c\\.tieba\\.baidu\\.com\\/c\\/f\\/ad\\/ reject-dict",
-      "pattern": "^https?:\\/\\/c\\.tieba\\.baidu\\.com\\/c\\/f\\/ad\\/",
-      "priority": 0,
-      "app": "百度贴吧"
-    },
-    {
-      "text": "^https?:\\/\\/tbapi\\.baidu\\.com\\/c\\/s\\/(ad|splashSchedule|splash) reject-dict",
-      "pattern": "^https?:\\/\\/tbapi\\.baidu\\.com\\/c\\/s\\/(ad|splashSchedule|splash)",
-      "priority": 0,
-      "app": "百度贴吧"
-    },
-    {
-      "text": "^https?:\\/\\/tbapi\\.baidu\\.com\\/c\\/f\\/ad\\/ reject-dict",
-      "pattern": "^https?:\\/\\/tbapi\\.baidu\\.com\\/c\\/f\\/ad\\/",
-      "priority": 0,
-      "app": "百度贴吧"
-    },
-    {
-      "text": "^https?:\\/\\/mobads\\.baidu\\.com\\/ads\\/pa\\/ reject-200",
-      "pattern": "^https?:\\/\\/mobads\\.baidu\\.com\\/ads\\/pa\\/",
-      "priority": 0,
-      "app": "百度联盟广告"
-    },
-    {
-      "text": "^https?:\\/\\/mobads\\.baidu\\.com\\/[a-zA-Z0-9_\\/]+\\.php reject-200",
-      "pattern": "^https?:\\/\\/mobads\\.baidu\\.com\\/[a-zA-Z0-9_\\/]+\\.php",
-      "priority": 0,
-      "app": "百度联盟广告"
-    },
-    {
-      "text": "^https?:\\/\\/wxapp\\.bestwehotel\\.com\\/gw3\\/app-mini\\/trip-hotel-banner\\/activity\\/getActivityInfo reject-dict",
-      "pattern": "^https?:\\/\\/wxapp\\.bestwehotel\\.com\\/gw3\\/app-mini\\/trip-hotel-banner\\/activity\\/getActivityInfo",
-      "priority": 0,
-      "app": "锦江荟"
-    },
-    {
-      "text": "^https?:\\/\\/booking\\.bestwehotel\\.com\\/proxy\\/trip-hotel-banner\\/activity\\/getActivityInfo reject-dict",
-      "pattern": "^https?:\\/\\/booking\\.bestwehotel\\.com\\/proxy\\/trip-hotel-banner\\/activity\\/getActivityInfo",
-      "priority": 0,
-      "app": "锦江荟"
-    },
-    {
-      "text": "^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/gw3\\/app-mini\\/trip-hotel-banner\\/activity\\/getActivityInfo reject-dict",
-      "pattern": "^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/gw3\\/app-mini\\/trip-hotel-banner\\/activity\\/getActivityInfo",
-      "priority": 0,
-      "app": "锦江荟"
-    },
-    {
-      "text": "^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/proxy\\/trip-hotel-banner\\/activity\\/getActivityInfo reject-dict",
-      "pattern": "^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/proxy\\/trip-hotel-banner\\/activity\\/getActivityInfo",
-      "priority": 0,
-      "app": "锦江荟"
-    },
-    {
-      "text": "^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/message\\/adLabel\\/v2\\/getAdList reject-dict",
-      "pattern": "^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/message\\/adLabel\\/v2\\/getAdList",
-      "priority": 0,
-      "app": "锦江荟"
-    },
-    {
-      "text": "^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/adSettlement\\/app\\/idfa\\/v1\\/collect reject",
-      "pattern": "^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/adSettlement\\/app\\/idfa\\/v1\\/collect",
-      "priority": 0,
-      "app": "锦江荟"
-    },
-    {
-      "text": "^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/applog\\/requestPage\\/request reject",
-      "pattern": "^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/applog\\/requestPage\\/request",
-      "priority": 0,
-      "app": "锦江荟"
-    },
-    {
-      "text": "^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/proxy\\/trip-client-monitor\\/log\\/monitor reject",
-      "pattern": "^https?:\\/\\/hwy-gapi\\.bestwehotel\\.com\\/proxy\\/trip-client-monitor\\/log\\/monitor",
-      "priority": 0,
-      "app": "锦江荟"
-    },
-    {
-      "text": "^https?:\\/\\/tg\\.feidee\\.com\\/online_ad\\/ reject",
-      "pattern": "^https?:\\/\\/tg\\.feidee\\.com\\/online_ad\\/",
-      "priority": 0,
-      "app": "随手记"
-    },
-    {
-      "text": "^https?:\\/\\/tg\\.feidee\\.com\\/vis-ad-engine-ws\\/api\\/ reject",
-      "pattern": "^https?:\\/\\/tg\\.feidee\\.com\\/vis-ad-engine-ws\\/api\\/",
-      "priority": 0,
-      "app": "随手记"
-    },
-    {
-      "text": "^https?:\\/\\/homefront\\.qunar\\.com\\/front\\/splash\\/ad reject-dict",
-      "pattern": "^https?:\\/\\/homefront\\.qunar\\.com\\/front\\/splash\\/ad",
-      "priority": 0,
-      "app": "去哪儿旅行"
-    },
-    {
-      "text": "^https?:\\/\\/client\\.qunar\\.com\\/pitcher-proxy\\?qrt=p_splashAd reject-dict",
-      "pattern": "^https?:\\/\\/client\\.qunar\\.com\\/pitcher-proxy\\?qrt=p_splashAd",
-      "priority": 0,
-      "app": "去哪儿旅行"
-    },
-    {
-      "text": "^https?:\\/\\/qde\\.qunar\\.com\\/preload reject-200",
-      "pattern": "^https?:\\/\\/qde\\.qunar\\.com\\/preload",
-      "priority": 0,
-      "app": "去哪儿旅行"
-    },
-    {
-      "text": "^https?:\\/\\/log0-misc-lf\\.amemv\\.com reject-200",
-      "pattern": "^https?:\\/\\/log0-misc-lf\\.amemv\\.com",
-      "priority": 0,
-      "app": "抖音"
-    },
-    {
-      "text": "^https?:\\/\\/logbk\\.amemv\\.com reject-200",
-      "pattern": "^https?:\\/\\/logbk\\.amemv\\.com",
-      "priority": 0,
-      "app": "抖音"
-    },
-    {
-      "text": "^https?:\\/\\/orzonera\\.yingt\\.fun reject-200",
-      "pattern": "^https?:\\/\\/orzonera\\.yingt\\.fun",
-      "priority": 0,
-      "app": "通用广告SDK"
-    },
-    {
-      "text": "^https?:\\/\\/catdot\\.dianping\\.com reject-200",
-      "pattern": "^https?:\\/\\/catdot\\.dianping\\.com",
-      "priority": 0,
-      "app": "大众点评"
-    },
-    {
-      "text": "^https?:\\/\\/data-sdk-uuid-log\\.d\\.meituan\\.net reject-200",
-      "pattern": "^https?:\\/\\/data-sdk-uuid-log\\.d\\.meituan\\.net",
-      "priority": 0,
-      "app": "美团"
-    },
-    {
-      "text": "^https?:\\/\\/dreport\\.meituan\\.net reject-200",
-      "pattern": "^https?:\\/\\/dreport\\.meituan\\.net",
-      "priority": 0,
-      "app": "美团"
-    },
-    {
-      "text": "^https?:\\/\\/maplocatesdksnapshot\\.d\\.meituan\\.net reject-200",
-      "pattern": "^https?:\\/\\/maplocatesdksnapshot\\.d\\.meituan\\.net",
-      "priority": 0,
-      "app": "美团"
-    },
-    {
-      "text": "^https?:\\/\\/103\\.37\\.155\\.60\\/fetch reject-200",
-      "pattern": "^https?:\\/\\/103\\.37\\.155\\.60\\/fetch",
-      "priority": 0,
-      "app": "美团"
-    }
-  ],
-  "MANDATORY_MITM_DOMAINS": [
     "adservice.sigmob.cn",
     "tracking.miui.com",
     "tracking.intl.miui.com",
@@ -1230,7 +822,19 @@
     "ads5-normal-hl.zijieapi.com",
     "ad.zhuanzhuan.com",
     "smartop-sdkapi.jiguang.cn",
-    "apd-pcdnwxlogin.teg.tencent-cloud.net"
+    "apd-pcdnwxlogin.teg.tencent-cloud.net",
+    "cm.immomo.com",
+    "fep.hellogroup.com",
+    "app-monitor-cn.hellogroup.com",
+    "app-log.immomo.com",
+    "logs.amap.com",
+    "dualstack-logs.amap.com",
+    "log-report.rtc.volcvideo.com",
+    "klink.volceapplog.com",
+    "o1.d.meituan.net",
+    "maplocatesdksnapshot.d.meituan.net",
+    "mon0-misc-lf.amemv.com",
+    "orzonera.yingt.fun"
   ],
   "CUSTOM_REWRITE_RULES": [
     {
@@ -1302,6 +906,78 @@
     {
       "text": "^https?:\\/\\/ad\\.zhuanzhuan\\.com reject-200",
       "pattern": "^https?:\\/\\/ad\\.zhuanzhuan\\.com",
+      "priority": 0,
+      "app": "通用广告SDK"
+    },
+    {
+      "text": "^https?:\\/\\/cm\\.immomo\\.com reject-200",
+      "pattern": "^https?:\\/\\/cm\\.immomo\\.com",
+      "priority": 0,
+      "app": "MOMO陌陌"
+    },
+    {
+      "text": "^https?:\\/\\/fep\\.hellogroup\\.com reject-200",
+      "pattern": "^https?:\\/\\/fep\\.hellogroup\\.com",
+      "priority": 0,
+      "app": "MOMO陌陌"
+    },
+    {
+      "text": "^https?:\\/\\/app-monitor-cn\\.hellogroup\\.com reject-200",
+      "pattern": "^https?:\\/\\/app-monitor-cn\\.hellogroup\\.com",
+      "priority": 0,
+      "app": "MOMO陌陌"
+    },
+    {
+      "text": "^https?:\\/\\/app-log\\.immomo\\.com reject-200",
+      "pattern": "^https?:\\/\\/app-log\\.immomo\\.com",
+      "priority": 0,
+      "app": "MOMO陌陌"
+    },
+    {
+      "text": "^https?:\\/\\/logs\\.amap\\.com reject-200",
+      "pattern": "^https?:\\/\\/logs\\.amap\\.com",
+      "priority": 0,
+      "app": "高德地图"
+    },
+    {
+      "text": "^https?:\\/\\/dualstack-logs\\.amap\\.com reject-200",
+      "pattern": "^https?:\\/\\/dualstack-logs\\.amap\\.com",
+      "priority": 0,
+      "app": "高德地图"
+    },
+    {
+      "text": "^https?:\\/\\/log-report\\.rtc\\.volcvideo\\.com reject-200",
+      "pattern": "^https?:\\/\\/log-report\\.rtc\\.volcvideo\\.com",
+      "priority": 0,
+      "app": "字节火山引擎"
+    },
+    {
+      "text": "^https?:\\/\\/klink\\.volceapplog\\.com reject-200",
+      "pattern": "^https?:\\/\\/klink\\.volceapplog\\.com",
+      "priority": 0,
+      "app": "字节火山引擎"
+    },
+    {
+      "text": "^https?:\\/\\/o1\\.d\\.meituan\\.net reject-200",
+      "pattern": "^https?:\\/\\/o1\\.d\\.meituan\\.net",
+      "priority": 0,
+      "app": "美团"
+    },
+    {
+      "text": "^https?:\\/\\/maplocatesdksnapshot\\.d\\.meituan\\.net reject-200",
+      "pattern": "^https?:\\/\\/maplocatesdksnapshot\\.d\\.meituan\\.net",
+      "priority": 0,
+      "app": "美团"
+    },
+    {
+      "text": "^https?:\\/\\/mon0-misc-lf\\.amemv\\.com reject-200",
+      "pattern": "^https?:\\/\\/mon0-misc-lf\\.amemv\\.com",
+      "priority": 0,
+      "app": "抖音"
+    },
+    {
+      "text": "^https?:\\/\\/orzonera\\.yingt\\.fun reject-200",
+      "pattern": "^https?:\\/\\/orzonera\\.yingt\\.fun",
       "priority": 0,
       "app": "通用广告SDK"
     }
