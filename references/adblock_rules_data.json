@@ -834,7 +834,14 @@
     "o1.d.meituan.net",
     "maplocatesdksnapshot.d.meituan.net",
     "mon0-misc-lf.amemv.com",
-    "orzonera.yingt.fun"
+    "orzonera.yingt.fun",
+    "stat.youpin.mi.com",
+    "dreport.meituan.net",
+    "logan-rtl.dreport.meituan.net",
+    "log0-misc-lf.amemv.com",
+    "mssdk3-normal-lf.zijieapi.com",
+    "adashx.ut.dingtalk.com",
+    "h-adashx.ut.dingtalk.com"
   ],
   "CUSTOM_REWRITE_RULES": [
     {
@@ -980,6 +987,48 @@
       "pattern": "^https?:\\/\\/orzonera\\.yingt\\.fun",
       "priority": 0,
       "app": "通用广告SDK"
+    },
+    {
+      "text": "^https?:\\/\\/stat\\.youpin\\.mi\\.com reject-200",
+      "pattern": "^https?:\\/\\/stat\\.youpin\\.mi\\.com",
+      "priority": 0,
+      "app": "小米"
+    },
+    {
+      "text": "^https?:\\/\\/dreport\\.meituan\\.net reject-200",
+      "pattern": "^https?:\\/\\/dreport\\.meituan\\.net",
+      "priority": 0,
+      "app": "美团"
+    },
+    {
+      "text": "^https?:\\/\\/logan-rtl\\.dreport\\.meituan\\.net reject-200",
+      "pattern": "^https?:\\/\\/logan-rtl\\.dreport\\.meituan\\.net",
+      "priority": 0,
+      "app": "美团"
+    },
+    {
+      "text": "^https?:\\/\\/log0-misc-lf\\.amemv\\.com reject-200",
+      "pattern": "^https?:\\/\\/log0-misc-lf\\.amemv\\.com",
+      "priority": 0,
+      "app": "抖音"
+    },
+    {
+      "text": "^https?:\\/\\/mssdk3-normal-lf\\.zijieapi\\.com reject-200",
+      "pattern": "^https?:\\/\\/mssdk3-normal-lf\\.zijieapi\\.com",
+      "priority": 0,
+      "app": "字节火山引擎"
+    },
+    {
+      "text": "^https?:\\/\\/adashx\\.ut\\.dingtalk\\.com reject-200",
+      "pattern": "^https?:\\/\\/adashx\\.ut\\.dingtalk\\.com",
+      "priority": 0,
+      "app": "钉钉"
+    },
+    {
+      "text": "^https?:\\/\\/h-adashx\\.ut\\.dingtalk\\.com reject-200",
+      "pattern": "^https?:\\/\\/h-adashx\\.ut\\.dingtalk\\.com",
+      "priority": 0,
+      "app": "钉钉"
     }
   ]
 }
