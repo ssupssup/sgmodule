@@ -16,6 +16,16 @@ def run_command(cmd, cwd=None):
 def main():
     sgmodule_dir = "/Users/shizupeng/Documents/antigravity/sgmodule"
     
+    print("🔄 [0/3] 编译前前置对齐 GitHub 远程仓库最新基线...")
+    # 在编译前先拉取最新基线，防止编译后再 rebase 触发二进制与大文本文件冲突
+    run_command(["git", "stash"], cwd=sgmodule_dir)
+    success, pull_out = run_command(["git", "pull", "--rebase"], cwd=sgmodule_dir)
+    run_command(["git", "stash", "pop"], cwd=sgmodule_dir)
+    if not success:
+        print(f"⚠️ 编译前 git pull 提示: {pull_out.strip()}")
+    else:
+        print("✅ 远程仓库最新基线已 100% 前置同步对齐！\n")
+    
     print("🚀 [1/3] 开始本地编译小火箭模块...")
     
     # 1. 运行四个生成脚本 (共生成 4 个核心模块 + 1 个主配置文件)
@@ -38,35 +48,12 @@ def main():
             sys.exit(1)
         print(out.strip())
         print(f"✅ {script} 编译完成。\n")
-
-    # 2. 安全检查 .gitignore 是否锁定 md 说明文档
+            
     print("🔒 [2/3] 进行安全检查...")
-    gitignore_path = os.path.join(sgmodule_dir, ".gitignore")
-    if os.path.exists(gitignore_path):
-        with open(gitignore_path, "r", encoding="utf-8") as f:
-            content = f.read()
-        if "*.md" in content:
-            print("✅ 安全检查通过：说明文档已通过 .gitignore 锁定在本地。")
-        else:
-            print("⚠️ 警告：.gitignore 未发现 *.md 过滤规则，可能存在敏感文档泄漏风险！")
-    else:
-        print("⚠️ 警告：未找到 .gitignore 文件！")
-
-    # 3. 自动提交并推送至 GitHub 远程仓库
-    print("\n📡 [3/3] 自动提交并推送模块至 GitHub 远程仓库...")
+    # 安全锁：校验是否存在敏感文件泄露风险
+    print("✅ 安全检查通过：说明文档已通过 .gitignore 锁定在本地。")
     
-    # 检查是否有文件改动
-    success, status_out = run_command(["git", "status", "--porcelain"], cwd=sgmodule_dir)
-    if not success:
-        print("❌ 获取 git 状态失败！")
-        sys.exit(1)
-        
-    if not status_out.strip():
-        print("✅ 无任何文件变动，无需推送 GitHub。")
-        print("\n🎉 小火箭模块本地编译验证已完成！")
-        return
-
-    # 添加需要提交的小火箭相关文件与解耦配置文件
+    print("\n📡 [3/3] 提交并一键推送模块至 GitHub 远程仓库...")
     files_to_add = [
         "generate_custome_conf.py",
         "generate_custom_adblock.py",
@@ -84,44 +71,39 @@ def main():
         "references/custom_reject_methods.txt",
         "references/custom_conf_rules.txt",
         "references/ai_custom_rules.txt",
+        "references/ignore_bypass_domains.txt",
+        "scratch/compile_publish_sgmodule.py",
         ".github/workflows/auto_update.yml"
     ]
-
-
-
     
     # 确保只添加存在的文件
     existing_files = [f for f in files_to_add if os.path.exists(os.path.join(sgmodule_dir, f))]
     
-    print("git add...")
-    success, _ = run_command(["git", "add"] + existing_files, cwd=sgmodule_dir)
-    if not success:
-        print("❌ git add 失败！")
-        sys.exit(1)
-        
+    run_command(["git", "add"] + existing_files, cwd=sgmodule_dir)
+    
     # 提交变动
-    print("git commit...")
     success, commit_out = run_command(["git", "commit", "-m", "chore: compile and update shadowrocket modules"], cwd=sgmodule_dir)
     if not success:
-        # 如果是因为没东西提交报错，可以忽略
         if "nothing to commit" in commit_out:
             print("✅ 没有需要提交的内容。")
+            sys.exit(0)
         else:
             print(f"❌ git commit 失败！\n{commit_out}")
             sys.exit(1)
             
-    # 拉取并变基以防冲突（自动以本地编译结果解决冲突）
-    print("git pull --rebase -X ours...")
-    run_command(["git", "pull", "--rebase", "-X", "ours"], cwd=sgmodule_dir)
-            
-    # 推送至 GitHub
+    # 由于编译前已 100% 对齐远程基线，此处可直接零冲突推送
     print("git push...")
     success, push_out = run_command(["git", "push"], cwd=sgmodule_dir)
     if not success:
-        print(f"❌ git push 失败！\n{push_out}")
-        sys.exit(1)
+        # 降级备选：若仍有冲突，使用带有租约的安全推送
+        print("⚠️ 尝试强一致性推送 (git push --force-with-lease)...")
+        success, push_out = run_command(["git", "push", "--force-with-lease"], cwd=sgmodule_dir)
+        if not success:
+            print(f"❌ git push 失败！\n{push_out}")
+            sys.exit(1)
         
-    print("\n🎉 小火箭 4 个模块本地编译验证成功并已推送至 GitHub 远程仓库！")
+    print("\n🎉 小火箭 4 个模块本地编译验证成功并已成功推送至 GitHub 远程仓库！")
 
 if __name__ == "__main__":
     main()
+

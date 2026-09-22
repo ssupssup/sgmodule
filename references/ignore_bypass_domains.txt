@@ -69,3 +69,5 @@ klink.volceapplog.com
 o1.d.meituan.net
 mon0-misc-lf.amemv.com
 logan-rtl.dreport.meituan.net
+log5-misc-lf.amemv.com
+mon.toutiaocloud.com
