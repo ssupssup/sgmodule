@@ -841,7 +841,12 @@
     "log0-misc-lf.amemv.com",
     "mssdk3-normal-lf.zijieapi.com",
     "adashx.ut.dingtalk.com",
-    "h-adashx.ut.dingtalk.com"
+    "h-adashx.ut.dingtalk.com",
+    "iadsdk.apple.com",
+    "ca.iadsdk.apple.com",
+    "cf.iadsdk.apple.com",
+    "log5-misc-lf.amemv.com",
+    "mon.toutiaocloud.com"
   ],
   "CUSTOM_REWRITE_RULES": [
     {
@@ -1029,6 +1034,36 @@
       "pattern": "^https?:\\/\\/h-adashx\\.ut\\.dingtalk\\.com",
       "priority": 0,
       "app": "钉钉"
+    },
+    {
+      "text": "^https?:\\/\\/iadsdk\\.apple\\.com reject-200",
+      "pattern": "^https?:\\/\\/iadsdk\\.apple\\.com",
+      "priority": 0,
+      "app": "Apple"
+    },
+    {
+      "text": "^https?:\\/\\/ca\\.iadsdk\\.apple\\.com reject-200",
+      "pattern": "^https?:\\/\\/ca\\.iadsdk\\.apple\\.com",
+      "priority": 0,
+      "app": "Apple"
+    },
+    {
+      "text": "^https?:\\/\\/cf\\.iadsdk\\.apple\\.com reject-200",
+      "pattern": "^https?:\\/\\/cf\\.iadsdk\\.apple\\.com",
+      "priority": 0,
+      "app": "Apple"
+    },
+    {
+      "text": "^https?:\\/\\/log5-misc-lf\\.amemv\\.com reject-200",
+      "pattern": "^https?:\\/\\/log5-misc-lf\\.amemv\\.com",
+      "priority": 0,
+      "app": "抖音"
+    },
+    {
+      "text": "^https?:\\/\\/mon\\.toutiaocloud\\.com reject-200",
+      "pattern": "^https?:\\/\\/mon\\.toutiaocloud\\.com",
+      "priority": 0,
+      "app": "字节火山引擎"
     }
   ]
 }
