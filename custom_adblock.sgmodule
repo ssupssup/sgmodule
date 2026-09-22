@@ -1,6 +1,6 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-09-22 10:15:48 | Deep ad block & UI purification customized for user's installed apps.
-#!total=1240
+#!desc=最近更新: 2026-09-22 10:16:08 | Deep ad block & UI purification customized for user's installed apps.
+#!total=1235
 
 [Rule]
 # === LINE Notice Bar SafeFrame & Pubads PROXY Override (Top Priority) ===
@@ -118,6 +118,7 @@ DOMAIN,mobile.events.data.microsoft.com,REJECT-NO-DROP
 DOMAIN,res.mmstat.com,REJECT-DROP
 DOMAIN,sla-media.immomo.com,REJECT-NO-DROP
 DOMAIN,soul-ad.soulapp.cn,REJECT-NO-DROP
+DOMAIN,log5-misc-lf.amemv.com,REJECT-DROP
 DOMAIN,ads5-normal-hj.zijieapi.com,REJECT-DROP
 DOMAIN,mon11-misc-lf.amemv.com,REJECT-DROP
 DOMAIN,apd-pcdnwxstat.teg.tencent-cloud.net,REJECT-DROP
@@ -130,6 +131,7 @@ DOMAIN,uranus.jd.com,REJECT-DROP
 DOMAIN,sc-report.tantanapp.com,REJECT-DROP
 DOMAIN,log.ys7.com,REJECT-DROP
 DOMAIN,orange-dc.alibaba.com,REJECT-DROP
+DOMAIN,mon.toutiaocloud.com,REJECT-DROP
 DOMAIN,abtest.tantanapp.com,REJECT-DROP
 # === 2026-08-28 补充的高频漏网遥测与日志探针阻断 ===
 DOMAIN,gm.mmstat.com,REJECT-DROP
@@ -148,17 +150,10 @@ DOMAIN,sensors.umetrip.com.cn,REJECT-DROP
 DOMAIN-SUFFIX,advlion.com,REJECT-DROP
 DOMAIN,report.tantanapp.com,REJECT-DROP
 DOMAIN,dwtracking.jk.cn,REJECT-DROP
-DOMAIN,ad.snssdk.com,REJECT-NO-DROP
-DOMAIN,log.snssdk.com,REJECT-NO-DROP
-DOMAIN,rtlog.snssdk.com,REJECT-NO-DROP
-DOMAIN,mcs.snssdk.com,REJECT-NO-DROP
-DOMAIN,dm.snssdk.com,REJECT-NO-DROP
-DOMAIN,dcs.ipinyou.com,REJECT-NO-DROP
-DOMAIN,crashlytics.com,REJECT-NO-DROP
-DOMAIN,app-measurement.com,REJECT-NO-DROP
-DOMAIN,adjust.com,REJECT-NO-DROP
-DOMAIN,appsflyersdk.com,REJECT-NO-DROP
-DOMAIN,app-analytics-services.com,REJECT-DROP
+DOMAIN-SUFFIX,a1.firefoxchina.cn,REJECT
+DOMAIN-SUFFIX,ads.linkedin.com,REJECT
+DOMAIN-SUFFIX,analytics.pointdrive.linkedin.com,REJECT-DROP
+DOMAIN-SUFFIX,outlookads.live.com,REJECT
 # === Compiled App Rules ===
 DOMAIN,adstrategy.biz.weibo.com,REJECT
 DOMAIN-SUFFIX,api.touch-moblie.com,REJECT
