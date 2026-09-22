@@ -71,3 +71,6 @@ mon0-misc-lf.amemv.com
 logan-rtl.dreport.meituan.net
 log5-misc-lf.amemv.com
 mon.toutiaocloud.com
+mon.toutiaocloud.net
+b-gtc.gepush.com
+sdk-open-phone.getui.com
