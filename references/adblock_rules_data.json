@@ -778,6 +778,18 @@
     "DOMAIN,mon.toutiaocloud.com,REJECT-200",
     "DOMAIN,abtest.tantanapp.com,REJECT-200",
     "DOMAIN,abtest3-misc-lf.zijieapi.com,REJECT-200",
+    "DOMAIN,mssdk.volces.com,REJECT-200",
+    "DOMAIN,live-player-log.zijieapi.com,REJECT-200",
+    "DOMAIN,live-player-log-service.bytedance.com,REJECT-200",
+    "DOMAIN,sis.jpush.io,REJECT-200",
+    "DOMAIN,tsis.jpush.cn,REJECT-200",
+    "DOMAIN,zlink.ugsdk.cn,REJECT-200",
+    "DOMAIN,advert.hiby.com,REJECT-200",
+    "DOMAIN,live-log.immomo.com,REJECT-200",
+    "DOMAIN,px.effirst.com,REJECT-200",
+    "DOMAIN,ali-stats.jpush.cn,REJECT-200",
+    "DOMAIN,gd-stats.jpush.cn,REJECT-200",
+    "DOMAIN,sdk-open-phone.getui.com,REJECT-200",
     "# === 2026-08-28 补充的高频漏网遥测与日志探针阻断 ===",
     "DOMAIN,tnc0-alisc1.zijieapi.com,REJECT-DROP",
     "DOMAIN,gm.mmstat.com,REJECT-200",
@@ -796,8 +808,8 @@
     "DOMAIN,fp-upload.dun.163.com,REJECT-DROP",
     "DOMAIN,shreport.weixin.qq.com,REJECT-DROP",
     "DOMAIN,adsmind.gdtimg.com,REJECT-DROP",
-    "DOMAIN,log.umsns.com,REJECT-DROP",
-    "DOMAIN,stats.umsns.com,REJECT-DROP",
+    "DOMAIN,log.umsns.com,REJECT-200",
+    "DOMAIN,stats.umsns.com,REJECT-200",
     "DOMAIN,rtbasia.datahubtrack.com,REJECT-DROP"
   ],
   "MANDATORY_MITM_DOMAINS": [
@@ -841,7 +853,19 @@
     "mon11-misc-lf.amemv.com",
     "al-log.d.meituan.net",
     "route-stats.d.meituan.net",
-    "loggw-ex.alipay.com"
+    "loggw-ex.alipay.com",
+    "mssdk.volces.com",
+    "live-player-log.zijieapi.com",
+    "live-player-log-service.bytedance.com",
+    "sis.jpush.io",
+    "tsis.jpush.cn",
+    "zlink.ugsdk.cn",
+    "advert.hiby.com",
+    "live-log.immomo.com",
+    "px.effirst.com",
+    "ali-stats.jpush.cn",
+    "gd-stats.jpush.cn",
+    "sdk-open-phone.getui.com"
   ],
   "CUSTOM_REWRITE_RULES": [
     {
@@ -1089,6 +1113,78 @@
       "pattern": "^https?:\\/\\/loggw-ex\\.alipay\\.com",
       "priority": 0,
       "app": "支付宝"
+    },
+    {
+      "text": "^https?:\\/\\/mssdk\\.volces\\.com reject-200",
+      "pattern": "^https?:\\/\\/mssdk\\.volces\\.com",
+      "priority": 0,
+      "app": "字节火山引擎"
+    },
+    {
+      "text": "^https?:\\/\\/live-player-log\\.zijieapi\\.com reject-200",
+      "pattern": "^https?:\\/\\/live-player-log\\.zijieapi\\.com",
+      "priority": 0,
+      "app": "抖音直播"
+    },
+    {
+      "text": "^https?:\\/\\/live-player-log-service\\.bytedance\\.com reject-200",
+      "pattern": "^https?:\\/\\/live-player-log-service\\.bytedance\\.com",
+      "priority": 0,
+      "app": "字节跳动"
+    },
+    {
+      "text": "^https?:\\/\\/sis\\.jpush\\.io reject-200",
+      "pattern": "^https?:\\/\\/sis\\.jpush\\.io",
+      "priority": 0,
+      "app": "极光推送"
+    },
+    {
+      "text": "^https?:\\/\\/tsis\\.jpush\\.cn reject-200",
+      "pattern": "^https?:\\/\\/tsis\\.jpush\\.cn",
+      "priority": 0,
+      "app": "极光推送"
+    },
+    {
+      "text": "^https?:\\/\\/zlink\\.ugsdk\\.cn reject-200",
+      "pattern": "^https?:\\/\\/zlink\\.ugsdk\\.cn",
+      "priority": 0,
+      "app": "游族SDK"
+    },
+    {
+      "text": "^https?:\\/\\/advert\\.hiby\\.com reject-200",
+      "pattern": "^https?:\\/\\/advert\\.hiby\\.com",
+      "priority": 0,
+      "app": "海贝音乐"
+    },
+    {
+      "text": "^https?:\\/\\/live-log\\.immomo\\.com reject-200",
+      "pattern": "^https?:\\/\\/live-log\\.immomo\\.com",
+      "priority": 0,
+      "app": "陌陌"
+    },
+    {
+      "text": "^https?:\\/\\/px\\.effirst\\.com reject-200",
+      "pattern": "^https?:\\/\\/px\\.effirst\\.com",
+      "priority": 0,
+      "app": "广告遥测"
+    },
+    {
+      "text": "^https?:\\/\\/ali-stats\\.jpush\\.cn reject-200",
+      "pattern": "^https?:\\/\\/ali-stats\\.jpush\\.cn",
+      "priority": 0,
+      "app": "极光推送"
+    },
+    {
+      "text": "^https?:\\/\\/gd-stats\\.jpush\\.cn reject-200",
+      "pattern": "^https?:\\/\\/gd-stats\\.jpush\\.cn",
+      "priority": 0,
+      "app": "极光推送"
+    },
+    {
+      "text": "^https?:\\/\\/sdk-open-phone\\.getui\\.com reject-200",
+      "pattern": "^https?:\\/\\/sdk-open-phone\\.getui\\.com",
+      "priority": 0,
+      "app": "个推"
     }
   ]
 }

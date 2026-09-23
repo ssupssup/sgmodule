@@ -78,3 +78,15 @@ mon11-misc-lf.amemv.com
 al-log.d.meituan.net
 route-stats.d.meituan.net
 loggw-ex.alipay.com
+mssdk.volces.com
+live-player-log.zijieapi.com
+live-player-log-service.bytedance.com
+sis.jpush.io
+tsis.jpush.cn
+zlink.ugsdk.cn
+advert.hiby.com
+live-log.immomo.com
+px.effirst.com
+ali-stats.jpush.cn
+gd-stats.jpush.cn
+sdk-open-phone.getui.com
