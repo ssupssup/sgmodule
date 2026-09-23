@@ -74,3 +74,7 @@ mon.toutiaocloud.com
 mon.toutiaocloud.net
 b-gtc.gepush.com
 sdk-open-phone.getui.com
+mon11-misc-lf.amemv.com
+al-log.d.meituan.net
+route-stats.d.meituan.net
+loggw-ex.alipay.com
