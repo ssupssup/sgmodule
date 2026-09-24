@@ -123,3 +123,14 @@ fp-upload.dun.163.com REJECT-200
 # 其他通用追踪与打点
 rtbasia.datahubtrack.com REJECT-200
 pangolin-sdk REJECT-DICT
+
+# 阿里、极光、个推打点与日志 (REJECT-200 假响应诱导 SDK 深度休眠)
+gm.mmstat.com REJECT-200
+wgo.mmstat.com REJECT-200
+orange-dc.alibaba.com REJECT-200
+smartop-sdkapi.jiguang.cn REJECT-200
+sdk-open-phone.getui.com REJECT-200
+bird.cn-hangzhou.log.aliyuncs.com REJECT-200
+traffic-click.cn-zhangjiakou.log.aliyuncs.com REJECT-200
+apd-pcdnwxstat.teg.tencent-cloud.net REJECT-200
+

@@ -863,7 +863,13 @@
     "px.effirst.com",
     "ali-stats.jpush.cn",
     "gd-stats.jpush.cn",
-    "sdk-open-phone.getui.com"
+    "sdk-open-phone.getui.com",
+    "gm.mmstat.com",
+    "wgo.mmstat.com",
+    "orange-dc.alibaba.com",
+    "bird.cn-hangzhou.log.aliyuncs.com",
+    "traffic-click.cn-zhangjiakou.log.aliyuncs.com",
+    "apd-pcdnwxstat.teg.tencent-cloud.net"
   ],
   "CUSTOM_REWRITE_RULES": [
     {
@@ -1165,6 +1171,42 @@
       "pattern": "^https?:\\/\\/sdk-open-phone\\.getui\\.com",
       "priority": 0,
       "app": "个推"
+    },
+    {
+      "text": "^https?:\\/\\/gm\\.mmstat\\.com reject-200",
+      "pattern": "^https?:\\/\\/gm\\.mmstat\\.com",
+      "priority": 0,
+      "app": "阿里打点"
+    },
+    {
+      "text": "^https?:\\/\\/wgo\\.mmstat\\.com reject-200",
+      "pattern": "^https?:\\/\\/wgo\\.mmstat\\.com",
+      "priority": 0,
+      "app": "阿里打点"
+    },
+    {
+      "text": "^https?:\\/\\/orange-dc\\.alibaba\\.com reject-200",
+      "pattern": "^https?:\\/\\/orange-dc\\.alibaba\\.com",
+      "priority": 0,
+      "app": "阿里打点"
+    },
+    {
+      "text": "^https?:\\/\\/bird\\.cn-hangzhou\\.log\\.aliyuncs\\.com reject-200",
+      "pattern": "^https?:\\/\\/bird\\.cn-hangzhou\\.log\\.aliyuncs\\.com",
+      "priority": 0,
+      "app": "阿里云日志"
+    },
+    {
+      "text": "^https?:\\/\\/traffic-click\\.cn-zhangjiakou\\.log\\.aliyuncs\\.com reject-200",
+      "pattern": "^https?:\\/\\/traffic-click\\.cn-zhangjiakou\\.log\\.aliyuncs\\.com",
+      "priority": 0,
+      "app": "阿里云日志"
+    },
+    {
+      "text": "^https?:\\/\\/apd-pcdnwxstat\\.teg\\.tencent-cloud\\.net reject-200",
+      "pattern": "^https?:\\/\\/apd-pcdnwxstat\\.teg\\.tencent-cloud\\.net",
+      "priority": 0,
+      "app": "腾讯云打点"
     }
   ]
 }
