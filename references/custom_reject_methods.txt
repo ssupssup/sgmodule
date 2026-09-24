@@ -54,9 +54,10 @@ dualstack-logs.amap.com REJECT-200
 logs.amap.com REJECT-200
 h-adashx.ut.taobao.com REJECT-200
 
-# Apple 官方广告与搜索归因 SDK (REJECT-200 全域名精确防误伤)
-iadsdk.apple.com REJECT-200
-ca.iadsdk.apple.com REJECT-200
+# Apple 官方广告与搜索归因 SDK (REJECT 1ms TCP-RST 秒断防卡死 App Store 批量更新)
+iadsdk.apple.com REJECT
+ca.iadsdk.apple.com REJECT
+cf.iadsdk.apple.com REJECT
 
 # 腾讯云 / 微信 PCDN 偷跑上传探针与统计 (REJECT-200 封死上传降低功耗)
 apd-pcdnwxstat.teg.tencent-cloud.net REJECT-200

@@ -766,6 +766,7 @@
     "DOMAIN,logman.dmall.com,REJECT-200",
     "DOMAIN,sc-sa-data.dmall.com,REJECT-200",
     "DOMAIN,ca.iadsdk.apple.com,REJECT-200",
+    "DOMAIN,cf.iadsdk.apple.com,REJECT-200",
     "DOMAIN,fep.hellogroup.com,REJECT-200",
     "DOMAIN,app-monitor-cn.doki.ren,REJECT-200",
     "DOMAIN,perf.m.jd.com,REJECT-200",
@@ -844,9 +845,6 @@
     "mssdk3-normal-lf.zijieapi.com",
     "adashx.ut.dingtalk.com",
     "h-adashx.ut.dingtalk.com",
-    "iadsdk.apple.com",
-    "ca.iadsdk.apple.com",
-    "cf.iadsdk.apple.com",
     "log5-misc-lf.amemv.com",
     "mon.toutiaocloud.com",
     "mon.toutiaocloud.net",
@@ -1053,24 +1051,6 @@
       "pattern": "^https?:\\/\\/h-adashx\\.ut\\.dingtalk\\.com",
       "priority": 0,
       "app": "钉钉"
-    },
-    {
-      "text": "^https?:\\/\\/iadsdk\\.apple\\.com reject-200",
-      "pattern": "^https?:\\/\\/iadsdk\\.apple\\.com",
-      "priority": 0,
-      "app": "Apple"
-    },
-    {
-      "text": "^https?:\\/\\/ca\\.iadsdk\\.apple\\.com reject-200",
-      "pattern": "^https?:\\/\\/ca\\.iadsdk\\.apple\\.com",
-      "priority": 0,
-      "app": "Apple"
-    },
-    {
-      "text": "^https?:\\/\\/cf\\.iadsdk\\.apple\\.com reject-200",
-      "pattern": "^https?:\\/\\/cf\\.iadsdk\\.apple\\.com",
-      "priority": 0,
-      "app": "Apple"
     },
     {
       "text": "^https?:\\/\\/log5-misc-lf\\.amemv\\.com reject-200",
