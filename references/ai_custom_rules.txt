@@ -1,5 +1,6 @@
 # ------------------ 1. Apple Intelligence (走代理) ------------------
 DOMAIN,guzzoni.apple.com,PROXY
+DOMAIN,api-siri-prod.apple.com,PROXY
 DOMAIN-SUFFIX,smoot.apple.com,PROXY
 DOMAIN-SUFFIX,apple-relay.apple.com,PROXY
 DOMAIN-SUFFIX,apple-relay.cloudflare.com,PROXY
