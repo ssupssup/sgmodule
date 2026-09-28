@@ -99,5 +99,19 @@ httpdnsmultiapivip.meituan.com
 httpdns.baidubce.com
 resolvers-cn.httpdns.aliyuncs.com
 httpdns.yunxinfw.com
+tangram.e.qq.com
+sdkreport.e.qq.com
+log.snssdk.com
+sc-report.tantanapp.com
+abtest.tantanapp.com
+app-log-lab.tantanapp.com
+snowflake.qq.com
+rmonitor.qq.com
+h.trace.qq.com
+p.l.qq.com
+log.ys7.com
+retcode.taobao.com
+dnspod.meituan.httpdns.qcloud.com
+
 
 

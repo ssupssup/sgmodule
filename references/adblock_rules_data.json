@@ -621,7 +621,6 @@
     "DOMAIN,rmonitor.qq.com,REJECT-200",
     "DOMAIN,beacon.qq.com,REJECT-200",
     "DOMAIN,rqd.qq.com,REJECT-200",
-    "DOMAIN,ios.bugly.qq.com,REJECT-200",
     "DOMAIN,mdap.alipay.com,REJECT-200",
     "DOMAIN,h-adashx.dingtalkapps.com,REJECT-200",
     "DOMAIN,h-adashx.ut.taobao.com,REJECT-200",
@@ -874,7 +873,20 @@
     "httpdnsmultiapivip.meituan.com",
     "httpdns.baidubce.com",
     "resolvers-cn.httpdns.aliyuncs.com",
-    "httpdns.yunxinfw.com"
+    "httpdns.yunxinfw.com",
+    "tangram.e.qq.com",
+    "sdkreport.e.qq.com",
+    "log.snssdk.com",
+    "sc-report.tantanapp.com",
+    "abtest.tantanapp.com",
+    "app-log-lab.tantanapp.com",
+    "snowflake.qq.com",
+    "rmonitor.qq.com",
+    "h.trace.qq.com",
+    "p.l.qq.com",
+    "log.ys7.com",
+    "retcode.taobao.com",
+    "dnspod.meituan.httpdns.qcloud.com"
   ],
   "CUSTOM_REWRITE_RULES": [
     {
@@ -1242,6 +1254,84 @@
       "pattern": "^https?:\\/\\/apd-pcdnwxstat\\.teg\\.tencent-cloud\\.net",
       "priority": 0,
       "app": "腾讯云打点"
+    },
+    {
+      "text": "^https?:\\/\\/tangram\\.e\\.qq\\.com reject-200",
+      "pattern": "^https?:\\/\\/tangram\\.e\\.qq\\.com",
+      "priority": 0,
+      "app": "通用广告SDK"
+    },
+    {
+      "text": "^https?:\\/\\/sdkreport\\.e\\.qq\\.com reject-200",
+      "pattern": "^https?:\\/\\/sdkreport\\.e\\.qq\\.com",
+      "priority": 0,
+      "app": "通用广告SDK"
+    },
+    {
+      "text": "^https?:\\/\\/log\\.snssdk\\.com reject-200",
+      "pattern": "^https?:\\/\\/log\\.snssdk\\.com",
+      "priority": 0,
+      "app": "字节火山引擎"
+    },
+    {
+      "text": "^https?:\\/\\/sc-report\\.tantanapp\\.com reject-200",
+      "pattern": "^https?:\\/\\/sc-report\\.tantanapp\\.com",
+      "priority": 0,
+      "app": "探探"
+    },
+    {
+      "text": "^https?:\\/\\/abtest\\.tantanapp\\.com reject-200",
+      "pattern": "^https?:\\/\\/abtest\\.tantanapp\\.com",
+      "priority": 0,
+      "app": "探探"
+    },
+    {
+      "text": "^https?:\\/\\/app-log-lab\\.tantanapp\\.com reject-200",
+      "pattern": "^https?:\\/\\/app-log-lab\\.tantanapp\\.com",
+      "priority": 0,
+      "app": "探探"
+    },
+    {
+      "text": "^https?:\\/\\/snowflake\\.qq\\.com reject-200",
+      "pattern": "^https?:\\/\\/snowflake\\.qq\\.com",
+      "priority": 0,
+      "app": "微信"
+    },
+    {
+      "text": "^https?:\\/\\/rmonitor\\.qq\\.com reject-200",
+      "pattern": "^https?:\\/\\/rmonitor\\.qq\\.com",
+      "priority": 0,
+      "app": "微信"
+    },
+    {
+      "text": "^https?:\\/\\/h\\.trace\\.qq\\.com reject-200",
+      "pattern": "^https?:\\/\\/h\\.trace\\.qq\\.com",
+      "priority": 0,
+      "app": "微信"
+    },
+    {
+      "text": "^https?:\\/\\/p\\.l\\.qq\\.com reject-200",
+      "pattern": "^https?:\\/\\/p\\.l\\.qq\\.com",
+      "priority": 0,
+      "app": "微信"
+    },
+    {
+      "text": "^https?:\\/\\/log\\.ys7\\.com reject-200",
+      "pattern": "^https?:\\/\\/log\\.ys7\\.com",
+      "priority": 0,
+      "app": "萤石云视频"
+    },
+    {
+      "text": "^https?:\\/\\/retcode\\.taobao\\.com reject-200",
+      "pattern": "^https?:\\/\\/retcode\\.taobao\\.com",
+      "priority": 0,
+      "app": "淘宝"
+    },
+    {
+      "text": "^https?:\\/\\/dnspod\\.meituan\\.httpdns\\.qcloud\\.com reject-200",
+      "pattern": "^https?:\\/\\/dnspod\\.meituan\\.httpdns\\.qcloud\\.com",
+      "priority": 0,
+      "app": "美团"
     }
   ]
 }
