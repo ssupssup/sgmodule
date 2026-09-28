@@ -94,4 +94,10 @@ smartop-sdkapi.jiguang.cn
 bird.cn-hangzhou.log.aliyuncs.com
 traffic-click.cn-zhangjiakou.log.aliyuncs.com
 apd-pcdnwxstat.teg.tencent-cloud.net
+poplayer.template.alibaba.com
+httpdnsmultiapivip.meituan.com
+httpdns.baidubce.com
+resolvers-cn.httpdns.aliyuncs.com
+httpdns.yunxinfw.com
+
 

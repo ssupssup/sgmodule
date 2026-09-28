@@ -869,9 +869,44 @@
     "orange-dc.alibaba.com",
     "bird.cn-hangzhou.log.aliyuncs.com",
     "traffic-click.cn-zhangjiakou.log.aliyuncs.com",
-    "apd-pcdnwxstat.teg.tencent-cloud.net"
+    "apd-pcdnwxstat.teg.tencent-cloud.net",
+    "poplayer.template.alibaba.com",
+    "httpdnsmultiapivip.meituan.com",
+    "httpdns.baidubce.com",
+    "resolvers-cn.httpdns.aliyuncs.com",
+    "httpdns.yunxinfw.com"
   ],
   "CUSTOM_REWRITE_RULES": [
+    {
+      "text": "^https?:\\/\\/poplayer\\.template\\.alibaba\\.com reject-dict",
+      "pattern": "^https?:\\/\\/poplayer\\.template\\.alibaba\\.com",
+      "priority": 0,
+      "app": "淘宝"
+    },
+    {
+      "text": "^https?:\\/\\/httpdnsmultiapivip\\.meituan\\.com reject-200",
+      "pattern": "^https?:\\/\\/httpdnsmultiapivip\\.meituan\\.com",
+      "priority": 0,
+      "app": "美团"
+    },
+    {
+      "text": "^https?:\\/\\/httpdns\\.baidubce\\.com reject-200",
+      "pattern": "^https?:\\/\\/httpdns\\.baidubce\\.com",
+      "priority": 0,
+      "app": "百度"
+    },
+    {
+      "text": "^https?:\\/\\/resolvers-cn\\.httpdns\\.aliyuncs\\.com reject-200",
+      "pattern": "^https?:\\/\\/resolvers-cn\\.httpdns\\.aliyuncs\\.com",
+      "priority": 0,
+      "app": "阿里云"
+    },
+    {
+      "text": "^https?:\\/\\/httpdns\\.yunxinfw\\.com reject-200",
+      "pattern": "^https?:\\/\\/httpdns\\.yunxinfw\\.com",
+      "priority": 0,
+      "app": "网易云信"
+    },
     {
       "text": "^https?:\\/\\/103\\.37\\.155\\.60\\/fetch reject-200",
       "pattern": "^https?:\\/\\/103\\.37\\.155\\.60\\/fetch",
