@@ -118,6 +118,16 @@ dnspod.meituan.httpdns.start.qcloud.com
 sdktt.data.tianwenca.com
 sd-gl.xinqiucc.com
 cf-gl.qiezibenpao.com
+adip-api.immomo.com
+log.umsns.com
+stats.umsns.com
+utoken.umeng.com
+cnlogs.umeng.com
+resolve.umeng.com
+cnlogs.umengcloud.com
+analytics.meituan.net
+toblog.volceapplog.com
+
 
 
 
