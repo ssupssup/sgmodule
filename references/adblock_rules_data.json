@@ -783,7 +783,6 @@
     "DOMAIN,sis.jpush.io,REJECT-200",
     "DOMAIN,tsis.jpush.cn,REJECT-200",
     "DOMAIN,zlink.ugsdk.cn,REJECT-200",
-    "DOMAIN,advert.hiby.com,REJECT-DICT",
     "DOMAIN,live-log.immomo.com,REJECT-200",
     "DOMAIN,px.effirst.com,REJECT-200",
     "DOMAIN,ali-stats.jpush.cn,REJECT-200",
@@ -862,7 +861,6 @@
     "sis.jpush.io",
     "tsis.jpush.cn",
     "zlink.ugsdk.cn",
-    "advert.hiby.com",
     "live-log.immomo.com",
     "px.effirst.com",
     "ali-stats.jpush.cn",
@@ -1196,12 +1194,6 @@
       "pattern": "^https?:\\/\\/zlink\\.ugsdk\\.cn",
       "priority": 0,
       "app": "游族SDK"
-    },
-    {
-      "text": "^https?:\\/\\/advert\\.hiby\\.com reject-dict",
-      "pattern": "^https?:\\/\\/advert\\.hiby\\.com",
-      "priority": 0,
-      "app": "海贝音乐"
     },
     {
       "text": "^https?:\\/\\/live-log\\.immomo\\.com reject-200",

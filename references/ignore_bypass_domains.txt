@@ -81,7 +81,6 @@ live-player-log-service.bytedance.com
 sis.jpush.io
 tsis.jpush.cn
 zlink.ugsdk.cn
-advert.hiby.com
 live-log.immomo.com
 px.effirst.com
 ali-stats.jpush.cn
