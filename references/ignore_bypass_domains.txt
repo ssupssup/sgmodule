@@ -112,6 +112,12 @@ p.l.qq.com
 log.ys7.com
 retcode.taobao.com
 dnspod.meituan.httpdns.qcloud.com
+httpdns.meituan.com
+httpdnsmultiapi.meituan.com
+dnspod.meituan.httpdns.start.qcloud.com
+sdktt.data.tianwenca.com
+sd-gl.xinqiucc.com
+cf-gl.qiezibenpao.com
 
 
 
