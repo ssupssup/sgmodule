@@ -126,6 +126,7 @@ resolve.umeng.com
 cnlogs.umengcloud.com
 analytics.meituan.net
 toblog.volceapplog.com
+badjs.weixinbridge.com
 
 
 

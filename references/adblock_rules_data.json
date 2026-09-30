@@ -715,8 +715,6 @@
     "DOMAIN,xs.gdt.qq.com,REJECT-TINYSINK",
     "DOMAIN,snowflake.qq.com,REJECT-NO-DROP",
     "DOMAIN,xs.gdt.qq.com,REJECT-NO-DROP",
-    "DOMAIN,pangolin-sdk-toutiao.com,REJECT-NO-DROP",
-    "DOMAIN,pangolin-sdk-toutiao1.com,REJECT-NO-DROP",
     "DOMAIN,pglstatp-toutiao.com,REJECT-NO-DROP",
     "DOMAIN,logs.amap.com,REJECT-200",
     "DOMAIN,dualstack-logs.amap.com,REJECT-200",
@@ -735,7 +733,7 @@
     "DOMAIN,adashx.m.taobao.com,REJECT-NO-DROP",
     "DOMAIN,h-adashx4bc.ut.taobao.com,REJECT-NO-DROP",
     "DOMAIN,analytics.umetrip.com,REJECT-NO-DROP",
-    "DOMAIN,badjs.weixinbridge.com,REJECT-NO-DROP",
+    "DOMAIN,badjs.weixinbridge.com,REJECT-200",
     "DOMAIN,browser.events.data.microsoft.com,REJECT-NO-DROP",
     "DOMAIN,mllog.jd.com,REJECT-200",
     "DOMAIN,mobile.events.data.microsoft.com,REJECT-NO-DROP",
@@ -833,6 +831,8 @@
     "fep.hellogroup.com",
     "app-monitor-cn.hellogroup.com",
     "app-log.immomo.com",
+    "badjs.weixinbridge.com",
+    "dnspod.meituan.httpdns.start.qcloud.com",
     "logs.amap.com",
     "dualstack-logs.amap.com",
     "log-report.rtc.volcvideo.com",
@@ -930,6 +930,18 @@
       "pattern": "^https?:\\/\\/httpdns\\.yunxinfw\\.com",
       "priority": 0,
       "app": "网易云信"
+    },
+    {
+      "text": "^https?:\\/\\/badjs\\.weixinbridge\\.com reject-200",
+      "pattern": "^https?:\\/\\/badjs\\.weixinbridge\\.com",
+      "priority": 0,
+      "app": "微信"
+    },
+    {
+      "text": "^https?:\\/\\/dnspod\\.meituan\\.httpdns\\.start\\.qcloud\\.com reject-200",
+      "pattern": "^https?:\\/\\/dnspod\\.meituan\\.httpdns\\.start\\.qcloud\\.com",
+      "priority": 0,
+      "app": "美团"
     },
     {
       "text": "^https?:\\/\\/103\\.37\\.155\\.60\\/fetch reject-200",
