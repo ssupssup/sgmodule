@@ -871,8 +871,6 @@
     "apd-pcdnwxstat.teg.tencent-cloud.net",
     "poplayer.template.alibaba.com",
     "httpdnsmultiapivip.meituan.com",
-    "httpdns.baidubce.com",
-    "resolvers-cn.httpdns.aliyuncs.com",
     "httpdns.yunxinfw.com",
     "tangram.e.qq.com",
     "sdkreport.e.qq.com",
@@ -897,8 +895,6 @@
     "analytics.meituan.net",
     "toblog.volceapplog.com",
     "log.mmstat.com",
-    "httpdns.meituan.com",
-    "httpdnsmultiapi.meituan.com",
     "data-sdk-uuid-log.d.meituan.net",
     "fclog.baidu.com",
     "logbk.amemv.com",
@@ -916,18 +912,6 @@
       "pattern": "^https?:\\/\\/httpdnsmultiapivip\\.meituan\\.com",
       "priority": 0,
       "app": "美团"
-    },
-    {
-      "text": "^https?:\\/\\/httpdns\\.baidubce\\.com reject-200",
-      "pattern": "^https?:\\/\\/httpdns\\.baidubce\\.com",
-      "priority": 0,
-      "app": "百度"
-    },
-    {
-      "text": "^https?:\\/\\/resolvers-cn\\.httpdns\\.aliyuncs\\.com reject-200",
-      "pattern": "^https?:\\/\\/resolvers-cn\\.httpdns\\.aliyuncs\\.com",
-      "priority": 0,
-      "app": "阿里云"
     },
     {
       "text": "^https?:\\/\\/httpdns\\.yunxinfw\\.com reject-200",
@@ -1414,18 +1398,6 @@
       "pattern": "^https?:\\/\\/log\\.mmstat\\.com",
       "priority": 0,
       "app": "阿里"
-    },
-    {
-      "text": "^https?:\\/\\/httpdns\\.meituan\\.com reject-200",
-      "pattern": "^https?:\\/\\/httpdns\\.meituan\\.com",
-      "priority": 0,
-      "app": "美团"
-    },
-    {
-      "text": "^https?:\\/\\/httpdnsmultiapi\\.meituan\\.com reject-200",
-      "pattern": "^https?:\\/\\/httpdnsmultiapi\\.meituan\\.com",
-      "priority": 0,
-      "app": "美团"
     },
     {
       "text": "^https?:\\/\\/data-sdk-uuid-log\\.d\\.meituan\\.net reject-200",
