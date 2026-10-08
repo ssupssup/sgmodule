@@ -131,3 +131,7 @@ badjs.weixinbridge.com
 
 
 
+
+# 新增 2 大漏网遥测域名（2026-10-08 优化）
+log.mmstat.com
+fclog.baidu.com

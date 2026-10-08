@@ -895,7 +895,14 @@
     "resolve.umeng.com",
     "cnlogs.umengcloud.com",
     "analytics.meituan.net",
-    "toblog.volceapplog.com"
+    "toblog.volceapplog.com",
+    "log.mmstat.com",
+    "httpdns.meituan.com",
+    "httpdnsmultiapi.meituan.com",
+    "data-sdk-uuid-log.d.meituan.net",
+    "fclog.baidu.com",
+    "logbk.amemv.com",
+    "log-hl.snssdk.com"
   ],
   "CUSTOM_REWRITE_RULES": [
     {
@@ -1401,6 +1408,48 @@
       "pattern": "^https?:\\/\\/toblog\\.volceapplog\\.com",
       "priority": 0,
       "app": "字节火山引擎"
+    },
+    {
+      "text": "^https?:\\/\\/log\\.mmstat\\.com reject-200",
+      "pattern": "^https?:\\/\\/log\\.mmstat\\.com",
+      "priority": 0,
+      "app": "阿里"
+    },
+    {
+      "text": "^https?:\\/\\/httpdns\\.meituan\\.com reject-200",
+      "pattern": "^https?:\\/\\/httpdns\\.meituan\\.com",
+      "priority": 0,
+      "app": "美团"
+    },
+    {
+      "text": "^https?:\\/\\/httpdnsmultiapi\\.meituan\\.com reject-200",
+      "pattern": "^https?:\\/\\/httpdnsmultiapi\\.meituan\\.com",
+      "priority": 0,
+      "app": "美团"
+    },
+    {
+      "text": "^https?:\\/\\/data-sdk-uuid-log\\.d\\.meituan\\.net reject-200",
+      "pattern": "^https?:\\/\\/data-sdk-uuid-log\\.d\\.meituan\\.net",
+      "priority": 0,
+      "app": "美团"
+    },
+    {
+      "text": "^https?:\\/\\/fclog\\.baidu\\.com reject-200",
+      "pattern": "^https?:\\/\\/fclog\\.baidu\\.com",
+      "priority": 0,
+      "app": "百度"
+    },
+    {
+      "text": "^https?:\\/\\/logbk\\.amemv\\.com reject-200",
+      "pattern": "^https?:\\/\\/logbk\\.amemv\\.com",
+      "priority": 0,
+      "app": "抖音"
+    },
+    {
+      "text": "^https?:\\/\\/log-hl\\.snssdk\\.com reject-200",
+      "pattern": "^https?:\\/\\/log-hl\\.snssdk\\.com",
+      "priority": 0,
+      "app": "今日头条"
     }
   ]
 }
