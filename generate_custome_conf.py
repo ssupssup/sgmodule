@@ -226,6 +226,9 @@ def process_and_align_conf(lines, remove_set, disable_set, prepend_proxy_rules, 
         if stripped == "GEOIP,CN,DIRECT":
             aligned_lines.append("# === 🇨🇳 经 Python 脚本在线清洗+Top500去重后的 Loyalsoldier 中国域名直连区 ===")
             for cr in china_direct_rules:
+                if any(cr.strip().upper() == r.upper() for r in remove_set):
+                    print(f"✂️ 成功从 China_Domain 物理擦除指定的直连坏行: {cr}")
+                    continue
                 aligned_lines.append(cr)
             aligned_lines.append("")
             if append_direct_rules:

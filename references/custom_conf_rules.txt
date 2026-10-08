@@ -15,6 +15,7 @@ REMOVE,DOMAIN-SUFFIX,storage.googleapis.com,DIRECT
 REMOVE,DOMAIN-SUFFIX,tools.google.com,DIRECT
 REMOVE,DOMAIN-SUFFIX,blog.google,DIRECT
 REMOVE,RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/AppleNews/AppleNews.list,PROXY
+REMOVE,DOMAIN-SUFFIX,umsns.com,DIRECT
 
 # ---------------------------------------------------
 # [动作 2] 顶层最高优先级强代理区 (PREPEND_PROXY)
