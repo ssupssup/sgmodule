@@ -895,7 +895,22 @@
     "data-sdk-uuid-log.d.meituan.net",
     "fclog.baidu.com",
     "logbk.amemv.com",
-    "log-hl.snssdk.com"
+    "log-hl.snssdk.com",
+    "pangolin-sdk-toutiao1.com",
+    "gdfp.gifshow.com",
+    "sofire.baidu.com",
+    "bgg.baidu.com",
+    "als.baidu.com",
+    "afd.baidu.com",
+    "afdconf.baidu.com",
+    "mobads-pre-config.cdn.bcebos.com",
+    "googleads.g.doubleclick.net",
+    "app-monitor-cn.doki.ren",
+    "sdkquic.e.qq.com",
+    "io-sm-log.tantanapp.com",
+    "client-monitor.tantanapp.com",
+    "analytics.umetrip.com",
+    "pgdt.ugdtimg.com"
   ],
   "CUSTOM_REWRITE_RULES": [
     {
@@ -1419,6 +1434,96 @@
       "pattern": "^https?:\\/\\/log-hl\\.snssdk\\.com",
       "priority": 0,
       "app": "今日头条"
+    },
+    {
+      "text": "^https?:\\/\\/pangolin-sdk-toutiao1\\.com reject-200",
+      "pattern": "^https?:\\/\\/pangolin-sdk-toutiao1\\.com",
+      "priority": 0,
+      "app": "通用广告SDK"
+    },
+    {
+      "text": "^https?:\\/\\/gdfp\\.gifshow\\.com reject-200",
+      "pattern": "^https?:\\/\\/gdfp\\.gifshow\\.com",
+      "priority": 0,
+      "app": "通用广告SDK"
+    },
+    {
+      "text": "^https?:\\/\\/sofire\\.baidu\\.com reject-200",
+      "pattern": "^https?:\\/\\/sofire\\.baidu\\.com",
+      "priority": 0,
+      "app": "通用广告SDK"
+    },
+    {
+      "text": "^https?:\\/\\/bgg\\.baidu\\.com reject-200",
+      "pattern": "^https?:\\/\\/bgg\\.baidu\\.com",
+      "priority": 0,
+      "app": "通用广告SDK"
+    },
+    {
+      "text": "^https?:\\/\\/als\\.baidu\\.com reject-200",
+      "pattern": "^https?:\\/\\/als\\.baidu\\.com",
+      "priority": 0,
+      "app": "通用广告SDK"
+    },
+    {
+      "text": "^https?:\\/\\/afd\\.baidu\\.com reject-200",
+      "pattern": "^https?:\\/\\/afd\\.baidu\\.com",
+      "priority": 0,
+      "app": "通用广告SDK"
+    },
+    {
+      "text": "^https?:\\/\\/afdconf\\.baidu\\.com reject-200",
+      "pattern": "^https?:\\/\\/afdconf\\.baidu\\.com",
+      "priority": 0,
+      "app": "通用广告SDK"
+    },
+    {
+      "text": "^https?:\\/\\/mobads-pre-config\\.cdn\\.bcebos\\.com reject-200",
+      "pattern": "^https?:\\/\\/mobads-pre-config\\.cdn\\.bcebos\\.com",
+      "priority": 0,
+      "app": "通用广告SDK"
+    },
+    {
+      "text": "^https?:\\/\\/googleads\\.g\\.doubleclick\\.net reject-200",
+      "pattern": "^https?:\\/\\/googleads\\.g\\.doubleclick\\.net",
+      "priority": 0,
+      "app": "通用广告SDK"
+    },
+    {
+      "text": "^https?:\\/\\/app-monitor-cn\\.doki\\.ren reject-200",
+      "pattern": "^https?:\\/\\/app-monitor-cn\\.doki\\.ren",
+      "priority": 0,
+      "app": "通用广告SDK"
+    },
+    {
+      "text": "^https?:\\/\\/sdkquic\\.e\\.qq\\.com reject-200",
+      "pattern": "^https?:\\/\\/sdkquic\\.e\\.qq\\.com",
+      "priority": 0,
+      "app": "通用广告SDK"
+    },
+    {
+      "text": "^https?:\\/\\/io-sm-log\\.tantanapp\\.com reject-200",
+      "pattern": "^https?:\\/\\/io-sm-log\\.tantanapp\\.com",
+      "priority": 0,
+      "app": "通用广告SDK"
+    },
+    {
+      "text": "^https?:\\/\\/client-monitor\\.tantanapp\\.com reject-200",
+      "pattern": "^https?:\\/\\/client-monitor\\.tantanapp\\.com",
+      "priority": 0,
+      "app": "通用广告SDK"
+    },
+    {
+      "text": "^https?:\\/\\/analytics\\.umetrip\\.com reject-200",
+      "pattern": "^https?:\\/\\/analytics\\.umetrip\\.com",
+      "priority": 0,
+      "app": "通用广告SDK"
+    },
+    {
+      "text": "^https?:\\/\\/pgdt\\.ugdtimg\\.com reject-200",
+      "pattern": "^https?:\\/\\/pgdt\\.ugdtimg\\.com",
+      "priority": 0,
+      "app": "通用广告SDK"
     }
   ]
 }

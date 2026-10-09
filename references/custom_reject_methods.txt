@@ -131,3 +131,20 @@ bird.cn-hangzhou.log.aliyuncs.com REJECT-200
 traffic-click.cn-zhangjiakou.log.aliyuncs.com REJECT-200
 apd-pcdnwxstat.teg.tencent-cloud.net REJECT-200
 
+# 新增 15 大发热域名降温重写字典 (2026-10-09 优化)
+pangolin-sdk-toutiao1.com REJECT-200
+gdfp.gifshow.com REJECT-200
+sofire.baidu.com REJECT-200
+bgg.baidu.com REJECT-200
+als.baidu.com REJECT-200
+afd.baidu.com REJECT-200
+afdconf.baidu.com REJECT-200
+mobads-pre-config.cdn.bcebos.com REJECT-200
+googleads.g.doubleclick.net REJECT-200
+app-monitor-cn.doki.ren REJECT-200
+sdkquic.e.qq.com REJECT-200
+io-sm-log.tantanapp.com REJECT-200
+client-monitor.tantanapp.com REJECT-200
+analytics.umetrip.com REJECT-200
+pgdt.ugdtimg.com REJECT-200
+

@@ -135,3 +135,20 @@ badjs.weixinbridge.com
 # 新增 2 大漏网遥测域名（2026-10-08 优化）
 log.mmstat.com
 fclog.baidu.com
+
+# 新增 15 大引发 REJECT-DROP 悬挂发热漏网域名 (2026-10-09 降温优化)
+pangolin-sdk-toutiao1.com
+gdfp.gifshow.com
+sofire.baidu.com
+bgg.baidu.com
+als.baidu.com
+afd.baidu.com
+afdconf.baidu.com
+mobads-pre-config.cdn.bcebos.com
+googleads.g.doubleclick.net
+app-monitor-cn.doki.ren
+sdkquic.e.qq.com
+io-sm-log.tantanapp.com
+client-monitor.tantanapp.com
+analytics.umetrip.com
+pgdt.ugdtimg.com
