@@ -73,6 +73,11 @@ PREPEND_DIRECT,DOMAIN-SUFFIX,icloud-content.com,DIRECT
 PREPEND_DIRECT,DOMAIN-SUFFIX,cdn-apple.com,DIRECT
 PREPEND_DIRECT,DOMAIN-SUFFIX,aaplimg.com,DIRECT
 PREPEND_DIRECT,DOMAIN-KEYWORD,content.icloud.com,DIRECT
+# App Store 批量下载与探针强直连 (防止去广告干预卡死全部更新)
+PREPEND_DIRECT,DOMAIN-SUFFIX,iadsdk.apple.com,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,itunes.apple.com,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,apps.apple.com,DIRECT
+PREPEND_DIRECT,DOMAIN-SUFFIX,mzstatic.com,DIRECT
 
 # ------------------ 其余第三方/国内域名强直连 ------------------
 PREPEND_DIRECT,DOMAIN-SUFFIX,cn1.gi-de.com,DIRECT

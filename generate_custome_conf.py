@@ -88,16 +88,19 @@ def load_custom_override_rules():
 
 def fetch_top500_rules():
     print(f"📥 正在从 {TOP500_URL} 抓取最新 Top500 白名单规则...")
+    import ssl
+    ctx = ssl._create_unverified_context()
     req = urllib.request.Request(TOP500_URL, headers={'User-Agent': 'Mozilla/5.0'})
     try:
-        with urllib.request.urlopen(req, timeout=15) as response:
+        with urllib.request.urlopen(req, timeout=15, context=ctx) as response:
             content = response.read().decode('utf-8')
             lines = content.splitlines()
             print(f"✅ 成功抓取 Top500 原始文本，共 {len(lines)} 行。")
             return lines
     except Exception as e:
-        print(f"⚠️ 抓取 Top500 规则失败: {e}")
-        raise e
+        print(f"⚠️ 抓取 Top500 规则失败: {e}，尝试跳过或降级处理...")
+        # 尝试备用或空降级
+        return []
 
 def fetch_and_clean_china_direct_rules(existing_top500_rules):
     import urllib.request
@@ -118,8 +121,10 @@ def fetch_and_clean_china_direct_rules(existing_top500_rules):
     print(f"📊 Top500 提取出已知权威域名基线: {len(top500_domains)} 个")
 
     try:
+        import ssl
+        ctx = ssl._create_unverified_context()
         req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
-        with urllib.request.urlopen(req, timeout=15) as resp:
+        with urllib.request.urlopen(req, timeout=15, context=ctx) as resp:
             lines = resp.read().decode('utf-8').splitlines()
             
             raw_domains = []
