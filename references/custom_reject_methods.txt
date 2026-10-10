@@ -148,3 +148,9 @@ client-monitor.tantanapp.com REJECT-200
 analytics.umetrip.com REJECT-200
 pgdt.ugdtimg.com REJECT-200
 
+mllog.jd.com REJECT-200
+pgdt.gtimg.cn REJECT-200
+analytics.twitter.com REJECT-200
+sdk.e.qq.com REJECT-200
+s-gm.mmstat.com REJECT-200
+log-api.pangolin-sdk-toutiao.com REJECT-200

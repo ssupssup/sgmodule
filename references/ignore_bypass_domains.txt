@@ -153,3 +153,10 @@ io-sm-log.tantanapp.com
 client-monitor.tantanapp.com
 analytics.umetrip.com
 pgdt.ugdtimg.com
+# 新增 8 大引发 REJECT-DROP 悬挂发热与 mmstat 漏网域名 (2026-10-10 降温优化)
+perf.m.jd.com
+mllog.jd.com
+uranus.jd.com
+pgdt.gtimg.cn
+analytics.twitter.com
+s-gm.mmstat.com

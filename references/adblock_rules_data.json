@@ -911,9 +911,65 @@
     "client-monitor.tantanapp.com",
     "analytics.umetrip.com",
     "pgdt.ugdtimg.com",
-    "ads5-normal-hj.zijieapi.com"
+    "ads5-normal-hj.zijieapi.com",
+    "perf.m.jd.com",
+    "mllog.jd.com",
+    "uranus.jd.com",
+    "pgdt.gtimg.cn",
+    "analytics.twitter.com",
+    "sdk.e.qq.com",
+    "s-gm.mmstat.com",
+    "log-api.pangolin-sdk-toutiao.com"
   ],
   "CUSTOM_REWRITE_RULES": [
+    {
+      "text": "^https?:\\/\\/log-api\\.pangolin-sdk-toutiao\\.com reject-200",
+      "pattern": "^https?:\\/\\/log-api\\.pangolin-sdk-toutiao\\.com",
+      "priority": 0,
+      "app": "字节穿山甲"
+    },
+    {
+      "text": "^https?:\\/\\/s-gm\\.mmstat\\.com reject-200",
+      "pattern": "^https?:\\/\\/s-gm\\.mmstat\\.com",
+      "priority": 0,
+      "app": "阿里遥测"
+    },
+    {
+      "text": "^https?:\\/\\/sdk\\.e\\.qq\\.com reject-200",
+      "pattern": "^https?:\\/\\/sdk\\.e\\.qq\\.com",
+      "priority": 0,
+      "app": "腾讯广点通"
+    },
+    {
+      "text": "^https?:\\/\\/analytics\\.twitter\\.com reject-200",
+      "pattern": "^https?:\\/\\/analytics\\.twitter\\.com",
+      "priority": 0,
+      "app": "Twitter"
+    },
+    {
+      "text": "^https?:\\/\\/pgdt\\.gtimg\\.cn reject-200",
+      "pattern": "^https?:\\/\\/pgdt\\.gtimg\\.cn",
+      "priority": 0,
+      "app": "腾讯广点通"
+    },
+    {
+      "text": "^https?:\\/\\/uranus\\.jd\\.com reject-200",
+      "pattern": "^https?:\\/\\/uranus\\.jd\\.com",
+      "priority": 0,
+      "app": "京东"
+    },
+    {
+      "text": "^https?:\\/\\/mllog\\.jd\\.com reject-200",
+      "pattern": "^https?:\\/\\/mllog\\.jd\\.com",
+      "priority": 0,
+      "app": "京东"
+    },
+    {
+      "text": "^https?:\\/\\/perf\\.m\\.jd\\.com reject-200",
+      "pattern": "^https?:\\/\\/perf\\.m\\.jd\\.com",
+      "priority": 0,
+      "app": "京东"
+    },
     {
       "text": "^https?:\\/\\/ads5-normal-hj\\.zijieapi\\.com reject-200",
       "pattern": "^https?:\\/\\/ads5-normal-hj\\.zijieapi\\.com",
