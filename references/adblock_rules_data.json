@@ -918,7 +918,7 @@
       "text": "^https?:\\/\\/ads5-normal-hj\\.zijieapi\\.com reject-200",
       "pattern": "^https?:\\/\\/ads5-normal-hj\\.zijieapi\\.com",
       "priority": 0,
-      "app": "字节穿山甲"
+      "app": "通用广告SDK"
     },
     {
       "text": "^https?:\\/\\/poplayer\\.template\\.alibaba\\.com reject-dict",
