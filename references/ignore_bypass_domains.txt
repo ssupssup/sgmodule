@@ -58,6 +58,7 @@ apd-pcdnwxlogin.teg.tencent-cloud.net
 cm.immomo.com
 fep.hellogroup.com
 app-monitor-cn.hellogroup.com
+ads5-normal-hj.zijieapi.com
 app-log.immomo.com
 logs.amap.com
 dualstack-logs.amap.com

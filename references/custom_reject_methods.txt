@@ -29,8 +29,8 @@ toblog.volceapplog.com REJECT-200
 log-report.rtc.volcvideo.com REJECT-200
 lf-leads-fe-scm.bytecdn.com REJECT-200
 
-# 字节穿山甲广告 SDK (空字典 REJECT-DICT 防发热)
-ads5-normal-hj.zijieapi.com REJECT-DICT
+# 字节穿山甲广告 SDK (假 HTTP 200 假响应防发热)
+ads5-normal-hj.zijieapi.com REJECT-200
 
 # 极光推送 SDK 高频统计防发热 (升级为 REJECT-DICT 压制死循环)
 stats.jpush.cn REJECT-DICT

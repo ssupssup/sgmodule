@@ -744,7 +744,7 @@
     "DOMAIN,log0-misc-lf.amemv.com,REJECT-200",
     "DOMAIN,log5-misc-lf.amemv.com,REJECT-200",
     "DOMAIN,logbk.amemv.com,REJECT-200",
-    "DOMAIN,ads5-normal-hj.zijieapi.com,REJECT-DICT",
+    "DOMAIN,ads5-normal-hj.zijieapi.com,REJECT-200",
     "DOMAIN,dreport.meituan.net,REJECT-200",
     "DOMAIN,catdot.dianping.com,REJECT-200",
     "DOMAIN,mon11-misc-lf.amemv.com,REJECT-200",
@@ -910,9 +910,16 @@
     "io-sm-log.tantanapp.com",
     "client-monitor.tantanapp.com",
     "analytics.umetrip.com",
-    "pgdt.ugdtimg.com"
+    "pgdt.ugdtimg.com",
+    "ads5-normal-hj.zijieapi.com"
   ],
   "CUSTOM_REWRITE_RULES": [
+    {
+      "text": "^https?:\\/\\/ads5-normal-hj\\.zijieapi\\.com reject-200",
+      "pattern": "^https?:\\/\\/ads5-normal-hj\\.zijieapi\\.com",
+      "priority": 0,
+      "app": "字节穿山甲"
+    },
     {
       "text": "^https?:\\/\\/poplayer\\.template\\.alibaba\\.com reject-dict",
       "pattern": "^https?:\\/\\/poplayer\\.template\\.alibaba\\.com",
