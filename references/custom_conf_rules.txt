@@ -198,14 +198,6 @@ PREPEND_DIRECT,DOMAIN-SUFFIX,init-s01st-lb.push-apple.com.akadns.net,DIRECT
 DISABLE,DOMAIN-SUFFIX,appldnld.g.aaplimg.com,PROXY
 DISABLE,DOMAIN-SUFFIX,cds-cdn.v.aaplimg.com,PROXY
 DISABLE,DOMAIN-SUFFIX,pancake.cdn-apple.com.akadns.net,PROXY
-DISABLE,DOMAIN-SUFFIX,iosapps.itunes.g.aaplimg.com,DIRECT
-DISABLE,DOMAIN-SUFFIX,swcdn.g.aaplimg.com,DIRECT
-DISABLE,DOMAIN-SUFFIX,updates-http.cdn-apple.com,DIRECT
-DISABLE,DOMAIN-SUFFIX,updates.cdn-apple.com,DIRECT
-DISABLE,DOMAIN-SUFFIX,appleid.cdn-apple.com,DIRECT
-DISABLE,DOMAIN-SUFFIX,store.storeimages.cdn-apple.com,DIRECT
-DISABLE,DOMAIN-SUFFIX,updates-http.cdn-apple.com.akadns.net,DIRECT
-DISABLE,DOMAIN-SUFFIX,iadsdk.apple.com,DIRECT
 DISABLE,DOMAIN-SUFFIX,bag.itunes.apple.com,PROXY
 DISABLE,DOMAIN-SUFFIX,itunes-apple.com.akadns.net,PROXY
 DISABLE,DOMAIN-SUFFIX,configuration.apple.com.akadns.net,PROXY

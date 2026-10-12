@@ -201,6 +201,17 @@ def process_and_align_conf(lines, remove_set, disable_set, prepend_proxy_rules, 
             aligned_lines.append(f"# build time: {now_str} (UTC+8)")
             continue
             
+        # 1.5 动态拦截并在 skip-proxy 中注入 App Store 核心下载 CDN 旁路 (解决全部更新排队超时弹回)
+        if stripped.startswith("skip-proxy ="):
+            skip_line = stripped
+            extra_skips = ["*.aaplimg.com", "*.mzstatic.com"]
+            for eskip in extra_skips:
+                if eskip not in skip_line:
+                    skip_line += f", {eskip}"
+            aligned_lines.append("# 🟢 注入 App Store 核心安装包下载 CDN 原生旁路 (0 TUN/DoH 延迟，杜绝批量更新超时弹回)")
+            aligned_lines.append(skip_line)
+            continue
+
         # 2. 精确替换第 11 行左右的 dns-server 并融入 update-url 及防擦除时间戳
         if stripped.startswith("dns-server ="):
             aligned_lines.append("# 🟢 100% 对齐 Top500 官方原版：阿里/腾讯纯 IP DoH (免 Bootstrap 延迟)")
