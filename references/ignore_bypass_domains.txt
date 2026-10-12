@@ -160,3 +160,4 @@ uranus.jd.com
 pgdt.gtimg.cn
 analytics.twitter.com
 s-gm.mmstat.com
+e.qq.com

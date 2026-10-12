@@ -1,6 +1,6 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-10-12 15:31:44 | Deep ad block & UI purification customized for user's installed apps.
-#!total=1221
+#!desc=最近更新: 2026-10-12 20:27:08 | Deep ad block & UI purification customized for user's installed apps.
+#!total=1259
 
 [Rule]
 # === LINE Notice Bar SafeFrame & Pubads PROXY Override (Top Priority) ===
@@ -48,7 +48,6 @@ DOMAIN-SUFFIX,zztfly.com,REJECT-DROP
 DOMAIN-SUFFIX,tanx.com,REJECT-DROP
 DOMAIN-SUFFIX,adn-plus.com.cn,REJECT-DROP
 DOMAIN-SUFFIX,ad-scope.com.cn,REJECT-DROP
-DOMAIN-SUFFIX,e.qq.com,REJECT-DROP
 DOMAIN-KEYWORD,pangolin-sdk,REJECT-DROP
 DOMAIN-KEYWORD,e.kuaishou.com,REJECT-DROP
 DOMAIN,ad.zijieapi.com,REJECT-DROP
@@ -104,10 +103,16 @@ DOMAIN,clientlogdep.music.163.com,REJECT-DROP
 DOMAIN,fp-upload.dun.163.com,REJECT-DROP
 DOMAIN,adsmind.gdtimg.com,REJECT-DROP
 DOMAIN,rtbasia.datahubtrack.com,REJECT-DROP
-DOMAIN-SUFFIX,a1.firefoxchina.cn,REJECT
-DOMAIN-SUFFIX,outlookads.live.com,REJECT
-DOMAIN-SUFFIX,ads.linkedin.com,REJECT
-DOMAIN-SUFFIX,analytics.pointdrive.linkedin.com,REJECT-DROP
+DOMAIN,ad.snssdk.com,REJECT-NO-DROP
+DOMAIN,rtlog.snssdk.com,REJECT-NO-DROP
+DOMAIN,mcs.snssdk.com,REJECT-NO-DROP
+DOMAIN,dm.snssdk.com,REJECT-NO-DROP
+DOMAIN,dcs.ipinyou.com,REJECT-NO-DROP
+DOMAIN,crashlytics.com,REJECT-NO-DROP
+DOMAIN,app-measurement.com,REJECT-NO-DROP
+DOMAIN,adjust.com,REJECT-NO-DROP
+DOMAIN,appsflyersdk.com,REJECT-NO-DROP
+DOMAIN,app-analytics-services.com,REJECT-DROP
 # === Compiled App Rules ===
 DOMAIN,adstrategy.biz.weibo.com,REJECT
 DOMAIN-SUFFIX,api.touch-moblie.com,REJECT
@@ -239,7 +244,6 @@ DOMAIN,us.l.qq.com,REJECT
 DOMAIN,tmeadbak.y.qq.com,REJECT
 DOMAIN-SUFFIX,imtmp.net,REJECT
 DOMAIN,tmeadcomm.y.qq.com,REJECT
-DOMAIN-SUFFIX,e.qq.com,REJECT
 DOMAIN,amsweb-cdn-gz-1258344696.file.myqcloud.com,REJECT
 DOMAIN,wallpaper-1258344696.file.myqcloud.com,REJECT
 IP-CIDR,120.222.240.171/32,REJECT
@@ -262,15 +266,24 @@ DOMAIN,switch.cup.com.cn,REJECT
 DOMAIN,ads.cup.com.cn,REJECT
 
 [URL Rewrite]
+^https?:\/\/ali-stats\.jpush\.cn reject-200
+^https?:\/\/log-api\.pangolin-sdk-toutiao\.com reject-200
+^https?:\/\/s-gm\.mmstat\.com reject-200
+^https?:\/\/sdk\.e\.qq\.com reject-200
+^https?:\/\/analytics\.twitter\.com reject-200
+^https?:\/\/pgdt\.gtimg\.cn reject-200
 ^https?:\/\/uranus\.jd\.com reject-200
 ^https?:\/\/mllog\.jd\.com reject-200
 ^https?:\/\/perf\.m\.jd\.com reject-200
 ^https?:\/\/ads5-normal-hj\.zijieapi\.com reject-200
 ^https?:\/\/poplayer\.template\.alibaba\.com reject-dict
 ^https?:\/\/httpdnsmultiapivip\.meituan\.com reject-200
+^https?:\/\/httpdns\.yunxinfw\.com reject-200
 ^https?:\/\/badjs\.weixinbridge\.com reject-200
 ^https?:\/\/dnspod\.meituan\.httpdns\.start\.qcloud\.com reject-200
 ^https?:\/\/103\.37\.155\.60\/fetch reject-200
+^https?:\/\/status-ipv6\.jpush\.cn reject-dict
+^https?:\/\/smartop-sdkapi\.jiguang\.cn reject-200
 ^https?:\/\/sdkconfig\.ad\.xiaomi\.com reject-dict
 ^https?:\/\/sdkconfig\.ad\.intl\.xiaomi\.com reject-dict
 ^https?:\/\/tracking\.miui\.com reject-200
@@ -284,6 +297,8 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/fep\.hellogroup\.com reject-200
 ^https?:\/\/app-monitor-cn\.hellogroup\.com reject-200
 ^https?:\/\/app-log\.immomo\.com reject-200
+^https?:\/\/logs\.amap\.com reject-200
+^https?:\/\/dualstack-logs\.amap\.com reject-200
 ^https?:\/\/log-report\.rtc\.volcvideo\.com reject-200
 ^https?:\/\/klink\.volceapplog\.com reject-200
 ^https?:\/\/o1\.d\.meituan\.net reject-200
@@ -305,6 +320,21 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/route-stats\.d\.meituan\.net reject-200
 ^https?:\/\/loggw-ex\.alipay\.com reject-200
 ^https?:\/\/mssdk\.volces\.com reject-200
+^https?:\/\/live-player-log\.zijieapi\.com reject-200
+^https?:\/\/live-player-log-service\.bytedance\.com reject-200
+^https?:\/\/sis\.jpush\.io reject-200
+^https?:\/\/tsis\.jpush\.cn reject-200
+^https?:\/\/zlink\.ugsdk\.cn reject-200
+^https?:\/\/live-log\.immomo\.com reject-200
+^https?:\/\/px\.effirst\.com reject-200
+^https?:\/\/gd-stats\.jpush\.cn reject-200
+^https?:\/\/sdk-open-phone\.getui\.com reject-200
+^https?:\/\/gm\.mmstat\.com reject-200
+^https?:\/\/wgo\.mmstat\.com reject-200
+^https?:\/\/orange-dc\.alibaba\.com reject-200
+^https?:\/\/bird\.cn-hangzhou\.log\.aliyuncs\.com reject-200
+^https?:\/\/traffic-click\.cn-zhangjiakou\.log\.aliyuncs\.com reject-200
+^https?:\/\/apd-pcdnwxstat\.teg\.tencent-cloud\.net reject-200
 ^https?:\/\/tangram\.e\.qq\.com reject-200
 ^https?:\/\/sdkreport\.e\.qq\.com reject-200
 ^https?:\/\/log\.snssdk\.com reject-200
@@ -319,9 +349,17 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/retcode\.taobao\.com reject-200
 ^https?:\/\/dnspod\.meituan\.httpdns\.qcloud\.com reject-200
 ^https?:\/\/adip-api\.immomo\.com reject-200
+^https?:\/\/log\.umsns\.com reject-200
+^https?:\/\/stats\.umsns\.com reject-200
+^https?:\/\/utoken\.umeng\.com reject-200
+^https?:\/\/cnlogs\.umeng\.com reject-200
+^https?:\/\/resolve\.umeng\.com reject-200
+^https?:\/\/cnlogs\.umengcloud\.com reject-200
 ^https?:\/\/analytics\.meituan\.net reject-200
 ^https?:\/\/toblog\.volceapplog\.com reject-200
+^https?:\/\/log\.mmstat\.com reject-200
 ^https?:\/\/data-sdk-uuid-log\.d\.meituan\.net reject-200
+^https?:\/\/fclog\.baidu\.com reject-200
 ^https?:\/\/logbk\.amemv\.com reject-200
 ^https?:\/\/log-hl\.snssdk\.com reject-200
 ^https?:\/\/pangolin-sdk-toutiao1\.com reject-200
@@ -402,6 +440,7 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https:\/\/wx\.bthhotels\.com\/miniapp\/weixin\/v1\/home\/index_banner - reject-dict
 ^https:\/\/wxs-weixin\.sd\.zhumanggroup\.com\/api\/v2\/ad - reject-dict
 ^https?://advertise\.bczeducation\.cn\/rpc\/advertise - reject-200
+^https?://optimus-ads\.amap\.com/uploadimg/[a-zA-Z0-9]+\.gif - reject-200
 ^https?:\/\/(api|b)\.zhuishushenqi\.com\/advert - reject
 ^https?:\/\/3g\.csair\.com\/CSMBP\/bookProcess\/homepopup\/queryAdvertisement - reject-200
 ^https?:\/\/[a-zA-Z0-9_-]+\.admobile.top\/ - reject-200
@@ -492,9 +531,13 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/iyes\.youku\.com\/uts/v\d\/start - reject-200
 ^https?:\/\/j1\.pupuapi\.com\/client\/marketing\/advertisement\/v1\? - reject-200
 ^https?:\/\/lens\.leoao\.com\/lens\/.+(getUserScheme|queryAppBanners|Advert|popup) - reject-200
+^https?:\/\/m5\.amap\.com\/ws\/valueadded\/ - reject
 ^https?:\/\/m\.ctrip\.com\/html5\/webresource\/js\/iscroll\.js$ - reject
 ^https?:\/\/m\.ctrip\.com\/restapi\/[\w\/]+tripAds - reject
 ^https?:\/\/m\.ctrip\.com\/restapi\/soa2\/\d+\/json\/getAdsList - reject-200
+^https?:\/\/m\d\.amap\.com\/ws\/faas\/amap-navigation\/main-page-(assets|location)? - reject-dict
+^https?:\/\/m\d\.amap\.com\/ws\/mapapi\/hint_text\/offline_data? - reject-dict
+^https?:\/\/m\d\.amap\.com\/ws\/message\/notice\/list\? - reject-dict
 ^https?:\/\/m\d\.amap\.com\/ws\/valueadded\/alimama\/splash_screen\/ - reject
 ^https?:\/\/ma-adx\.ctrip\.com\/_ma\.gif - reject
 ^https?:\/\/maicai\.api\.ddxq\.mobi\/advert\/ - reject
@@ -519,6 +562,7 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/pipi\.4kya\.com\/\/xgapp\.php\/v3\/advert\.position=[^2]+ - reject-200
 ^https?:\/\/r\.inews\.qq\.com\/(adsBlacklist|getBannerAds|getFullScreenPic|getNewsRemoteConfig|getQQNewsRemoteConfig|searchHotCatList|upLoadLoc) - reject
 ^https?:\/\/referee\.xiaohongshu\.com\/v\d\/stateReport - reject-dict
+^https?:\/\/render-oss-cdn\.amap\.com\/render\/studio-dev\/image\/ - reject-200
 ^https?:\/\/res\.kfc\.com\.cn\/advertisement\/ - reject
 ^https?:\/\/res\.xiaojukeji\.com\/resapi\/activity\/get(Ruled|Preload|PasMultiNotices) - reject-200
 ^https?:\/\/res\.xiaojukeji\.com\/resapi\/activity\/mget - reject-200
@@ -528,6 +572,7 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/sdkapp\.uve\.weibo\.com\/interface\/sdk\/actionad\.php - reject
 ^https?:\/\/sf3-fe-tos\.pglstatp-toutiao\.com\/obj\/ad-pattern\/renderer\/ - reject-200
 ^https?:\/\/sf3-fe-tos\.pglstatp-toutiao\.com\/obj\/ad-pattern\/renderer\/package\.json - reject-200
+^https?:\/\/sns\.amap\.com\/ws\/msgbox\/pull? - reject-dict
 ^https?:\/\/t1\.market\.xiaomi\.com\/thumbnail\/webp\/w1170q100\/ - reject-200
 ^https?:\/\/tqt\.weibo\.cn\/api\/advert\/ - reject
 ^https?:\/\/tqt\.weibo\.cn\/overall\/redirect\.php\?r=(tqt_sdkad|tqtad) - reject
@@ -618,7 +663,6 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?://nam\.veta\.naver\.com/gfp/v1\?u\=ios_papago_top - reject
 ^https?://newclient\.map\.baidu\.com/client/crossmarketing - reject
 ^https?://newclient\.map\.baidu\.com/client/usersystem/home/dynamic - reject
-^https?://optimus-ads\.amap\.com/uploadimg/[a-zA-Z0-9]+\.gif - reject-200
 ^https?://pdapis\.pdnews\.cn/api/rmrb-bff-display-zh/display/zh/c/launchPage\? - reject
 ^https?://superapp\.kiwa-tech\.com/app/ads/selectList - reject
 ^https?:\/\/((25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\.){3}(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\/(outadservice|ting\/preload)\/ - reject
@@ -898,7 +942,6 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/list-app-m\.i4\.cn\/getopfstadinfo\.xhtml - reject
 ^https?:\/\/lop-proxy\.jd\.com\/queryAppHomePageMarketingRecommendRuleConfigInfo - reject-200
 ^https?:\/\/m-adphone\.wenhua\.com\.cn\/ - reject-200
-^https?:\/\/m5\.amap\.com\/ws\/valueadded\/ - reject
 ^https?:\/\/m\.ads\.8le8le\.com\/adShow - reject
 ^https?:\/\/m\.api\.shaoxing\.com\.cn\/v\d\/start - reject-200
 ^https?:\/\/m\.caijing\.com\.cn\/startup_ad_ios\.html$ - reject
@@ -908,9 +951,6 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/m\.stock\.pingan\.com\/restapi\/rmd\/open\/O\/api\/openAd - reject-200
 ^https?:\/\/m\.tuniu\.com\/api\/operation\/splash\/ - reject
 ^https?:\/\/m\.you\.163\.com\/activity\/popWindow - reject-200
-^https?:\/\/m\d\.amap\.com\/ws\/faas\/amap-navigation\/main-page-(assets|location)? - reject-dict
-^https?:\/\/m\d\.amap\.com\/ws\/mapapi\/hint_text\/offline_data? - reject-dict
-^https?:\/\/m\d\.amap\.com\/ws\/message\/notice\/list\? - reject-dict
 ^https?:\/\/mage\.if\.qidian\.com\/argus\/api\/v\d\/client\/getsplashscreen - reject
 ^https?:\/\/mama\.dxy\.com\/api\/cms\/client\/popup-window\/list - reject-200
 ^https?:\/\/mangaapi\.manhuaren\.com\/v2\/public\/getShelfActivity - reject
@@ -967,7 +1007,6 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/quanguo\.mygolbs\.com:8081\/MyBusServer\/servlet\/MyGoServer\.HttpPool\.HttpHandlerServlet - reject-200
 ^https?:\/\/r\.inews\.qq\.com\/(getBannerAds|getNewsRemoteConfig|getSplash|searchHotCatList|upLoadLoc) - reject-200
 ^https?:\/\/r\.inews\.qq\.com\/getSplash - reject
-^https?:\/\/render-oss-cdn\.amap\.com\/render\/studio-dev\/image\/ - reject-200
 ^https?:\/\/rengine-platform\.llsapp\.com\/auth\/api\/remoteResource\/darwin - reject-200
 ^https?:\/\/res-release\.wuta-cam\.com\/json\/ads_component_cache\.json - reject
 ^https?:\/\/res\.pizzahut\.com\.cn\/CRM\/phad\/apphome\/apphome - reject-200
@@ -990,7 +1029,6 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/siteapi\.zaixs\.com\/.*\/start_ad - reject-200
 ^https?:\/\/smkmp\.96225\.com\/smkcenter\/ad/ - reject
 ^https?:\/\/smsrebuild1\.mail\.10086\.cn\/together\/s - reject-200
-^https?:\/\/sns\.amap\.com\/ws\/msgbox\/pull? - reject-dict
 ^https?:\/\/sp\.kaola\.com\/api\/openad - reject
 ^https?:\/\/ssl\.kohsocialapp\.qq\.com:\d+\/game\/buttons - reject
 ^https?:\/\/sso\.ifanr\.com\/jiong\/IOS\/appso\/splash\/ - reject

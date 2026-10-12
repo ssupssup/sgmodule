@@ -1,6 +1,26 @@
 {
   "INSTALLED_APPS": [
     "通用广告SDK",
+    "腾讯广点通",
+    "极光推送",
+    "极光",
+    "友盟",
+    "字节穿山甲",
+    "阿里遥测",
+    "阿里打点",
+    "阿里",
+    "阿里云日志",
+    "腾讯云打点",
+    "高德地图",
+    "个推",
+    "Twitter",
+    "百度",
+    "网易云信",
+    "字节跳动",
+    "抖音直播",
+    "陌陌",
+    "游族SDK",
+    "广告遥测",
     "小米",
     "字节火山引擎",
     "Apple",
@@ -922,6 +942,12 @@
     "log-api.pangolin-sdk-toutiao.com"
   ],
   "CUSTOM_REWRITE_RULES": [
+    {
+      "text": "^https?:\\/\\/ali-stats\\.jpush\\.cn reject-200",
+      "pattern": "^https?:\\/\\/ali-stats\\.jpush\\.cn",
+      "priority": 0,
+      "app": "极光推送"
+    },
     {
       "text": "^https?:\\/\\/log-api\\.pangolin-sdk-toutiao\\.com reject-200",
       "pattern": "^https?:\\/\\/log-api\\.pangolin-sdk-toutiao\\.com",
