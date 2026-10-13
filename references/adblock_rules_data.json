@@ -683,14 +683,12 @@
     "DOMAIN-SUFFIX,beizi.biz,REJECT-DROP",
     "DOMAIN-SUFFIX,hubcloud.com.cn,REJECT-DROP",
     "DOMAIN-SUFFIX,zztfly.com,REJECT-DROP",
-    "DOMAIN-SUFFIX,tanx.com,REJECT-DROP",
+    "DOMAIN-SUFFIX,tanx.com,REJECT-NO-DROP",
     "DOMAIN-SUFFIX,adn-plus.com.cn,REJECT-DROP",
     "DOMAIN-SUFFIX,ad-scope.com.cn,REJECT-DROP",
     "DOMAIN-SUFFIX,e.qq.com,REJECT-200",
     "DOMAIN-KEYWORD,gdt.qq.com,REJECT-200",
-    "DOMAIN-KEYWORD,pangolin-sdk,REJECT-200",
     "DOMAIN,toblog.ctobsnssdk.com,REJECT-200",
-    "DOMAIN-KEYWORD,e.kuaishou.com,REJECT-200",
     "DOMAIN,ad.zijieapi.com,REJECT-200",
     "DOMAIN,ads.zijieapi.com,REJECT-200",
     "DOMAIN,pangolin.zijieapi.com,REJECT-200",
@@ -825,10 +823,20 @@
     "DOMAIN,clientlogsf.music.163.com,REJECT-DROP",
     "DOMAIN,clientlogdep.music.163.com,REJECT-DROP",
     "DOMAIN,fp-upload.dun.163.com,REJECT-DROP",
-    "DOMAIN,adsmind.gdtimg.com,REJECT-DROP",
+    "DOMAIN,adsmind.gdtimg.com,REJECT-NO-DROP",
     "DOMAIN,log.umsns.com,REJECT-200",
     "DOMAIN,stats.umsns.com,REJECT-200",
-    "DOMAIN,rtbasia.datahubtrack.com,REJECT-DROP"
+    "DOMAIN,rtbasia.datahubtrack.com,REJECT-DROP",
+    "DOMAIN-SUFFIX,advlion.com,REJECT-200",
+    "DOMAIN-SUFFIX,statisticslinks.com,REJECT-200",
+    "DOMAIN-SUFFIX,ubixioe.com,REJECT-200",
+    "DOMAIN-SUFFIX,vlion.cn,REJECT",
+    "DOMAIN-SUFFIX,adwangmai.com,REJECT",
+    "DOMAIN-SUFFIX,66mobi.com,REJECT",
+    "DOMAIN-SUFFIX,yunxish.com,REJECT",
+    "DOMAIN-SUFFIX,1rtb.net,REJECT",
+    "DOMAIN,integralwall.baidu.com,REJECT",
+    "DOMAIN,snssdk.huazhu.com,REJECT"
   ],
   "MANDATORY_MITM_DOMAINS": [
     "adservice.sigmob.cn",
@@ -939,7 +947,20 @@
     "analytics.twitter.com",
     "sdk.e.qq.com",
     "s-gm.mmstat.com",
-    "log-api.pangolin-sdk-toutiao.com"
+    "log-api.pangolin-sdk-toutiao.com",
+    "h-adashx.ut.taobao.com",
+    "gromore.pangolin-sdk-toutiao.com",
+    "open.e.kuaishou.com",
+    "bj-td-menta-01-callback.advlion.com",
+    "adx-strategy-api-cn.statisticslinks.com",
+    "da.statisticslinks.com",
+    "adx-micro.statisticslinks.com",
+    "tk.statisticslinks.com",
+    "adx-cfg-u1.ubixioe.com",
+    "entry-su1.ubixioe.com",
+    "dsp-creative.ubixioe.com",
+    "adx-data-u1.ubixioe.com",
+    "e-u1.ubixioe.com"
   ],
   "CUSTOM_REWRITE_RULES": [
     {
@@ -1611,6 +1632,42 @@
     {
       "text": "^https?:\\/\\/pgdt\\.ugdtimg\\.com reject-200",
       "pattern": "^https?:\\/\\/pgdt\\.ugdtimg\\.com",
+      "priority": 0,
+      "app": "通用广告SDK"
+    },
+    {
+      "text": "^https?:\\/\\/h-adashx\\.ut\\.taobao\\.com reject-200",
+      "pattern": "^https?:\\/\\/h-adashx\\.ut\\.taobao\\.com",
+      "priority": 0,
+      "app": "淘宝"
+    },
+    {
+      "text": "^https?:\\/\\/gromore\\.pangolin-sdk-toutiao\\.com reject-200",
+      "pattern": "^https?:\\/\\/gromore\\.pangolin-sdk-toutiao\\.com",
+      "priority": 0,
+      "app": "通用广告SDK"
+    },
+    {
+      "text": "^https?:\\/\\/open\\.e\\.kuaishou\\.com reject-200",
+      "pattern": "^https?:\\/\\/open\\.e\\.kuaishou\\.com",
+      "priority": 0,
+      "app": "通用广告SDK"
+    },
+    {
+      "text": "^https?:\\/\\/.*\\.advlion\\.com reject-200",
+      "pattern": "^https?:\\/\\/.*\\.advlion\\.com",
+      "priority": 0,
+      "app": "通用广告SDK"
+    },
+    {
+      "text": "^https?:\\/\\/.*\\.statisticslinks\\.com reject-200",
+      "pattern": "^https?:\\/\\/.*\\.statisticslinks\\.com",
+      "priority": 0,
+      "app": "通用广告SDK"
+    },
+    {
+      "text": "^https?:\\/\\/.*\\.ubixioe\\.com reject-200",
+      "pattern": "^https?:\\/\\/.*\\.ubixioe\\.com",
       "priority": 0,
       "app": "通用广告SDK"
     }

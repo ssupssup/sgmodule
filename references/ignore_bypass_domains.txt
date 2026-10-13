@@ -161,3 +161,11 @@ pgdt.gtimg.cn
 analytics.twitter.com
 s-gm.mmstat.com
 e.qq.com
+# 新增 消除 REJECT-DROP 悬挂发热与漏网广告联盟域名 (2026-10-13 降温优化)
+h-adashx.ut.taobao.com
+gromore.pangolin-sdk-toutiao.com
+open.e.kuaishou.com
+advlion.com
+statisticslinks.com
+ubixioe.com
+
