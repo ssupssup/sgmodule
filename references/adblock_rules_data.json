@@ -667,8 +667,8 @@
     "DOMAIN-SUFFIX,doubleclick.net,REJECT-DROP",
     "DOMAIN-SUFFIX,googlesyndication.com,REJECT-DROP",
     "DOMAIN-SUFFIX,adservice.google.com,REJECT-DROP",
-    "DOMAIN,ads.twitter.com,REJECT-DROP",
-    "DOMAIN,ads-api.x.com,REJECT-DROP",
+    "DOMAIN,ads.twitter.com,REJECT",
+    "DOMAIN,ads-api.x.com,REJECT",
     "DOMAIN-SUFFIX,inmobi.com,REJECT-DROP",
     "DOMAIN-SUFFIX,pubmatic.com,REJECT-DROP",
     "DOMAIN-SUFFIX,smaato.net,REJECT-DROP",
@@ -960,7 +960,8 @@
     "entry-su1.ubixioe.com",
     "dsp-creative.ubixioe.com",
     "adx-data-u1.ubixioe.com",
-    "e-u1.ubixioe.com"
+    "e-u1.ubixioe.com",
+    "sensors.umetrip.com.cn"
   ],
   "CUSTOM_REWRITE_RULES": [
     {
@@ -1670,6 +1671,12 @@
       "pattern": "^https?:\\/\\/.*\\.ubixioe\\.com",
       "priority": 0,
       "app": "通用广告SDK"
+    },
+    {
+      "text": "^https?:\\/\\/sensors\\.umetrip\\.com\\.cn reject-200",
+      "pattern": "^https?:\\/\\/sensors\\.umetrip\\.com\\.cn",
+      "priority": 0,
+      "app": "航旅纵横"
     }
   ]
 }

@@ -159,3 +159,10 @@ log-api.pangolin-sdk-toutiao.com REJECT-200
 statisticslinks.com REJECT-200
 ubixioe.com REJECT-200
 
+# 2026-10-14 Twitter/X 视频卡顿与发热自愈 (TCP RST 1ms 秒断释放队列)
+ads.twitter.com REJECT
+ads-api.x.com REJECT
+
+# 2026-10-14 航旅纵横神策打点优雅降温 (消除单秒高频并发)
+sensors.umetrip.com.cn REJECT-200
+

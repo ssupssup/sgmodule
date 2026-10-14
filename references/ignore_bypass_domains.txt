@@ -168,4 +168,6 @@ open.e.kuaishou.com
 advlion.com
 statisticslinks.com
 ubixioe.com
+# 新增 航旅纵横神策埋点擦除走假 200 降温 (2026-10-14 优化)
+sensors.umetrip.com.cn
 

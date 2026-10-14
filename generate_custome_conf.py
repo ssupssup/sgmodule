@@ -204,7 +204,7 @@ def process_and_align_conf(lines, remove_set, disable_set, prepend_proxy_rules, 
         # 1.5 动态拦截并在 skip-proxy 中注入 App Store 核心下载 CDN 旁路 (解决全部更新排队超时弹回)
         if stripped.startswith("skip-proxy ="):
             skip_line = stripped
-            extra_skips = ["*.aaplimg.com", "*.mzstatic.com"]
+            extra_skips = ["*.aaplimg.com", "*.mzstatic.com", "phobos.apple.com", "appldnld.apple.com"]
             for eskip in extra_skips:
                 if eskip not in skip_line:
                     skip_line += f", {eskip}"
