@@ -187,4 +187,6 @@ ad.12306.cn REJECT-200
 log-api.pangolin-sdk-toutiao-b.com REJECT-DICT
 api-access.pangolin-sdk-toutiao-b.com REJECT-DICT
 api-access.pangolin-sdk-toutiao1.com REJECT-DICT
+ef-dongfeng.tanx.com REJECT-DICT
+df.tanx.com REJECT-DICT
 

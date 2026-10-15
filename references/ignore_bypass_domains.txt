@@ -177,4 +177,6 @@ ad.12306.cn
 snssdk.huazhu.com
 log-api.pangolin-sdk-toutiao-b.com
 api-access.pangolin-sdk-toutiao-b.com
+ef-dongfeng.tanx.com
+df.tanx.com
 

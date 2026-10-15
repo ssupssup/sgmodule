@@ -975,7 +975,9 @@
     "ad.12306.cn",
     "snssdk.huazhu.com",
     "api-access.pangolin-sdk-toutiao-b.com",
-    "log-api.pangolin-sdk-toutiao-b.com"
+    "log-api.pangolin-sdk-toutiao-b.com",
+    "ef-dongfeng.tanx.com",
+    "df.tanx.com"
   ],
   "CUSTOM_REWRITE_RULES": [
     {
@@ -1705,8 +1707,14 @@
       "app": "探探"
     },
     {
-      "text": "^http:\\/\\/df\\.tanx\\.com\\/spf reject-200",
-      "pattern": "^http:\\/\\/df\\.tanx\\.com\\/spf",
+      "text": "^https?:\\/\\/df\\.tanx\\.com\\/spf reject-dict",
+      "pattern": "^https?:\\/\\/df\\.tanx\\.com\\/spf",
+      "priority": 0,
+      "app": "探探"
+    },
+    {
+      "text": "^https?:\\/\\/ef-dongfeng\\.tanx\\.com\\/tanx reject-dict",
+      "pattern": "^https?:\\/\\/ef-dongfeng\\.tanx\\.com\\/tanx",
       "priority": 0,
       "app": "探探"
     },
