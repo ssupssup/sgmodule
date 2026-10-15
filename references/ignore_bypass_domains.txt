@@ -158,7 +158,6 @@ perf.m.jd.com
 mllog.jd.com
 uranus.jd.com
 pgdt.gtimg.cn
-analytics.twitter.com
 s-gm.mmstat.com
 e.qq.com
 # 新增 消除 REJECT-DROP 悬挂发热与漏网广告联盟域名 (2026-10-13 降温优化)

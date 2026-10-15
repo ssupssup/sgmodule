@@ -61,24 +61,14 @@ def get_smart_reject_action(domain):
             return m
             
     # 2. 智能特征分类匹配：
-    # A类：高频广告 SDK 联盟、数据追踪与遥测分析 ➔ 统一步提升为 REJECT-DROP
-    drop_keywords = [
-        "googleads", "doubleclick", "analytics", "telemetry", "tracking", "tracker", 
-        "adsystem", "inmobi", "pubmatic", "smadex", "criteo", "appier", "appiersig",
-        "jampp", "bidswitch", "adrta", "serveteck", "iteleserve", "tk0x1",
-        "rubiconproject", "openx", "casalemedia", "taboola", "outbrain"
-    ]
-    if any(kw in domain_lower for kw in drop_keywords):
-        return "REJECT-DROP"
-        
-    # B类：SDK 日志、打点上报与验证码探针 ➔ 统一匹配为 REJECT-200 诱骗清空队列
+    # A类：SDK 日志、打点上报与验证码探针 ➔ 统一匹配为 REJECT-200 诱骗清空队列
     reject200_keywords = [
         "mobads-logs", "log-report", "stat-report", "geetest", "captcha", "report-api"
     ]
     if any(kw in domain_lower for kw in reject200_keywords):
         return "REJECT-200"
 
-    # 3. 普通常规 Banner 广告域名 ➔ 维持标准 REJECT
+    # 3. 广告联盟与常规 Banner 广告域名 ➔ 维持标准 REJECT (1ms TCP RST 秒断，彻底消除 60s 丢包挂起发热)
     return "REJECT"
 
 def download_url(url):
@@ -332,6 +322,15 @@ def generate_adblock_module(script_dir):
                 adblock_rules.append(f"{rule_type},{value},{action}")
                 added_count += 1
         print(f" - Parsed {len(parsed)} rules from {alliance}, added {added_count} clean rules.")
+
+    # 4. 补齐历史漏网与专属广告联盟规则 (1ms 秒断)
+    extra_adblock_domains = ["inmobi.cn", "app-ads-services.com"]
+    for ed in extra_adblock_domains:
+        norm = f"DOMAIN-SUFFIX,{ed}"
+        if norm not in seen:
+            seen.add(norm)
+            action = get_smart_reject_action(ed)
+            adblock_rules.append(f"DOMAIN-SUFFIX,{ed},{action}")
 
     from datetime import datetime, timezone, timedelta
     beijing_time_str = datetime.now(timezone(timedelta(hours=8))).strftime('%Y-%m-%d %H:%M:%S')

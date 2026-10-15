@@ -71,6 +71,9 @@ app-monitor-cn.doki.ren REJECT-200
 report.tantanapp.com REJECT-200
 sc-report.tantanapp.com REJECT-200
 log.ys7.com REJECT-200
+ad-screen-api.immomo.com REJECT
+schedule-media.immomo.com REJECT
+tancdn.com REJECT
 
 # 美团 / 大众点评 前端监控与 Logan 日志 (REJECT-200 假响应防重试)
 metrics-picture.d.meituan.net REJECT-200
@@ -150,7 +153,7 @@ pgdt.ugdtimg.com REJECT-200
 
 mllog.jd.com REJECT-200
 pgdt.gtimg.cn REJECT-200
-analytics.twitter.com REJECT-200
+analytics.twitter.com REJECT
 sdk.e.qq.com REJECT-200
 s-gm.mmstat.com REJECT-200
 log-api.pangolin-sdk-toutiao.com REJECT-200
@@ -165,4 +168,14 @@ ads-api.x.com REJECT
 
 # 2026-10-14 航旅纵横神策打点优雅降温 (消除单秒高频并发)
 sensors.umetrip.com.cn REJECT-200
+
+# 2026-10-15 海外广告联盟与漏网降温自愈 (TCP RST 1ms 秒断彻底消除悬挂发热)
+pubmatic.com REJECT
+inmobi.com REJECT
+inmobi.cn REJECT
+amazon-adsystem.com REJECT
+inner-active.mobi REJECT
+mobilefuse.com REJECT
+tappx.com REJECT
+app-ads-services.com REJECT
 

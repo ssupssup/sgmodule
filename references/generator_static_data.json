@@ -95,8 +95,7 @@
     "# 2026-07-24 联动补齐：GitHub 开发者遥测与 PubMatic 广告全系列",
     "collector.github.com",
     "ads.pubmatic.com",
-    "# 2026-07-25 联动补齐：移动端 1分钟高频爆发重试发热源 (Twitter遥测/Effirst追踪/钉钉遥测)",
-    "analytics.twitter.com",
+    "# 2026-07-25 联动补齐：移动端 1分钟高频爆发重试发热源 (Effirst追踪/钉钉遥测)",
     "px.effirst.com",
     "adashx.ut.dingtalk.com"
   ],
@@ -122,7 +121,9 @@
     "# Baidu Netdisk (SSL Pinning prevents logins if decrypted)",
     "pan.baidu.com",
     "# Douban (SSL Pinning prevents app loading if decrypted)",
-    "douban.com"
+    "douban.com",
+    "# Twitter (SSL Pinning prevents video playback / metrics if decrypted)",
+    "analytics.twitter.com"
   ],
   "BYPASS_RULES": [
     "# 彻底解决 Apple 定位守护进程 locationd 跨国超时发热的异常",
