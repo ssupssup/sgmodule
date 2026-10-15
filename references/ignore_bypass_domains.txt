@@ -172,3 +172,9 @@ ubixioe.com
 # 新增 航旅纵横神策埋点擦除走假 200 降温 (2026-10-14 优化)
 sensors.umetrip.com.cn
 
+# 新增 12306/华住会/穿山甲备用域名擦除走优雅假响应 (2026-10-15 优化)
+ad.12306.cn
+snssdk.huazhu.com
+log-api.pangolin-sdk-toutiao-b.com
+api-access.pangolin-sdk-toutiao-b.com
+

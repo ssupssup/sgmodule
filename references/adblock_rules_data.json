@@ -664,8 +664,8 @@
     "DOMAIN,res.mmstat.com,REJECT-200",
     "# === 2026-08-11 防发热架构：纯界面广告黑洞 + 墨鱼 JSON 动态去广告 (0 遥测硬阻断，彻底消除发热) ===",
     "DOMAIN,googleads.g.doubleclick.net,REJECT-DROP",
-    "DOMAIN-SUFFIX,doubleclick.net,REJECT-DROP",
-    "DOMAIN-SUFFIX,googlesyndication.com,REJECT-DROP",
+    "DOMAIN-SUFFIX,doubleclick.net,REJECT",
+    "DOMAIN-SUFFIX,googlesyndication.com,REJECT",
     "DOMAIN-SUFFIX,adservice.google.com,REJECT-DROP",
     "DOMAIN,ads.twitter.com,REJECT",
     "DOMAIN,ads-api.x.com,REJECT",
@@ -699,7 +699,10 @@
     "DOMAIN,pangolin-sdk-toutiao.com,REJECT-200",
     "DOMAIN,pangolin-sdk-toutiao1.com,REJECT-200",
     "DOMAIN,pglstatp-toutiao.com,REJECT-200",
-    "DOMAIN,log-api.pangolin-sdk-toutiao.com,REJECT-200",
+    "DOMAIN,log-api.pangolin-sdk-toutiao.com,REJECT-DICT",
+    "DOMAIN,api-access.pangolin-sdk-toutiao-b.com,REJECT-DICT",
+    "DOMAIN,log-api.pangolin-sdk-toutiao-b.com,REJECT-DICT",
+    "DOMAIN,api-access.pangolin-sdk-toutiao1.com,REJECT-DICT",
     "DOMAIN,app-log-lab.tantanapp.com,REJECT-200",
     "DOMAIN,io-sm-log.tantanapp.com,REJECT-200",
     "DOMAIN,client-monitor.tantanapp.com,REJECT-200",
@@ -842,7 +845,6 @@
     "DOMAIN-SUFFIX,yunxish.com,REJECT",
     "DOMAIN-SUFFIX,1rtb.net,REJECT",
     "DOMAIN,integralwall.baidu.com,REJECT",
-    "DOMAIN,snssdk.huazhu.com,REJECT",
     "DOMAIN,schedule-media.immomo.com,REJECT"
   ],
   "MANDATORY_MITM_DOMAINS": [
@@ -969,7 +971,11 @@
     "e-u1.ubixioe.com",
     "sensors.umetrip.com.cn",
     "ad-screen-api.immomo.com",
-    "cosmos-compass-api.immomo.com"
+    "cosmos-compass-api.immomo.com",
+    "ad.12306.cn",
+    "snssdk.huazhu.com",
+    "api-access.pangolin-sdk-toutiao-b.com",
+    "log-api.pangolin-sdk-toutiao-b.com"
   ],
   "CUSTOM_REWRITE_RULES": [
     {
@@ -979,7 +985,7 @@
       "app": "极光推送"
     },
     {
-      "text": "^https?:\\/\\/log-api\\.pangolin-sdk-toutiao\\.com reject-200",
+      "text": "^https?:\\/\\/log-api\\.pangolin-sdk-toutiao\\.com reject-dict",
       "pattern": "^https?:\\/\\/log-api\\.pangolin-sdk-toutiao\\.com",
       "priority": 0,
       "app": "字节穿山甲"
@@ -1687,13 +1693,13 @@
       "app": "航旅纵横"
     },
     {
-      "text": "^https?:\\/\\/ad-screen-api\\.immomo\\.com reject-200",
+      "text": "^https?:\\/\\/ad-screen-api\\.immomo\\.com reject-dict",
       "pattern": "^https?:\\/\\/ad-screen-api\\.immomo\\.com",
       "priority": 0,
       "app": "探探"
     },
     {
-      "text": "^https?:\\/\\/cosmos-compass-api\\.immomo\\.com reject-200",
+      "text": "^https?:\\/\\/cosmos-compass-api\\.immomo\\.com reject-dict",
       "pattern": "^https?:\\/\\/cosmos-compass-api\\.immomo\\.com",
       "priority": 0,
       "app": "探探"
@@ -1703,6 +1709,24 @@
       "pattern": "^http:\\/\\/df\\.tanx\\.com\\/spf",
       "priority": 0,
       "app": "探探"
+    },
+    {
+      "text": "^https?:\\/\\/ad\\.12306\\.cn reject-200",
+      "pattern": "^https?:\\/\\/ad\\.12306\\.cn",
+      "priority": 0,
+      "app": "铁路12306"
+    },
+    {
+      "text": "^https?:\\/\\/snssdk\\.huazhu\\.com reject-200",
+      "pattern": "^https?:\\/\\/snssdk\\.huazhu\\.com",
+      "priority": 0,
+      "app": "华住会"
+    },
+    {
+      "text": "^https?:\\/\\/log-api\\.pangolin-sdk-toutiao-b\\.com reject-dict",
+      "pattern": "^https?:\\/\\/log-api\\.pangolin-sdk-toutiao-b\\.com",
+      "priority": 0,
+      "app": "字节穿山甲"
     }
   ]
 }

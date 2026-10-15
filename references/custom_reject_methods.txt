@@ -71,8 +71,8 @@ app-monitor-cn.doki.ren REJECT-200
 report.tantanapp.com REJECT-200
 sc-report.tantanapp.com REJECT-200
 log.ys7.com REJECT-200
-ad-screen-api.immomo.com REJECT-200
-cosmos-compass-api.immomo.com REJECT-200
+ad-screen-api.immomo.com REJECT-DICT
+cosmos-compass-api.immomo.com REJECT-DICT
 schedule-media.immomo.com REJECT
 
 # 美团 / 大众点评 前端监控与 Logan 日志 (REJECT-200 假响应防重试)
@@ -156,7 +156,7 @@ pgdt.gtimg.cn REJECT-200
 analytics.twitter.com REJECT
 sdk.e.qq.com REJECT-200
 s-gm.mmstat.com REJECT-200
-log-api.pangolin-sdk-toutiao.com REJECT-200
+log-api.pangolin-sdk-toutiao.com REJECT-DICT
 
 # 新增 广告联盟优雅假响应降温字典 (2026-10-13 优化)
 statisticslinks.com REJECT-200
@@ -178,4 +178,13 @@ inner-active.mobi REJECT
 mobilefuse.com REJECT
 tappx.com REJECT
 app-ads-services.com REJECT
+
+# 2026-10-15 穿山甲/探探/12306/DoubleClick 优雅降温防发热对齐
+doubleclick.net REJECT
+googlesyndication.com REJECT
+snssdk.huazhu.com REJECT-200
+ad.12306.cn REJECT-200
+log-api.pangolin-sdk-toutiao-b.com REJECT-DICT
+api-access.pangolin-sdk-toutiao-b.com REJECT-DICT
+api-access.pangolin-sdk-toutiao1.com REJECT-DICT
 
