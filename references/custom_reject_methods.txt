@@ -73,7 +73,6 @@ sc-report.tantanapp.com REJECT-200
 log.ys7.com REJECT-200
 ad-screen-api.immomo.com REJECT
 schedule-media.immomo.com REJECT
-tancdn.com REJECT
 
 # 美团 / 大众点评 前端监控与 Logan 日志 (REJECT-200 假响应防重试)
 metrics-picture.d.meituan.net REJECT-200

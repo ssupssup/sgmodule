@@ -844,8 +844,7 @@
     "DOMAIN,integralwall.baidu.com,REJECT",
     "DOMAIN,snssdk.huazhu.com,REJECT",
     "DOMAIN,ad-screen-api.immomo.com,REJECT",
-    "DOMAIN,schedule-media.immomo.com,REJECT",
-    "DOMAIN-SUFFIX,tancdn.com,REJECT"
+    "DOMAIN,schedule-media.immomo.com,REJECT"
   ],
   "MANDATORY_MITM_DOMAINS": [
     "adservice.sigmob.cn",
