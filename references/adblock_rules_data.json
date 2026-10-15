@@ -843,8 +843,9 @@
     "DOMAIN-SUFFIX,1rtb.net,REJECT",
     "DOMAIN,integralwall.baidu.com,REJECT",
     "DOMAIN,snssdk.huazhu.com,REJECT",
-    "DOMAIN,ad-screen-api.immomo.com,REJECT",
-    "DOMAIN,schedule-media.immomo.com,REJECT"
+    "DOMAIN,ad-screen-api.immomo.com,REJECT-200",
+    "DOMAIN,schedule-media.immomo.com,REJECT",
+    "DOMAIN,cosmos-compass-api.immomo.com,REJECT-200"
   ],
   "MANDATORY_MITM_DOMAINS": [
     "adservice.sigmob.cn",
@@ -968,7 +969,9 @@
     "dsp-creative.ubixioe.com",
     "adx-data-u1.ubixioe.com",
     "e-u1.ubixioe.com",
-    "sensors.umetrip.com.cn"
+    "sensors.umetrip.com.cn",
+    "ad-screen-api.immomo.com",
+    "cosmos-compass-api.immomo.com"
   ],
   "CUSTOM_REWRITE_RULES": [
     {
@@ -1684,6 +1687,24 @@
       "pattern": "^https?:\\/\\/sensors\\.umetrip\\.com\\.cn",
       "priority": 0,
       "app": "航旅纵横"
+    },
+    {
+      "text": "^https?:\\/\\/ad-screen-api\\.immomo\\.com reject-200",
+      "pattern": "^https?:\\/\\/ad-screen-api\\.immomo\\.com",
+      "priority": 0,
+      "app": "探探"
+    },
+    {
+      "text": "^https?:\\/\\/cosmos-compass-api\\.immomo\\.com reject-200",
+      "pattern": "^https?:\\/\\/cosmos-compass-api\\.immomo\\.com",
+      "priority": 0,
+      "app": "探探"
+    },
+    {
+      "text": "^http:\\/\\/df\\.tanx\\.com\\/spf reject-200",
+      "pattern": "^http:\\/\\/df\\.tanx\\.com\\/spf",
+      "priority": 0,
+      "app": "探探"
     }
   ]
 }

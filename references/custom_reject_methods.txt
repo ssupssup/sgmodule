@@ -71,7 +71,8 @@ app-monitor-cn.doki.ren REJECT-200
 report.tantanapp.com REJECT-200
 sc-report.tantanapp.com REJECT-200
 log.ys7.com REJECT-200
-ad-screen-api.immomo.com REJECT
+ad-screen-api.immomo.com REJECT-200
+cosmos-compass-api.immomo.com REJECT-200
 schedule-media.immomo.com REJECT
 
 # 美团 / 大众点评 前端监控与 Logan 日志 (REJECT-200 假响应防重试)
