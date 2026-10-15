@@ -764,7 +764,6 @@
     "DOMAIN,mllog.jd.com,REJECT-200",
     "DOMAIN,mobile.events.data.microsoft.com,REJECT-NO-DROP",
     "DOMAIN,res.mmstat.com,REJECT-NO-DROP",
-    "DOMAIN,sla-media.immomo.com,REJECT-NO-DROP",
     "DOMAIN,soul-ad.soulapp.cn,REJECT-NO-DROP",
     "DOMAIN,stats-ipv6.jpush.cn,REJECT-200",
     "DOMAIN,tracking.miui.com,REJECT-NO-DROP",
@@ -844,8 +843,7 @@
     "DOMAIN-SUFFIX,66mobi.com,REJECT",
     "DOMAIN-SUFFIX,yunxish.com,REJECT",
     "DOMAIN-SUFFIX,1rtb.net,REJECT",
-    "DOMAIN,integralwall.baidu.com,REJECT",
-    "DOMAIN,schedule-media.immomo.com,REJECT"
+    "DOMAIN,integralwall.baidu.com,REJECT"
   ],
   "MANDATORY_MITM_DOMAINS": [
     "adservice.sigmob.cn",
@@ -863,6 +861,8 @@
     "fep.hellogroup.com",
     "app-monitor-cn.hellogroup.com",
     "app-log.immomo.com",
+    "schedule-media.immomo.com",
+    "sla-media.immomo.com",
     "dnspod.meituan.httpdns.start.qcloud.com",
     "logs.amap.com",
     "dualstack-logs.amap.com",
@@ -1735,6 +1735,18 @@
       "pattern": "^https?:\\/\\/log-api\\.pangolin-sdk-toutiao-b\\.com",
       "priority": 0,
       "app": "字节穿山甲"
+    },
+    {
+      "text": "^https?:\\/\\/schedule-media\\.immomo\\.com reject-dict",
+      "pattern": "^https?:\\/\\/schedule-media\\.immomo\\.com",
+      "priority": 0,
+      "app": "探探"
+    },
+    {
+      "text": "^https?:\\/\\/sla-media\\.immomo\\.com reject-dict",
+      "pattern": "^https?:\\/\\/sla-media\\.immomo\\.com",
+      "priority": 0,
+      "app": "探探"
     }
   ]
 }

@@ -179,4 +179,6 @@ log-api.pangolin-sdk-toutiao-b.com
 api-access.pangolin-sdk-toutiao-b.com
 ef-dongfeng.tanx.com
 df.tanx.com
+schedule-media.immomo.com
+sla-media.immomo.com
 
