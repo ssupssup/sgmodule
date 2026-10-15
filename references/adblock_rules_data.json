@@ -843,9 +843,7 @@
     "DOMAIN-SUFFIX,1rtb.net,REJECT",
     "DOMAIN,integralwall.baidu.com,REJECT",
     "DOMAIN,snssdk.huazhu.com,REJECT",
-    "DOMAIN,ad-screen-api.immomo.com,REJECT-200",
-    "DOMAIN,schedule-media.immomo.com,REJECT",
-    "DOMAIN,cosmos-compass-api.immomo.com,REJECT-200"
+    "DOMAIN,schedule-media.immomo.com,REJECT"
   ],
   "MANDATORY_MITM_DOMAINS": [
     "adservice.sigmob.cn",

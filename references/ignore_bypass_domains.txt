@@ -119,6 +119,8 @@ sdktt.data.tianwenca.com
 sd-gl.xinqiucc.com
 cf-gl.qiezibenpao.com
 adip-api.immomo.com
+ad-screen-api.immomo.com
+cosmos-compass-api.immomo.com
 log.umsns.com
 stats.umsns.com
 utoken.umeng.com
