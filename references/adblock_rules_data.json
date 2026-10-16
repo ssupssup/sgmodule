@@ -832,7 +832,7 @@
     "DOMAIN,adsmind.gdtimg.com,REJECT-NO-DROP",
     "DOMAIN,log.umsns.com,REJECT-200",
     "DOMAIN,stats.umsns.com,REJECT-200",
-    "DOMAIN,rtbasia.datahubtrack.com,REJECT-DROP",
+    "DOMAIN,rtbasia.datahubtrack.com,REJECT",
     "DOMAIN-SUFFIX,advlion.com,REJECT-200",
     "DOMAIN-SUFFIX,statisticslinks.com,REJECT-200",
     "DOMAIN-SUFFIX,ubixioe.com,REJECT-200",
@@ -975,7 +975,9 @@
     "api-access.pangolin-sdk-toutiao-b.com",
     "log-api.pangolin-sdk-toutiao-b.com",
     "ef-dongfeng.tanx.com",
-    "df.tanx.com"
+    "df.tanx.com",
+    "api-access.pangolin-sdk-toutiao1.com",
+    "log-api.pangolin-sdk-toutiao1.com"
   ],
   "CUSTOM_REWRITE_RULES": [
     {
@@ -1745,6 +1747,12 @@
       "pattern": "^https?:\\/\\/sla-media\\.immomo\\.com",
       "priority": 0,
       "app": "探探"
+    },
+    {
+      "text": "^https?:\\/\\/log-api\\.pangolin-sdk-toutiao1\\.com reject-dict",
+      "pattern": "^https?:\\/\\/log-api\\.pangolin-sdk-toutiao1\\.com",
+      "priority": 0,
+      "app": "字节穿山甲"
     }
   ]
 }

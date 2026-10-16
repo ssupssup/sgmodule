@@ -181,4 +181,6 @@ ef-dongfeng.tanx.com
 df.tanx.com
 schedule-media.immomo.com
 sla-media.immomo.com
+api-access.pangolin-sdk-toutiao1.com
+log-api.pangolin-sdk-toutiao1.com
 

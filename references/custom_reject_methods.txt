@@ -122,7 +122,7 @@ clientlogdep.music.163.com REJECT-200
 fp-upload.dun.163.com REJECT-200
 
 # 其他通用追踪与打点
-rtbasia.datahubtrack.com REJECT-200
+rtbasia.datahubtrack.com REJECT
 pangolin-sdk REJECT-DICT
 
 # 阿里、极光、个推打点与日志 (REJECT-200 假响应诱导 SDK 深度休眠)
@@ -185,6 +185,7 @@ ad.12306.cn REJECT-200
 log-api.pangolin-sdk-toutiao-b.com REJECT-DICT
 api-access.pangolin-sdk-toutiao-b.com REJECT-DICT
 api-access.pangolin-sdk-toutiao1.com REJECT-DICT
+log-api.pangolin-sdk-toutiao1.com REJECT-DICT
 ef-dongfeng.tanx.com REJECT-DICT
 df.tanx.com REJECT-DICT
 
