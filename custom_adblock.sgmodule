@@ -1,6 +1,6 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-10-16 07:05:00 | Deep ad block & UI purification customized for user's installed apps.
-#!total=1274
+#!desc=最近更新: 2026-10-16 08:08:27 | Deep ad block & UI purification customized for user's installed apps.
+#!total=1276
 
 [Rule]
 # === LINE Notice Bar SafeFrame & Pubads PROXY Override (Top Priority) ===
@@ -28,8 +28,6 @@ DOMAIN,res.mmstat.com,REJECT-DROP
 DOMAIN-SUFFIX,doubleclick.net,REJECT
 DOMAIN-SUFFIX,googlesyndication.com,REJECT
 DOMAIN-SUFFIX,adservice.google.com,REJECT-DROP
-DOMAIN,ads.twitter.com,REJECT
-DOMAIN,ads-api.x.com,REJECT
 DOMAIN,analytics.twitter.com,REJECT
 DOMAIN-SUFFIX,inmobi.com,REJECT
 DOMAIN-SUFFIX,inmobi.cn,REJECT
@@ -56,26 +54,26 @@ DOMAIN,pangolin.zijieapi.com,REJECT-DROP
 DOMAIN,pangle.zijieapi.com,REJECT-DROP
 DOMAIN,wn.pos.baidu.com,REJECT-DROP
 DOMAIN,f10.baidu.com,REJECT-DROP
-AND,((protocol,udp),(dest-port,443),(domain-suffix,baidu.com)),REJECT-NO-DROP
-AND,((protocol,udp),(dest-port,443),(domain-suffix,baidupcs.com)),REJECT-NO-DROP
-AND,((protocol,udp),(dest-port,443),(domain-suffix,weibo.com)),REJECT-NO-DROP
-AND,((protocol,udp),(dest-port,443),(domain-suffix,weibo.cn)),REJECT-NO-DROP
-AND,((protocol,udp),(dest-port,443),(domain-suffix,gdt.qq.com)),REJECT-NO-DROP
-AND,((protocol,udp),(dest-port,443),(domain-suffix,ugdtimg.com)),REJECT-NO-DROP
-AND,((protocol,udp),(dest-port,443),(domain-suffix,pangle.io)),REJECT-NO-DROP
-AND,((protocol,udp),(dest-port,443),(domain-suffix,mobads.baidu.com)),REJECT-NO-DROP
-AND,((protocol,udp),(dest-port,443),(domain-suffix,bestwehotel.com)),REJECT-NO-DROP
-AND,((protocol,udp),(dest-port,443),(domain-suffix,feidee.com)),REJECT-NO-DROP
-AND,((protocol,udp),(dest-port,443),(domain-suffix,qingting.fm)),REJECT-NO-DROP
-AND,((protocol,udp),(dest-port,443),(domain-suffix,qingtingfm.com)),REJECT-NO-DROP
-AND,((protocol,udp),(dest-port,443),(domain-suffix,beizi.biz)),REJECT-NO-DROP
-AND,((protocol,udp),(dest-port,443),(domain-suffix,hubcloud.com.cn)),REJECT-NO-DROP
-AND,((protocol,udp),(dest-port,443),(domain-suffix,zztfly.com)),REJECT-NO-DROP
-AND,((protocol,udp),(dest-port,443),(domain-suffix,qtfm.cn)),REJECT-NO-DROP
-AND,((protocol,udp),(dest-port,443),(domain-suffix,sofire.baidu.com)),REJECT-NO-DROP
-AND,((protocol,udp),(dest-port,443),(domain-suffix,twimg.com)),REJECT-NO-DROP
-AND,((protocol,udp),(dest-port,443),(domain-suffix,twitter.com)),REJECT-NO-DROP
-AND,((protocol,udp),(dest-port,443),(domain-suffix,x.com)),REJECT-NO-DROP
+AND,((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN-SUFFIX,baidu.com)),REJECT-NO-DROP
+AND,((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN-SUFFIX,baidupcs.com)),REJECT-NO-DROP
+AND,((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN-SUFFIX,weibo.com)),REJECT-NO-DROP
+AND,((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN-SUFFIX,weibo.cn)),REJECT-NO-DROP
+AND,((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN-SUFFIX,gdt.qq.com)),REJECT-NO-DROP
+AND,((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN-SUFFIX,ugdtimg.com)),REJECT-NO-DROP
+AND,((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN-SUFFIX,pangle.io)),REJECT-NO-DROP
+AND,((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN-SUFFIX,mobads.baidu.com)),REJECT-NO-DROP
+AND,((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN-SUFFIX,bestwehotel.com)),REJECT-NO-DROP
+AND,((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN-SUFFIX,feidee.com)),REJECT-NO-DROP
+AND,((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN-SUFFIX,qingting.fm)),REJECT-NO-DROP
+AND,((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN-SUFFIX,qingtingfm.com)),REJECT-NO-DROP
+AND,((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN-SUFFIX,beizi.biz)),REJECT-NO-DROP
+AND,((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN-SUFFIX,hubcloud.com.cn)),REJECT-NO-DROP
+AND,((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN-SUFFIX,zztfly.com)),REJECT-NO-DROP
+AND,((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN-SUFFIX,qtfm.cn)),REJECT-NO-DROP
+AND,((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN-SUFFIX,sofire.baidu.com)),REJECT-NO-DROP
+AND,((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN-SUFFIX,twimg.com)),REJECT-NO-DROP
+AND,((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN-SUFFIX,twitter.com)),REJECT-NO-DROP
+AND,((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN-SUFFIX,x.com)),REJECT-NO-DROP
 DOMAIN,rtlog.snssdk.com,REJECT-TINYSINK
 DOMAIN,mcs.snssdk.com,REJECT-TINYSINK
 DOMAIN,dm.snssdk.com,REJECT-TINYSINK
@@ -110,10 +108,16 @@ DOMAIN-SUFFIX,66mobi.com,REJECT
 DOMAIN-SUFFIX,yunxish.com,REJECT
 DOMAIN-SUFFIX,1rtb.net,REJECT
 DOMAIN,integralwall.baidu.com,REJECT
-DOMAIN-SUFFIX,outlookads.live.com,REJECT
-DOMAIN-SUFFIX,a1.firefoxchina.cn,REJECT
-DOMAIN-SUFFIX,analytics.pointdrive.linkedin.com,REJECT-DROP
-DOMAIN-SUFFIX,ads.linkedin.com,REJECT
+DOMAIN,ad.snssdk.com,REJECT-NO-DROP
+DOMAIN,rtlog.snssdk.com,REJECT-NO-DROP
+DOMAIN,mcs.snssdk.com,REJECT-NO-DROP
+DOMAIN,dm.snssdk.com,REJECT-NO-DROP
+DOMAIN,dcs.ipinyou.com,REJECT-NO-DROP
+DOMAIN,crashlytics.com,REJECT-NO-DROP
+DOMAIN,app-measurement.com,REJECT-NO-DROP
+DOMAIN,adjust.com,REJECT-NO-DROP
+DOMAIN,appsflyersdk.com,REJECT-NO-DROP
+DOMAIN,app-analytics-services.com,REJECT-DROP
 # === Compiled App Rules ===
 DOMAIN,adstrategy.biz.weibo.com,REJECT
 DOMAIN-SUFFIX,api.touch-moblie.com,REJECT
@@ -150,8 +154,6 @@ DOMAIN,sensors-ab.bestwehotel.com,REJECT-DROP
 DOMAIN,iadmusicmat.music.126.net,REJECT-DROP
 DOMAIN,iadmatapk.nosdn.127.net,REJECT-DROP
 DOMAIN,retargeting.ctrip.com,REJECT-DROP
-DOMAIN,ads.twitter.com,REJECT
-DOMAIN,ads-api.x.com,REJECT
 DOMAIN,tanx.com,REJECT-DROP
 DOMAIN,adm.10jqka.com.cn,REJECT-DROP
 DOMAIN,fc-.cdn.bcebos.com,REJECT-DROP
