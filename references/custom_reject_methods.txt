@@ -189,3 +189,19 @@ log-api.pangolin-sdk-toutiao1.com REJECT-DICT
 ef-dongfeng.tanx.com REJECT-DICT
 df.tanx.com REJECT-DICT
 
+# 2026-10-17 广点通/航旅纵横/探探陌陌日志/穿山甲优雅降温与开屏封堵
+mi.gdt.qq.com REJECT-200
+v2mi.gdt.qq.com REJECT-200
+adsmind.ugdtimg.com REJECT-200
+umestartup.umetrip.com REJECT-200
+report.tantanapp.com REJECT-200
+api-log.immomo.com REJECT-200
+paas-push-api-log.immomo.com REJECT-200
+sf6-fe-tos.pglstatp-toutiao.com REJECT-200
+sf3-fe-tos.pglstatp-toutiao.com REJECT-200
+errnewlog.umeng.com REJECT-200
+xlog.jd.com REJECT
+zztfly.com REJECT
+adsmind.gdtimg.com REJECT
+pglstatp-toutiao.com REJECT-NO-DROP
+

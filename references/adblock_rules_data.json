@@ -663,10 +663,10 @@
     "DOMAIN,mllog.jd.com,REJECT-200",
     "DOMAIN,res.mmstat.com,REJECT-200",
     "# === 2026-08-11 防发热架构：纯界面广告黑洞 + 墨鱼 JSON 动态去广告 (0 遥测硬阻断，彻底消除发热) ===",
-    "DOMAIN,googleads.g.doubleclick.net,REJECT-DROP",
+    "DOMAIN,googleads.g.doubleclick.net,REJECT",
     "DOMAIN-SUFFIX,doubleclick.net,REJECT",
     "DOMAIN-SUFFIX,googlesyndication.com,REJECT",
-    "DOMAIN-SUFFIX,adservice.google.com,REJECT-DROP",
+    "DOMAIN-SUFFIX,adservice.google.com,REJECT",
     "DOMAIN,analytics.twitter.com,REJECT",
     "DOMAIN-SUFFIX,inmobi.com,REJECT",
     "DOMAIN-SUFFIX,inmobi.cn,REJECT",
@@ -679,14 +679,14 @@
     "DOMAIN-SUFFIX,pubnative.net,REJECT",
     "DOMAIN-SUFFIX,amazon-adsystem.com,REJECT",
     "DOMAIN-SUFFIX,app-ads-services.com,REJECT",
-    "DOMAIN-SUFFIX,applovin.com,REJECT-DROP",
-    "DOMAIN-SUFFIX,mintegral.com,REJECT-DROP",
-    "DOMAIN-SUFFIX,beizi.biz,REJECT-DROP",
-    "DOMAIN-SUFFIX,hubcloud.com.cn,REJECT-DROP",
-    "DOMAIN-SUFFIX,zztfly.com,REJECT-DROP",
+    "DOMAIN-SUFFIX,applovin.com,REJECT",
+    "DOMAIN-SUFFIX,mintegral.com,REJECT",
+    "DOMAIN-SUFFIX,beizi.biz,REJECT-NO-DROP",
+    "DOMAIN-SUFFIX,hubcloud.com.cn,REJECT-NO-DROP",
+    "DOMAIN-SUFFIX,zztfly.com,REJECT-NO-DROP",
     "DOMAIN-SUFFIX,tanx.com,REJECT-NO-DROP",
-    "DOMAIN-SUFFIX,adn-plus.com.cn,REJECT-DROP",
-    "DOMAIN-SUFFIX,ad-scope.com.cn,REJECT-DROP",
+    "DOMAIN-SUFFIX,adn-plus.com.cn,REJECT-NO-DROP",
+    "DOMAIN-SUFFIX,ad-scope.com.cn,REJECT-NO-DROP",
     "DOMAIN-SUFFIX,e.qq.com,REJECT-200",
     "DOMAIN-KEYWORD,gdt.qq.com,REJECT-200",
     "DOMAIN,toblog.ctobsnssdk.com,REJECT-200",
@@ -824,7 +824,7 @@
     "DOMAIN,paybiz2kfk.dreport.meituan.net,REJECT-DROP",
     "DOMAIN,prism-report-knb.dreport.meituan.net,REJECT-DROP",
     "DOMAIN,analytics.meituan.net,REJECT-DROP",
-    "DOMAIN,xlog.jd.com,REJECT-200",
+    "DOMAIN,xlog.jd.com,REJECT-NO-DROP",
     "DOMAIN,udataresys-log.nie.netease.com,REJECT-DROP",
     "DOMAIN,clientlogsf.music.163.com,REJECT-DROP",
     "DOMAIN,clientlogdep.music.163.com,REJECT-DROP",
@@ -977,7 +977,15 @@
     "ef-dongfeng.tanx.com",
     "df.tanx.com",
     "api-access.pangolin-sdk-toutiao1.com",
-    "log-api.pangolin-sdk-toutiao1.com"
+    "log-api.pangolin-sdk-toutiao1.com",
+    "mi.gdt.qq.com",
+    "v2mi.gdt.qq.com",
+    "adsmind.ugdtimg.com",
+    "umestartup.umetrip.com",
+    "report.tantanapp.com",
+    "api-log.immomo.com",
+    "paas-push-api-log.immomo.com",
+    "errnewlog.umeng.com"
   ],
   "CUSTOM_REWRITE_RULES": [
     {
@@ -1753,6 +1761,54 @@
       "pattern": "^https?:\\/\\/log-api\\.pangolin-sdk-toutiao1\\.com",
       "priority": 0,
       "app": "字节穿山甲"
+    },
+    {
+      "text": "^https?:\\/\\/mi\\.gdt\\.qq\\.com reject-200",
+      "pattern": "^https?:\\/\\/mi\\.gdt\\.qq\\.com",
+      "priority": 0,
+      "app": "腾讯广点通"
+    },
+    {
+      "text": "^https?:\\/\\/v2mi\\.gdt\\.qq\\.com reject-200",
+      "pattern": "^https?:\\/\\/v2mi\\.gdt\\.qq\\.com",
+      "priority": 0,
+      "app": "腾讯广点通"
+    },
+    {
+      "text": "^https?:\\/\\/adsmind\\.ugdtimg\\.com reject-200",
+      "pattern": "^https?:\\/\\/adsmind\\.ugdtimg\\.com",
+      "priority": 0,
+      "app": "腾讯广点通"
+    },
+    {
+      "text": "^https?:\\/\\/umestartup\\.umetrip\\.com reject-200",
+      "pattern": "^https?:\\/\\/umestartup\\.umetrip\\.com",
+      "priority": 0,
+      "app": "航旅纵横"
+    },
+    {
+      "text": "^https?:\\/\\/report\\.tantanapp\\.com reject-200",
+      "pattern": "^https?:\\/\\/report\\.tantanapp\\.com",
+      "priority": 0,
+      "app": "探探"
+    },
+    {
+      "text": "^https?:\\/\\/api-log\\.immomo\\.com reject-200",
+      "pattern": "^https?:\\/\\/api-log\\.immomo\\.com",
+      "priority": 0,
+      "app": "陌陌"
+    },
+    {
+      "text": "^https?:\\/\\/paas-push-api-log\\.immomo\\.com reject-200",
+      "pattern": "^https?:\\/\\/paas-push-api-log\\.immomo\\.com",
+      "priority": 0,
+      "app": "陌陌"
+    },
+    {
+      "text": "^https?:\\/\\/errnewlog\\.umeng\\.com reject-200",
+      "pattern": "^https?:\\/\\/errnewlog\\.umeng\\.com",
+      "priority": 0,
+      "app": "友盟"
     }
   ]
 }

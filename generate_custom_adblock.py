@@ -103,18 +103,12 @@ def transform_rule_with_three_layers(rule_line):
         if domain_upper == c_domain or domain_upper.endswith("." + c_domain):
             safe_policy = c_policy
             if safe_policy in ["REJECT-200", "REJECT-DICT", "REJECT-ARRAY"]:
-                safe_policy = "REJECT-DROP"
+                safe_policy = "REJECT"
             return f"{rule_type},{domain},{safe_policy}"
-
-    # 第三层：启发式日志/上报 API 自动分流为 REJECT-DROP (防 [Rule] 段非标 Policy 退化为 TCP RST 连发发热)
-    domain_lower = domain.lower()
-    if target_policy in ["REJECT", "REJECT-NO-DROP"]:
-        if any(kw in domain_lower for kw in ["adlog", "analytics", "telemetry", "track", "stat"]):
-            return f"{rule_type},{domain},REJECT-DROP"
 
     # 防非标 Policy 泄漏到 [Rule] 段
     if target_policy in ["REJECT-200", "REJECT-DICT", "REJECT-ARRAY"]:
-        return f"{rule_type},{domain},REJECT-DROP"
+        return f"{rule_type},{domain},REJECT"
 
     return rule_line
 
@@ -1014,7 +1008,7 @@ def generate():
     beijing_time_str = datetime.now(timezone(timedelta(hours=8))).strftime('%Y-%m-%d %H:%M:%S')
     
     BYPASS_RULES = []
-    _filter_domains = {"pglstatp-toutiao.com", "mask.icloud.com", "mask-api.icloud.com", "mask-h2.icloud.com", "metrics.icloud.com"}
+    _filter_domains = {"mask.icloud.com", "mask-api.icloud.com", "mask-h2.icloud.com", "metrics.icloud.com"}
     
     transformed_sdk = []
     for r in SDK_BLOCK_RULES:

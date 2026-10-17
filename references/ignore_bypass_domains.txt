@@ -184,3 +184,13 @@ sla-media.immomo.com
 api-access.pangolin-sdk-toutiao1.com
 log-api.pangolin-sdk-toutiao1.com
 
+# 新增广点通/航旅纵横开屏/探探陌陌日志擦除走优雅假响应 (2026-10-17 优化)
+mi.gdt.qq.com
+v2mi.gdt.qq.com
+adsmind.ugdtimg.com
+umestartup.umetrip.com
+report.tantanapp.com
+api-log.immomo.com
+paas-push-api-log.immomo.com
+errnewlog.umeng.com
+
