@@ -205,3 +205,12 @@ zztfly.com REJECT
 adsmind.gdtimg.com REJECT
 pglstatp-toutiao.com REJECT-NO-DROP
 
+# 2026-10-19 穿山甲控温/广点通与火山引擎打点封堵/Sigmob秒断 (方案B)
+api-access.pangolin-sdk-toutiao.com REJECT-DICT
+sigmob.cn REJECT
+xs.gdt.qq.com REJECT-200
+ii.gdt.qq.com REJECT-200
+rpt.gdt.qq.com REJECT-200
+win.gdt.qq.com REJECT-200
+toblog.ctobsnssdk.com REJECT-200
+

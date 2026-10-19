@@ -193,4 +193,5 @@ report.tantanapp.com
 api-log.immomo.com
 paas-push-api-log.immomo.com
 errnewlog.umeng.com
+api-access.pangolin-sdk-toutiao.com
 

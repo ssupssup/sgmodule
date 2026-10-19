@@ -841,7 +841,8 @@
     "DOMAIN-SUFFIX,66mobi.com,REJECT",
     "DOMAIN-SUFFIX,yunxish.com,REJECT",
     "DOMAIN-SUFFIX,1rtb.net,REJECT",
-    "DOMAIN,integralwall.baidu.com,REJECT"
+    "DOMAIN,integralwall.baidu.com,REJECT",
+    "DOMAIN-SUFFIX,sigmob.cn,REJECT"
   ],
   "MANDATORY_MITM_DOMAINS": [
     "adservice.sigmob.cn",
@@ -985,7 +986,13 @@
     "report.tantanapp.com",
     "api-log.immomo.com",
     "paas-push-api-log.immomo.com",
-    "errnewlog.umeng.com"
+    "errnewlog.umeng.com",
+    "api-access.pangolin-sdk-toutiao.com",
+    "xs.gdt.qq.com",
+    "ii.gdt.qq.com",
+    "rpt.gdt.qq.com",
+    "win.gdt.qq.com",
+    "toblog.ctobsnssdk.com"
   ],
   "CUSTOM_REWRITE_RULES": [
     {
@@ -1809,6 +1816,42 @@
       "pattern": "^https?:\\/\\/errnewlog\\.umeng\\.com",
       "priority": 0,
       "app": "友盟"
+    },
+    {
+      "text": "^https?:\\/\\/api-access\\.pangolin-sdk-toutiao.*\\.com\\/api\\/ad reject-dict",
+      "pattern": "^https?:\\/\\/api-access\\.pangolin-sdk-toutiao.*\\.com\\/api\\/ad",
+      "priority": 0,
+      "app": "字节穿山甲"
+    },
+    {
+      "text": "^https?:\\/\\/xs\\.gdt\\.qq\\.com reject-200",
+      "pattern": "^https?:\\/\\/xs\\.gdt\\.qq\\.com",
+      "priority": 0,
+      "app": "腾讯广点通"
+    },
+    {
+      "text": "^https?:\\/\\/ii\\.gdt\\.qq\\.com reject-200",
+      "pattern": "^https?:\\/\\/ii\\.gdt\\.qq\\.com",
+      "priority": 0,
+      "app": "腾讯广点通"
+    },
+    {
+      "text": "^https?:\\/\\/rpt\\.gdt\\.qq\\.com reject-200",
+      "pattern": "^https?:\\/\\/rpt\\.gdt\\.qq\\.com",
+      "priority": 0,
+      "app": "腾讯广点通"
+    },
+    {
+      "text": "^https?:\\/\\/win\\.gdt\\.qq\\.com reject-200",
+      "pattern": "^https?:\\/\\/win\\.gdt\\.qq\\.com",
+      "priority": 0,
+      "app": "腾讯广点通"
+    },
+    {
+      "text": "^https?:\\/\\/toblog\\.ctobsnssdk\\.com reject-200",
+      "pattern": "^https?:\\/\\/toblog\\.ctobsnssdk\\.com",
+      "priority": 0,
+      "app": "字节跳动"
     }
   ]
 }
