@@ -1859,13 +1859,13 @@
       "text": "^https?:\\/\\/tobapplog\\.volceapplog\\.com reject-200",
       "pattern": "^https?:\\/\\/tobapplog\\.volceapplog\\.com",
       "priority": 0,
-      "app": "火山引擎"
+      "app": "字节火山引擎"
     },
     {
       "text": "^https?:\\/\\/m\\.beacon\\.sina\\.com\\.cn reject-200",
       "pattern": "^https?:\\/\\/m\\.beacon\\.sina\\.com\\.cn",
       "priority": 0,
-      "app": "新浪微博"
+      "app": "天气通Pro"
     }
   ]
 }
