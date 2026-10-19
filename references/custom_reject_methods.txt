@@ -214,3 +214,9 @@ rpt.gdt.qq.com REJECT-200
 win.gdt.qq.com REJECT-200
 toblog.ctobsnssdk.com REJECT-200
 
+# 2026-10-19 晚间抓包优化 (Tobid/初心互动/火山引擎打点/新浪Beacon)
+tobapplog.volceapplog.com REJECT-200
+m.beacon.sina.com.cn REJECT-200
+tobidad.cn REJECT
+chuxinhudong.com REJECT
+
