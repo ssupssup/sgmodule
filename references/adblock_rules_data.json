@@ -843,7 +843,9 @@
     "DOMAIN,integralwall.baidu.com,REJECT",
     "DOMAIN-SUFFIX,sigmob.cn,REJECT",
     "DOMAIN-SUFFIX,tobidad.cn,REJECT",
-    "DOMAIN-SUFFIX,chuxinhudong.com,REJECT"
+    "DOMAIN-SUFFIX,chuxinhudong.com,REJECT",
+    "DOMAIN-SUFFIX,appsflyersdk.com,REJECT",
+    "DOMAIN-SUFFIX,appsflyer.com,REJECT"
   ],
   "MANDATORY_MITM_DOMAINS": [
     "adservice.sigmob.cn",
@@ -994,7 +996,9 @@
     "rpt.gdt.qq.com",
     "win.gdt.qq.com",
     "toblog.ctobsnssdk.com",
-    "tobapplog.volceapplog.com"
+    "tobapplog.volceapplog.com",
+    "apmplus.volces.com",
+    "rtlog3-applog-hl.amemv.com"
   ],
   "CUSTOM_REWRITE_RULES": [
     {
@@ -1866,6 +1870,18 @@
       "pattern": "^https?:\\/\\/m\\.beacon\\.sina\\.com\\.cn",
       "priority": 0,
       "app": "天气通Pro"
+    },
+    {
+      "text": "^https?:\\/\\/apmplus\\.volces\\.com reject-200",
+      "pattern": "^https?:\\/\\/apmplus\\.volces\\.com",
+      "priority": 0,
+      "app": "字节火山引擎"
+    },
+    {
+      "text": "^https?:\\/\\/rtlog3-applog-hl\\.amemv\\.com reject-200",
+      "pattern": "^https?:\\/\\/rtlog3-applog-hl\\.amemv\\.com",
+      "priority": 0,
+      "app": "字节跳动"
     }
   ]
 }

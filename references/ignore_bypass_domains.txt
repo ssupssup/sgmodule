@@ -195,3 +195,7 @@ paas-push-api-log.immomo.com
 errnewlog.umeng.com
 api-access.pangolin-sdk-toutiao.com
 
+# 2026-10-20 抓包优化 (火山APM与字节实时打点规则擦除走假响应)
+apmplus.volces.com
+rtlog3-applog-hl.amemv.com
+
