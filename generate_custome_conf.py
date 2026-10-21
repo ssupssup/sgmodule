@@ -203,13 +203,13 @@ def process_and_align_conf(lines, remove_set, disable_set, prepend_proxy_rules, 
             
         # 1.5 动态拦截并在 skip-proxy 中注入 App Store 核心下载 CDN 旁路 (解决全部更新排队超时弹回)
         if stripped.startswith("skip-proxy ="):
-            skip_line = stripped
-            extra_skips = ["*.aaplimg.com", "*.mzstatic.com", "phobos.apple.com", "appldnld.apple.com"]
+            existing_skips = [s.strip() for s in stripped.split("=", 1)[1].split(",") if s.strip()]
+            extra_skips = ["*.aaplimg.com", "*.mzstatic.com", "phobos.apple.com", "appldnld.apple.com", "itunes.apple.com", "*.itunes.apple.com", "apps.apple.com", "*.apps.apple.com"]
             for eskip in extra_skips:
-                if eskip not in skip_line:
-                    skip_line += f", {eskip}"
+                if eskip not in existing_skips:
+                    existing_skips.append(eskip)
             aligned_lines.append("# 🟢 注入 App Store 核心安装包下载 CDN 原生旁路 (0 TUN/DoH 延迟，杜绝批量更新超时弹回)")
-            aligned_lines.append(skip_line)
+            aligned_lines.append("skip-proxy = " + ", ".join(existing_skips))
             continue
 
         # 2. 精确替换第 11 行左右的 dns-server 并融入 update-url 及防擦除时间戳
