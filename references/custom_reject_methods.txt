@@ -62,14 +62,16 @@ apd-pcdnwxlogin.teg.tencent-cloud.net REJECT-200
 shreport.weixin.qq.com REJECT-200
 adsmind.gdtimg.com REJECT-200
 
-# 陌陌 / 探探 / 萤石云 广告调度、后台日志与监控打点 (REJECT-200 假响应防重试)
+# 陌陌 / 探探 / 萤石云 广告调度、后台日志与监控打点 (REJECT-DICT 假空 JSON 防死循环重传)
+cm.immomo.com REJECT-DICT
+api-log.immomo.com REJECT-DICT
 adip-api.immomo.com REJECT-200
 app-log.immomo.com REJECT-200
-app-monitor-cn.hellogroup.com REJECT-200
-fep.hellogroup.com REJECT-200
-app-monitor-cn.doki.ren REJECT-200
-report.tantanapp.com REJECT-200
-sc-report.tantanapp.com REJECT-200
+app-monitor-cn.hellogroup.com REJECT-DICT
+fep.hellogroup.com REJECT-DICT
+app-monitor-cn.doki.ren REJECT-DICT
+report.tantanapp.com REJECT-DICT
+sc-report.tantanapp.com REJECT-DICT
 log.ys7.com REJECT-200
 ad-screen-api.immomo.com REJECT-DICT
 cosmos-compass-api.immomo.com REJECT-DICT
@@ -145,7 +147,7 @@ afd.baidu.com REJECT-200
 afdconf.baidu.com REJECT-200
 mobads-pre-config.cdn.bcebos.com REJECT-200
 googleads.g.doubleclick.net REJECT-200
-app-monitor-cn.doki.ren REJECT-200
+app-monitor-cn.doki.ren REJECT-DICT
 sdkquic.e.qq.com REJECT-200
 io-sm-log.tantanapp.com REJECT-200
 client-monitor.tantanapp.com REJECT-200
@@ -194,8 +196,8 @@ mi.gdt.qq.com REJECT-200
 v2mi.gdt.qq.com REJECT-200
 adsmind.ugdtimg.com REJECT-200
 umestartup.umetrip.com REJECT-200
-report.tantanapp.com REJECT-200
-api-log.immomo.com REJECT-200
+report.tantanapp.com REJECT-DICT
+api-log.immomo.com REJECT-DICT
 paas-push-api-log.immomo.com REJECT-200
 sf6-fe-tos.pglstatp-toutiao.com REJECT-200
 sf3-fe-tos.pglstatp-toutiao.com REJECT-200

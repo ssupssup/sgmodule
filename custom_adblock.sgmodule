@@ -1,6 +1,6 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-10-21 11:34:47 | Deep ad block & UI purification customized for user's installed apps.
-#!total=1295
+#!desc=最近更新: 2026-10-21 19:39:48 | Deep ad block & UI purification customized for user's installed apps.
+#!total=1301
 
 [Rule]
 # === LINE Notice Bar SafeFrame & Pubads PROXY Override (Top Priority) ===
@@ -114,10 +114,16 @@ DOMAIN-SUFFIX,tobidad.cn,REJECT
 DOMAIN-SUFFIX,chuxinhudong.com,REJECT
 DOMAIN-SUFFIX,appsflyersdk.com,REJECT
 DOMAIN-SUFFIX,appsflyer.com,REJECT
-DOMAIN-SUFFIX,outlookads.live.com,REJECT
-DOMAIN-SUFFIX,ads.linkedin.com,REJECT
-DOMAIN-SUFFIX,a1.firefoxchina.cn,REJECT
-DOMAIN-SUFFIX,analytics.pointdrive.linkedin.com,REJECT
+DOMAIN,ad.snssdk.com,REJECT-NO-DROP
+DOMAIN,rtlog.snssdk.com,REJECT-NO-DROP
+DOMAIN,mcs.snssdk.com,REJECT-NO-DROP
+DOMAIN,dm.snssdk.com,REJECT-NO-DROP
+DOMAIN,dcs.ipinyou.com,REJECT-NO-DROP
+DOMAIN,crashlytics.com,REJECT-NO-DROP
+DOMAIN,app-measurement.com,REJECT-NO-DROP
+DOMAIN,adjust.com,REJECT-NO-DROP
+DOMAIN,appsflyersdk.com,REJECT
+DOMAIN,app-analytics-services.com,REJECT
 # === Compiled App Rules ===
 DOMAIN,adstrategy.biz.weibo.com,REJECT
 DOMAIN-SUFFIX,api.touch-moblie.com,REJECT
@@ -294,9 +300,9 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/apd-pcdnwxlogin\.teg\.tencent-cloud\.net reject-200
 ^https?:\/\/ads5-normal-hl\.zijieapi\.com reject-200
 ^https?:\/\/ad\.zhuanzhuan\.com reject-200
-^https?:\/\/cm\.immomo\.com reject-200
-^https?:\/\/fep\.hellogroup\.com reject-200
-^https?:\/\/app-monitor-cn\.hellogroup\.com reject-200
+^https?:\/\/cm\.immomo\.com reject-dict
+^https?:\/\/fep\.hellogroup\.com reject-dict
+^https?:\/\/app-monitor-cn\.hellogroup\.com reject-dict
 ^https?:\/\/app-log\.immomo\.com reject-200
 ^https?:\/\/logs\.amap\.com reject-200
 ^https?:\/\/dualstack-logs\.amap\.com reject-200
@@ -339,7 +345,7 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/tangram\.e\.qq\.com reject-200
 ^https?:\/\/sdkreport\.e\.qq\.com reject-200
 ^https?:\/\/log\.snssdk\.com reject-200
-^https?:\/\/sc-report\.tantanapp\.com reject-200
+^https?:\/\/sc-report\.tantanapp\.com reject-dict
 ^https?:\/\/abtest\.tantanapp\.com reject-200
 ^https?:\/\/app-log-lab\.tantanapp\.com reject-200
 ^https?:\/\/snowflake\.qq\.com reject-200
@@ -372,7 +378,7 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/afdconf\.baidu\.com reject-200
 ^https?:\/\/mobads-pre-config\.cdn\.bcebos\.com reject-200
 ^https?:\/\/googleads\.g\.doubleclick\.net reject-200
-^https?:\/\/app-monitor-cn\.doki\.ren reject-200
+^https?:\/\/app-monitor-cn\.doki\.ren reject-dict
 ^https?:\/\/sdkquic\.e\.qq\.com reject-200
 ^https?:\/\/io-sm-log\.tantanapp\.com reject-200
 ^https?:\/\/client-monitor\.tantanapp\.com reject-200
@@ -399,8 +405,8 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/v2mi\.gdt\.qq\.com reject-200
 ^https?:\/\/adsmind\.ugdtimg\.com reject-200
 ^https?:\/\/umestartup\.umetrip\.com reject-200
-^https?:\/\/report\.tantanapp\.com reject-200
-^https?:\/\/api-log\.immomo\.com reject-200
+^https?:\/\/report\.tantanapp\.com reject-dict
+^https?:\/\/api-log\.immomo\.com reject-dict
 ^https?:\/\/paas-push-api-log\.immomo\.com reject-200
 ^https?:\/\/errnewlog\.umeng\.com reject-200
 ^https?:\/\/api-access\.pangolin-sdk-toutiao.*\.com\/api\/ad reject-dict

@@ -1164,19 +1164,19 @@
       "app": "通用广告SDK"
     },
     {
-      "text": "^https?:\\/\\/cm\\.immomo\\.com reject-200",
+      "text": "^https?:\\/\\/cm\\.immomo\\.com reject-dict",
       "pattern": "^https?:\\/\\/cm\\.immomo\\.com",
       "priority": 0,
       "app": "MOMO陌陌"
     },
     {
-      "text": "^https?:\\/\\/fep\\.hellogroup\\.com reject-200",
+      "text": "^https?:\\/\\/fep\\.hellogroup\\.com reject-dict",
       "pattern": "^https?:\\/\\/fep\\.hellogroup\\.com",
       "priority": 0,
       "app": "MOMO陌陌"
     },
     {
-      "text": "^https?:\\/\\/app-monitor-cn\\.hellogroup\\.com reject-200",
+      "text": "^https?:\\/\\/app-monitor-cn\\.hellogroup\\.com reject-dict",
       "pattern": "^https?:\\/\\/app-monitor-cn\\.hellogroup\\.com",
       "priority": 0,
       "app": "MOMO陌陌"
@@ -1440,7 +1440,7 @@
       "app": "字节火山引擎"
     },
     {
-      "text": "^https?:\\/\\/sc-report\\.tantanapp\\.com reject-200",
+      "text": "^https?:\\/\\/sc-report\\.tantanapp\\.com reject-dict",
       "pattern": "^https?:\\/\\/sc-report\\.tantanapp\\.com",
       "priority": 0,
       "app": "探探"
@@ -1638,7 +1638,7 @@
       "app": "通用广告SDK"
     },
     {
-      "text": "^https?:\\/\\/app-monitor-cn\\.doki\\.ren reject-200",
+      "text": "^https?:\\/\\/app-monitor-cn\\.doki\\.ren reject-dict",
       "pattern": "^https?:\\/\\/app-monitor-cn\\.doki\\.ren",
       "priority": 0,
       "app": "通用广告SDK"
@@ -1800,13 +1800,13 @@
       "app": "航旅纵横"
     },
     {
-      "text": "^https?:\\/\\/report\\.tantanapp\\.com reject-200",
+      "text": "^https?:\\/\\/report\\.tantanapp\\.com reject-dict",
       "pattern": "^https?:\\/\\/report\\.tantanapp\\.com",
       "priority": 0,
       "app": "探探"
     },
     {
-      "text": "^https?:\\/\\/api-log\\.immomo\\.com reject-200",
+      "text": "^https?:\\/\\/api-log\\.immomo\\.com reject-dict",
       "pattern": "^https?:\\/\\/api-log\\.immomo\\.com",
       "priority": 0,
       "app": "陌陌"
