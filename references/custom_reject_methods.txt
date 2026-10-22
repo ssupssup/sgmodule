@@ -24,7 +24,7 @@ tnc0-aliec2.zijieapi.com REJECT-200
 tnc0-alisc1.zijieapi.com REJECT-200
 rtlog3-applog-hl.amemv.com REJECT-200
 px.effirst.com REJECT-200
-klink.volceapplog.com REJECT-200
+klink.volceapplog.com REJECT-DICT
 toblog.volceapplog.com REJECT-200
 log-report.rtc.volcvideo.com REJECT-200
 lf-leads-fe-scm.bytecdn.com REJECT-200
@@ -78,17 +78,17 @@ cosmos-compass-api.immomo.com REJECT-DICT
 schedule-media.immomo.com REJECT-DICT
 sla-media.immomo.com REJECT-DICT
 
-# 美团 / 大众点评 前端监控与 Logan 日志 (REJECT-200 假响应防重试)
+# 美团 / 大众点评 前端监控与 Logan 日志 (升级为 REJECT-DICT 假空 JSON 防死循环重传)
 metrics-picture.d.meituan.net REJECT-200
-al-log.d.meituan.net REJECT-200
-data-sdk-uuid-log.d.meituan.net REJECT-200
-logan-rtl.dreport.meituan.net REJECT-200
-o1.d.meituan.net REJECT-200
-paybiz2kfk.dreport.meituan.net REJECT-200
-prism-report-knb.dreport.meituan.net REJECT-200
-analytics.meituan.net REJECT-200
-maplocatesdksnapshot.d.meituan.net REJECT-200
-dreport.meituan.net REJECT-200
+al-log.d.meituan.net REJECT-DICT
+data-sdk-uuid-log.d.meituan.net REJECT-DICT
+logan-rtl.dreport.meituan.net REJECT-DICT
+o1.d.meituan.net REJECT-DICT
+paybiz2kfk.dreport.meituan.net REJECT-DICT
+prism-report-knb.dreport.meituan.net REJECT-DICT
+analytics.meituan.net REJECT-DICT
+dreport.meituan.net REJECT-DICT
+route-stats.d.meituan.net REJECT-DICT
 catdot.dianping.com REJECT-200
 
 # 京东 埋点、反作弊、设备指纹与 APM 性能监控 (REJECT-200 假响应清空本地发送队列)
@@ -222,8 +222,9 @@ m.beacon.sina.com.cn REJECT-200
 tobidad.cn REJECT
 chuxinhudong.com REJECT
 
-# 2026-10-20 抓包优化 (火山APM/字节实时打点/AppsFlyer泛阻断)
-apmplus.volces.com REJECT-200
+# 2026-10-20 抓包优化 (火山APM/字节实时打点/AppsFlyer泛阻断，升级 REJECT-DICT 防发热)
+apmplus.volces.com REJECT-DICT
+stat.youpin.mi.com REJECT-DICT
 rtlog3-applog-hl.amemv.com REJECT-200
 appsflyersdk.com REJECT
 appsflyer.com REJECT
