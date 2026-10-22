@@ -25,8 +25,8 @@ tnc0-alisc1.zijieapi.com REJECT-200
 rtlog3-applog-hl.amemv.com REJECT-200
 px.effirst.com REJECT-200
 klink.volceapplog.com REJECT-DICT
-toblog.volceapplog.com REJECT-200
-log-report.rtc.volcvideo.com REJECT-200
+toblog.volceapplog.com REJECT-DICT
+log-report.rtc.volcvideo.com REJECT-DICT
 lf-leads-fe-scm.bytecdn.com REJECT-200
 
 # 字节穿山甲广告 SDK (假 HTTP 200 假响应防发热)
@@ -65,8 +65,8 @@ adsmind.gdtimg.com REJECT-200
 # 陌陌 / 探探 / 萤石云 广告调度、后台日志与监控打点 (REJECT-DICT 假空 JSON 防死循环重传)
 cm.immomo.com REJECT-DICT
 api-log.immomo.com REJECT-DICT
-adip-api.immomo.com REJECT-200
-app-log.immomo.com REJECT-200
+adip-api.immomo.com REJECT-DICT
+app-log.immomo.com REJECT-DICT
 app-monitor-cn.hellogroup.com REJECT-DICT
 fep.hellogroup.com REJECT-DICT
 app-monitor-cn.doki.ren REJECT-DICT
@@ -96,10 +96,10 @@ mars.jd.com REJECT-200
 anti-sdk-report.m.jd.com REJECT-200
 sdkfp.jd.com REJECT-200
 anti-sdk-ccs-pre.m.jd.com REJECT-200
-perf.m.jd.com REJECT-200
+perf.m.jd.com REJECT-DICT
 device-security-url.jd.com REJECT-200
 h5speed.m.jd.com REJECT-200
-uranus.jd.com REJECT-200
+uranus.jd.com REJECT-DICT
 cactus.jd.com REJECT-200
 xlog.jd.com REJECT-200
 
@@ -149,12 +149,12 @@ mobads-pre-config.cdn.bcebos.com REJECT-200
 googleads.g.doubleclick.net REJECT-200
 app-monitor-cn.doki.ren REJECT-DICT
 sdkquic.e.qq.com REJECT-200
-io-sm-log.tantanapp.com REJECT-200
-client-monitor.tantanapp.com REJECT-200
+io-sm-log.tantanapp.com REJECT-DICT
+client-monitor.tantanapp.com REJECT-DICT
 analytics.umetrip.com REJECT-200
 pgdt.ugdtimg.com REJECT-200
 
-mllog.jd.com REJECT-200
+mllog.jd.com REJECT-DICT
 pgdt.gtimg.cn REJECT-200
 analytics.twitter.com REJECT
 sdk.e.qq.com REJECT-200
@@ -198,7 +198,7 @@ adsmind.ugdtimg.com REJECT-200
 umestartup.umetrip.com REJECT-200
 report.tantanapp.com REJECT-DICT
 api-log.immomo.com REJECT-DICT
-paas-push-api-log.immomo.com REJECT-200
+paas-push-api-log.immomo.com REJECT-DICT
 sf6-fe-tos.pglstatp-toutiao.com REJECT-200
 sf3-fe-tos.pglstatp-toutiao.com REJECT-200
 errnewlog.umeng.com REJECT-200
@@ -214,10 +214,10 @@ xs.gdt.qq.com REJECT-200
 ii.gdt.qq.com REJECT-200
 rpt.gdt.qq.com REJECT-200
 win.gdt.qq.com REJECT-200
-toblog.ctobsnssdk.com REJECT-200
+toblog.ctobsnssdk.com REJECT-DICT
 
 # 2026-10-19 晚间抓包优化 (Tobid/初心互动/火山引擎打点/新浪Beacon)
-tobapplog.volceapplog.com REJECT-200
+tobapplog.volceapplog.com REJECT-DICT
 m.beacon.sina.com.cn REJECT-200
 tobidad.cn REJECT
 chuxinhudong.com REJECT
@@ -229,3 +229,7 @@ rtlog3-applog-hl.amemv.com REJECT-200
 appsflyersdk.com REJECT
 appsflyer.com REJECT
 
+abtest.tantanapp.com REJECT-DICT
+app-log-lab.tantanapp.com REJECT-DICT
+live-log.immomo.com REJECT-DICT
+mssdk.volces.com REJECT-DICT

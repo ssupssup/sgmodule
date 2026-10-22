@@ -1037,19 +1037,19 @@
       "app": "腾讯广点通"
     },
     {
-      "text": "^https?:\\/\\/uranus\\.jd\\.com reject-200",
+      "text": "^https?:\\/\\/uranus\\.jd\\.com reject-dict",
       "pattern": "^https?:\\/\\/uranus\\.jd\\.com",
       "priority": 0,
       "app": "京东"
     },
     {
-      "text": "^https?:\\/\\/mllog\\.jd\\.com reject-200",
+      "text": "^https?:\\/\\/mllog\\.jd\\.com reject-dict",
       "pattern": "^https?:\\/\\/mllog\\.jd\\.com",
       "priority": 0,
       "app": "京东"
     },
     {
-      "text": "^https?:\\/\\/perf\\.m\\.jd\\.com reject-200",
+      "text": "^https?:\\/\\/perf\\.m\\.jd\\.com reject-dict",
       "pattern": "^https?:\\/\\/perf\\.m\\.jd\\.com",
       "priority": 0,
       "app": "京东"
@@ -1181,7 +1181,7 @@
       "app": "MOMO陌陌"
     },
     {
-      "text": "^https?:\\/\\/app-log\\.immomo\\.com reject-200",
+      "text": "^https?:\\/\\/app-log\\.immomo\\.com reject-dict",
       "pattern": "^https?:\\/\\/app-log\\.immomo\\.com",
       "priority": 0,
       "app": "MOMO陌陌"
@@ -1199,13 +1199,13 @@
       "app": "高德地图"
     },
     {
-      "text": "^https?:\\/\\/log-report\\.rtc\\.volcvideo\\.com reject-200",
+      "text": "^https?:\\/\\/log-report\\.rtc\\.volcvideo\\.com reject-dict",
       "pattern": "^https?:\\/\\/log-report\\.rtc\\.volcvideo\\.com",
       "priority": 0,
       "app": "字节火山引擎"
     },
     {
-      "text": "^https?:\\/\\/klink\\.volceapplog\\.com reject-200",
+      "text": "^https?:\\/\\/klink\\.volceapplog\\.com reject-dict",
       "pattern": "^https?:\\/\\/klink\\.volceapplog\\.com",
       "priority": 0,
       "app": "字节火山引擎"
@@ -1313,7 +1313,7 @@
       "app": "支付宝"
     },
     {
-      "text": "^https?:\\/\\/mssdk\\.volces\\.com reject-200",
+      "text": "^https?:\\/\\/mssdk\\.volces\\.com reject-dict",
       "pattern": "^https?:\\/\\/mssdk\\.volces\\.com",
       "priority": 0,
       "app": "字节火山引擎"
@@ -1349,7 +1349,7 @@
       "app": "游族SDK"
     },
     {
-      "text": "^https?:\\/\\/live-log\\.immomo\\.com reject-200",
+      "text": "^https?:\\/\\/live-log\\.immomo\\.com reject-dict",
       "pattern": "^https?:\\/\\/live-log\\.immomo\\.com",
       "priority": 0,
       "app": "陌陌"
@@ -1439,13 +1439,13 @@
       "app": "探探"
     },
     {
-      "text": "^https?:\\/\\/abtest\\.tantanapp\\.com reject-200",
+      "text": "^https?:\\/\\/abtest\\.tantanapp\\.com reject-dict",
       "pattern": "^https?:\\/\\/abtest\\.tantanapp\\.com",
       "priority": 0,
       "app": "探探"
     },
     {
-      "text": "^https?:\\/\\/app-log-lab\\.tantanapp\\.com reject-200",
+      "text": "^https?:\\/\\/app-log-lab\\.tantanapp\\.com reject-dict",
       "pattern": "^https?:\\/\\/app-log-lab\\.tantanapp\\.com",
       "priority": 0,
       "app": "探探"
@@ -1493,7 +1493,7 @@
       "app": "美团"
     },
     {
-      "text": "^https?:\\/\\/adip-api\\.immomo\\.com reject-200",
+      "text": "^https?:\\/\\/adip-api\\.immomo\\.com reject-dict",
       "pattern": "^https?:\\/\\/adip-api\\.immomo\\.com",
       "priority": 0,
       "app": "MOMO陌陌"
@@ -1541,7 +1541,7 @@
       "app": "美团"
     },
     {
-      "text": "^https?:\\/\\/toblog\\.volceapplog\\.com reject-200",
+      "text": "^https?:\\/\\/toblog\\.volceapplog\\.com reject-dict",
       "pattern": "^https?:\\/\\/toblog\\.volceapplog\\.com",
       "priority": 0,
       "app": "字节火山引擎"
@@ -1643,13 +1643,13 @@
       "app": "通用广告SDK"
     },
     {
-      "text": "^https?:\\/\\/io-sm-log\\.tantanapp\\.com reject-200",
+      "text": "^https?:\\/\\/io-sm-log\\.tantanapp\\.com reject-dict",
       "pattern": "^https?:\\/\\/io-sm-log\\.tantanapp\\.com",
       "priority": 0,
       "app": "通用广告SDK"
     },
     {
-      "text": "^https?:\\/\\/client-monitor\\.tantanapp\\.com reject-200",
+      "text": "^https?:\\/\\/client-monitor\\.tantanapp\\.com reject-dict",
       "pattern": "^https?:\\/\\/client-monitor\\.tantanapp\\.com",
       "priority": 0,
       "app": "通用广告SDK"
@@ -1805,7 +1805,7 @@
       "app": "陌陌"
     },
     {
-      "text": "^https?:\\/\\/paas-push-api-log\\.immomo\\.com reject-200",
+      "text": "^https?:\\/\\/paas-push-api-log\\.immomo\\.com reject-dict",
       "pattern": "^https?:\\/\\/paas-push-api-log\\.immomo\\.com",
       "priority": 0,
       "app": "陌陌"
@@ -1847,13 +1847,13 @@
       "app": "腾讯广点通"
     },
     {
-      "text": "^https?:\\/\\/toblog\\.ctobsnssdk\\.com reject-200",
+      "text": "^https?:\\/\\/toblog\\.ctobsnssdk\\.com reject-dict",
       "pattern": "^https?:\\/\\/toblog\\.ctobsnssdk\\.com",
       "priority": 0,
       "app": "字节跳动"
     },
     {
-      "text": "^https?:\\/\\/tobapplog\\.volceapplog\\.com reject-200",
+      "text": "^https?:\\/\\/tobapplog\\.volceapplog\\.com reject-dict",
       "pattern": "^https?:\\/\\/tobapplog\\.volceapplog\\.com",
       "priority": 0,
       "app": "字节火山引擎"

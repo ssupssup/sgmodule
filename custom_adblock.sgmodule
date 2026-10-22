@@ -1,6 +1,6 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-10-22 09:32:49 | Deep ad block & UI purification customized for user's installed apps.
-#!total=1294
+#!desc=最近更新: 2026-10-22 20:13:01 | Deep ad block & UI purification customized for user's installed apps.
+#!total=1300
 
 [Rule]
 # === LINE Notice Bar SafeFrame & Pubads PROXY Override (Top Priority) ===
@@ -273,9 +273,9 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/sdk\.e\.qq\.com reject-200
 ^https?:\/\/analytics\.twitter\.com reject-200
 ^https?:\/\/pgdt\.gtimg\.cn reject-200
-^https?:\/\/uranus\.jd\.com reject-200
-^https?:\/\/mllog\.jd\.com reject-200
-^https?:\/\/perf\.m\.jd\.com reject-200
+^https?:\/\/uranus\.jd\.com reject-dict
+^https?:\/\/mllog\.jd\.com reject-dict
+^https?:\/\/perf\.m\.jd\.com reject-dict
 ^https?:\/\/ads5-normal-hj\.zijieapi\.com reject-200
 ^https?:\/\/poplayer\.template\.alibaba\.com reject-dict
 ^https?:\/\/httpdnsmultiapivip\.meituan\.com reject-200
@@ -297,11 +297,11 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/cm\.immomo\.com reject-dict
 ^https?:\/\/fep\.hellogroup\.com reject-dict
 ^https?:\/\/app-monitor-cn\.hellogroup\.com reject-dict
-^https?:\/\/app-log\.immomo\.com reject-200
+^https?:\/\/app-log\.immomo\.com reject-dict
 ^https?:\/\/logs\.amap\.com reject-200
 ^https?:\/\/dualstack-logs\.amap\.com reject-200
-^https?:\/\/log-report\.rtc\.volcvideo\.com reject-200
-^https?:\/\/klink\.volceapplog\.com reject-200
+^https?:\/\/log-report\.rtc\.volcvideo\.com reject-dict
+^https?:\/\/klink\.volceapplog\.com reject-dict
 ^https?:\/\/o1\.d\.meituan\.net reject-dict
 ^https?:\/\/mon0-misc-lf\.amemv\.com reject-200
 ^https?:\/\/orzonera\.yingt\.fun reject-200
@@ -319,13 +319,13 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/al-log\.d\.meituan\.net reject-dict
 ^https?:\/\/route-stats\.d\.meituan\.net reject-dict
 ^https?:\/\/loggw-ex\.alipay\.com reject-200
-^https?:\/\/mssdk\.volces\.com reject-200
+^https?:\/\/mssdk\.volces\.com reject-dict
 ^https?:\/\/live-player-log\.zijieapi\.com reject-200
 ^https?:\/\/live-player-log-service\.bytedance\.com reject-200
 ^https?:\/\/sis\.jpush\.io reject-200
 ^https?:\/\/tsis\.jpush\.cn reject-200
 ^https?:\/\/zlink\.ugsdk\.cn reject-200
-^https?:\/\/live-log\.immomo\.com reject-200
+^https?:\/\/live-log\.immomo\.com reject-dict
 ^https?:\/\/px\.effirst\.com reject-200
 ^https?:\/\/gd-stats\.jpush\.cn reject-200
 ^https?:\/\/sdk-open-phone\.getui\.com reject-200
@@ -339,8 +339,8 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/sdkreport\.e\.qq\.com reject-200
 ^https?:\/\/log\.snssdk\.com reject-200
 ^https?:\/\/sc-report\.tantanapp\.com reject-dict
-^https?:\/\/abtest\.tantanapp\.com reject-200
-^https?:\/\/app-log-lab\.tantanapp\.com reject-200
+^https?:\/\/abtest\.tantanapp\.com reject-dict
+^https?:\/\/app-log-lab\.tantanapp\.com reject-dict
 ^https?:\/\/snowflake\.qq\.com reject-200
 ^https?:\/\/rmonitor\.qq\.com reject-200
 ^https?:\/\/h\.trace\.qq\.com reject-200
@@ -348,7 +348,7 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/log\.ys7\.com reject-200
 ^https?:\/\/retcode\.taobao\.com reject-200
 ^https?:\/\/dnspod\.meituan\.httpdns\.qcloud\.com reject-200
-^https?:\/\/adip-api\.immomo\.com reject-200
+^https?:\/\/adip-api\.immomo\.com reject-dict
 ^https?:\/\/log\.umsns\.com reject-200
 ^https?:\/\/stats\.umsns\.com reject-200
 ^https?:\/\/utoken\.umeng\.com reject-200
@@ -356,7 +356,7 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/resolve\.umeng\.com reject-200
 ^https?:\/\/cnlogs\.umengcloud\.com reject-200
 ^https?:\/\/analytics\.meituan\.net reject-dict
-^https?:\/\/toblog\.volceapplog\.com reject-200
+^https?:\/\/toblog\.volceapplog\.com reject-dict
 ^https?:\/\/log\.mmstat\.com reject-200
 ^https?:\/\/data-sdk-uuid-log\.d\.meituan\.net reject-dict
 ^https?:\/\/fclog\.baidu\.com reject-200
@@ -373,8 +373,8 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/googleads\.g\.doubleclick\.net reject-200
 ^https?:\/\/app-monitor-cn\.doki\.ren reject-dict
 ^https?:\/\/sdkquic\.e\.qq\.com reject-200
-^https?:\/\/io-sm-log\.tantanapp\.com reject-200
-^https?:\/\/client-monitor\.tantanapp\.com reject-200
+^https?:\/\/io-sm-log\.tantanapp\.com reject-dict
+^https?:\/\/client-monitor\.tantanapp\.com reject-dict
 ^https?:\/\/analytics\.umetrip\.com reject-200
 ^https?:\/\/pgdt\.ugdtimg\.com reject-200
 ^https?:\/\/h-adashx\.ut\.taobao\.com reject-200
@@ -400,15 +400,15 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/umestartup\.umetrip\.com reject-200
 ^https?:\/\/report\.tantanapp\.com reject-dict
 ^https?:\/\/api-log\.immomo\.com reject-dict
-^https?:\/\/paas-push-api-log\.immomo\.com reject-200
+^https?:\/\/paas-push-api-log\.immomo\.com reject-dict
 ^https?:\/\/errnewlog\.umeng\.com reject-200
 ^https?:\/\/api-access\.pangolin-sdk-toutiao.*\.com\/api\/ad reject-dict
 ^https?:\/\/xs\.gdt\.qq\.com reject-200
 ^https?:\/\/ii\.gdt\.qq\.com reject-200
 ^https?:\/\/rpt\.gdt\.qq\.com reject-200
 ^https?:\/\/win\.gdt\.qq\.com reject-200
-^https?:\/\/toblog\.ctobsnssdk\.com reject-200
-^https?:\/\/tobapplog\.volceapplog\.com reject-200
+^https?:\/\/toblog\.ctobsnssdk\.com reject-dict
+^https?:\/\/tobapplog\.volceapplog\.com reject-dict
 ^https?:\/\/m\.beacon\.sina\.com\.cn reject-200
 ^https?:\/\/apmplus\.volces\.com reject-dict
 ^https?:\/\/rtlog3-applog-hl\.amemv\.com reject-200

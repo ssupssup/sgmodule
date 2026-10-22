@@ -199,3 +199,5 @@ api-access.pangolin-sdk-toutiao.com
 apmplus.volces.com
 rtlog3-applog-hl.amemv.com
 
+
+tobapplog.volceapplog.com
