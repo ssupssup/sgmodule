@@ -156,7 +156,6 @@ pgdt.ugdtimg.com REJECT-200
 
 mllog.jd.com REJECT-DICT
 pgdt.gtimg.cn REJECT-200
-analytics.twitter.com REJECT
 sdk.e.qq.com REJECT-200
 s-gm.mmstat.com REJECT-200
 log-api.pangolin-sdk-toutiao.com REJECT-DICT

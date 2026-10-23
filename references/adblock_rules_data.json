@@ -667,7 +667,6 @@
     "DOMAIN-SUFFIX,doubleclick.net,REJECT",
     "DOMAIN-SUFFIX,googlesyndication.com,REJECT",
     "DOMAIN-SUFFIX,adservice.google.com,REJECT",
-    "DOMAIN,analytics.twitter.com,REJECT",
     "DOMAIN-SUFFIX,inmobi.com,REJECT",
     "DOMAIN-SUFFIX,inmobi.cn,REJECT",
     "DOMAIN-SUFFIX,pubmatic.com,REJECT",
