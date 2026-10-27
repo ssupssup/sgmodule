@@ -1,6 +1,6 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-10-27 07:55:19 | Deep ad block & UI purification customized for user's installed apps.
-#!total=1293
+#!desc=最近更新: 2026-10-27 18:32:28 | Deep ad block & UI purification customized for user's installed apps.
+#!total=1299
 
 [Rule]
 # === LINE Notice Bar SafeFrame & Pubads PROXY Override (Top Priority) ===
@@ -113,10 +113,16 @@ DOMAIN-SUFFIX,tobidad.cn,REJECT
 DOMAIN-SUFFIX,chuxinhudong.com,REJECT
 DOMAIN-SUFFIX,appsflyersdk.com,REJECT
 DOMAIN-SUFFIX,appsflyer.com,REJECT
-DOMAIN-SUFFIX,analytics.pointdrive.linkedin.com,REJECT
-DOMAIN-SUFFIX,outlookads.live.com,REJECT
-DOMAIN-SUFFIX,a1.firefoxchina.cn,REJECT
-DOMAIN-SUFFIX,ads.linkedin.com,REJECT
+DOMAIN,ad.snssdk.com,REJECT-NO-DROP
+DOMAIN,rtlog.snssdk.com,REJECT-NO-DROP
+DOMAIN,mcs.snssdk.com,REJECT-NO-DROP
+DOMAIN,dm.snssdk.com,REJECT-NO-DROP
+DOMAIN,dcs.ipinyou.com,REJECT-NO-DROP
+DOMAIN,crashlytics.com,REJECT-NO-DROP
+DOMAIN,app-measurement.com,REJECT-NO-DROP
+DOMAIN,adjust.com,REJECT-NO-DROP
+DOMAIN,appsflyersdk.com,REJECT
+DOMAIN,app-analytics-services.com,REJECT
 # === Compiled App Rules ===
 DOMAIN,adstrategy.biz.weibo.com,REJECT
 DOMAIN-SUFFIX,api.touch-moblie.com,REJECT
@@ -266,7 +272,7 @@ DOMAIN,switch.cup.com.cn,REJECT
 DOMAIN,ads.cup.com.cn,REJECT
 
 [URL Rewrite]
-^https?:\/\/ali-stats\.jpush\.cn reject-200
+^https?:\/\/ali-stats\.jpush\.cn reject-dict
 ^https?:\/\/log-api\.pangolin-sdk-toutiao\.com reject-dict
 ^https?:\/\/s-gm\.mmstat\.com reject-200
 ^https?:\/\/sdk\.e\.qq\.com reject-200
@@ -303,7 +309,7 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/klink\.volceapplog\.com reject-dict
 ^https?:\/\/o1\.d\.meituan\.net reject-dict
 ^https?:\/\/mon0-misc-lf\.amemv\.com reject-200
-^https?:\/\/orzonera\.yingt\.fun reject-200
+^https?:\/\/orzonera\.yingt\.fun reject-dict
 ^https?:\/\/stat\.youpin\.mi\.com reject-dict
 ^https?:\/\/dreport\.meituan\.net reject-dict
 ^https?:\/\/logan-rtl\.dreport\.meituan\.net reject-dict
@@ -326,7 +332,7 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/zlink\.ugsdk\.cn reject-200
 ^https?:\/\/live-log\.immomo\.com reject-dict
 ^https?:\/\/px\.effirst\.com reject-200
-^https?:\/\/gd-stats\.jpush\.cn reject-200
+^https?:\/\/gd-stats\.jpush\.cn reject-dict
 ^https?:\/\/sdk-open-phone\.getui\.com reject-200
 ^https?:\/\/gm\.mmstat\.com reject-200
 ^https?:\/\/wgo\.mmstat\.com reject-200

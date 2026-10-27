@@ -1000,7 +1000,7 @@
   ],
   "CUSTOM_REWRITE_RULES": [
     {
-      "text": "^https?:\\/\\/ali-stats\\.jpush\\.cn reject-200",
+      "text": "^https?:\\/\\/ali-stats\\.jpush\\.cn reject-dict",
       "pattern": "^https?:\\/\\/ali-stats\\.jpush\\.cn",
       "priority": 0,
       "app": "极光推送"
@@ -1222,7 +1222,7 @@
       "app": "抖音"
     },
     {
-      "text": "^https?:\\/\\/orzonera\\.yingt\\.fun reject-200",
+      "text": "^https?:\\/\\/orzonera\\.yingt\\.fun reject-dict",
       "pattern": "^https?:\\/\\/orzonera\\.yingt\\.fun",
       "priority": 0,
       "app": "通用广告SDK"
@@ -1360,13 +1360,7 @@
       "app": "广告遥测"
     },
     {
-      "text": "^https?:\\/\\/ali-stats\\.jpush\\.cn reject-200",
-      "pattern": "^https?:\\/\\/ali-stats\\.jpush\\.cn",
-      "priority": 0,
-      "app": "极光推送"
-    },
-    {
-      "text": "^https?:\\/\\/gd-stats\\.jpush\\.cn reject-200",
+      "text": "^https?:\\/\\/gd-stats\\.jpush\\.cn reject-dict",
       "pattern": "^https?:\\/\\/gd-stats\\.jpush\\.cn",
       "priority": 0,
       "app": "极光推送"

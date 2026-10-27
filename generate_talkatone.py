@@ -52,24 +52,31 @@ _custom_reject_mapping = load_custom_reject_methods()
 
 def get_smart_reject_action(domain):
     domain_lower = domain.lower().strip('.')
+    raw_action = "REJECT"
     
     # 1. 显式字典精准优先匹配 (来自 custom_reject_methods.txt)
     if domain_lower in _custom_reject_mapping:
-        return _custom_reject_mapping[domain_lower]
-    for d, m in _custom_reject_mapping.items():
-        if domain_lower == d or domain_lower.endswith("." + d):
-            return m
-            
-    # 2. 智能特征分类匹配：
-    # A类：SDK 日志、打点上报与验证码探针 ➔ 统一匹配为 REJECT-200 诱骗清空队列
-    reject200_keywords = [
-        "mobads-logs", "log-report", "stat-report", "geetest", "captcha", "report-api"
-    ]
-    if any(kw in domain_lower for kw in reject200_keywords):
-        return "REJECT-200"
+        raw_action = _custom_reject_mapping[domain_lower]
+    else:
+        for d, m in _custom_reject_mapping.items():
+            if domain_lower == d or domain_lower.endswith("." + d):
+                raw_action = m
+                break
+        else:
+            # 2. 智能特征分类匹配：
+            reject200_keywords = [
+                "mobads-logs", "log-report", "stat-report", "geetest", "captcha", "report-api"
+            ]
+            if any(kw in domain_lower for kw in reject200_keywords):
+                raw_action = "REJECT-200"
+            else:
+                # 3. 广告联盟与常规 Banner 广告域名 ➔ 维持标准 REJECT (1ms TCP RST 秒断)
+                raw_action = "REJECT"
 
-    # 3. 广告联盟与常规 Banner 广告域名 ➔ 维持标准 REJECT (1ms TCP RST 秒断，彻底消除 60s 丢包挂起发热)
-    return "REJECT"
+    # 防非标 Policy 泄漏到 [Rule] 规则段 (与 generate_custom_adblock.py 严格对齐)
+    if raw_action in ["REJECT-200", "REJECT-DICT", "REJECT-ARRAY", "REJECT-DROP"]:
+        return "REJECT"
+    return raw_action
 
 def download_url(url):
     print(f"Downloading: {url}")
