@@ -763,7 +763,7 @@
     "DOMAIN,res.mmstat.com,REJECT-NO-DROP",
     "DOMAIN,soul-ad.soulapp.cn,REJECT-NO-DROP",
     "DOMAIN,stats-ipv6.jpush.cn,REJECT-200",
-    "DOMAIN,tracking.miui.com,REJECT-NO-DROP",
+    "DOMAIN,tracking.miui.com,REJECT-DICT",
     "DOMAIN,log0-misc-lf.amemv.com,REJECT-200",
     "DOMAIN,log5-misc-lf.amemv.com,REJECT-200",
     "DOMAIN,logbk.amemv.com,REJECT-200",
@@ -799,13 +799,13 @@
     "DOMAIN,live-player-log.zijieapi.com,REJECT-200",
     "DOMAIN,live-player-log-service.bytedance.com,REJECT-200",
     "DOMAIN,sis.jpush.io,REJECT-200",
-    "DOMAIN,tsis.jpush.cn,REJECT-200",
+    "DOMAIN,tsis.jpush.cn,REJECT-DICT",
     "DOMAIN,zlink.ugsdk.cn,REJECT-200",
     "DOMAIN,live-log.immomo.com,REJECT-200",
     "DOMAIN,px.effirst.com,REJECT-200",
     "DOMAIN,ali-stats.jpush.cn,REJECT-200",
     "DOMAIN,gd-stats.jpush.cn,REJECT-200",
-    "DOMAIN,sdk-open-phone.getui.com,REJECT-200",
+    "DOMAIN,sdk-open-phone.getui.com,REJECT-DICT",
     "DOMAIN,httpdns.meituan.com,REJECT-200",
     "DOMAIN,httpdnsmultiapi.meituan.com,REJECT-200",
     "DOMAIN,dnspod.meituan.httpdns.start.qcloud.com,REJECT-200",
@@ -1121,13 +1121,13 @@
       "app": "小米"
     },
     {
-      "text": "^https?:\\/\\/tracking\\.miui\\.com reject-200",
+      "text": "^https?:\\/\\/tracking\\.miui\\.com reject-dict",
       "pattern": "^https?:\\/\\/tracking\\.miui\\.com",
       "priority": 0,
       "app": "小米"
     },
     {
-      "text": "^https?:\\/\\/tracking\\.intl\\.miui\\.com reject-200",
+      "text": "^https?:\\/\\/tracking\\.intl\\.miui\\.com reject-dict",
       "pattern": "^https?:\\/\\/tracking\\.intl\\.miui\\.com",
       "priority": 0,
       "app": "小米"
@@ -1337,7 +1337,7 @@
       "app": "极光推送"
     },
     {
-      "text": "^https?:\\/\\/tsis\\.jpush\\.cn reject-200",
+      "text": "^https?:\\/\\/tsis\\.jpush\\.cn reject-dict",
       "pattern": "^https?:\\/\\/tsis\\.jpush\\.cn",
       "priority": 0,
       "app": "极光推送"
@@ -1367,7 +1367,7 @@
       "app": "极光推送"
     },
     {
-      "text": "^https?:\\/\\/sdk-open-phone\\.getui\\.com reject-200",
+      "text": "^https?:\\/\\/sdk-open-phone\\.getui\\.com reject-dict",
       "pattern": "^https?:\\/\\/sdk-open-phone\\.getui\\.com",
       "priority": 0,
       "app": "个推"
@@ -1379,7 +1379,8 @@
       "app": "阿里打点"
     },
     {
-      "text": "^https?:\\/\\/wgo\\.mmstat\\.com reject-200",
+      "text": "^https?:\\/\\/wgo\\.mmstat\\.com reject-dict",
+      "pattern": "^https?:\\/\\/wgo\\.mmstat\\.com",
       "pattern": "^https?:\\/\\/wgo\\.mmstat\\.com",
       "priority": 0,
       "app": "阿里打点"
@@ -1397,7 +1398,7 @@
       "app": "阿里云日志"
     },
     {
-      "text": "^https?:\\/\\/traffic-click\\.cn-zhangjiakou\\.log\\.aliyuncs\\.com reject-200",
+      "text": "^https?:\\/\\/traffic-click\\.cn-zhangjiakou\\.log\\.aliyuncs\\.com reject-dict",
       "pattern": "^https?:\\/\\/traffic-click\\.cn-zhangjiakou\\.log\\.aliyuncs\\.com",
       "priority": 0,
       "app": "阿里云日志"

@@ -128,14 +128,14 @@ fp-upload.dun.163.com REJECT-200
 rtbasia.datahubtrack.com REJECT
 pangolin-sdk REJECT-DICT
 
-# 阿里、极光、个推打点与日志 (REJECT-200 假响应诱导 SDK 深度休眠)
+# 阿里、极光、个推打点与日志 (升级 REJECT-DICT 假字典诱导 SDK 深度休眠)
 gm.mmstat.com REJECT-200
-wgo.mmstat.com REJECT-200
+wgo.mmstat.com REJECT-DICT
 orange-dc.alibaba.com REJECT-200
 smartop-sdkapi.jiguang.cn REJECT-200
-sdk-open-phone.getui.com REJECT-200
+sdk-open-phone.getui.com REJECT-DICT
 bird.cn-hangzhou.log.aliyuncs.com REJECT-200
-traffic-click.cn-zhangjiakou.log.aliyuncs.com REJECT-200
+traffic-click.cn-zhangjiakou.log.aliyuncs.com REJECT-DICT
 apd-pcdnwxstat.teg.tencent-cloud.net REJECT-200
 
 # 新增 15 大发热域名降温重写字典 (2026-10-09 优化)
@@ -233,3 +233,7 @@ abtest.tantanapp.com REJECT-DICT
 app-log-lab.tantanapp.com REJECT-DICT
 live-log.immomo.com REJECT-DICT
 mssdk.volces.com REJECT-DICT
+
+# 2026-10-28 抓包优化 (米家 JPush/个推/MIUI/阿里日志，升级 REJECT-DICT 彻底防发热重试)
+tsis.jpush.cn REJECT-DICT
+tracking.miui.com REJECT-DICT
