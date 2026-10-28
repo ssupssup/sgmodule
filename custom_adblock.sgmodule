@@ -1,6 +1,6 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-10-28 07:47:08 | Deep ad block & UI purification customized for user's installed apps.
-#!total=1293
+#!desc=最近更新: 2026-10-28 16:47:22 | Deep ad block & UI purification customized for user's installed apps.
+#!total=1300
 
 [Rule]
 # === LINE Notice Bar SafeFrame & Pubads PROXY Override (Top Priority) ===
@@ -28,6 +28,7 @@ DOMAIN,res.mmstat.com,REJECT
 DOMAIN-SUFFIX,doubleclick.net,REJECT
 DOMAIN-SUFFIX,googlesyndication.com,REJECT
 DOMAIN-SUFFIX,adservice.google.com,REJECT
+DOMAIN,imasdk.googleapis.com,REJECT
 DOMAIN-SUFFIX,inmobi.com,REJECT
 DOMAIN-SUFFIX,inmobi.cn,REJECT
 DOMAIN-SUFFIX,pubmatic.com,REJECT
@@ -113,10 +114,16 @@ DOMAIN-SUFFIX,tobidad.cn,REJECT
 DOMAIN-SUFFIX,chuxinhudong.com,REJECT
 DOMAIN-SUFFIX,appsflyersdk.com,REJECT
 DOMAIN-SUFFIX,appsflyer.com,REJECT
-DOMAIN-SUFFIX,a1.firefoxchina.cn,REJECT
-DOMAIN-SUFFIX,analytics.pointdrive.linkedin.com,REJECT
-DOMAIN-SUFFIX,outlookads.live.com,REJECT
-DOMAIN-SUFFIX,ads.linkedin.com,REJECT
+DOMAIN,ad.snssdk.com,REJECT-NO-DROP
+DOMAIN,rtlog.snssdk.com,REJECT-NO-DROP
+DOMAIN,mcs.snssdk.com,REJECT-NO-DROP
+DOMAIN,dm.snssdk.com,REJECT-NO-DROP
+DOMAIN,dcs.ipinyou.com,REJECT-NO-DROP
+DOMAIN,crashlytics.com,REJECT-NO-DROP
+DOMAIN,app-measurement.com,REJECT-NO-DROP
+DOMAIN,adjust.com,REJECT-NO-DROP
+DOMAIN,appsflyersdk.com,REJECT
+DOMAIN,app-analytics-services.com,REJECT
 # === Compiled App Rules ===
 DOMAIN,adstrategy.biz.weibo.com,REJECT
 DOMAIN-SUFFIX,api.touch-moblie.com,REJECT
@@ -369,7 +376,7 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/afd\.baidu\.com reject-200
 ^https?:\/\/afdconf\.baidu\.com reject-200
 ^https?:\/\/mobads-pre-config\.cdn\.bcebos\.com reject-200
-^https?:\/\/googleads\.g\.doubleclick\.net reject-200
+^https?:\/\/googleads\.g\.doubleclick\.net reject-dict
 ^https?:\/\/app-monitor-cn\.doki\.ren reject-dict
 ^https?:\/\/sdkquic\.e\.qq\.com reject-200
 ^https?:\/\/io-sm-log\.tantanapp\.com reject-dict

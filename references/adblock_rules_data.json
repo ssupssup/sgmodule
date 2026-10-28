@@ -667,6 +667,7 @@
     "DOMAIN-SUFFIX,doubleclick.net,REJECT",
     "DOMAIN-SUFFIX,googlesyndication.com,REJECT",
     "DOMAIN-SUFFIX,adservice.google.com,REJECT",
+    "DOMAIN,imasdk.googleapis.com,REJECT",
     "DOMAIN-SUFFIX,inmobi.com,REJECT",
     "DOMAIN-SUFFIX,inmobi.cn,REJECT",
     "DOMAIN-SUFFIX,pubmatic.com,REJECT",
@@ -1618,7 +1619,7 @@
       "app": "通用广告SDK"
     },
     {
-      "text": "^https?:\\/\\/googleads\\.g\\.doubleclick\\.net reject-200",
+      "text": "^https?:\\/\\/googleads\\.g\\.doubleclick\\.net reject-dict",
       "pattern": "^https?:\\/\\/googleads\\.g\\.doubleclick\\.net",
       "priority": 0,
       "app": "通用广告SDK"

@@ -8,8 +8,8 @@ sofire.baidu.com REJECT-200
 afd.baidu.com REJECT-200
 afdconf.baidu.com REJECT-200
 
-# 谷歌广告 SDK (升级为 REJECT-200 假响应，消除高频重试)
-googleads.g.doubleclick.net REJECT-200
+# 谷歌广告 SDK (升级为 REJECT-DICT 假字典响应，清空 GMA 队列消除死循环重试与发热)
+googleads.g.doubleclick.net REJECT-DICT
 
 # 通用统计、遥测与小米有品日志 (REJECT-200 阻断高频请求)
 app-analytics-services.com REJECT
@@ -147,7 +147,7 @@ als.baidu.com REJECT-200
 afd.baidu.com REJECT-200
 afdconf.baidu.com REJECT-200
 mobads-pre-config.cdn.bcebos.com REJECT-200
-googleads.g.doubleclick.net REJECT-200
+googleads.g.doubleclick.net REJECT-DICT
 app-monitor-cn.doki.ren REJECT-DICT
 sdkquic.e.qq.com REJECT-200
 io-sm-log.tantanapp.com REJECT-DICT
