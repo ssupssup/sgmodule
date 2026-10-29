@@ -1109,13 +1109,13 @@
       "app": "极光"
     },
     {
-      "text": "^https?:\\/\\/sdkconfig\\.ad\\.xiaomi\\.com reject-dict",
+      "text": "^https?:\\/\\/sdkconfig\\.ad\\.xiaomi\\.com reject-200",
       "pattern": "^https?:\\/\\/sdkconfig\\.ad\\.xiaomi\\.com",
       "priority": 0,
       "app": "小米"
     },
     {
-      "text": "^https?:\\/\\/sdkconfig\\.ad\\.intl\\.xiaomi\\.com reject-dict",
+      "text": "^https?:\\/\\/sdkconfig\\.ad\\.intl\\.xiaomi\\.com reject-200",
       "pattern": "^https?:\\/\\/sdkconfig\\.ad\\.intl\\.xiaomi\\.com",
       "priority": 0,
       "app": "小米"
@@ -1229,7 +1229,7 @@
       "app": "通用广告SDK"
     },
     {
-      "text": "^https?:\\/\\/stat\\.youpin\\.mi\\.com reject-dict",
+      "text": "^https?:\\/\\/stat\\.youpin\\.mi\\.com reject-img",
       "pattern": "^https?:\\/\\/stat\\.youpin\\.mi\\.com",
       "priority": 0,
       "app": "小米"
