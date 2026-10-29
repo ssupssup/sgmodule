@@ -1,6 +1,6 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-10-29 09:39:26 | Deep ad block & UI purification customized for user's installed apps.
-#!total=1294
+#!desc=最近更新: 2026-10-29 14:09:28 | Deep ad block & UI purification customized for user's installed apps.
+#!total=1300
 
 [Rule]
 # === LINE Notice Bar SafeFrame & Pubads PROXY Override (Top Priority) ===
@@ -114,10 +114,16 @@ DOMAIN-SUFFIX,tobidad.cn,REJECT
 DOMAIN-SUFFIX,chuxinhudong.com,REJECT
 DOMAIN-SUFFIX,appsflyersdk.com,REJECT
 DOMAIN-SUFFIX,appsflyer.com,REJECT
-DOMAIN-SUFFIX,outlookads.live.com,REJECT
-DOMAIN-SUFFIX,a1.firefoxchina.cn,REJECT
-DOMAIN-SUFFIX,analytics.pointdrive.linkedin.com,REJECT
-DOMAIN-SUFFIX,ads.linkedin.com,REJECT
+DOMAIN,ad.snssdk.com,REJECT-NO-DROP
+DOMAIN,rtlog.snssdk.com,REJECT-NO-DROP
+DOMAIN,mcs.snssdk.com,REJECT-NO-DROP
+DOMAIN,dm.snssdk.com,REJECT-NO-DROP
+DOMAIN,dcs.ipinyou.com,REJECT-NO-DROP
+DOMAIN,crashlytics.com,REJECT-NO-DROP
+DOMAIN,app-measurement.com,REJECT-NO-DROP
+DOMAIN,adjust.com,REJECT-NO-DROP
+DOMAIN,appsflyersdk.com,REJECT
+DOMAIN,app-analytics-services.com,REJECT
 # === Compiled App Rules ===
 DOMAIN,adstrategy.biz.weibo.com,REJECT
 DOMAIN-SUFFIX,api.touch-moblie.com,REJECT
@@ -269,7 +275,7 @@ DOMAIN,ads.cup.com.cn,REJECT
 [URL Rewrite]
 ^https?:\/\/ali-stats\.jpush\.cn reject-dict
 ^https?:\/\/log-api\.pangolin-sdk-toutiao\.com reject-dict
-^https?:\/\/s-gm\.mmstat\.com reject-200
+^https?:\/\/s-gm\.mmstat\.com reject-dict
 ^https?:\/\/sdk\.e\.qq\.com reject-200
 ^https?:\/\/analytics\.twitter\.com reject-200
 ^https?:\/\/pgdt\.gtimg\.cn reject-200
@@ -298,8 +304,8 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/fep\.hellogroup\.com reject-dict
 ^https?:\/\/app-monitor-cn\.hellogroup\.com reject-dict
 ^https?:\/\/app-log\.immomo\.com reject-dict
-^https?:\/\/logs\.amap\.com reject-200
-^https?:\/\/dualstack-logs\.amap\.com reject-200
+^https?:\/\/logs\.amap\.com reject-dict
+^https?:\/\/dualstack-logs\.amap\.com reject-dict
 ^https?:\/\/log-report\.rtc\.volcvideo\.com reject-dict
 ^https?:\/\/klink\.volceapplog\.com reject-dict
 ^https?:\/\/o1\.d\.meituan\.net reject-dict
@@ -310,8 +316,8 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/logan-rtl\.dreport\.meituan\.net reject-dict
 ^https?:\/\/log0-misc-lf\.amemv\.com reject-200
 ^https?:\/\/mssdk3-normal-lf\.zijieapi\.com reject-200
-^https?:\/\/adashx\.ut\.dingtalk\.com reject-200
-^https?:\/\/h-adashx\.ut\.dingtalk\.com reject-200
+^https?:\/\/adashx\.ut\.dingtalk\.com reject-dict
+^https?:\/\/h-adashx\.ut\.dingtalk\.com reject-dict
 ^https?:\/\/log5-misc-lf\.amemv\.com reject-200
 ^https?:\/\/mon\.toutiaocloud\.com reject-200
 ^https?:\/\/mon\.toutiaocloud\.net reject-200
@@ -329,7 +335,7 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/px\.effirst\.com reject-200
 ^https?:\/\/gd-stats\.jpush\.cn reject-dict
 ^https?:\/\/sdk-open-phone\.getui\.com reject-dict
-^https?:\/\/gm\.mmstat\.com reject-200
+^https?:\/\/gm\.mmstat\.com reject-dict
 ^https?:\/\/wgo\.mmstat\.com reject-dict
 ^https?:\/\/orange-dc\.alibaba\.com reject-200
 ^https?:\/\/bird\.cn-hangzhou\.log\.aliyuncs\.com reject-200
@@ -345,7 +351,7 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/rmonitor\.qq\.com reject-200
 ^https?:\/\/h\.trace\.qq\.com reject-200
 ^https?:\/\/p\.l\.qq\.com reject-200
-^https?:\/\/log\.ys7\.com reject-200
+^https?:\/\/log\.ys7\.com reject-dict
 ^https?:\/\/retcode\.taobao\.com reject-200
 ^https?:\/\/dnspod\.meituan\.httpdns\.qcloud\.com reject-200
 ^https?:\/\/adip-api\.immomo\.com reject-dict
@@ -357,9 +363,9 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/cnlogs\.umengcloud\.com reject-200
 ^https?:\/\/analytics\.meituan\.net reject-dict
 ^https?:\/\/toblog\.volceapplog\.com reject-dict
-^https?:\/\/log\.mmstat\.com reject-200
+^https?:\/\/log\.mmstat\.com reject-dict
 ^https?:\/\/data-sdk-uuid-log\.d\.meituan\.net reject-dict
-^https?:\/\/fclog\.baidu\.com reject-200
+^https?:\/\/fclog\.baidu\.com reject-dict
 ^https?:\/\/logbk\.amemv\.com reject-200
 ^https?:\/\/log-hl\.snssdk\.com reject-200
 ^https?:\/\/pangolin-sdk-toutiao1\.com reject-200
@@ -377,7 +383,7 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/client-monitor\.tantanapp\.com reject-dict
 ^https?:\/\/analytics\.umetrip\.com reject-200
 ^https?:\/\/pgdt\.ugdtimg\.com reject-200
-^https?:\/\/h-adashx\.ut\.taobao\.com reject-200
+^https?:\/\/h-adashx\.ut\.taobao\.com reject-dict
 ^https?:\/\/gromore\.pangolin-sdk-toutiao\.com reject-200
 ^https?:\/\/open\.e\.kuaishou\.com reject-200
 ^https?:\/\/.*\.advlion\.com reject-200

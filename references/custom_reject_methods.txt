@@ -4,6 +4,7 @@
 # 百度 SDK 探针 API (升级为 REJECT-200 假响应，消除 101 次 TCP 重传并压制高频打点)
 dig.bdurl.net REJECT-200
 mobads-logs.baidu.com REJECT-200
+fclog.baidu.com REJECT-DICT
 sofire.baidu.com REJECT-200
 afd.baidu.com REJECT-200
 afdconf.baidu.com REJECT-200
@@ -46,14 +47,14 @@ cnlogs.umengcloud.com REJECT-200
 log.umsns.com REJECT-200
 stats.umsns.com REJECT-200
 
-# 钉钉、腾讯、高德、淘宝高频死循环日志/遥测 (升级为 REJECT-200 压制发热)
-adashx.ut.dingtalk.com REJECT-200
-h-adashx.ut.dingtalk.com REJECT-200
+# 钉钉、腾讯、高德、淘宝高频死循环日志/遥测 (升级为 REJECT-DICT 假空 JSON 压制发热)
+adashx.ut.dingtalk.com REJECT-DICT
+h-adashx.ut.dingtalk.com REJECT-DICT
 snowflake.qq.com REJECT-200
 tdid.m.qq.com REJECT-200
-dualstack-logs.amap.com REJECT-200
-logs.amap.com REJECT-200
-h-adashx.ut.taobao.com REJECT-200
+dualstack-logs.amap.com REJECT-DICT
+logs.amap.com REJECT-DICT
+h-adashx.ut.taobao.com REJECT-DICT
 
 # Apple 官方广告与搜索归因 SDK (REJECT 1ms TCP-RST 秒断防卡死 App Store 批量更新)
 
@@ -73,7 +74,7 @@ fep.hellogroup.com REJECT-DICT
 app-monitor-cn.doki.ren REJECT-DICT
 report.tantanapp.com REJECT-DICT
 sc-report.tantanapp.com REJECT-DICT
-log.ys7.com REJECT-200
+log.ys7.com REJECT-DICT
 ad-screen-api.immomo.com REJECT-DICT
 cosmos-compass-api.immomo.com REJECT-DICT
 schedule-media.immomo.com REJECT-DICT
@@ -129,7 +130,8 @@ rtbasia.datahubtrack.com REJECT
 pangolin-sdk REJECT-DICT
 
 # 阿里、极光、个推打点与日志 (升级 REJECT-DICT 假字典诱导 SDK 深度休眠)
-gm.mmstat.com REJECT-200
+gm.mmstat.com REJECT-DICT
+log.mmstat.com REJECT-DICT
 wgo.mmstat.com REJECT-DICT
 orange-dc.alibaba.com REJECT-200
 smartop-sdkapi.jiguang.cn REJECT-200
@@ -158,7 +160,7 @@ pgdt.ugdtimg.com REJECT-200
 mllog.jd.com REJECT-DICT
 pgdt.gtimg.cn REJECT-200
 sdk.e.qq.com REJECT-200
-s-gm.mmstat.com REJECT-200
+s-gm.mmstat.com REJECT-DICT
 log-api.pangolin-sdk-toutiao.com REJECT-DICT
 
 # 新增 广告联盟优雅假响应降温字典 (2026-10-13 优化)

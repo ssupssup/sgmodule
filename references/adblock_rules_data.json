@@ -643,13 +643,13 @@
     "DOMAIN,rqd.qq.com,REJECT-200",
     "DOMAIN,mdap.alipay.com,REJECT-200",
     "DOMAIN,h-adashx.dingtalkapps.com,REJECT-200",
-    "DOMAIN,h-adashx.ut.taobao.com,REJECT-200",
+    "DOMAIN,h-adashx.ut.taobao.com,REJECT-DICT",
     "DOMAIN,apm-native.xiaohongshu.com,REJECT-200",
     "DOMAIN,t2.xiaohongshu.com,REJECT-200",
     "DOMAIN,spider-tracker.xiaohongshu.com,REJECT-200",
     "DOMAIN,lng.xiaohongshu.com,REJECT-200",
     "DOMAIN,apm-fe.xiaohongshu.com,REJECT-200",
-    "DOMAIN,logs.amap.com,REJECT-200",
+    "DOMAIN,logs.amap.com,REJECT-DICT",
     "DOMAIN,stats.jpush.cn,REJECT-200",
     "DOMAIN,apm-native.xiaohongshu.com,REJECT-200",
     "DOMAIN,t2.xiaohongshu.com,REJECT-200",
@@ -740,8 +740,8 @@
     "DOMAIN,xs.gdt.qq.com,REJECT-TINYSINK",
     "DOMAIN,snowflake.qq.com,REJECT-NO-DROP",
     "DOMAIN,xs.gdt.qq.com,REJECT-NO-DROP",
-    "DOMAIN,logs.amap.com,REJECT-200",
-    "DOMAIN,dualstack-logs.amap.com,REJECT-200",
+    "DOMAIN,logs.amap.com,REJECT-DICT",
+    "DOMAIN,dualstack-logs.amap.com,REJECT-DICT",
     "DOMAIN,sofire.baidu.com,REJECT-NO-DROP",
     "DOMAIN,cfgc.zztfly.com,REJECT-NO-DROP",
     "DOMAIN,upc.zztfly.com,REJECT-NO-DROP",
@@ -780,7 +780,7 @@
     "DOMAIN,al-log.d.meituan.net,REJECT-200",
     "DOMAIN,data-sdk-uuid-log.d.meituan.net,REJECT-200",
     "DOMAIN,logan-rtl.dreport.meituan.net,REJECT-200",
-    "DOMAIN,h-adashx.ut.dingtalk.com,REJECT-200",
+    "DOMAIN,h-adashx.ut.dingtalk.com,REJECT-DICT",
     "DOMAIN,logman.dmall.com,REJECT-200",
     "DOMAIN,sc-sa-data.dmall.com,REJECT-200",
     "DOMAIN,fep.hellogroup.com,REJECT-200",
@@ -788,7 +788,7 @@
     "DOMAIN,perf.m.jd.com,REJECT-200",
     "DOMAIN,uranus.jd.com,REJECT-200",
     "DOMAIN,sc-report.tantanapp.com,REJECT-200",
-    "DOMAIN,log.ys7.com,REJECT-200",
+    "DOMAIN,log.ys7.com,REJECT-DICT",
     "DOMAIN,tqt.weibo.cn,REJECT-200",
     "DOMAIN,tnc0-aliec2.zijieapi.com,REJECT-200",
     "DOMAIN,orange-dc.alibaba.com,REJECT-200",
@@ -814,7 +814,7 @@
     "DOMAIN,cf-gl.qiezibenpao.com,REJECT-200",
     "# === 2026-08-28 补充的高频漏网遥测与日志探针阻断 ===",
     "DOMAIN,tnc0-alisc1.zijieapi.com,REJECT-DROP",
-    "DOMAIN,gm.mmstat.com,REJECT-200",
+    "DOMAIN,gm.mmstat.com,REJECT-DICT",
     "DOMAIN,status-ipv6.jpush.cn,REJECT-DICT",
     "DOMAIN,klink.volceapplog.com,REJECT-DROP",
     "DOMAIN,toblog.volceapplog.com,REJECT-DROP",
@@ -1013,7 +1013,7 @@
       "app": "字节穿山甲"
     },
     {
-      "text": "^https?:\\/\\/s-gm\\.mmstat\\.com reject-200",
+      "text": "^https?:\\/\\/s-gm\\.mmstat\\.com reject-dict",
       "pattern": "^https?:\\/\\/s-gm\\.mmstat\\.com",
       "priority": 0,
       "app": "阿里遥测"
@@ -1187,13 +1187,13 @@
       "app": "MOMO陌陌"
     },
     {
-      "text": "^https?:\\/\\/logs\\.amap\\.com reject-200",
+      "text": "^https?:\\/\\/logs\\.amap\\.com reject-dict",
       "pattern": "^https?:\\/\\/logs\\.amap\\.com",
       "priority": 0,
       "app": "高德地图"
     },
     {
-      "text": "^https?:\\/\\/dualstack-logs\\.amap\\.com reject-200",
+      "text": "^https?:\\/\\/dualstack-logs\\.amap\\.com reject-dict",
       "pattern": "^https?:\\/\\/dualstack-logs\\.amap\\.com",
       "priority": 0,
       "app": "高德地图"
@@ -1259,13 +1259,13 @@
       "app": "字节火山引擎"
     },
     {
-      "text": "^https?:\\/\\/adashx\\.ut\\.dingtalk\\.com reject-200",
+      "text": "^https?:\\/\\/adashx\\.ut\\.dingtalk\\.com reject-dict",
       "pattern": "^https?:\\/\\/adashx\\.ut\\.dingtalk\\.com",
       "priority": 0,
       "app": "钉钉"
     },
     {
-      "text": "^https?:\\/\\/h-adashx\\.ut\\.dingtalk\\.com reject-200",
+      "text": "^https?:\\/\\/h-adashx\\.ut\\.dingtalk\\.com reject-dict",
       "pattern": "^https?:\\/\\/h-adashx\\.ut\\.dingtalk\\.com",
       "priority": 0,
       "app": "钉钉"
@@ -1373,7 +1373,7 @@
       "app": "个推"
     },
     {
-      "text": "^https?:\\/\\/gm\\.mmstat\\.com reject-200",
+      "text": "^https?:\\/\\/gm\\.mmstat\\.com reject-dict",
       "pattern": "^https?:\\/\\/gm\\.mmstat\\.com",
       "priority": 0,
       "app": "阿里打点"
@@ -1469,7 +1469,7 @@
       "app": "微信"
     },
     {
-      "text": "^https?:\\/\\/log\\.ys7\\.com reject-200",
+      "text": "^https?:\\/\\/log\\.ys7\\.com reject-dict",
       "pattern": "^https?:\\/\\/log\\.ys7\\.com",
       "priority": 0,
       "app": "萤石云视频"
@@ -1541,7 +1541,7 @@
       "app": "字节火山引擎"
     },
     {
-      "text": "^https?:\\/\\/log\\.mmstat\\.com reject-200",
+      "text": "^https?:\\/\\/log\\.mmstat\\.com reject-dict",
       "pattern": "^https?:\\/\\/log\\.mmstat\\.com",
       "priority": 0,
       "app": "阿里"
@@ -1553,7 +1553,7 @@
       "app": "美团"
     },
     {
-      "text": "^https?:\\/\\/fclog\\.baidu\\.com reject-200",
+      "text": "^https?:\\/\\/fclog\\.baidu\\.com reject-dict",
       "pattern": "^https?:\\/\\/fclog\\.baidu\\.com",
       "priority": 0,
       "app": "百度"
@@ -1661,7 +1661,7 @@
       "app": "通用广告SDK"
     },
     {
-      "text": "^https?:\\/\\/h-adashx\\.ut\\.taobao\\.com reject-200",
+      "text": "^https?:\\/\\/h-adashx\\.ut\\.taobao\\.com reject-dict",
       "pattern": "^https?:\\/\\/h-adashx\\.ut\\.taobao\\.com",
       "priority": 0,
       "app": "淘宝"
