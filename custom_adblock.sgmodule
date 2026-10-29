@@ -1,6 +1,6 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-10-29 08:01:13 | Deep ad block & UI purification customized for user's installed apps.
-#!total=1294
+#!desc=最近更新: 2026-10-29 09:38:35 | Deep ad block & UI purification customized for user's installed apps.
+#!total=1300
 
 [Rule]
 # === LINE Notice Bar SafeFrame & Pubads PROXY Override (Top Priority) ===
@@ -114,10 +114,16 @@ DOMAIN-SUFFIX,tobidad.cn,REJECT
 DOMAIN-SUFFIX,chuxinhudong.com,REJECT
 DOMAIN-SUFFIX,appsflyersdk.com,REJECT
 DOMAIN-SUFFIX,appsflyer.com,REJECT
-DOMAIN-SUFFIX,outlookads.live.com,REJECT
-DOMAIN-SUFFIX,ads.linkedin.com,REJECT
-DOMAIN-SUFFIX,a1.firefoxchina.cn,REJECT
-DOMAIN-SUFFIX,analytics.pointdrive.linkedin.com,REJECT
+DOMAIN,ad.snssdk.com,REJECT-NO-DROP
+DOMAIN,rtlog.snssdk.com,REJECT-NO-DROP
+DOMAIN,mcs.snssdk.com,REJECT-NO-DROP
+DOMAIN,dm.snssdk.com,REJECT-NO-DROP
+DOMAIN,dcs.ipinyou.com,REJECT-NO-DROP
+DOMAIN,crashlytics.com,REJECT-NO-DROP
+DOMAIN,app-measurement.com,REJECT-NO-DROP
+DOMAIN,adjust.com,REJECT-NO-DROP
+DOMAIN,appsflyersdk.com,REJECT
+DOMAIN,app-analytics-services.com,REJECT
 # === Compiled App Rules ===
 DOMAIN,adstrategy.biz.weibo.com,REJECT
 DOMAIN-SUFFIX,api.touch-moblie.com,REJECT
@@ -318,7 +324,7 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/mon11-misc-lf\.amemv\.com reject-200
 ^https?:\/\/al-log\.d\.meituan\.net reject-dict
 ^https?:\/\/route-stats\.d\.meituan\.net reject-dict
-^https?:\/\/loggw-ex\.alipay\.com reject-200
+^https?:\/\/loggw-ex\.alipay\.com reject-dict
 ^https?:\/\/mssdk\.volces\.com reject-dict
 ^https?:\/\/live-player-log\.zijieapi\.com reject-200
 ^https?:\/\/live-player-log-service\.bytedance\.com reject-200
@@ -338,7 +344,7 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/tangram\.e\.qq\.com reject-200
 ^https?:\/\/sdkreport\.e\.qq\.com reject-200
 ^https?:\/\/log\.snssdk\.com reject-200
-^https?:\/\/sc-report\.tantanapp\.com reject-dict
+^https?:\/\/sc-report\.tantanapp\.com\/(?!\/?v1\/online) reject-dict
 ^https?:\/\/abtest\.tantanapp\.com reject-dict
 ^https?:\/\/app-log-lab\.tantanapp\.com reject-dict
 ^https?:\/\/snowflake\.qq\.com reject-200
@@ -398,7 +404,7 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/v2mi\.gdt\.qq\.com reject-200
 ^https?:\/\/adsmind\.ugdtimg\.com reject-200
 ^https?:\/\/umestartup\.umetrip\.com reject-200
-^https?:\/\/report\.tantanapp\.com reject-dict
+^https?:\/\/report\.tantanapp\.com\/(?!\/?v1\/online) reject-dict
 ^https?:\/\/api-log\.immomo\.com reject-dict
 ^https?:\/\/paas-push-api-log\.immomo\.com reject-dict
 ^https?:\/\/errnewlog\.umeng\.com reject-200

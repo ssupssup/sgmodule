@@ -1307,7 +1307,7 @@
       "app": "美团"
     },
     {
-      "text": "^https?:\\/\\/loggw-ex\\.alipay\\.com reject-200",
+      "text": "^https?:\\/\\/loggw-ex\\.alipay\\.com reject-dict",
       "pattern": "^https?:\\/\\/loggw-ex\\.alipay\\.com",
       "priority": 0,
       "app": "支付宝"
@@ -1381,7 +1381,6 @@
     {
       "text": "^https?:\\/\\/wgo\\.mmstat\\.com reject-dict",
       "pattern": "^https?:\\/\\/wgo\\.mmstat\\.com",
-      "pattern": "^https?:\\/\\/wgo\\.mmstat\\.com",
       "priority": 0,
       "app": "阿里打点"
     },
@@ -1428,8 +1427,8 @@
       "app": "字节火山引擎"
     },
     {
-      "text": "^https?:\\/\\/sc-report\\.tantanapp\\.com reject-dict",
-      "pattern": "^https?:\\/\\/sc-report\\.tantanapp\\.com",
+      "text": "^https?:\\/\\/sc-report\\.tantanapp\\.com\\/(?!\\/?v1\\/online) reject-dict",
+      "pattern": "^https?:\\/\\/sc-report\\.tantanapp\\.com\\/(?!\\/?v1\\/online)",
       "priority": 0,
       "app": "探探"
     },
@@ -1788,8 +1787,8 @@
       "app": "航旅纵横"
     },
     {
-      "text": "^https?:\\/\\/report\\.tantanapp\\.com reject-dict",
-      "pattern": "^https?:\\/\\/report\\.tantanapp\\.com",
+      "text": "^https?:\\/\\/report\\.tantanapp\\.com\\/(?!\\/?v1\\/online) reject-dict",
+      "pattern": "^https?:\\/\\/report\\.tantanapp\\.com\\/(?!\\/?v1\\/online)",
       "priority": 0,
       "app": "探探"
     },

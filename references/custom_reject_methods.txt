@@ -237,3 +237,6 @@ mssdk.volces.com REJECT-DICT
 # 2026-10-28 抓包优化 (米家 JPush/个推/MIUI/阿里日志，升级 REJECT-DICT 彻底防发热重试)
 tsis.jpush.cn REJECT-DICT
 tracking.miui.com REJECT-DICT
+
+# 2026-10-29 抓包优化 (支付宝日志上报升级 REJECT-DICT 防重发死循环)
+loggw-ex.alipay.com REJECT-DICT
