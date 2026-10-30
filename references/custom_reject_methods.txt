@@ -243,3 +243,6 @@ tracking.miui.com REJECT-DICT
 
 # 2026-10-29 抓包优化 (支付宝日志上报升级 REJECT-DICT 防重发死循环)
 loggw-ex.alipay.com REJECT-DICT
+
+# 2026-10-30 抓包优化 (支付宝诊断上报升级 REJECT-DICT 空字典，与 loggw-ex 对齐长效休眠)
+mdap.alipay.com REJECT-DICT

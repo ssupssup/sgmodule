@@ -641,7 +641,7 @@
     "DOMAIN,rmonitor.qq.com,REJECT-200",
     "DOMAIN,beacon.qq.com,REJECT-200",
     "DOMAIN,rqd.qq.com,REJECT-200",
-    "DOMAIN,mdap.alipay.com,REJECT-200",
+    "DOMAIN,mdap.alipay.com,REJECT-DICT",
     "DOMAIN,h-adashx.dingtalkapps.com,REJECT-200",
     "DOMAIN,h-adashx.ut.taobao.com,REJECT-DICT",
     "DOMAIN,apm-native.xiaohongshu.com,REJECT-200",
@@ -1133,7 +1133,7 @@
       "app": "小米"
     },
     {
-      "text": "^https?:\\/\\/mdap\\.alipay\\.com reject-200",
+      "text": "^https?:\\/\\/mdap\\.alipay\\.com reject-dict",
       "pattern": "^https?:\\/\\/mdap\\.alipay\\.com",
       "priority": 0,
       "app": "支付宝"

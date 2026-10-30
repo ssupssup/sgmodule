@@ -1,6 +1,6 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-10-30 07:57:28 | Deep ad block & UI purification customized for user's installed apps.
-#!total=1294
+#!desc=最近更新: 2026-10-30 09:42:26 | Deep ad block & UI purification customized for user's installed apps.
+#!total=1300
 
 [Rule]
 # === LINE Notice Bar SafeFrame & Pubads PROXY Override (Top Priority) ===
@@ -114,10 +114,16 @@ DOMAIN-SUFFIX,tobidad.cn,REJECT
 DOMAIN-SUFFIX,chuxinhudong.com,REJECT
 DOMAIN-SUFFIX,appsflyersdk.com,REJECT
 DOMAIN-SUFFIX,appsflyer.com,REJECT
-DOMAIN-SUFFIX,outlookads.live.com,REJECT
-DOMAIN-SUFFIX,a1.firefoxchina.cn,REJECT
-DOMAIN-SUFFIX,analytics.pointdrive.linkedin.com,REJECT
-DOMAIN-SUFFIX,ads.linkedin.com,REJECT
+DOMAIN,ad.snssdk.com,REJECT-NO-DROP
+DOMAIN,rtlog.snssdk.com,REJECT-NO-DROP
+DOMAIN,mcs.snssdk.com,REJECT-NO-DROP
+DOMAIN,dm.snssdk.com,REJECT-NO-DROP
+DOMAIN,dcs.ipinyou.com,REJECT-NO-DROP
+DOMAIN,crashlytics.com,REJECT-NO-DROP
+DOMAIN,app-measurement.com,REJECT-NO-DROP
+DOMAIN,adjust.com,REJECT-NO-DROP
+DOMAIN,appsflyersdk.com,REJECT
+DOMAIN,app-analytics-services.com,REJECT
 # === Compiled App Rules ===
 DOMAIN,adstrategy.biz.weibo.com,REJECT
 DOMAIN-SUFFIX,api.touch-moblie.com,REJECT
@@ -289,7 +295,7 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/sdkconfig\.ad\.intl\.xiaomi\.com reject-200
 ^https?:\/\/tracking\.miui\.com reject-dict
 ^https?:\/\/tracking\.intl\.miui\.com reject-dict
-^https?:\/\/mdap\.alipay\.com reject-200
+^https?:\/\/mdap\.alipay\.com reject-dict
 ^https?:\/\/shreport\.weixin\.qq\.com reject-200
 ^https?:\/\/apd-pcdnwxlogin\.teg\.tencent-cloud\.net reject-200
 ^https?:\/\/ads5-normal-hl\.zijieapi\.com reject-200
