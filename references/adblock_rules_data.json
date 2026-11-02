@@ -832,7 +832,7 @@
     "DOMAIN,log.umsns.com,REJECT-200",
     "DOMAIN,stats.umsns.com,REJECT-200",
     "DOMAIN,rtbasia.datahubtrack.com,REJECT",
-    "DOMAIN-SUFFIX,advlion.com,REJECT-200",
+    "DOMAIN-SUFFIX,advlion.com,REJECT-DICT",
     "DOMAIN-SUFFIX,statisticslinks.com,REJECT-200",
     "DOMAIN-SUFFIX,ubixioe.com,REJECT-200",
     "DOMAIN-SUFFIX,vlion.cn,REJECT",
@@ -840,7 +840,6 @@
     "DOMAIN-SUFFIX,66mobi.com,REJECT",
     "DOMAIN-SUFFIX,yunxish.com,REJECT",
     "DOMAIN-SUFFIX,1rtb.net,REJECT",
-    "DOMAIN,integralwall.baidu.com,REJECT",
     "DOMAIN-SUFFIX,sigmob.cn,REJECT",
     "DOMAIN-SUFFIX,tobidad.cn,REJECT",
     "DOMAIN-SUFFIX,chuxinhudong.com,REJECT",
@@ -1679,7 +1678,7 @@
       "app": "通用广告SDK"
     },
     {
-      "text": "^https?:\\/\\/.*\\.advlion\\.com reject-200",
+      "text": "^https?:\\/\\/.*\\.advlion\\.com reject-dict",
       "pattern": "^https?:\\/\\/.*\\.advlion\\.com",
       "priority": 0,
       "app": "通用广告SDK"

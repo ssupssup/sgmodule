@@ -110,9 +110,9 @@ xlog.jd.com REJECT-200
 logman.dmall.com REJECT-200
 sc-sa-data.dmall.com REJECT-200
 
-# 移动广告归因与 Mentha 聚合打点 (REJECT-200 消除 1s 连发 26 次死循环)
-advlion.com REJECT-200
-bj-td-menta-01-callback.advlion.com REJECT-200
+# 移动广告归因与 Mentha 聚合打点 (REJECT-DICT 假字典消除 1s 连发 23 次死循环)
+advlion.com REJECT-DICT
+bj-td-menta-01-callback.advlion.com REJECT-DICT
 
 # 广告与用户增长 SDK 唤醒短链 (REJECT-200 阻断唤醒追踪)
 zlink.ugsdk.cn REJECT-200
