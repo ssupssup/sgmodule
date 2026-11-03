@@ -1102,7 +1102,7 @@
       "app": "极光"
     },
     {
-      "text": "^https?:\\/\\/smartop-sdkapi\\.jiguang\\.cn reject-200",
+      "text": "^https?:\\/\\/smartop-sdkapi\\.jiguang\\.cn reject-dict",
       "pattern": "^https?:\\/\\/smartop-sdkapi\\.jiguang\\.cn",
       "priority": 0,
       "app": "极光"
@@ -1648,7 +1648,7 @@
       "app": "通用广告SDK"
     },
     {
-      "text": "^https?:\\/\\/analytics\\.umetrip\\.com reject-200",
+      "text": "^https?:\\/\\/analytics\\.umetrip\\.com reject-dict",
       "pattern": "^https?:\\/\\/analytics\\.umetrip\\.com",
       "priority": 0,
       "app": "通用广告SDK"
@@ -1696,7 +1696,7 @@
       "app": "通用广告SDK"
     },
     {
-      "text": "^https?:\\/\\/sensors\\.umetrip\\.com\\.cn reject-200",
+      "text": "^https?:\\/\\/sensors\\.umetrip\\.com\\.cn reject-dict",
       "pattern": "^https?:\\/\\/sensors\\.umetrip\\.com\\.cn",
       "priority": 0,
       "app": "航旅纵横"
@@ -1780,7 +1780,7 @@
       "app": "腾讯广点通"
     },
     {
-      "text": "^https?:\\/\\/umestartup\\.umetrip\\.com reject-200",
+      "text": "^https?:\\/\\/umestartup\\.umetrip\\.com reject-dict",
       "pattern": "^https?:\\/\\/umestartup\\.umetrip\\.com",
       "priority": 0,
       "app": "航旅纵横"

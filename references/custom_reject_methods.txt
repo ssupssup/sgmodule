@@ -135,7 +135,7 @@ gm.mmstat.com REJECT-DICT
 log.mmstat.com REJECT-DICT
 wgo.mmstat.com REJECT-DICT
 orange-dc.alibaba.com REJECT-200
-smartop-sdkapi.jiguang.cn REJECT-200
+smartop-sdkapi.jiguang.cn REJECT-DICT
 sdk-open-phone.getui.com REJECT-DICT
 bird.cn-hangzhou.log.aliyuncs.com REJECT-200
 traffic-click.cn-zhangjiakou.log.aliyuncs.com REJECT-DICT
@@ -155,7 +155,7 @@ app-monitor-cn.doki.ren REJECT-DICT
 sdkquic.e.qq.com REJECT-200
 io-sm-log.tantanapp.com REJECT-DICT
 client-monitor.tantanapp.com REJECT-DICT
-analytics.umetrip.com REJECT-200
+analytics.umetrip.com REJECT-DICT
 pgdt.ugdtimg.com REJECT-200
 
 mllog.jd.com REJECT-DICT
@@ -170,7 +170,7 @@ ubixioe.com REJECT-200
 
 
 # 2026-10-14 航旅纵横神策打点优雅降温 (消除单秒高频并发)
-sensors.umetrip.com.cn REJECT-200
+sensors.umetrip.com.cn REJECT-DICT
 
 # 2026-10-15 海外广告联盟与漏网降温自愈 (TCP RST 1ms 秒断彻底消除悬挂发热)
 pubmatic.com REJECT
@@ -198,7 +198,7 @@ df.tanx.com REJECT-DICT
 mi.gdt.qq.com REJECT-200
 v2mi.gdt.qq.com REJECT-200
 adsmind.ugdtimg.com REJECT-200
-umestartup.umetrip.com REJECT-200
+umestartup.umetrip.com REJECT-DICT
 report.tantanapp.com REJECT-DICT
 api-log.immomo.com REJECT-DICT
 paas-push-api-log.immomo.com REJECT-DICT

@@ -204,7 +204,7 @@ def process_and_align_conf(lines, remove_set, disable_set, prepend_proxy_rules, 
         # 1.5 动态拦截并在 skip-proxy 中注入 App Store 核心下载 CDN 旁路 (解决全部更新排队超时弹回)
         if stripped.startswith("skip-proxy ="):
             existing_skips = [s.strip() for s in stripped.split("=", 1)[1].split(",") if s.strip()]
-            extra_skips = ["*.aaplimg.com", "*.mzstatic.com", "phobos.apple.com", "appldnld.apple.com", "itunes.apple.com", "*.itunes.apple.com", "apps.apple.com", "*.apps.apple.com", "*.weatherkit.apple.com", "weather-data.apple.com"]
+            extra_skips = ["*.aaplimg.com", "*.mzstatic.com", "phobos.apple.com", "appldnld.apple.com", "itunes.apple.com", "*.itunes.apple.com", "apps.apple.com", "*.apps.apple.com", "weatherkit.apple.com", "*.weatherkit.apple.com", "weather-data.apple.com", "*.weather-data.apple.com", "weather-edge.apple.com", "*.weather-edge.apple.com", "weather-analytics-events.apple.com", "*.weather-analytics-events.apple.com"]
             for eskip in extra_skips:
                 if eskip not in existing_skips:
                     existing_skips.append(eskip)
