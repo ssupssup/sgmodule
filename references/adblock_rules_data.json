@@ -632,7 +632,7 @@
   },
   "SDK_BLOCK_RULES": [
     "# === 2026-08-11 防发热：日志/崩溃/遥测 SDK 优雅阻断 (REJECT-200 清空队列) ===",
-    "DOMAIN,errnewlog.umeng.com,REJECT-200",
+    "DOMAIN,errnewlog.umeng.com,REJECT-DICT",
     "DOMAIN,cnlogs.umeng.com,REJECT-200",
     "DOMAIN,utoken.umeng.com,REJECT-200",
     "DOMAIN,cnlogs.umengcloud.com,REJECT-200",
@@ -802,7 +802,7 @@
     "DOMAIN,tsis.jpush.cn,REJECT-DICT",
     "DOMAIN,zlink.ugsdk.cn,REJECT-200",
     "DOMAIN,live-log.immomo.com,REJECT-200",
-    "DOMAIN,px.effirst.com,REJECT-200",
+    "DOMAIN,px.effirst.com,REJECT-DICT",
     "DOMAIN,ali-stats.jpush.cn,REJECT-200",
     "DOMAIN,gd-stats.jpush.cn,REJECT-200",
     "DOMAIN,sdk-open-phone.getui.com,REJECT-DICT",
@@ -838,7 +838,7 @@
     "DOMAIN-SUFFIX,vlion.cn,REJECT",
     "DOMAIN-SUFFIX,adwangmai.com,REJECT",
     "DOMAIN-SUFFIX,66mobi.com,REJECT",
-    "DOMAIN-SUFFIX,yunxish.com,REJECT",
+    "DOMAIN,logrcv.yunxish.com,REJECT",
     "DOMAIN-SUFFIX,1rtb.net,REJECT",
     "DOMAIN-SUFFIX,sigmob.cn,REJECT",
     "DOMAIN-SUFFIX,tobidad.cn,REJECT",
@@ -1354,7 +1354,7 @@
       "app": "陌陌"
     },
     {
-      "text": "^https?:\\/\\/px\\.effirst\\.com reject-200",
+      "text": "^https?:\\/\\/px\\.effirst\\.com reject-dict",
       "pattern": "^https?:\\/\\/px\\.effirst\\.com",
       "priority": 0,
       "app": "广告遥测"
@@ -1732,7 +1732,7 @@
       "app": "铁路12306"
     },
     {
-      "text": "^https?:\\/\\/snssdk\\.huazhu\\.com reject-200",
+      "text": "^https?:\\/\\/snssdk\\.huazhu\\.com reject-dict",
       "pattern": "^https?:\\/\\/snssdk\\.huazhu\\.com",
       "priority": 0,
       "app": "华住会"
@@ -1804,7 +1804,7 @@
       "app": "陌陌"
     },
     {
-      "text": "^https?:\\/\\/errnewlog\\.umeng\\.com reject-200",
+      "text": "^https?:\\/\\/errnewlog\\.umeng\\.com reject-dict",
       "pattern": "^https?:\\/\\/errnewlog\\.umeng\\.com",
       "priority": 0,
       "app": "友盟"

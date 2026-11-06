@@ -1,6 +1,6 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-11-05 08:55:11 | Deep ad block & UI purification customized for user's installed apps.
-#!total=1293
+#!desc=最近更新: 2026-11-06 08:45:39 | Deep ad block & UI purification customized for user's installed apps.
+#!total=1299
 
 [Rule]
 # === LINE Notice Bar SafeFrame & Pubads PROXY Override (Top Priority) ===
@@ -106,17 +106,23 @@ DOMAIN,rtbasia.datahubtrack.com,REJECT
 DOMAIN-SUFFIX,vlion.cn,REJECT
 DOMAIN-SUFFIX,adwangmai.com,REJECT
 DOMAIN-SUFFIX,66mobi.com,REJECT
-DOMAIN-SUFFIX,yunxish.com,REJECT
+DOMAIN,logrcv.yunxish.com,REJECT
 DOMAIN-SUFFIX,1rtb.net,REJECT
 DOMAIN-SUFFIX,sigmob.cn,REJECT
 DOMAIN-SUFFIX,tobidad.cn,REJECT
 DOMAIN-SUFFIX,chuxinhudong.com,REJECT
 DOMAIN-SUFFIX,appsflyersdk.com,REJECT
 DOMAIN-SUFFIX,appsflyer.com,REJECT
-DOMAIN-SUFFIX,analytics.pointdrive.linkedin.com,REJECT
-DOMAIN-SUFFIX,a1.firefoxchina.cn,REJECT
-DOMAIN-SUFFIX,ads.linkedin.com,REJECT
-DOMAIN-SUFFIX,outlookads.live.com,REJECT
+DOMAIN,ad.snssdk.com,REJECT-NO-DROP
+DOMAIN,rtlog.snssdk.com,REJECT-NO-DROP
+DOMAIN,mcs.snssdk.com,REJECT-NO-DROP
+DOMAIN,dm.snssdk.com,REJECT-NO-DROP
+DOMAIN,dcs.ipinyou.com,REJECT-NO-DROP
+DOMAIN,crashlytics.com,REJECT-NO-DROP
+DOMAIN,app-measurement.com,REJECT-NO-DROP
+DOMAIN,adjust.com,REJECT-NO-DROP
+DOMAIN,appsflyersdk.com,REJECT
+DOMAIN,app-analytics-services.com,REJECT
 # === Compiled App Rules ===
 DOMAIN,adstrategy.biz.weibo.com,REJECT
 DOMAIN-SUFFIX,api.touch-moblie.com,REJECT
@@ -325,7 +331,7 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/tsis\.jpush\.cn reject-dict
 ^https?:\/\/zlink\.ugsdk\.cn reject-200
 ^https?:\/\/live-log\.immomo\.com reject-dict
-^https?:\/\/px\.effirst\.com reject-200
+^https?:\/\/px\.effirst\.com reject-dict
 ^https?:\/\/gd-stats\.jpush\.cn reject-dict
 ^https?:\/\/sdk-open-phone\.getui\.com reject-dict
 ^https?:\/\/gm\.mmstat\.com reject-dict
@@ -388,7 +394,7 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/df\.tanx\.com\/spf reject-dict
 ^https?:\/\/ef-dongfeng\.tanx\.com\/tanx reject-dict
 ^https?:\/\/ad\.12306\.cn reject-200
-^https?:\/\/snssdk\.huazhu\.com reject-200
+^https?:\/\/snssdk\.huazhu\.com reject-dict
 ^https?:\/\/log-api\.pangolin-sdk-toutiao-b\.com reject-dict
 ^https?:\/\/schedule-media\.immomo\.com reject-dict
 ^https?:\/\/sla-media\.immomo\.com reject-dict
@@ -400,7 +406,7 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/report\.tantanapp\.com\/(?!\/?v1\/online) reject-dict
 ^https?:\/\/api-log\.immomo\.com reject-dict
 ^https?:\/\/paas-push-api-log\.immomo\.com reject-dict
-^https?:\/\/errnewlog\.umeng\.com reject-200
+^https?:\/\/errnewlog\.umeng\.com reject-dict
 ^https?:\/\/api-access\.pangolin-sdk-toutiao.*\.com\/api\/ad reject-dict
 ^https?:\/\/xs\.gdt\.qq\.com reject-200
 ^https?:\/\/ii\.gdt\.qq\.com reject-200

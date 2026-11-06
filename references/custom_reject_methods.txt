@@ -26,7 +26,7 @@ mon11-misc-lf.amemv.com REJECT-200
 tnc0-aliec2.zijieapi.com REJECT-200
 tnc0-alisc1.zijieapi.com REJECT-200
 rtlog3-applog-hl.amemv.com REJECT-200
-px.effirst.com REJECT-200
+px.effirst.com REJECT-DICT
 klink.volceapplog.com REJECT-DICT
 toblog.volceapplog.com REJECT-DICT
 log-report.rtc.volcvideo.com REJECT-DICT
@@ -185,7 +185,7 @@ app-ads-services.com REJECT
 # 2026-10-15 穿山甲/探探/12306/DoubleClick 优雅降温防发热对齐
 doubleclick.net REJECT
 googlesyndication.com REJECT
-snssdk.huazhu.com REJECT-200
+snssdk.huazhu.com REJECT-DICT
 ad.12306.cn REJECT-200
 log-api.pangolin-sdk-toutiao-b.com REJECT-DICT
 api-access.pangolin-sdk-toutiao-b.com REJECT-DICT
@@ -204,7 +204,7 @@ api-log.immomo.com REJECT-DICT
 paas-push-api-log.immomo.com REJECT-DICT
 sf6-fe-tos.pglstatp-toutiao.com REJECT-200
 sf3-fe-tos.pglstatp-toutiao.com REJECT-200
-errnewlog.umeng.com REJECT-200
+errnewlog.umeng.com REJECT-DICT
 xlog.jd.com REJECT
 zztfly.com REJECT
 adsmind.gdtimg.com REJECT

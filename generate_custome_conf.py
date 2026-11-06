@@ -88,6 +88,7 @@ def load_custom_override_rules():
 
 def fetch_top500_rules():
     print(f"📥 正在从 {TOP500_URL} 抓取最新 Top500 白名单规则...")
+    cache_path = os.path.join(BASE_DIR, "scratch", "top500_cache.txt")
     import ssl
     ctx = ssl._create_unverified_context()
     req = urllib.request.Request(TOP500_URL, headers={'User-Agent': 'Mozilla/5.0'})
@@ -96,10 +97,20 @@ def fetch_top500_rules():
             content = response.read().decode('utf-8')
             lines = content.splitlines()
             print(f"✅ 成功抓取 Top500 原始文本，共 {len(lines)} 行。")
+            try:
+                os.makedirs(os.path.dirname(cache_path), exist_ok=True)
+                with open(cache_path, 'w', encoding='utf-8') as f:
+                    f.write(content)
+            except Exception:
+                pass
             return lines
     except Exception as e:
-        print(f"⚠️ 抓取 Top500 规则失败: {e}，尝试跳过或降级处理...")
-        # 尝试备用或空降级
+        print(f"⚠️ 抓取 Top500 规则失败: {e}，尝试使用本地离线缓存...")
+        if os.path.exists(cache_path):
+            with open(cache_path, 'r', encoding='utf-8') as f:
+                lines = f.read().splitlines()
+            print(f"✅ 成功命中本地离线缓存: 共 {len(lines)} 行。")
+            return lines
         return []
 
 def fetch_and_clean_china_direct_rules(existing_top500_rules):
@@ -204,7 +215,7 @@ def process_and_align_conf(lines, remove_set, disable_set, prepend_proxy_rules, 
         # 1.5 动态拦截并在 skip-proxy 中注入 App Store 核心下载 CDN 旁路 (解决全部更新排队超时弹回)
         if stripped.startswith("skip-proxy ="):
             existing_skips = [s.strip() for s in stripped.split("=", 1)[1].split(",") if s.strip()]
-            extra_skips = ["*.aaplimg.com", "*.mzstatic.com", "phobos.apple.com", "appldnld.apple.com", "itunes.apple.com", "*.itunes.apple.com", "apps.apple.com", "*.apps.apple.com", "weatherkit.apple.com", "*.weatherkit.apple.com", "weather-data.apple.com", "*.weather-data.apple.com", "weather-edge.apple.com", "*.weather-edge.apple.com", "weather-analytics-events.apple.com", "*.weather-analytics-events.apple.com"]
+            extra_skips = ["*.aaplimg.com", "*.mzstatic.com", "phobos.apple.com", "appldnld.apple.com", "itunes.apple.com", "*.itunes.apple.com", "apps.apple.com", "*.apps.apple.com", "weatherkit.apple.com", "*.weatherkit.apple.com", "weather-data.apple.com", "*.weather-data.apple.com", "weather-edge.apple.com", "*.weather-edge.apple.com", "weather-analytics-events.apple.com", "*.weather-analytics-events.apple.com", "weather-map.apple.com", "*.weather-map.apple.com", "weather-map2.apple.com", "*.weather-map2.apple.com"]
             for eskip in extra_skips:
                 if eskip not in existing_skips:
                     existing_skips.append(eskip)
