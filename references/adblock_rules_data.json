@@ -697,9 +697,7 @@
     "DOMAIN,pangolin-sdk-toutiao.com,REJECT-200",
     "DOMAIN,pangolin-sdk-toutiao1.com,REJECT-200",
     "DOMAIN-SUFFIX,pglstatp-toutiao.com,REJECT-NO-DROP",
-    "DOMAIN,log-api.pangolin-sdk-toutiao.com,REJECT-DICT",
     "DOMAIN,api-access.pangolin-sdk-toutiao-b.com,REJECT-DICT",
-    "DOMAIN,log-api.pangolin-sdk-toutiao-b.com,REJECT-DICT",
     "DOMAIN,api-access.pangolin-sdk-toutiao1.com,REJECT-DICT",
     "DOMAIN,app-log-lab.tantanapp.com,REJECT-200",
     "DOMAIN,io-sm-log.tantanapp.com,REJECT-200",
@@ -955,7 +953,6 @@
     "pgdt.gtimg.cn",
     "sdk.e.qq.com",
     "s-gm.mmstat.com",
-    "log-api.pangolin-sdk-toutiao.com",
     "h-adashx.ut.taobao.com",
     "gromore.pangolin-sdk-toutiao.com",
     "open.e.kuaishou.com",
@@ -975,11 +972,9 @@
     "ad.12306.cn",
     "snssdk.huazhu.com",
     "api-access.pangolin-sdk-toutiao-b.com",
-    "log-api.pangolin-sdk-toutiao-b.com",
     "ef-dongfeng.tanx.com",
     "df.tanx.com",
     "api-access.pangolin-sdk-toutiao1.com",
-    "log-api.pangolin-sdk-toutiao1.com",
     "mi.gdt.qq.com",
     "v2mi.gdt.qq.com",
     "adsmind.ugdtimg.com",
@@ -1004,12 +999,6 @@
       "pattern": "^https?:\\/\\/ali-stats\\.jpush\\.cn",
       "priority": 0,
       "app": "极光推送"
-    },
-    {
-      "text": "^https?:\\/\\/log-api\\.pangolin-sdk-toutiao\\.com reject-dict",
-      "pattern": "^https?:\\/\\/log-api\\.pangolin-sdk-toutiao\\.com",
-      "priority": 0,
-      "app": "字节穿山甲"
     },
     {
       "text": "^https?:\\/\\/s-gm\\.mmstat\\.com reject-dict",
@@ -1684,7 +1673,7 @@
       "app": "通用广告SDK"
     },
     {
-      "text": "^https?:\\/\\/.*\\.statisticslinks\\.com reject-200",
+      "text": "^https?:\\/\\/.*\\.statisticslinks\\.com reject-dict",
       "pattern": "^https?:\\/\\/.*\\.statisticslinks\\.com",
       "priority": 0,
       "app": "通用广告SDK"
@@ -1738,12 +1727,6 @@
       "app": "华住会"
     },
     {
-      "text": "^https?:\\/\\/log-api\\.pangolin-sdk-toutiao-b\\.com reject-dict",
-      "pattern": "^https?:\\/\\/log-api\\.pangolin-sdk-toutiao-b\\.com",
-      "priority": 0,
-      "app": "字节穿山甲"
-    },
-    {
       "text": "^https?:\\/\\/schedule-media\\.immomo\\.com reject-dict",
       "pattern": "^https?:\\/\\/schedule-media\\.immomo\\.com",
       "priority": 0,
@@ -1754,12 +1737,6 @@
       "pattern": "^https?:\\/\\/sla-media\\.immomo\\.com",
       "priority": 0,
       "app": "探探"
-    },
-    {
-      "text": "^https?:\\/\\/log-api\\.pangolin-sdk-toutiao1\\.com reject-dict",
-      "pattern": "^https?:\\/\\/log-api\\.pangolin-sdk-toutiao1\\.com",
-      "priority": 0,
-      "app": "字节穿山甲"
     },
     {
       "text": "^https?:\\/\\/mi\\.gdt\\.qq\\.com reject-200",

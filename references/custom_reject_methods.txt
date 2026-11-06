@@ -5,7 +5,7 @@
 dig.bdurl.net REJECT-200
 mobads-logs.baidu.com REJECT-200
 fclog.baidu.com REJECT-DICT
-sofire.baidu.com REJECT-200
+sofire.baidu.com REJECT-DICT
 afd.baidu.com REJECT-200
 afdconf.baidu.com REJECT-200
 
@@ -144,9 +144,9 @@ apd-pcdnwxstat.teg.tencent-cloud.net REJECT-200
 # 新增 15 大发热域名降温重写字典 (2026-10-09 优化)
 pangolin-sdk-toutiao1.com REJECT-200
 gdfp.gifshow.com REJECT-200
-sofire.baidu.com REJECT-200
+sofire.baidu.com REJECT-DICT
 bgg.baidu.com REJECT-200
-als.baidu.com REJECT-200
+als.baidu.com REJECT-DICT
 afd.baidu.com REJECT-200
 afdconf.baidu.com REJECT-200
 mobads-pre-config.cdn.bcebos.com REJECT-200
@@ -162,10 +162,9 @@ mllog.jd.com REJECT-DICT
 pgdt.gtimg.cn REJECT-200
 sdk.e.qq.com REJECT-200
 s-gm.mmstat.com REJECT-DICT
-log-api.pangolin-sdk-toutiao.com REJECT-DICT
 
 # 新增 广告联盟优雅假响应降温字典 (2026-10-13 优化)
-statisticslinks.com REJECT-200
+statisticslinks.com REJECT-DICT
 ubixioe.com REJECT-200
 
 
@@ -187,10 +186,8 @@ doubleclick.net REJECT
 googlesyndication.com REJECT
 snssdk.huazhu.com REJECT-DICT
 ad.12306.cn REJECT-200
-log-api.pangolin-sdk-toutiao-b.com REJECT-DICT
 api-access.pangolin-sdk-toutiao-b.com REJECT-DICT
 api-access.pangolin-sdk-toutiao1.com REJECT-DICT
-log-api.pangolin-sdk-toutiao1.com REJECT-DICT
 ef-dongfeng.tanx.com REJECT-DICT
 df.tanx.com REJECT-DICT
 

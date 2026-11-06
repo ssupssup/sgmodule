@@ -33,7 +33,6 @@ config.jpush.cn
 mssdk3-normal-lf.zijieapi.com
 pangolin-sdk-toutiao.com
 pangolin-sdk-toutiao-b.com
-log-api.pangolin-sdk-toutiao.com
 api-access.pangolin-sdk-toutiao-b.com
 win.gdt.qq.com
 gdt.qq.com
@@ -175,14 +174,12 @@ sensors.umetrip.com.cn
 # 新增 12306/华住会/穿山甲备用域名擦除走优雅假响应 (2026-10-15 优化)
 ad.12306.cn
 snssdk.huazhu.com
-log-api.pangolin-sdk-toutiao-b.com
 api-access.pangolin-sdk-toutiao-b.com
 ef-dongfeng.tanx.com
 df.tanx.com
 schedule-media.immomo.com
 sla-media.immomo.com
 api-access.pangolin-sdk-toutiao1.com
-log-api.pangolin-sdk-toutiao1.com
 
 # 新增广点通/航旅纵横开屏/探探陌陌日志擦除走优雅假响应 (2026-10-17 优化)
 mi.gdt.qq.com

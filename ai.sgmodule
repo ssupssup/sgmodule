@@ -1,6 +1,6 @@
 #!name=AI.sgmodule (Apple Intelligence/ChatGPT/Claude/Grok/Gemini/NotebookLM/Poe/Manus/Copilot)
-#!desc=最近更新: 2026-11-06 08:57:51 | 自用 AI 工具代理分流模块。针对平台: Apple Intelligence, ChatGPT, Claude, Grok, Gemini, NotebookLM, Poe, Manus, Copilot.
-#!total=85
+#!desc=最近更新: 2026-11-06 16:13:10 | 自用 AI 工具代理分流模块。针对平台: Apple Intelligence, ChatGPT, Claude, Grok, Gemini, NotebookLM, Poe, Manus, Copilot.
+#!total=71
 
 [Rule]
 # ------------------ 1. Apple Intelligence (走代理) ------------------
@@ -87,19 +87,3 @@ DOMAIN-SUFFIX,proactivebackend-pa.googleapis.com,PROXY
 DOMAIN-KEYWORD,colab,PROXY
 DOMAIN-KEYWORD,developerprofiles,PROXY
 DOMAIN-KEYWORD,generativelanguage,PROXY
-
-# ------------------ Copilot (Compiled) ------------------
-DOMAIN,api.msn.com,PROXY
-DOMAIN,api.statsig.com,PROXY
-DOMAIN,assets.msn.com,PROXY
-DOMAIN,copilot.microsoft.com,PROXY
-DOMAIN,gateway.bingviz.microsoft.net,PROXY
-DOMAIN,gateway.bingviz.microsoftapp.net,PROXY
-DOMAIN,in.appcenter.ms,PROXY
-DOMAIN,services.bingapis.com,PROXY
-DOMAIN,sydney.bing.com,PROXY
-DOMAIN-SUFFIX,api.microsoftapp.net,PROXY
-DOMAIN-SUFFIX,bing-shopping.microsoft-falcon.io,PROXY
-DOMAIN-SUFFIX,challenges.cloudflare.com,PROXY
-DOMAIN-SUFFIX,edgeservices.bing.com,PROXY
-DOMAIN-KEYWORD,openaicom-api,PROXY
