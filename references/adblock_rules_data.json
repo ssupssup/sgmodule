@@ -785,7 +785,6 @@
     "DOMAIN,app-monitor-cn.doki.ren,REJECT-200",
     "DOMAIN,perf.m.jd.com,REJECT-200",
     "DOMAIN,uranus.jd.com,REJECT-200",
-    "DOMAIN,sc-report.tantanapp.com,REJECT-200",
     "DOMAIN,log.ys7.com,REJECT-DICT",
     "DOMAIN,tqt.weibo.cn,REJECT-200",
     "DOMAIN,tnc0-aliec2.zijieapi.com,REJECT-200",
@@ -907,7 +906,6 @@
     "tangram.e.qq.com",
     "sdkreport.e.qq.com",
     "log.snssdk.com",
-    "sc-report.tantanapp.com",
     "abtest.tantanapp.com",
     "app-log-lab.tantanapp.com",
     "snowflake.qq.com",
@@ -979,7 +977,6 @@
     "v2mi.gdt.qq.com",
     "adsmind.ugdtimg.com",
     "umestartup.umetrip.com",
-    "report.tantanapp.com",
     "api-log.immomo.com",
     "paas-push-api-log.immomo.com",
     "errnewlog.umeng.com",
@@ -1055,7 +1052,7 @@
       "app": "淘宝"
     },
     {
-      "text": "^https?:\\/\\/httpdnsmultiapivip\\.meituan\\.com reject-200",
+      "text": "^https?:\\/\\/httpdnsmultiapivip\\.meituan\\.com reject-dict",
       "pattern": "^https?:\\/\\/httpdnsmultiapivip\\.meituan\\.com",
       "priority": 0,
       "app": "美团"
@@ -1415,12 +1412,6 @@
       "app": "字节火山引擎"
     },
     {
-      "text": "^https?:\\/\\/sc-report\\.tantanapp\\.com\\/(?!\\/?v1\\/online) reject-dict",
-      "pattern": "^https?:\\/\\/sc-report\\.tantanapp\\.com\\/(?!\\/?v1\\/online)",
-      "priority": 0,
-      "app": "探探"
-    },
-    {
       "text": "^https?:\\/\\/abtest\\.tantanapp\\.com reject-dict",
       "pattern": "^https?:\\/\\/abtest\\.tantanapp\\.com",
       "priority": 0,
@@ -1433,13 +1424,13 @@
       "app": "探探"
     },
     {
-      "text": "^https?:\\/\\/snowflake\\.qq\\.com reject-200",
+      "text": "^https?:\\/\\/snowflake\\.qq\\.com reject-dict",
       "pattern": "^https?:\\/\\/snowflake\\.qq\\.com",
       "priority": 0,
       "app": "微信"
     },
     {
-      "text": "^https?:\\/\\/rmonitor\\.qq\\.com reject-200",
+      "text": "^https?:\\/\\/rmonitor\\.qq\\.com reject-dict",
       "pattern": "^https?:\\/\\/rmonitor\\.qq\\.com",
       "priority": 0,
       "app": "微信"
@@ -1715,7 +1706,7 @@
       "app": "探探"
     },
     {
-      "text": "^https?:\\/\\/ad\\.12306\\.cn reject-200",
+      "text": "^https?:\\/\\/ad\\.12306\\.cn reject-dict",
       "pattern": "^https?:\\/\\/ad\\.12306\\.cn",
       "priority": 0,
       "app": "铁路12306"
@@ -1761,12 +1752,6 @@
       "pattern": "^https?:\\/\\/umestartup\\.umetrip\\.com",
       "priority": 0,
       "app": "航旅纵横"
-    },
-    {
-      "text": "^https?:\\/\\/report\\.tantanapp\\.com\\/(?!\\/?v1\\/online) reject-dict",
-      "pattern": "^https?:\\/\\/report\\.tantanapp\\.com\\/(?!\\/?v1\\/online)",
-      "priority": 0,
-      "app": "探探"
     },
     {
       "text": "^https?:\\/\\/api-log\\.immomo\\.com reject-dict",
