@@ -633,10 +633,10 @@
   "SDK_BLOCK_RULES": [
     "# === 2026-08-11 防发热：日志/崩溃/遥测 SDK 优雅阻断 (REJECT-200 清空队列) ===",
     "DOMAIN,errnewlog.umeng.com,REJECT-DICT",
-    "DOMAIN,cnlogs.umeng.com,REJECT-200",
-    "DOMAIN,utoken.umeng.com,REJECT-200",
-    "DOMAIN,cnlogs.umengcloud.com,REJECT-200",
-    "DOMAIN,resolve.umeng.com,REJECT-200",
+    "DOMAIN,cnlogs.umeng.com,REJECT-DICT",
+    "DOMAIN,utoken.umeng.com,REJECT-DICT",
+    "DOMAIN,cnlogs.umengcloud.com,REJECT-DICT",
+    "DOMAIN,resolve.umeng.com,REJECT-DICT",
     "DOMAIN,snowflake.qq.com,REJECT-200",
     "DOMAIN,rmonitor.qq.com,REJECT-200",
     "DOMAIN,beacon.qq.com,REJECT-200",
@@ -1004,7 +1004,7 @@
       "app": "阿里遥测"
     },
     {
-      "text": "^https?:\\/\\/sdk\\.e\\.qq\\.com reject-200",
+      "text": "^https?:\\/\\/sdk\\.e\\.qq\\.com reject-dict",
       "pattern": "^https?:\\/\\/sdk\\.e\\.qq\\.com",
       "priority": 0,
       "app": "腾讯广点通"
