@@ -94,6 +94,9 @@ analytics.meituan.net REJECT-DICT
 dreport.meituan.net REJECT-DICT
 route-stats.d.meituan.net REJECT-DICT
 httpdnsmultiapivip.meituan.com REJECT-DICT
+103.37.155.60 REJECT-DICT
+dnspod.meituan.httpdns.qcloud.com REJECT-DICT
+dnspod.meituan.httpdns.start.qcloud.com REJECT-DICT
 catdot.dianping.com REJECT-200
 
 # 京东 埋点、反作弊、设备指纹与 APM 性能监控 (REJECT-200 假响应清空本地发送队列)

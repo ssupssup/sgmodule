@@ -794,7 +794,6 @@
     "DOMAIN,abtest3-misc-lf.zijieapi.com,REJECT-200",
     "DOMAIN,mssdk.volces.com,REJECT-200",
     "DOMAIN,live-player-log.zijieapi.com,REJECT-200",
-    "DOMAIN,live-player-log-service.bytedance.com,REJECT-200",
     "DOMAIN,sis.jpush.io,REJECT-200",
     "DOMAIN,tsis.jpush.cn,REJECT-DICT",
     "DOMAIN,zlink.ugsdk.cn,REJECT-200",
@@ -805,7 +804,7 @@
     "DOMAIN,sdk-open-phone.getui.com,REJECT-DICT",
     "DOMAIN,httpdns.meituan.com,REJECT-200",
     "DOMAIN,httpdnsmultiapi.meituan.com,REJECT-200",
-    "DOMAIN,dnspod.meituan.httpdns.start.qcloud.com,REJECT-200",
+    "DOMAIN,dnspod.meituan.httpdns.start.qcloud.com,REJECT-DICT",
     "DOMAIN,sdktt.data.tianwenca.com,REJECT-200",
     "DOMAIN,sd-gl.xinqiucc.com,REJECT-200",
     "DOMAIN,cf-gl.qiezibenpao.com,REJECT-200",
@@ -885,7 +884,6 @@
     "loggw-ex.alipay.com",
     "mssdk.volces.com",
     "live-player-log.zijieapi.com",
-    "live-player-log-service.bytedance.com",
     "sis.jpush.io",
     "tsis.jpush.cn",
     "zlink.ugsdk.cn",
@@ -1054,6 +1052,24 @@
     {
       "text": "^https?:\\/\\/httpdnsmultiapivip\\.meituan\\.com reject-dict",
       "pattern": "^https?:\\/\\/httpdnsmultiapivip\\.meituan\\.com",
+      "priority": 0,
+      "app": "美团"
+    },
+    {
+      "text": "^https?:\\/\\/103\\.37\\.155\\.60\\/fetch reject-dict",
+      "pattern": "^https?:\\/\\/103\\.37\\.155\\.60\\/fetch",
+      "priority": 0,
+      "app": "美团"
+    },
+    {
+      "text": "^https?:\\/\\/dnspod\\.meituan\\.httpdns\\.qcloud\\.com reject-dict",
+      "pattern": "^https?:\\/\\/dnspod\\.meituan\\.httpdns\\.qcloud\\.com",
+      "priority": 0,
+      "app": "美团"
+    },
+    {
+      "text": "^https?:\\/\\/dnspod\\.meituan\\.httpdns\\.start\\.qcloud\\.com reject-dict",
+      "pattern": "^https?:\\/\\/dnspod\\.meituan\\.httpdns\\.start\\.qcloud\\.com",
       "priority": 0,
       "app": "美团"
     },
@@ -1308,12 +1324,6 @@
       "pattern": "^https?:\\/\\/live-player-log\\.zijieapi\\.com",
       "priority": 0,
       "app": "抖音直播"
-    },
-    {
-      "text": "^https?:\\/\\/live-player-log-service\\.bytedance\\.com reject-200",
-      "pattern": "^https?:\\/\\/live-player-log-service\\.bytedance\\.com",
-      "priority": 0,
-      "app": "字节跳动"
     },
     {
       "text": "^https?:\\/\\/sis\\.jpush\\.io reject-200",

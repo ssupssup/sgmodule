@@ -121,7 +121,9 @@
     "# Douban (SSL Pinning prevents app loading if decrypted)",
     "douban.com",
     "# Twitter (SSL Pinning prevents video playback / metrics if decrypted)",
-    "analytics.twitter.com"
+    "analytics.twitter.com",
+    "# ByteDance Live Player Log (Port 8900 non-HTTP, eliminate useless TLS decryption)",
+    "live-player-log-service.bytedance.com"
   ],
   "BYPASS_RULES": [
     "# 彻底解决 Apple 定位守护进程 locationd 跨国超时发热的异常",
