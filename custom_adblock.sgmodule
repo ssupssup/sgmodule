@@ -1,6 +1,6 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-11-10 10:45:21 | Deep ad block & UI purification customized for user's installed apps.
-#!total=1287
+#!desc=最近更新: 2026-11-10 19:28:11 | Deep ad block & UI purification customized for user's installed apps.
+#!total=1293
 
 [Rule]
 # === LINE Notice Bar SafeFrame & Pubads PROXY Override (Top Priority) ===
@@ -113,10 +113,16 @@ DOMAIN-SUFFIX,tobidad.cn,REJECT
 DOMAIN-SUFFIX,chuxinhudong.com,REJECT
 DOMAIN-SUFFIX,appsflyersdk.com,REJECT
 DOMAIN-SUFFIX,appsflyer.com,REJECT
-DOMAIN-SUFFIX,outlookads.live.com,REJECT
-DOMAIN-SUFFIX,analytics.pointdrive.linkedin.com,REJECT
-DOMAIN-SUFFIX,a1.firefoxchina.cn,REJECT
-DOMAIN-SUFFIX,ads.linkedin.com,REJECT
+DOMAIN,ad.snssdk.com,REJECT-NO-DROP
+DOMAIN,rtlog.snssdk.com,REJECT-NO-DROP
+DOMAIN,mcs.snssdk.com,REJECT-NO-DROP
+DOMAIN,dm.snssdk.com,REJECT-NO-DROP
+DOMAIN,dcs.ipinyou.com,REJECT-NO-DROP
+DOMAIN,crashlytics.com,REJECT-NO-DROP
+DOMAIN,app-measurement.com,REJECT-NO-DROP
+DOMAIN,adjust.com,REJECT-NO-DROP
+DOMAIN,appsflyersdk.com,REJECT
+DOMAIN,app-analytics-services.com,REJECT
 # === Compiled App Rules ===
 DOMAIN,adstrategy.biz.weibo.com,REJECT
 DOMAIN-SUFFIX,api.touch-moblie.com,REJECT
@@ -319,7 +325,7 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/route-stats\.d\.meituan\.net reject-dict
 ^https?:\/\/loggw-ex\.alipay\.com reject-dict
 ^https?:\/\/mssdk\.volces\.com reject-dict
-^https?:\/\/live-player-log\.zijieapi\.com reject-200
+^https?:\/\/live-player-log\.zijieapi\.com reject-dict
 ^https?:\/\/sis\.jpush\.io reject-200
 ^https?:\/\/tsis\.jpush\.cn reject-dict
 ^https?:\/\/zlink\.ugsdk\.cn reject-200
@@ -345,12 +351,12 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/log\.ys7\.com reject-dict
 ^https?:\/\/retcode\.taobao\.com reject-200
 ^https?:\/\/adip-api\.immomo\.com reject-dict
-^https?:\/\/log\.umsns\.com reject-200
-^https?:\/\/stats\.umsns\.com reject-200
-^https?:\/\/utoken\.umeng\.com reject-200
-^https?:\/\/cnlogs\.umeng\.com reject-200
-^https?:\/\/resolve\.umeng\.com reject-200
-^https?:\/\/cnlogs\.umengcloud\.com reject-200
+^https?:\/\/log\.umsns\.com reject-dict
+^https?:\/\/stats\.umsns\.com reject-dict
+^https?:\/\/utoken\.umeng\.com reject-dict
+^https?:\/\/cnlogs\.umeng\.com reject-dict
+^https?:\/\/resolve\.umeng\.com reject-dict
+^https?:\/\/cnlogs\.umengcloud\.com reject-dict
 ^https?:\/\/analytics\.meituan\.net reject-dict
 ^https?:\/\/toblog\.volceapplog\.com reject-dict
 ^https?:\/\/log\.mmstat\.com reject-dict

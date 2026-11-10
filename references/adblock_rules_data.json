@@ -793,7 +793,7 @@
     "DOMAIN,abtest.tantanapp.com,REJECT-200",
     "DOMAIN,abtest3-misc-lf.zijieapi.com,REJECT-200",
     "DOMAIN,mssdk.volces.com,REJECT-200",
-    "DOMAIN,live-player-log.zijieapi.com,REJECT-200",
+    "DOMAIN,live-player-log.zijieapi.com,REJECT-DICT",
     "DOMAIN,sis.jpush.io,REJECT-200",
     "DOMAIN,tsis.jpush.cn,REJECT-DICT",
     "DOMAIN,zlink.ugsdk.cn,REJECT-200",
@@ -825,8 +825,8 @@
     "DOMAIN,clientlogdep.music.163.com,REJECT-DROP",
     "DOMAIN,fp-upload.dun.163.com,REJECT-DROP",
     "DOMAIN,adsmind.gdtimg.com,REJECT-NO-DROP",
-    "DOMAIN,log.umsns.com,REJECT-200",
-    "DOMAIN,stats.umsns.com,REJECT-200",
+    "DOMAIN,log.umsns.com,REJECT-DICT",
+    "DOMAIN,stats.umsns.com,REJECT-DICT",
     "DOMAIN,rtbasia.datahubtrack.com,REJECT",
     "DOMAIN-SUFFIX,advlion.com,REJECT-DICT",
     "DOMAIN-SUFFIX,statisticslinks.com,REJECT-200",
@@ -1320,7 +1320,7 @@
       "app": "字节火山引擎"
     },
     {
-      "text": "^https?:\\/\\/live-player-log\\.zijieapi\\.com reject-200",
+      "text": "^https?:\\/\\/live-player-log\\.zijieapi\\.com reject-dict",
       "pattern": "^https?:\\/\\/live-player-log\\.zijieapi\\.com",
       "priority": 0,
       "app": "抖音直播"
@@ -1482,37 +1482,37 @@
       "app": "MOMO陌陌"
     },
     {
-      "text": "^https?:\\/\\/log\\.umsns\\.com reject-200",
+      "text": "^https?:\\/\\/log\\.umsns\\.com reject-dict",
       "pattern": "^https?:\\/\\/log\\.umsns\\.com",
       "priority": 0,
       "app": "友盟"
     },
     {
-      "text": "^https?:\\/\\/stats\\.umsns\\.com reject-200",
+      "text": "^https?:\\/\\/stats\\.umsns\\.com reject-dict",
       "pattern": "^https?:\\/\\/stats\\.umsns\\.com",
       "priority": 0,
       "app": "友盟"
     },
     {
-      "text": "^https?:\\/\\/utoken\\.umeng\\.com reject-200",
+      "text": "^https?:\\/\\/utoken\\.umeng\\.com reject-dict",
       "pattern": "^https?:\\/\\/utoken\\.umeng\\.com",
       "priority": 0,
       "app": "友盟"
     },
     {
-      "text": "^https?:\\/\\/cnlogs\\.umeng\\.com reject-200",
+      "text": "^https?:\\/\\/cnlogs\\.umeng\\.com reject-dict",
       "pattern": "^https?:\\/\\/cnlogs\\.umeng\\.com",
       "priority": 0,
       "app": "友盟"
     },
     {
-      "text": "^https?:\\/\\/resolve\\.umeng\\.com reject-200",
+      "text": "^https?:\\/\\/resolve\\.umeng\\.com reject-dict",
       "pattern": "^https?:\\/\\/resolve\\.umeng\\.com",
       "priority": 0,
       "app": "友盟"
     },
     {
-      "text": "^https?:\\/\\/cnlogs\\.umengcloud\\.com reject-200",
+      "text": "^https?:\\/\\/cnlogs\\.umengcloud\\.com reject-dict",
       "pattern": "^https?:\\/\\/cnlogs\\.umengcloud\\.com",
       "priority": 0,
       "app": "友盟"

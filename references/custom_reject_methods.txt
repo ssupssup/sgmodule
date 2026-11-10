@@ -47,8 +47,8 @@ cnlogs.umeng.com REJECT-DICT
 cnlogs.umengcloud.com REJECT-DICT
 resolve.umeng.com REJECT-DICT
 utoken.umeng.com REJECT-DICT
-log.umsns.com REJECT-200
-stats.umsns.com REJECT-200
+log.umsns.com REJECT-DICT
+stats.umsns.com REJECT-DICT
 
 # 钉钉、腾讯、高德、淘宝高频死循环日志/遥测 (升级为 REJECT-DICT 假空 JSON 压制发热)
 adashx.ut.dingtalk.com REJECT-DICT
@@ -142,7 +142,7 @@ wgo.mmstat.com REJECT-DICT
 orange-dc.alibaba.com REJECT-200
 smartop-sdkapi.jiguang.cn REJECT-DICT
 sdk-open-phone.getui.com REJECT-DICT
-bird.cn-hangzhou.log.aliyuncs.com REJECT-200
+bird.cn-hangzhou.log.aliyuncs.com REJECT-DICT
 traffic-click.cn-zhangjiakou.log.aliyuncs.com REJECT-DICT
 apd-pcdnwxstat.teg.tencent-cloud.net REJECT-200
 
@@ -247,3 +247,6 @@ loggw-ex.alipay.com REJECT-DICT
 
 # 2026-10-30 抓包优化 (支付宝诊断上报升级 REJECT-DICT 空字典，与 loggw-ex 对齐长效休眠)
 mdap.alipay.com REJECT-DICT
+
+# 2026-11-10 抓包优化 (字节直播播放探测升级 REJECT-DICT 空字典，防空响应异常)
+live-player-log.zijieapi.com REJECT-DICT
