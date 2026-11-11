@@ -17,7 +17,6 @@ app-analytics-services.com REJECT
 sdkconfig.ad.xiaomi.com REJECT-200
 sdkconfig.ad.intl.xiaomi.com REJECT-200
 h.trace.qq.com REJECT-200
-orzonera.yingt.fun REJECT-DICT
 
 # 抖音/字节跳动 补漏日志与监控截胡 (拦截 DB 抓包中被 DIRECT 放行的日志上报)
 log0-misc-lf.amemv.com REJECT-200

@@ -867,7 +867,6 @@
     "klink.volceapplog.com",
     "o1.d.meituan.net",
     "mon0-misc-lf.amemv.com",
-    "orzonera.yingt.fun",
     "stat.youpin.mi.com",
     "dreport.meituan.net",
     "logan-rtl.dreport.meituan.net",
@@ -1222,12 +1221,6 @@
       "pattern": "^https?:\\/\\/mon0-misc-lf\\.amemv\\.com",
       "priority": 0,
       "app": "抖音"
-    },
-    {
-      "text": "^https?:\\/\\/orzonera\\.yingt\\.fun reject-dict",
-      "pattern": "^https?:\\/\\/orzonera\\.yingt\\.fun",
-      "priority": 0,
-      "app": "通用广告SDK"
     },
     {
       "text": "^https?:\\/\\/stat\\.youpin\\.mi\\.com reject-img",
