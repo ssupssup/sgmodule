@@ -1,6 +1,6 @@
 #!name=custom apps adblock.sgmodule
-#!desc=最近更新: 2026-11-11 16:27:18 | Deep ad block & UI purification customized for user's installed apps.
-#!total=1286
+#!desc=最近更新: 2026-11-11 19:36:20 | Deep ad block & UI purification customized for user's installed apps.
+#!total=1292
 
 [Rule]
 # === LINE Notice Bar SafeFrame & Pubads PROXY Override (Top Priority) ===
@@ -103,6 +103,7 @@ DOMAIN,clientlogdep.music.163.com,REJECT
 DOMAIN,fp-upload.dun.163.com,REJECT
 DOMAIN,adsmind.gdtimg.com,REJECT
 DOMAIN,rtbasia.datahubtrack.com,REJECT
+DOMAIN-SUFFIX,zhangyuyidong.cn,REJECT
 DOMAIN-SUFFIX,vlion.cn,REJECT
 DOMAIN-SUFFIX,adwangmai.com,REJECT
 DOMAIN-SUFFIX,66mobi.com,REJECT
@@ -113,10 +114,16 @@ DOMAIN-SUFFIX,tobidad.cn,REJECT
 DOMAIN-SUFFIX,chuxinhudong.com,REJECT
 DOMAIN-SUFFIX,appsflyersdk.com,REJECT
 DOMAIN-SUFFIX,appsflyer.com,REJECT
-DOMAIN-SUFFIX,outlookads.live.com,REJECT
-DOMAIN-SUFFIX,ads.linkedin.com,REJECT
-DOMAIN-SUFFIX,a1.firefoxchina.cn,REJECT
-DOMAIN-SUFFIX,analytics.pointdrive.linkedin.com,REJECT
+DOMAIN,ad.snssdk.com,REJECT-NO-DROP
+DOMAIN,rtlog.snssdk.com,REJECT-NO-DROP
+DOMAIN,mcs.snssdk.com,REJECT-NO-DROP
+DOMAIN,dm.snssdk.com,REJECT-NO-DROP
+DOMAIN,dcs.ipinyou.com,REJECT-NO-DROP
+DOMAIN,crashlytics.com,REJECT-NO-DROP
+DOMAIN,app-measurement.com,REJECT-NO-DROP
+DOMAIN,adjust.com,REJECT-NO-DROP
+DOMAIN,appsflyersdk.com,REJECT
+DOMAIN,app-analytics-services.com,REJECT
 # === Compiled App Rules ===
 DOMAIN,adstrategy.biz.weibo.com,REJECT
 DOMAIN-SUFFIX,api.touch-moblie.com,REJECT
@@ -357,13 +364,13 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/fclog\.baidu\.com reject-dict
 ^https?:\/\/logbk\.amemv\.com reject-200
 ^https?:\/\/log-hl\.snssdk\.com reject-200
-^https?:\/\/pangolin-sdk-toutiao1\.com reject-200
-^https?:\/\/gdfp\.gifshow\.com reject-200
-^https?:\/\/sofire\.baidu\.com reject-200
-^https?:\/\/bgg\.baidu\.com reject-200
-^https?:\/\/als\.baidu\.com reject-200
-^https?:\/\/afd\.baidu\.com reject-200
-^https?:\/\/afdconf\.baidu\.com reject-200
+^https?:\/\/pangolin-sdk-toutiao1\.com reject-dict
+^https?:\/\/gdfp\.gifshow\.com reject-dict
+^https?:\/\/sofire\.baidu\.com reject-dict
+^https?:\/\/bgg\.baidu\.com reject-dict
+^https?:\/\/als\.baidu\.com reject-dict
+^https?:\/\/afd\.baidu\.com reject-dict
+^https?:\/\/afdconf\.baidu\.com reject-dict
 ^https?:\/\/mobads-pre-config\.cdn\.bcebos\.com reject-200
 ^https?:\/\/googleads\.g\.doubleclick\.net reject-dict
 ^https?:\/\/app-monitor-cn\.doki\.ren reject-dict
@@ -373,11 +380,11 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/analytics\.umetrip\.com reject-dict
 ^https?:\/\/pgdt\.ugdtimg\.com reject-200
 ^https?:\/\/h-adashx\.ut\.taobao\.com reject-dict
-^https?:\/\/gromore\.pangolin-sdk-toutiao\.com reject-200
-^https?:\/\/open\.e\.kuaishou\.com reject-200
+^https?:\/\/gromore\.pangolin-sdk-toutiao\.com reject-dict
+^https?:\/\/open\.e\.kuaishou\.com reject-dict
 ^https?:\/\/.*\.advlion\.com reject-dict
 ^https?:\/\/.*\.statisticslinks\.com reject-dict
-^https?:\/\/.*\.ubixioe\.com reject-200
+^https?:\/\/.*\.ubixioe\.com reject-dict
 ^https?:\/\/sensors\.umetrip\.com\.cn reject-dict
 ^https?:\/\/ad-screen-api\.immomo\.com reject-dict
 ^https?:\/\/cosmos-compass-api\.immomo\.com reject-dict
@@ -393,7 +400,6 @@ DOMAIN,ads.cup.com.cn,REJECT
 ^https?:\/\/umestartup\.umetrip\.com reject-dict
 ^https?:\/\/api-log\.immomo\.com reject-dict
 ^https?:\/\/paas-push-api-log\.immomo\.com reject-dict
-^https?:\/\/errnewlog\.umeng\.com reject-dict
 ^https?:\/\/api-access\.pangolin-sdk-toutiao.*\.com\/api\/ad reject-dict
 ^https?:\/\/xs\.gdt\.qq\.com reject-200
 ^https?:\/\/ii\.gdt\.qq\.com reject-200
