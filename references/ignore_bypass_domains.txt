@@ -15,7 +15,6 @@ catdot.dianping.com
 data-sdk-uuid-log.d.meituan.net
 dreport.meituan.net
 maplocatesdksnapshot.d.meituan.net
-errnewlog.umeng.com
 stats.jpush.cn
 stats-ipv6.jpush.cn
 ali-stats.jpush.cn
@@ -189,7 +188,6 @@ umestartup.umetrip.com
 report.tantanapp.com
 api-log.immomo.com
 paas-push-api-log.immomo.com
-errnewlog.umeng.com
 api-access.pangolin-sdk-toutiao.com
 
 # 2026-10-20 抓包优化 (火山APM与字节实时打点规则擦除走假响应)

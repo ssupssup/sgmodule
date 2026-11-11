@@ -632,7 +632,6 @@
   },
   "SDK_BLOCK_RULES": [
     "# === 2026-08-11 防发热：日志/崩溃/遥测 SDK 优雅阻断 (REJECT-200 清空队列) ===",
-    "DOMAIN,errnewlog.umeng.com,REJECT-DICT",
     "DOMAIN,cnlogs.umeng.com,REJECT-DICT",
     "DOMAIN,utoken.umeng.com,REJECT-DICT",
     "DOMAIN,cnlogs.umengcloud.com,REJECT-DICT",
@@ -976,7 +975,6 @@
     "umestartup.umetrip.com",
     "api-log.immomo.com",
     "paas-push-api-log.immomo.com",
-    "errnewlog.umeng.com",
     "api-access.pangolin-sdk-toutiao.com",
     "xs.gdt.qq.com",
     "ii.gdt.qq.com",
