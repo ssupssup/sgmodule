@@ -57,8 +57,7 @@ def load_custom_override_rules():
     append_direct_rules = []
     
     if not os.path.exists(CUSTOM_RULES_FILE):
-        print(f"⚠️ 自定义规则文件未找到: {CUSTOM_RULES_FILE}，将按默认规则处理。")
-        return remove_set, disable_set, prepend_proxy_rules, prepend_direct_rules, append_direct_rules
+        raise FileNotFoundError(f"CRITICAL: 核心自定义规则文件丢失: {CUSTOM_RULES_FILE}，已强制熔断！")
 
     print(f"📖 正在读取自定义规则文件: {CUSTOM_RULES_FILE}...")
     with open(CUSTOM_RULES_FILE, 'r', encoding='utf-8') as f:

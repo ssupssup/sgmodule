@@ -31,8 +31,7 @@ def load_custom_reject_methods():
             break
             
     if not dict_path:
-        print("⚠️ 未找到 custom_reject_methods.txt，将全量降级使用默认 REJECT")
-        return mapping
+        raise FileNotFoundError("CRITICAL: 自定义拒绝方式字典丢失: custom_reject_methods.txt，已强制熔断！")
 
     print(f"📖 正在读取自定义拒绝方式字典: {dict_path}")
     with open(dict_path, "r", encoding="utf-8") as f:
@@ -204,7 +203,7 @@ def generate_proxy_module(script_dir):
                             community_direct_rules = [r for r in community_direct_rules if not r.startswith(key + ",")]
                             print(f"   [覆蓋] 别人设为直连，强制改为代理: {rule_type},{value}")
     else:
-        print(f"Error: {proxy_static_path} not found!")
+        raise FileNotFoundError(f"CRITICAL: 必选核心静态代理规则文件丢失: {proxy_static_path}，已强制熔断！")
 
     # 3. 整合汇总
     final_rules = []
@@ -306,7 +305,7 @@ def generate_adblock_module(script_dir):
                         added_count += 1
         print(f" - Parsed and added {added_count} custom static adblock rules.")
     else:
-        print(f"Error: {adblock_static_path} not found!")
+        raise FileNotFoundError(f"CRITICAL: 必选核心静态去广告规则文件丢失: {adblock_static_path}，已强制熔断！")
 
     # 3. 抓取远程广告联盟规则并解析合并
     for alliance, url in AD_SOURCES.items():
