@@ -24,7 +24,8 @@ logbk.amemv.com REJECT-200
 mon11-misc-lf.amemv.com REJECT-200
 tnc0-aliec2.zijieapi.com REJECT-200
 tnc0-alisc1.zijieapi.com REJECT-200
-rtlog3-applog-hl.amemv.com REJECT-200
+rtlog3-applog-hl.amemv.com REJECT-DICT
+rtlog5-applog-hl.amemv.com REJECT-DICT
 px.effirst.com REJECT-DICT
 klink.volceapplog.com REJECT-DICT
 toblog.volceapplog.com REJECT-DICT
@@ -60,9 +61,9 @@ h-adashx.ut.taobao.com REJECT-DICT
 
 # Apple 官方广告与搜索归因 SDK (REJECT 1ms TCP-RST 秒断防卡死 App Store 批量更新)
 
-# 腾讯云 / 微信 PCDN 偷跑上传探针与统计 (REJECT-200 封死上传降低功耗)
-apd-pcdnwxstat.teg.tencent-cloud.net REJECT-200
-apd-pcdnwxlogin.teg.tencent-cloud.net REJECT-200
+# 腾讯云 / 微信 PCDN 偷跑上传探针与统计 (网络层 REJECT 1ms TCP-RST 全端口秒断)
+apd-pcdnwxstat.teg.tencent-cloud.net REJECT
+apd-pcdnwxlogin.teg.tencent-cloud.net REJECT
 shreport.weixin.qq.com REJECT-200
 adsmind.gdtimg.com REJECT-200
 
@@ -137,12 +138,11 @@ pangolin-sdk REJECT-DICT
 gm.mmstat.com REJECT-DICT
 log.mmstat.com REJECT-DICT
 wgo.mmstat.com REJECT-DICT
-orange-dc.alibaba.com REJECT-200
+orange-dc.alibaba.com REJECT-DICT
 smartop-sdkapi.jiguang.cn REJECT-DICT
 sdk-open-phone.getui.com REJECT-DICT
 bird.cn-hangzhou.log.aliyuncs.com REJECT-DICT
 traffic-click.cn-zhangjiakou.log.aliyuncs.com REJECT-DICT
-apd-pcdnwxstat.teg.tencent-cloud.net REJECT-200
 
 # 新增 15 大发热域名降温重写字典 (2026-10-09 优化)
 pangolin-sdk-toutiao1.com REJECT-DICT
@@ -228,7 +228,6 @@ chuxinhudong.com REJECT
 # 2026-10-20 抓包优化 (火山APM/字节实时打点/AppsFlyer泛阻断，升级 REJECT-DICT 防发热)
 apmplus.volces.com REJECT-DICT
 stat.youpin.mi.com REJECT-IMG
-rtlog3-applog-hl.amemv.com REJECT-200
 appsflyersdk.com REJECT
 appsflyer.com REJECT
 

@@ -52,7 +52,6 @@ shreport.weixin.qq.com
 ads5-normal-hl.zijieapi.com
 ad.zhuanzhuan.com
 smartop-sdkapi.jiguang.cn
-apd-pcdnwxlogin.teg.tencent-cloud.net
 cm.immomo.com
 fep.hellogroup.com
 app-monitor-cn.hellogroup.com
@@ -91,7 +90,6 @@ orange-dc.alibaba.com
 smartop-sdkapi.jiguang.cn
 bird.cn-hangzhou.log.aliyuncs.com
 traffic-click.cn-zhangjiakou.log.aliyuncs.com
-apd-pcdnwxstat.teg.tencent-cloud.net
 poplayer.template.alibaba.com
 httpdnsmultiapivip.meituan.com
 httpdns.baidubce.com
@@ -193,6 +191,7 @@ api-access.pangolin-sdk-toutiao.com
 # 2026-10-20 抓包优化 (火山APM与字节实时打点规则擦除走假响应)
 apmplus.volces.com
 rtlog3-applog-hl.amemv.com
+rtlog5-applog-hl.amemv.com
 
 
 tobapplog.volceapplog.com

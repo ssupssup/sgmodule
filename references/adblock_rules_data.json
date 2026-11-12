@@ -768,8 +768,8 @@
     "DOMAIN,dreport.meituan.net,REJECT-200",
     "DOMAIN,catdot.dianping.com,REJECT-200",
     "DOMAIN,mon11-misc-lf.amemv.com,REJECT-200",
-    "DOMAIN,apd-pcdnwxstat.teg.tencent-cloud.net,REJECT-200",
-    "DOMAIN,apd-pcdnwxlogin.teg.tencent-cloud.net,REJECT-200",
+    "DOMAIN,apd-pcdnwxstat.teg.tencent-cloud.net,REJECT",
+    "DOMAIN,apd-pcdnwxlogin.teg.tencent-cloud.net,REJECT",
     "DOMAIN,adip-api.immomo.com,REJECT-200",
     "DOMAIN,app-log.immomo.com,REJECT-200",
     "DOMAIN,app-monitor-cn.hellogroup.com,REJECT-200",
@@ -853,7 +853,6 @@
     "ads5-normal-hl.zijieapi.com",
     "ad.zhuanzhuan.com",
     "smartop-sdkapi.jiguang.cn",
-    "apd-pcdnwxlogin.teg.tencent-cloud.net",
     "cm.immomo.com",
     "fep.hellogroup.com",
     "app-monitor-cn.hellogroup.com",
@@ -896,7 +895,6 @@
     "orange-dc.alibaba.com",
     "bird.cn-hangzhou.log.aliyuncs.com",
     "traffic-click.cn-zhangjiakou.log.aliyuncs.com",
-    "apd-pcdnwxstat.teg.tencent-cloud.net",
     "poplayer.template.alibaba.com",
     "httpdnsmultiapivip.meituan.com",
     "httpdns.yunxinfw.com",
@@ -984,7 +982,8 @@
     "toblog.ctobsnssdk.com",
     "tobapplog.volceapplog.com",
     "apmplus.volces.com",
-    "rtlog3-applog-hl.amemv.com"
+    "rtlog3-applog-hl.amemv.com",
+    "rtlog5-applog-hl.amemv.com"
   ],
   "CUSTOM_REWRITE_RULES": [
     {
@@ -1140,12 +1139,6 @@
     {
       "text": "^https?:\\/\\/shreport\\.weixin\\.qq\\.com reject-200",
       "pattern": "^https?:\\/\\/shreport\\.weixin\\.qq\\.com",
-      "priority": 0,
-      "app": "微信"
-    },
-    {
-      "text": "^https?:\\/\\/apd-pcdnwxlogin\\.teg\\.tencent-cloud\\.net reject-200",
-      "pattern": "^https?:\\/\\/apd-pcdnwxlogin\\.teg\\.tencent-cloud\\.net",
       "priority": 0,
       "app": "微信"
     },
@@ -1372,7 +1365,7 @@
       "app": "阿里打点"
     },
     {
-      "text": "^https?:\\/\\/orange-dc\\.alibaba\\.com reject-200",
+      "text": "^https?:\\/\\/orange-dc\\.alibaba\\.com reject-dict",
       "pattern": "^https?:\\/\\/orange-dc\\.alibaba\\.com",
       "priority": 0,
       "app": "阿里打点"
@@ -1388,12 +1381,6 @@
       "pattern": "^https?:\\/\\/traffic-click\\.cn-zhangjiakou\\.log\\.aliyuncs\\.com",
       "priority": 0,
       "app": "阿里云日志"
-    },
-    {
-      "text": "^https?:\\/\\/apd-pcdnwxstat\\.teg\\.tencent-cloud\\.net reject-200",
-      "pattern": "^https?:\\/\\/apd-pcdnwxstat\\.teg\\.tencent-cloud\\.net",
-      "priority": 0,
-      "app": "腾讯云打点"
     },
     {
       "text": "^https?:\\/\\/tangram\\.e\\.qq\\.com reject-200",
@@ -1822,8 +1809,8 @@
       "app": "字节火山引擎"
     },
     {
-      "text": "^https?:\\/\\/rtlog3-applog-hl\\.amemv\\.com reject-200",
-      "pattern": "^https?:\\/\\/rtlog3-applog-hl\\.amemv\\.com",
+      "text": "^https?:\\/\\/rtlog\\d*-applog-hl\\.amemv\\.com reject-dict",
+      "pattern": "^https?:\\/\\/rtlog\\d*-applog-hl\\.amemv\\.com",
       "priority": 0,
       "app": "字节跳动"
     }
