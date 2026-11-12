@@ -14,17 +14,19 @@ def run_command(cmd, cwd=None):
     return True, res.stdout
 
 def main():
+    compile_only = "--compile-only" in sys.argv
     sgmodule_dir = "/Users/shizupeng/Documents/antigravity/sgmodule"
     
-    print("🔄 [0/3] 编译前前置对齐 GitHub 远程仓库最新基线...")
-    # 在编译前先拉取最新基线，防止编译后再 rebase 触发二进制与大文本文件冲突
-    run_command(["git", "stash"], cwd=sgmodule_dir)
-    success, pull_out = run_command(["git", "pull", "--rebase"], cwd=sgmodule_dir)
-    run_command(["git", "stash", "pop"], cwd=sgmodule_dir)
-    if not success:
-        print(f"⚠️ 编译前 git pull 提示: {pull_out.strip()}")
-    else:
-        print("✅ 远程仓库最新基线已 100% 前置同步对齐！\n")
+    if not compile_only:
+        print("🔄 [0/3] 编译前前置对齐 GitHub 远程仓库最新基线...")
+        # 在编译前先拉取最新基线，防止编译后再 rebase 触发二进制与大文本文件冲突
+        run_command(["git", "stash"], cwd=sgmodule_dir)
+        success, pull_out = run_command(["git", "pull", "--rebase"], cwd=sgmodule_dir)
+        run_command(["git", "stash", "pop"], cwd=sgmodule_dir)
+        if not success:
+            print(f"⚠️ 编译前 git pull 提示: {pull_out.strip()}")
+        else:
+            print("✅ 远程仓库最新基线已 100% 前置同步对齐！\n")
     
     print("🚀 [1/3] 开始本地编译小火箭模块...")
     
@@ -52,6 +54,9 @@ def main():
     print("🔒 [2/3] 进行安全检查...")
     # 安全锁：校验是否存在敏感文件泄露风险
     print("✅ 安全检查通过：说明文档已通过 .gitignore 锁定在本地。")
+    if compile_only:
+        print("\n✅ [--compile-only] 仅本地编译与自检已完成（未执行 git commit / git push）。")
+        sys.exit(0)
     
     print("\n📡 [3/3] 提交并一键推送模块至 GitHub 远程仓库...")
     files_to_add = [
@@ -64,6 +69,8 @@ def main():
         "ai.sgmodule",
         "talkatone_proxy.sgmodule",
         "talkatone_adblock.sgmodule",
+        "custom_static_talkatone_proxy251213.sgmodule",
+        "custom_static_talkatone_adblock260119.sgmodule",
         "references/ai_sgmodule_config.json",
         "references/talkatone_sgmodule_config.json",
         "references/adblock_rules_data.json",
@@ -72,7 +79,6 @@ def main():
         "references/custom_conf_rules.txt",
         "references/ai_custom_rules.txt",
         "references/ignore_bypass_domains.txt",
-        "scratch/compile_publish_sgmodule.py",
         ".github/workflows/auto_update.yml"
     ]
     

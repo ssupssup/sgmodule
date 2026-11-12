@@ -201,7 +201,6 @@ mi.gdt.qq.com REJECT-200
 v2mi.gdt.qq.com REJECT-200
 adsmind.ugdtimg.com REJECT-200
 umestartup.umetrip.com REJECT-DICT
-api-log.immomo.com REJECT-DICT
 paas-push-api-log.immomo.com REJECT-DICT
 sf6-fe-tos.pglstatp-toutiao.com REJECT-200
 sf3-fe-tos.pglstatp-toutiao.com REJECT-200
